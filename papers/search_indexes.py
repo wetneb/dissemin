@@ -43,7 +43,7 @@ class PaperIndex(indexes.SearchIndex, indexes.Indexable):
         return [r.id for r in obj.researchers.all()]
 
     def prepare_departments(self, obj):
-        return list(set([r.department.id for r in obj.researchers.all()]))
+        return list(set([r.department_id for r in obj.researchers.all()]))
 
     def prepare_publisher(self, obj):
         oairecord = obj.oairecords.filter(journal__isnull=False).first()
