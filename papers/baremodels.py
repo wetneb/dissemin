@@ -78,22 +78,26 @@ class BareObject(object):
         """
         Keyword arguments can be used to set fields of this bare object.
         """
+        def create_attribute(key, value=None):
+            if not hasattr(self, key):
+                setattr(self, key, value)
+
         super(BareObject, self).__init__()
         for f in self._bare_fields + self._bare_foreign_key_fields:
-            if not hasattr(self, f):
-                self.__dict__[f] = None
+            create_attribute(f)
+
         for f in self._bare_foreign_key_fields:
-            if f+'_id' not in self.__dict__:
-                self.__dict__[f+'_id'] = None
+            create_attribute(f + '_id')
+
         for k, v in kwargs.items():
             if k in self._bare_fields:
-                self.__dict__[k] = v
+                create_attribute(k, v)
             elif k in self._bare_foreign_key_fields:
-                self.__dict__[k] = v
+                create_attribute(k, v)
                 if hasattr(v, 'id'):
-                    self.__dict__[k+'_id'] = v.id
+                    create_attribute(k + '_id', v.id)
                 else:
-                    self.__dict__[k+'_id'] = None
+                    create_attribute(k + '_id')
 
     @classmethod
     def from_bare(cls, bare_obj):
