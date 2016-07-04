@@ -108,7 +108,7 @@ class BareObject(object):
         is expected to be a subclass of the bare object's class.
         """
         kwargs = {}
-        for k, v in bare_obj.__dict__.items():
+        for k, v in dir(bare_obj).items():
             if k in cls._bare_fields:
                 kwargs[k] = v
             elif k in cls._bare_foreign_key_fields:
@@ -129,7 +129,7 @@ class BareObject(object):
         The list of mandatory fields for the class should be stored in `_mandatory_fields`.
         """
         for field in self._mandatory_fields:
-            if not self.__dict__.get(field):
+            if not dir(self).get(field):
                 raise ValueError('No %s provided to create a %s.' %
                         (field,self.__class__.__name__))
 
