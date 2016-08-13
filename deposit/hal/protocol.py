@@ -77,8 +77,12 @@ class HALProtocol(RepositoryProtocol):
         # Abstract
         if self.paper.abstract:
             data['abstract'] = kill_html(self.paper.abstract)
-        else:
-            self.paper.consolidate_metadata(wait=False)
+        # commenting this else branch because
+        # it introduces a runtime dependency to the redis database
+        # however, it is good to be able to run the HAL tests
+        # with a simple django config
+        #else:
+            # self.paper.consolidate_metadata(wait=False)
 
         # Topic
         topic_text = ''
