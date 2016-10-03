@@ -148,7 +148,10 @@ class AOFRFormatter(MetadataFormatter):
         language.attrib['ident'] = 'en'  # TODO adapt this?
         textClass = addChild(profileDesc, 'textClass')
 
-        domains = [form.cleaned_data['topic'].lower()]
+        domains = []
+        if 'cleaned_data' in dir(form):
+            domains = [form.cleaned_data['topic'].lower()]
+        
         for domain in domains:
             classCode = addChild(textClass, 'classCode')
             classCode.attrib['scheme'] = 'halDomain'

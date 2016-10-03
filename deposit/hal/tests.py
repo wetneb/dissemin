@@ -25,6 +25,9 @@ from deposit.hal.protocol import HALProtocol
 from deposit.tests import ProtocolTest
 from django.test import TestCase
 from papers.models import Paper
+from deposit.models import Repository
+from papers.models import OaiSource
+from lxml import etree
 
 
 #from os import path
@@ -44,13 +47,14 @@ class AOFRTest(TestCase):
         #   cls.xsd = etree.XMLSchema(elem)
 
     def test_generate_metadata_doi(self):
-        # f =
-        AOFRFormatter()
+        f = AOFRFormatter()
         dois = ['10.1175/jas-d-15-0240.1']
         for doi in dois:
-            Paper.create_by_doi(doi)
+            p = Paper.create_by_doi(doi)
+            aofr_text = f.toString(p, 'article.pdf')
+            aofr_xml = etree.XML(aofr_text)
             #form = TODO
-            #rendered = f.render(p, 'article.pdf', form)
+            # rendered = f.render(p, 'article.pdf', form)
             # with open('/tmp/xml_validation.xml', 'w') as f:
             #    f.write(etree.tostring(rendered, pretty_print=True))
             # XSD validation currently fails
@@ -72,6 +76,8 @@ class HALProtocolTest(ProtocolTest):
         Submit a paper from LNCS
         """
         p = Paper.create_by_doi('10.1007/978-3-662-47666-6_5')
+        
+        # the dry deposit pushes on api-preprod.archives-ouvertes.fr
         r = self.dry_deposit(p,
                              abstract='this is an abstract',
                              topic='INFO')
