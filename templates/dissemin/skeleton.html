@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load socialaccount %}
 {% load users %}
+{% load get_version %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,7 @@
     <script type="text/javascript" src="{% static "editing.js" %}"></script>
     <script type="text/javascript" src="{% static "name.js" %}"></script>
     <script type="text/javascript">
-        
+
         {% block jsScript %}{% endblock %}
     </script>
     {% block extra_head %}{% endblock %}
@@ -148,6 +149,9 @@ $.ajax({ url: 'https://{{ ORCID_BASE_DOMAIN }}/userStatus.json?logUserOut=true',
                </form>
            </div>
       </div>
+    </div>
+    <div id="version">
+        <p>{% trans "This instance is powered by <a href=\"https://github.com/dissemin/dissemin\">Dissemin</a>" %} v{% get_version %}.</p>
     </div>
 
     <img style="position:absolute; top:0; left:0; border:0; opacity: 0.8; pointer-events: none;" src="{% static "img/beta-ribbon.png" %}" alt="Beta version" />
