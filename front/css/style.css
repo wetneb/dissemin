@@ -38,9 +38,9 @@ body
     color: #d77311;
 }
 
-.orange-button:hover, 
-.orange-button:focus, 
-.orange-button:active, 
+.orange-button:hover,
+.orange-button:focus,
+.orange-button:active,
 .orange-button.active
 {
     background-color:  #d77311;
@@ -80,7 +80,7 @@ body
 
 #band-2
 {
-    /* background: url('../img/graph.png') no-repeat center; */ 
+    /* background: url('../img/graph.png') no-repeat center; */
     color: #bbbbbb;
     background-color: rgba(63, 63, 63, 1);
     padding-top: 10px;
@@ -243,4 +243,9 @@ h1
 #footer a
 {
     color: black;
+}
+
+#change-lang-form-div
+{
+    text-align: center;
 }

@@ -46,7 +46,7 @@
     <script type="text/javascript" src="{% static "editing.js" %}"></script>
     <script type="text/javascript" src="{% static "name.js" %}"></script>
     <script type="text/javascript">
-        
+
         {% block jsScript %}{% endblock %}
     </script>
     {% block extra_head %}{% endblock %}
@@ -131,7 +131,8 @@ $.ajax({ url: 'https://{{ ORCID_BASE_DOMAIN }}/userStatus.json?logUserOut=true',
                    <li><a href="https://github.com/wetneb/dissemin">GitHub</a></li>
                </ul>
            </div>
-           <div class="col-xs-4 col-md-3">
+           <div class="clearfix visible-xs"></div>
+           <div class="col-xs-4 col-xs-offset-4 col-md-3 col-md-offset-0" id="change-lang-form-div">
                <h5>{% trans "Change language" %} <i class=" glyphicon glyphicon-globe"></i></h5>
                {% get_current_language as LANGUAGE_CODE %}
                <form action="{% url 'set_language' %}" method="post" id="change-lang-form" class="form-inline">
