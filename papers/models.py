@@ -703,6 +703,9 @@ class Paper(models.Model, BarePaper):
     doctype = models.CharField(
         max_length=64, null=True, blank=True, choices=PAPER_TYPE_CHOICES)
 
+    #: License applicable to this paper 
+    licence = "Under author's law or copyright law"
+
     # The two following fields need to be updated after the relevant changes
     # using the methods below.
     oa_status = models.CharField(
