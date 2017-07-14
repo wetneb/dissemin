@@ -804,6 +804,10 @@ class BareName(BareObject):
             'full': self.full,
             }
 
+    @property
+    def pair(self):
+        return (self.first, self.last)
+
     @classmethod
     def deserialize(cls, rep):
         """

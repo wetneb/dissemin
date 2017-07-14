@@ -170,6 +170,7 @@ function init_paper_module (config) {
     updateStats(data.stats)
     config.nbPapersFoundNode.text(data.nb_results)
     flashMessages(parseMessages(data.messages))
+    config.hook()
   }
 
   var refreshTask

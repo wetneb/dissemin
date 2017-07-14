@@ -89,7 +89,7 @@ class HALProtocol(RepositoryProtocol):
             return
         try:
             r = requests.post(
-                'http://haltopics.dissem.in:6377/predict', data={'text': topic_text})
+                'http://haltopics.dissem.in:6377/predict', data={'text': topic_text}, timeout=10)
             return r.json()['decision']['code']
         except (requests.exceptions.RequestException, ValueError, KeyError):
             return None

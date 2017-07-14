@@ -170,7 +170,7 @@ class OrcidProfile(object):
         return names
 
     @staticmethod
-    def search_by_name(first, last):
+    def search_by_name(first, last, instance=settings.ORCID_BASE_DOMAIN):
         """
         Searches for an ORCID profile matching this (first,last) name.
         Returns a list of such ORCID profiles.
@@ -179,8 +179,7 @@ class OrcidProfile(object):
         if not last:
             return
         # Perform query
-        base_base = "https://" + settings.ORCID_BASE_DOMAIN + "/"
-        base_base_pub = "https://pub." + settings.ORCID_BASE_DOMAIN + "/"
+        base_base_pub = "https://pub." + instance + "/"
         baseurl = base_base_pub + 'v1.2/search/orcid-bio/'
         dct = {
             'rows': 10,
@@ -190,7 +189,9 @@ class OrcidProfile(object):
         url = baseurl+'?'+urlencode(dct)
         try:
             r = requests.get(url)
-            ns = {'ns': base_base + 'ns/orcid'}
+            # the namespace is the same for both the production and the
+            # sandbox versions.
+            ns = {'ns': 'http://www.orcid.org/ns/orcid'}
             xml = etree.fromstring(r.text.encode('utf-8'))
             for elem in xml.xpath('//ns:orcid-search-result', namespaces=ns):
                 candidateFirst = None

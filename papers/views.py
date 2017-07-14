@@ -229,6 +229,11 @@ class ResearcherView(PaperSearchView):
     def get_context_data(self, **kwargs):
         context = super(ResearcherView, self).get_context_data(**kwargs)
         researcher = self.researcher
+        # researcher corresponding to the currently logged in user
+        try:
+            context['user_researcher'] = Researcher.objects.get(user=self.request.user)
+        except (Researcher.DoesNotExist, TypeError):
+            pass # no logged in user
         context['researcher'] = researcher
         context['researcher_id'] = researcher.id
         context['search_description'] += _(' authored by ')+unicode(researcher)

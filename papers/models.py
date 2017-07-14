@@ -914,13 +914,89 @@ class Paper(models.Model, BarePaper):
     @cached_property
     def owners(self):
         """
-        Returns the list of users that own this papers (listed as authors and identified as such).
+        Returns the list of users that own this paper (listed as authors and identified as such).
         """
         users = []
         for a in self.authors:
             if a.researcher and a.researcher.user:
                 users.append(a.researcher.user)
         return users
+
+    def can_be_claimed_by(self, user):
+        """
+        Is it possible for user to claim this paper?
+        """
+        for author in self.authors:
+            first_name = None
+            last_name = None
+            try:
+                first_name = user.first_name
+                last_name = user.last_name
+            except AttributeError:
+                # anonymous user
+                return False
+            if not match_names(author.name.pair,
+                               (first_name, last_name)):
+                continue
+            if author.orcid:
+                continue
+            if author.researcher_id:
+                continue
+            return True
+        return False
+
+    def unclaim_for(self, user):
+        """
+        Remove all associations between this paper and user
+        """
+        try:
+            user_researcher = Researcher.objects.get(user=user)
+        except Researcher.DoesNotExist:
+            user_researcher = None
+        user_orcid = None
+        if user_researcher:
+            user_orcid = user_researcher.orcid
+        for idx, author in enumerate(self.authors):
+            if (author.orcid == user_orcid or author.researcher_id ==
+                    user_researcher.id):
+                # remove association between this author and user
+                self.authors_list[idx]['orcid'] = None
+                self.authors_list[idx]['researcher_id'] = None
+                self.save()
+                self.update_index()
+                return True
+        # nothing was done, paper cannot be unclaimed
+        raise False
+
+    def claim_for(self, user):
+        """
+        Associate this paper to the requested user
+        """
+        if user in self.owners:
+            # user already owns the paper
+            return False
+        try:
+            user_researcher = Researcher.objects.get(user=user)
+        except Researcher.DoesNotExist:
+            user_researcher = None
+        user_orcid = None
+        if user_researcher:
+            user_orcid = user_researcher.orcid
+        for idx, author in enumerate(self.authors):
+            if not match_names(author.name.pair,
+                               (user.first_name, user.last_name)):
+                continue
+            if author.orcid:
+                continue
+            if author.researcher_id:
+                continue
+            self.authors_list[idx]['orcid'] = user_orcid
+            self.authors_list[idx]['researcher_id'] = user_researcher.id
+            self.save()
+            self.update_index()
+            return True
+        # paper cannot be claimed by user
+        raise ValueError
 
     def is_owned_by(self, user, flexible=False):
         """

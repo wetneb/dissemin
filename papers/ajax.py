@@ -128,6 +128,44 @@ def harvestingStatus(request, pk):
 
 @user_passes_test(is_authenticated)
 @json_view
+@require_POST
+def claimPaper(request):
+    """claim paper pk for current user"""
+    success = False
+    try:
+        paper = Paper.objects.get(pk=int(request.POST["pk"]))
+    except (KeyError, ValueError, Paper.DoesNotExist):
+        return {'success': success, 'message': 'Invalid paper id'}, 404
+    try:
+        # returns true or false depending on whether something was actually
+        # changed
+        paper.claim_for(request.user)
+    except ValueError:
+        # paper cannot be claimed
+        return {'success': success,
+                'message': 'Paper cannot be claimed by user'}, 403
+    success = True
+    return {'success': success}
+
+
+@user_passes_test(is_authenticated)
+@json_view
+@require_POST
+def unclaimPaper(request):
+    """unclaim paper pk for current user"""
+    success = False
+    try:
+        paper = Paper.objects.get(pk=int(request.POST["pk"]))
+    except (KeyError, ValueError, Paper.DoesNotExist):
+        return {'success': success, 'message': 'Invalid paper id'}, 404
+    # returns true or false depending on whether something was actually changed
+    paper.unclaim_for(request.user)
+    success = True
+    return {'success': success}
+
+
+@user_passes_test(is_authenticated)
+@json_view
 def waitForConsolidatedField(request):
     success = False
     try:
@@ -227,4 +265,8 @@ urlpatterns = [
         name='ajax-setResearcherDepartment'),
     url(r'^institutions.geojson', InstitutionsMapView.as_view(),
         name='ajax-institutions-geojson'),
+    url(r'^claim-paper$',
+        claimPaper, name='ajax-claimPaper'),
+    url(r'^unclaim-paper$',
+        unclaimPaper, name='ajax-unclaimPaper'),
 ]

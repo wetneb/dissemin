@@ -15,7 +15,7 @@
     {% endif %}
     <ul class="withoutTriangles">
  {% endifchanged %}
-    <li class="pubItem">
+    <li class="pubItem" id="paper-{{ paper.id }}">
 	{% if paper.pk %}
         {% include "papers/publiListItem.html" with paper=paper with_buttons=request.user.is_authenticated %}
     </li>

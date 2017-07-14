@@ -1,9 +1,9 @@
 {% load author %}
 {% load i18n %}
 {% load cache %}
+{% load canclaim %}
 {% load domain %}
 {% get_current_language as LANGUAGE_CODE %}
-{% cache 60000 publiListItem paper.pk LANGUAGE_CODE researcher_id %}
 <div class="pubLogo logoHelpPopover" data-content="{{ paper.status_helptext }}" rel="popover"
     data-placement="bottom">
     <img src="/static/img/logos/{{ paper.combined_status }}.png" width="52" height="70" />
@@ -18,6 +18,7 @@
             {% endblocktrans %}
         {% endif %}
     </p>
+    {% cache 60000 publiListItem paper.pk LANGUAGE_CODE researcher_id %}
     <p class="paperTitle">
     <a href="{{ paper.url }}" class="paperItemTitle" data-pk="{{ paper.id }}" data-params="{csrfmiddlewaretoken:'{{csrf_token}}'}">{% autoescape off %}{{ paper.title }}{% endautoescape %}</a>
     </p>
@@ -29,6 +30,7 @@
 	    </p>
 	{% endif %}
     {% endwith %}
+    {% endcache %}
 
     <p class="paperDownload">
         {% if paper.pdf_url %}
@@ -37,6 +39,18 @@
         {% else %}
         <a href="{% url 'upload_paper' paper.pk %}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-open"></span> {% trans "Upload" %}</a>
         {% endif %}
+        {% if request.user in paper.owners %}
+        <a class="btn btn-default btn-xs unclaim-button"
+           data-pk="{{ paper.id }}" data-action="unclaim">
+          {% trans "Exclude from my profile" %}
+        </a>
+        {% else %}
+        {% canclaim request.user paper as can_claim %}
+        {% if can_claim %}
+        <a class="btn btn-default btn-xs claim-button"
+          data-pk="{{ paper.id }}" data-action="claim">
+          {% trans "Include in my profile" %}</a>
+        {% endif %}
+        {% endif %}
     </p>
 </div>
-{% endcache %}

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dissem.in\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-06 21:45+0200\n"
-"PO-Revision-Date: 2017-07-06 21:45+0200\n"
+"POT-Creation-Date: 2017-07-08 06:38+0200\n"
+"PO-Revision-Date: 2017-07-09 00:35+0200\n"
 "Last-Translator: Antoine Amarilli <a3nm@a3nm.net>\n"
 "Language-Team: Antoine Amarilli <a3nm@a3nm.net>\n"
 "Language: fr\n"
@@ -281,7 +281,7 @@ msgstr "Thèse"
 msgid "Dataset"
 msgstr "Banque de données"
 
-#: papers/baremodels.py:65 papers/models.py:100
+#: papers/baremodels.py:65 papers/models.py:101
 msgid "Preprint"
 msgstr "Préprint"
 
@@ -294,11 +294,11 @@ msgid "Invalid ORCID identifier."
 msgstr "Identifiant ORCID invalide."
 
 #: papers/forms.py:54 papers/templates/papers/department.html:86
-#: papers/templates/papers/search.html:99
+#: papers/templates/papers/search.html:160
 msgid "Department"
 msgstr "Département"
 
-#: papers/forms.py:56 papers/templates/papers/search.html:53
+#: papers/forms.py:56 papers/templates/papers/search.html:114
 msgid "Researcher"
 msgstr "Personne"
 
@@ -334,48 +334,48 @@ msgstr "Invisible"
 msgid "Try any author name"
 msgstr "Essayez n'importe quel nom"
 
-#: papers/models.py:101
+#: papers/models.py:102
 msgid "Postprint"
 msgstr "Postprint"
 
-#: papers/models.py:102
+#: papers/models.py:103
 msgid "Published version"
 msgstr "Version publiée"
 
-#: papers/models.py:106
+#: papers/models.py:107
 msgid "Preparing profile"
 msgstr "Préparation du profil"
 
-#: papers/models.py:107
+#: papers/models.py:108
 msgid "Fetching publications from ORCID"
 msgstr "Récupération des publications à partir d'ORCID"
 
-#: papers/models.py:108
+#: papers/models.py:109
 msgid "Fetching publications from CrossRef"
 msgstr "Récupération des publications à partir de CrossRef"
 
-#: papers/models.py:109
+#: papers/models.py:110
 msgid "Fetching publications from BASE"
 msgstr "Récupération des publications à partir de BASE"
 
-#: papers/models.py:110
+#: papers/models.py:111
 msgid "Fetching publications from CORE"
 msgstr "Récupération des publications à partir de CORE"
 
-#: papers/models.py:111
+#: papers/models.py:112
 msgid "Fetching publications from OAI-PMH"
 msgstr "Récupération des publications à partir d'OAI-PMH"
 
-#: papers/models.py:112
+#: papers/models.py:113
 msgid "Clustering publications"
 msgstr "Regroupement des publications"
 
-#: papers/models.py:113
+#: papers/models.py:114
 msgid "Updating statistics"
 msgstr "Mise à jour des statistiques"
 
-#: papers/models.py:1178 papers/views.py:124 papers/views.py:129
-#: papers/views.py:264 papers/views.py:298
+#: papers/models.py:1255 papers/views.py:124 papers/views.py:129
+#: papers/views.py:269 papers/views.py:303
 msgid "Papers"
 msgstr "Papiers"
 
@@ -470,10 +470,10 @@ msgstr ""
 "les déposer en un clic vers une archive ouverte"
 
 #: papers/templates/papers/index.html:46
-#: papers/templates/papers/search.html:143
-#: papers/templates/papers/search.html:156
-#: papers/templates/papers/search.html:166
-#: papers/templates/papers/search.html:256
+#: papers/templates/papers/search.html:204
+#: papers/templates/papers/search.html:217
+#: papers/templates/papers/search.html:227
+#: papers/templates/papers/search.html:317
 #: publishers/templates/publishers/list.html:34
 #: publishers/templates/publishers/list.html:50
 #: publishers/templates/publishers/list.html:89
@@ -601,7 +601,7 @@ msgid "Full text:"
 msgstr "Texte intégral:"
 
 #: papers/templates/papers/paper.html:116
-#: papers/templates/papers/publiListItem.html:35
+#: papers/templates/papers/publiListItem.html:37
 msgid "Download"
 msgstr "Télécharger"
 
@@ -662,116 +662,142 @@ msgstr ""
 "S'il manque des travaux, vous pouvez <a href=\"%(matching_papers_url)s"
 "\">chercher des travaux où le nom d'un auteur correspond</a>"
 
-#: papers/templates/papers/publiListItem.html:16
+#: papers/templates/papers/publiListItem.html:17
 #, python-format
 msgid "and %(remaining_authors)s other authors"
 msgstr "et %(remaining_authors)s autres auteurs"
 
-#: papers/templates/papers/publiListItem.html:38
+#: papers/templates/papers/publiListItem.html:40
 #: publishers/templates/publishers/itemPolicy.html:21
 msgid "Upload"
 msgstr "Mettre en ligne"
 
-#: papers/templates/papers/search.html:29
+#: papers/templates/papers/publiListItem.html:45
+#: papers/templates/papers/search.html:52
+msgid "Exclude from my profile"
+msgstr "Retirer de mon profil"
+
+#: papers/templates/papers/publiListItem.html:52
+#: papers/templates/papers/search.html:55
+msgid "Include in my profile"
+msgstr "Inclure dans mon profil"
+
+#: papers/templates/papers/search.html:37
+msgid "Claiming..."
+msgstr "Inclusion en cours..."
+
+#: papers/templates/papers/search.html:40
+msgid "Unclaiming..."
+msgstr "Retrait en cours..."
+
+#: papers/templates/papers/search.html:71
+msgid "Claiming failed!"
+msgstr "Échec de l'inclusion !"
+
+#: papers/templates/papers/search.html:73
+msgid "Unclaiming failed!"
+msgstr "Échec du retrait !"
+
+#: papers/templates/papers/search.html:89
 msgid "Refreshing results"
 msgstr "Mise à jour des résultats"
 
-#: papers/templates/papers/search.html:38
+#: papers/templates/papers/search.html:99
 msgid "Refreshing profile"
 msgstr "Mise à jour du profil"
 
-#: papers/templates/papers/search.html:58
+#: papers/templates/papers/search.html:119
 msgid "Is it you?"
 msgstr "Est-ce vous ?"
 
-#: papers/templates/papers/search.html:79
+#: papers/templates/papers/search.html:140
 msgid "Refresh publications"
 msgstr "Rafraîchir les publications"
 
-#: papers/templates/papers/search.html:82
+#: papers/templates/papers/search.html:143
 msgid "Address:"
 msgstr "Adresse:"
 
-#: papers/templates/papers/search.html:85
+#: papers/templates/papers/search.html:146
 msgid "Names:"
 msgstr "Noms:"
 
-#: papers/templates/papers/search.html:104
+#: papers/templates/papers/search.html:165
 msgid "Journal"
 msgstr "Revue"
 
-#: papers/templates/papers/search.html:107
+#: papers/templates/papers/search.html:168
 msgid "Published by"
 msgstr "Publiée par"
 
-#: papers/templates/papers/search.html:109
+#: papers/templates/papers/search.html:170
 msgid "ISSN:"
 msgstr "ISSN:"
 
-#: papers/templates/papers/search.html:117
+#: papers/templates/papers/search.html:178
 #, python-format
 msgid "%(nb_publi)s paper published in %(journal)s"
 msgid_plural "%(nb_publi)s papers published in %(journal)s"
 msgstr[0] "%(nb_publi)s papier publié dans %(journal)s"
 msgstr[1] "%(nb_publi)s papiers publiés dans %(journal)s"
 
-#: papers/templates/papers/search.html:125
+#: papers/templates/papers/search.html:186
 #: publishers/templates/publishers/policy.html:41
 msgid "Publisher"
 msgstr "Maison d'édition"
 
-#: papers/templates/papers/search.html:134
+#: papers/templates/papers/search.html:195
 #, python-format
 msgid "%(nb_publi)s paper published by %(publisher)s"
 msgid_plural "%(nb_publi)s papers published by %(publisher)s"
 msgstr[0] "%(nb_publi)s papier publié par %(publisher)s"
 msgstr[1] "%(nb_publi)s papiers publiés par %(publisher)s"
 
-#: papers/templates/papers/search.html:161
+#: papers/templates/papers/search.html:222
 msgid "Search by title"
 msgstr "Rechercher par titre"
 
-#: papers/templates/papers/search.html:171
+#: papers/templates/papers/search.html:232
 msgid "By authors"
 msgstr "Par auteurs"
 
-#: papers/templates/papers/search.html:176
+#: papers/templates/papers/search.html:237
 msgid "By publication date"
 msgstr "Par date de publication"
 
-#: papers/templates/papers/search.html:179
+#: papers/templates/papers/search.html:240
 msgid "after"
 msgstr "après"
 
-#: papers/templates/papers/search.html:186
+#: papers/templates/papers/search.html:247
 msgid "before"
 msgstr "avant"
 
-#: papers/templates/papers/search.html:193
+#: papers/templates/papers/search.html:254
 msgid "By document type"
 msgstr "Par type de document"
 
-#: papers/templates/papers/search.html:212
+#: papers/templates/papers/search.html:273
 #: publishers/templates/publishers/list.html:76
 msgid "Sort by"
 msgstr "Trier par"
 
 # "Trier par valeur croissante"
-#: papers/templates/papers/search.html:220
+#: papers/templates/papers/search.html:281
 #: publishers/templates/publishers/list.html:84
 #, python-format
 msgid "%(sort_by)s <div>%(increasing)s %(value)s</div>"
 msgstr "%(sort_by)s <div>%(value)s %(increasing)s</div>"
 
-#: papers/templates/papers/search.html:226
+#: papers/templates/papers/search.html:287
 msgid "By visibility"
 msgstr "Par visibilité"
 
-#: papers/templates/papers/search.html:231
+#: papers/templates/papers/search.html:292
 msgid "By full text availability"
 msgstr "Par disponibilité du texte intégral"
 
-#: papers/templates/papers/search.html:237
+#: papers/templates/papers/search.html:298
 msgid "By publisher policy"
 msgstr "Par politique de publication"
 
@@ -918,19 +944,19 @@ msgstr ""
 msgid "Invalid ORCID profile."
 msgstr "Profil ORCID invalide."
 
-#: papers/views.py:234
+#: papers/views.py:239
 msgid " authored by "
 msgstr " écrits par "
 
-#: papers/views.py:278
+#: papers/views.py:283
 msgid " published by "
 msgstr " publiés par "
 
-#: papers/views.py:307
+#: papers/views.py:312
 msgid " in "
 msgstr " dans "
 
-#: papers/views.py:384
+#: papers/views.py:389
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
 msgstr "Aucun %(verbose_name)s ne correspond à la requête"
@@ -1916,11 +1942,11 @@ msgstr "Qui sommes-nous?"
 msgid "Donate"
 msgstr "Faire un don"
 
-#: templates/dissemin/skeleton.html:135
+#: templates/dissemin/skeleton.html:136
 msgid "Change language"
 msgstr "Changer la langue"
 
-#: templates/dissemin/skeleton.html:147
+#: templates/dissemin/skeleton.html:148
 msgid "Apply"
 msgstr "Appliquer"
 
@@ -2370,10 +2396,6 @@ msgstr "URL invalide."
 
 #~ msgid "A first name is required."
 #~ msgstr "Il faut fournir un prénom."
-
-#~ msgctxt "alternate text of the waiting picture in the name lookup form"
-#~ msgid "Searching..."
-#~ msgstr "Recherche en cours..."
 
 #~ msgid "Looking for one of these researchers?"
 #~ msgstr "Pensiez-vous à l'un de ces chercheurs ?"

@@ -542,7 +542,6 @@ class OrcidPaperSource(PaperSource):
                         orcid = profile['orcid-profile'][
                                         'orcid-identifier'][
                                         'path']
-                        print orcid
                         r = Researcher.get_or_create_by_orcid(
                             orcid, profile, update=True)
                         if fetch_papers:

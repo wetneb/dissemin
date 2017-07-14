@@ -24,11 +24,72 @@
 
 {% block jsScript %}
 $(function(){
+       function claim_unclaim (evt) {
+         var obj = $(evt.target);
+         var pk = obj.attr("data-pk");
+         var action = obj.attr("data-action");
+         if (action != "claim" && action != "unclaim") {
+           // action currently ongoing
+           return;
+         }
+         var my_url = "";
+         if (action == "claim") {
+           obj.text("{% trans "Claiming..." %}");
+           my_url = "{% url "ajax-claimPaper" %}";
+         } else {
+           obj.text("{% trans "Unclaiming..." %}");
+           my_url = "{% url "ajax-unclaimPaper" %}";
+         }
+         obj.toggleClass("disabled");
+         $.ajax({
+           method: "post",
+           url: my_url,
+           data: {"pk": pk,
+             "csrfmiddlewaretoken": '{{csrf_token}}'},
+           cache: false,
+           success: function (data) {
+             if (action == "claim") {
+               obj.text("{% trans "Exclude from my profile" %}");
+               obj.attr("data-action", "unclaim");
+             } else {
+               obj.text("{% trans "Include in my profile" %}");
+               obj.attr("data-action", "claim");
+{% if user_researcher == researcher %}
+               // user_researcher is only defined on profile views
+               // in which case it is equal to the researcher of the currently
+               // logged in user; if it is the profile currently being viewed,
+               // we must remove the paper entirely
+               $("#paper-" + pk).fadeOut(300, function() { $(this).remove(); });
+{% endif %}
+             }
+             obj.toggleClass("claim-button");
+             obj.toggleClass("unclaim-button");
+             obj.toggleClass("disabled");
+           },
+           fail: function(data) {
+             if (action == "claim") {
+               obj.text("{% trans "Claiming failed!" %}");
+             } else {
+               obj.text("{% trans "Unclaiming failed!" %}");
+             }
+             obj.toggleClass("disabled");
+           }
+           });
+       }
+
+       function add_claim_unclaim_handlers () {
+         $(".unclaim-button").click(claim_unclaim);
+         $(".claim-button").click(claim_unclaim);
+       }
+
+       add_claim_unclaim_handlers();
+
        var config = {
          refreshURL: "{{ ajax_url }}",
          refreshMessage: "{% trans "Refreshing results" %}",
          logoHelpNode: $('.logoHelpPopover'),
          refetchButtonNode: $('#refetchPubsButton'),
+         hook: add_claim_unclaim_handlers,
          waitingAreaContainerNode: $('#waitingAreaContainer'),
          paperSearchResultsNode: $('#paperSearchResults'),
          nbPapersFoundNode: $('#nbPapersFound'),
@@ -44,7 +105,7 @@ $(function(){
          isSuperUser: {{ request.user.is_superuser|yesno:"true,false,false" }},
          initialMessages: {{ messages | safe }}
        }
-       init_paper_module(config)
+       init_paper_module(config);
     });
 {% endblock %}
 
