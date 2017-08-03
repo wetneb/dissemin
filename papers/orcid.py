@@ -75,7 +75,7 @@ class OrcidProfile(object):
             if parsed.get('orcid-profile') is None:
                 # TEMPORARY: also check from the sandbox
                 if instance == 'orcid.org':
-                    return self.fetch(id, instance='sandbox.orcid.org')
+                    return self.fetch(orcid_id, instance='sandbox.orcid.org')
                 raise ValueError
             self.json = parsed
         except (requests.exceptions.HTTPError, ValueError):
