@@ -83,7 +83,7 @@ def create_paper_plain_fingerprint(title, authors, year):
         for i, w in enumerate(last_name_words):
             if (w[0].isupper() or
                     (i > 0 and last_name_separators[i-1] == '-')):
-                last_words.append(w[i])
+                last_words.append(w)
 
         # If no word was uppercased, fall back on all the words
         if not last_words:

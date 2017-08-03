@@ -30,9 +30,9 @@ class OrcidProfileTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.antonin = OrcidProfile(id='0000-0002-8612-8827')
-        self.thomas = OrcidProfile(id='0000-0003-0524-631X')
-        self.sergey = OrcidProfile(id='0000-0003-3397-9895')
+        self.antonin = OrcidProfile(orcid_id='0000-0002-8612-8827')
+        self.thomas = OrcidProfile(orcid_id='0000-0003-0524-631X')
+        self.sergey = OrcidProfile(orcid_id='0000-0003-3397-9895')
 
     def test_simple_name(self):
         self.assertEqual(self.antonin.name, ('Antonin', 'Delpeuch'))
