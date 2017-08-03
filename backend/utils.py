@@ -42,9 +42,9 @@ class run_only_once(object):
 
     def __call__(self, f):
         def inner(*args, **kwargs):
-            id = self.base_id+'-' + \
+            lock_id = self.base_id+'-' + \
                 ('-'.join([str(kwargs.get(key, 'none')) for key in self.keys]))
-            lock = redis_client.lock(id, timeout=self.timeout)
+            lock = redis_client.lock(lock_id, timeout=self.timeout)
             have_lock = False
             result = None
             try:

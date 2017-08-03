@@ -9,7 +9,7 @@ from django.utils.timezone import utc
 
 def move_datestamps(apps, schema_editor):
     Paper = apps.get_model('papers', 'Paper')
-    
+
     deftime = datetime.time(0,0,0,0,tzinfo=utc)
     batch = []
     bs = 10000
@@ -26,7 +26,7 @@ def move_datestamps(apps, schema_editor):
             batch.append(p)
         bulk_update(batch, update_fields=['temp'])
         batch = []
-    
+
     bulk_update(batch, update_fields=['temp'])
 
 def do_nothing(apps, schema_editor):

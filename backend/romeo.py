@@ -115,7 +115,7 @@ def fetch_journal(search_terms, matching_mode='exact'):
         terms['title'] = kill_html(terms['title'])
 
     # Check the arguments
-    if not all(map(lambda x: x in allowed_fields, (key for key in terms))):
+    if not all(key in allowed_fields for key in terms):
         raise ValueError('The search terms have to belong to '+str(allowed_fields) +
                          'but the dictionary I got is '+str(terms))
 

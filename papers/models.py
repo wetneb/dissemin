@@ -777,8 +777,8 @@ class Paper(models.Model, BarePaper):
         The list of researchers associated with this paper, returned
         as a list of Researcher instances.
         """
-        return [ Researcher.objects.get(id=id)
-                 for id in self.researcher_ids ]
+        return [ Researcher.objects.get(id=rid)
+                 for rid in self.researcher_ids ]
 
     def add_author(self, author, position=None):
         """
@@ -1078,7 +1078,7 @@ class Paper(models.Model, BarePaper):
         if bare:
             return bare_paper
         elif bare_paper:
-            return Paper.from_bare(bare_paper)  # TODO TODO index it?
+            return Paper.from_bare(bare_paper)  # TODO index it?
 
     @classmethod
     def get_by_doi(cls, doi):
@@ -1090,26 +1090,26 @@ class Paper(models.Model, BarePaper):
         return cls.objects.filter(oairecord__doi=doi).first()
 
     @classmethod
-    def create_by_hal_id(self, id, bare=False):
+    def create_by_hal_id(self, hal_id, bare=False):
         """
         Creates a paper given a HAL id (e.g. hal-01227383)
         """
         return self.create_by_oai_id(
-            'ftccsdartic:oai:hal.archives-ouvertes.fr:'+id,
+            'ftccsdartic:oai:hal.archives-ouvertes.fr:'+hal_id,
             bare=bare)
 
     @classmethod
-    def create_by_oai_id(self, id, metadataPrefix='base_dc', bare=False):
+    def create_by_oai_id(self, oai_id, metadataPrefix='base_dc', bare=False):
         """
         Creates a paper by its OAI identifier.
         """
         from backend.oai import get_proaixy_instance
         oai = get_proaixy_instance()
-        p = oai.create_paper_by_identifier(id, metadataPrefix)
+        p = oai.create_paper_by_identifier(oai_id, metadataPrefix)
         if bare:
             return p
         elif p:
-            return Paper.from_bare(p) # TODO TODO index it?
+            return Paper.from_bare(p) # TODO index it?
 
     def successful_deposits(self):
         return self.depositrecord_set.filter(oairecord__isnull=False)
@@ -1150,7 +1150,7 @@ class Paper(models.Model, BarePaper):
         new_author_names = [(a.name.first, a.name.last) for a in
                             new_authors]
 
-        old_names = map(lambda a: (a.name.first, a.name.last), old_authors)
+        old_names = [(a.name.first, a.name.last) for a in old_authors]
         unified_names = unify_name_lists(old_names, new_author_names)
 
         unified_authors = []
@@ -1573,5 +1573,5 @@ class PaperWorld(SingletonModel):
     def __unicode__(self):
         return "All papers"
 
-    class Meta:
+    class Meta(object):
         verbose_name = "Paper World"

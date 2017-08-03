@@ -19,9 +19,9 @@ def backwards(apps, se):
     Institution = apps.get_model('papers', 'Institution')
     for i in Institution.objects.all():
         i.identifier = None
-        for id in i.identifiers:
-            if '-' in id:
-                i.identifier = id
+        for inst_id in i.identifiers:
+            if '-' in inst_id:
+                i.identifier = inst_id
                 i.save(update_fields=['identifier'])
                 break
 

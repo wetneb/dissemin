@@ -43,8 +43,7 @@ def filter_punctuation(lst):
     >>> filter_punctuation([u'abc',u'ab.',u'/,',u'a-b',u'#=', u'0'])
     [u'abc', u'ab.', u'a-b', u'0']
     """
-    return filter(lambda x: filter_punctuation_alphanum_regex.match(x) is not None,
-                  lst)
+    return [ c for c in lst if filter_punctuation_alphanum_regex.match(c) is not None ]
 
 
 def nocomma(lst):
@@ -63,7 +62,7 @@ def nocomma(lst):
     >>> nocomma([u'abc',u'',u'\\n',u'def'])
     u'abc, , ,def'
     """
-    lst = map(lambda x: str(x).replace(',', '').replace('\n', ''), lst)
+    lst = [str(x).replace(',', '').replace('\n', '') for x in lst]
     lst = [x or ' ' for x in lst]
     return ','.join(lst)
 
@@ -110,8 +109,7 @@ def remove_diacritics(s):
     >>> remove_diacritics(u'aéè'.encode('utf-8'))
     'a\\xc3\\xa9\\xc3\\xa8'
     """
-    if type(s) == unicode:
-
+    if isinstance(s, unicode):
         # for issue #305
         # because I have no idea what the general solution for this would be
         s = s.replace("’", "'")
@@ -389,7 +387,7 @@ def remove_nones(dct):
     >>> remove_nones({None:1})
     {None: 1}
     """
-    return dict(filter(lambda (k, v): v is not None, dct.items()))
+    return dict((k,v) for k,v in  dct.items() if v is not None)
 
 # Partial date representation
 
@@ -528,9 +526,9 @@ def datetime_to_date(dt):
     >>> datetime_to_date(datetime.date(2015, 3, 1))
     datetime.date(2015, 3, 1)
     """
-    if type(dt) == datetime.datetime:
+    if isinstance(dt, datetime.datetime):
         return dt.date()
-    elif type(dt) == datetime.date:
+    elif isinstance(dt, datetime.date):
         return dt
     raise ValueError("Invalid date or datetime")
 
@@ -550,7 +548,7 @@ def valid_publication_date(dt):
     now = datetime.datetime.now()
     current_year = now.year
     # some papers are published in the future ("to appear")
-    return ((type(dt) == datetime.date or type(dt) == datetime.datetime)
+    return ((isinstance(dt, datetime.date) or isinstance(dt, datetime.datetime))
             and dt.year < current_year + year_margin)
 
 ### ORCiD utilities ###

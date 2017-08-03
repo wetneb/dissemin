@@ -108,7 +108,7 @@ def api_paper_query(request):
     parsed_authors = []
     for a in authors:
         author = None
-        if type(a) != dict:
+        if not isinstance(a, dict):
             raise BadRequest('Invalid author')
 
         if 'first' in a and 'last' in a:

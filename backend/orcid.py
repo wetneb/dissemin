@@ -153,8 +153,7 @@ class ORCIDMetadataExtractor(object):
         return map(get_contrib, self.j('work-contributors/contributor', []))
 
     def authors_from_contributors(self, contributors):
-        author_names = filter(lambda x: x is not None,
-                              map(lambda x: x['name'], contributors))  # all contributors names which are not null
+        author_names = [c['name'] for c in contributors if c['name'] is not None]
         return map(parse_comma_name, author_names)
 
     def pubdate(self):
@@ -205,8 +204,7 @@ class ORCIDMetadataExtractor(object):
         names = [BareName.create_bare(first, last)
                 for first, last in authors]
         names_and_orcids = zip(names, orcids)
-        filtered = filter(lambda (n,o): n is not None,
-                    names_and_orcids)
+        filtered = [(n,o) for n, o in names_and_orcids if  n is not None ]
         final_names = [n for n, o in filtered]
         final_orcids = [o for n, o in filtered]
         return final_names, final_orcids

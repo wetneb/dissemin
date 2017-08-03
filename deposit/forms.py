@@ -44,9 +44,9 @@ class PaperDepositForm(forms.Form):
                                              queryset=Repository.objects.all())
 
     def clean_file_id(self):
-        id = self.cleaned_data['file_id']
+        file_id = self.cleaned_data['file_id']
         try:
-            uploadedPDF = UploadedPDF.objects.get(pk=id)
+            uploadedPDF = UploadedPDF.objects.get(pk=file_id)
         except UploadedPDF.NotFound:
             raise forms.ValidationError(
                 __("Invalid full text identifier."), code='invalid_file_id')

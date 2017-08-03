@@ -38,13 +38,13 @@ class OrcidProfile(object):
     An orcid profile as returned by the ORCID public API (in JSON)
     """
 
-    def __init__(self, id=None, json=None, instance=settings.ORCID_BASE_DOMAIN):
+    def __init__(self, orcid_id=None, json=None, instance=settings.ORCID_BASE_DOMAIN):
         """
         Create a profile by ORCID ID or by providing directly the parsed JSON payload.
         """
         self.json = json
-        if id is not None:
-            self.fetch(id, instance=instance)
+        if orcid_id is not None:
+            self.fetch(orcid_id, instance=instance)
 
     def __getitem__(self, key):
         return self.json[key]
@@ -58,7 +58,7 @@ class OrcidProfile(object):
     def get(self, *args, **kwargs):
         return self.json.get(*args, **kwargs)
 
-    def fetch(self, id, instance=settings.ORCID_BASE_DOMAIN):
+    def fetch(self, orcid_id, instance=settings.ORCID_BASE_DOMAIN):
         """
         Fetches the profile by id using the public API.
 
@@ -70,7 +70,7 @@ class OrcidProfile(object):
         try:
             headers = {'Accept': 'application/orcid+json'}
             profile_req = requests.get(
-                'http://pub.%s/v1.2/%s/orcid-profile' % (instance, id), headers=headers)
+                'http://pub.%s/v1.2/%s/orcid-profile' % (instance, orcid_id), headers=headers)
             parsed = profile_req.json()
             if parsed.get('orcid-profile') is None:
                 # TEMPORARY: also check from the sandbox
@@ -80,10 +80,10 @@ class OrcidProfile(object):
             self.json = parsed
         except (requests.exceptions.HTTPError, ValueError):
             raise MetadataSourceException(
-                'The ORCiD %s could not be found' % id)
+                'The ORCiD %s could not be found' % orcid_id)
         except (ValueError, TypeError):
             raise MetadataSourceException(
-                'The ORCiD %s returned invalid JSON.' % id)
+                'The ORCiD %s returned invalid JSON.' % orcid_id)
 
     @property
     def homepage(self):
@@ -114,14 +114,14 @@ class OrcidProfile(object):
             disamb = jpath('organization/disambiguated-organization',
                 affiliation, default={})
             source = disamb.get('disambiguation-source')
-            id = disamb.get('disambiguated-organization-identifier')
+            inst_id = disamb.get('disambiguated-organization-identifier')
             name = jpath('organization/name', affiliation)
             country = jpath('organization/address/country', affiliation)
             identifier = None
             # we skip ringgold identifiers, because they suck:
             # https://github.com/ORCID/ORCID-Source/issues/3297
-            if source and id and source.lower() != 'ringgold':
-                identifier = unicode(source).lower()+'-'+unicode(id)
+            if source and inst_id and source.lower() != 'ringgold':
+                identifier = unicode(source).lower()+'-'+unicode(inst_id)
 
             if name and country:
                 return {

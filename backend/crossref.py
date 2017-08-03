@@ -203,12 +203,12 @@ def _create_publication(paper, metadata):
     doi = to_doi(metadata.get('DOI', None))
 
     title = metadata['container-title']
-    if type(title) == type([]):
+    if isinstance(title, list):
         title = title[0]
     title = title[:512]
 
     issn = metadata.get('ISSN', None)
-    if issn and type(issn) == type([]):
+    if issn and isinstance(issn, list):
         issn = issn[0]  # TODO pass all the ISSN to the RoMEO interface
     volume = metadata.get('volume', None)
     pages = metadata.get('page', None)
@@ -402,7 +402,7 @@ class CrossRefAPI(object):
         :returns: the paper, created if needed
         """
         # Normalize metadata
-        if metadata is None or type(metadata) != dict:
+        if metadata is None or not isinstance(metadata, dict):
             raise ValueError('Invalid metadata format, expecting a dict')
         if not metadata.get('author'):
             raise ValueError('No author provided')
@@ -421,11 +421,11 @@ class CrossRefAPI(object):
 
         title = metadata['title']
         # CrossRef metadata stores titles in lists
-        if type(title) == list:
+        if isinstance(title, list):
             title = title[0]
         subtitle = metadata.get('subtitle')
         if subtitle:
-            if type(subtitle) == list:
+            if isinstance(subtitle, list):
                 subtitle = subtitle[0]
             title += ': '+subtitle
 
@@ -481,7 +481,7 @@ class CrossRefAPI(object):
         if query:
             params['query'] = query
         if filters:
-            params['filter'] = ','.join(map(lambda (k, v): k+":"+v, filters.items()))
+            params['filter'] = ','.join(k+":"+v for k, v in filters.items())
 
         url = 'http://api.crossref.org/works'
 

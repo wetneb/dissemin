@@ -80,10 +80,10 @@ def create_paper_plain_fingerprint(title, authors, year):
         # Last name, without the small words such as "van", "der", "de"…
         last_name_words, last_name_separators = split_name_words(author[1])
         last_words = []
-        for i in range(len(last_name_words)):
-            if (last_name_words[i][0].isupper() or
+        for i, w in enumerate(last_name_words):
+            if (w[0].isupper() or
                     (i > 0 and last_name_separators[i-1] == '-')):
-                last_words.append(last_name_words[i])
+                last_words.append(w[i])
 
         # If no word was uppercased, fall back on all the words
         if not last_words:

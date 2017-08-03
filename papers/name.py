@@ -66,7 +66,7 @@ def normalize_name_words(w):
     This function is to be called on first or last names only.
     """
     name_words, separators = split_name_words(w)
-    all_lower = all(map(lambda w: w.lower() == w, name_words))
+    all_lower = all(w.lower() == w for w in name_words)
     new_name_words = []
     for idx, word in enumerate(name_words):
         force = all_lower or (idx > 0 and separators[idx-1])
@@ -82,7 +82,7 @@ def rebuild_name(name_words, separators):
     :param name_words: The list of name words (without periods)
     :param separators: The list of separators ('' or '-').
     """
-    separators = map(lambda x: ' ' if x == '' else x, separators)
+    separators = [' ' if s == '' else s for s in separators]
     output = ''
     for idx, word in enumerate(name_words):
         output += word
@@ -145,15 +145,15 @@ def split_name_words(string):
 
 def has_only_initials(string):
     words, separators = split_name_words(string)
-    return all(map(lambda x: len(x) == 1, words))
+    return all(len(w) == 1 for w in words)
 
 
 def shorten_first_name(string):
     words, separators = split_name_words(string)
     result = ""
-    for i in range(len(words)):
-        if words[i][0].isupper():
-            result += words[i][0]+'.'
+    for i, w in enumerate(words):
+        if w[0].isupper():
+            result += w[0]+'.'
             if i < len(separators):
                 result += separators[i] if separators[i] else ' '
     return result
@@ -380,8 +380,8 @@ def shallower_name_similarity(a, b):
 
     partsA, sepsA = split_name_words(firstA)
     partsB, sepsB = split_name_words(firstB)
-    partsA = map(lambda x: x[0], partsA)
-    partsB = map(lambda x: x[0], partsB)
+    partsA = [ p[0] for p in partsA ]
+    partsB = [ p[0] for p in partsB ]
 
     parts = zip(partsA, partsB)
     if not all(map(match_first_names, parts)):
@@ -563,7 +563,7 @@ def num_caps(a):
     """
     Number of capitalized letters
     """
-    return sum(map(lambda c: 1 if c.isupper() else 0, a))
+    return sum(1 if c.isupper() else 0 for c in a)
 
 def normalize_last_name(last):
     """
@@ -700,7 +700,7 @@ def unify_name_lists(a, b):
                 result.append((nameB, rankB, (None, idxB)))
                 iB += 1
 
-    result = map(lambda (name, rank, idx): (name, idx), sorted(result, key=lambda x: x[1]))
+    result = [(name, idx) for name, _, idx in sorted(result, key=lambda x: x[1])]
 
     def make_unique(lst):
         seen = set()

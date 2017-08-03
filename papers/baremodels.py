@@ -350,7 +350,7 @@ class BarePaper(BareObject):
         """
         # Filtered in Python because the list of records is typically quite
         # small (less than 10 items)
-        return filter(lambda r: r.priority > 0, self.sorted_oai_records)
+        return [r for r in self.sorted_oai_records if r.priority > 0]
 
     @property
     def unique_prioritary_oai_records(self):

@@ -53,7 +53,7 @@ def process_ajax_change(request, model, allowedFields):
         if field in allowedFields:
             val = request.POST.get('value')
             # TODO check that 'value' is actually present
-            if type(val) == type(''):
+            if isinstance(val, unicode):
                 val = sanitize_html(val)
             setattr(instance, field, val)
             instance.save(update_fields=[field])
