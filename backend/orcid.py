@@ -433,7 +433,7 @@ class OrcidPaperSource(PaperSource):
         # Get ORCiD profile
         try:
             if profile is None:
-                profile = OrcidProfile(id=orcid_id)
+                profile = OrcidProfile(orcid_id=orcid_id)
             else:
                 profile = OrcidProfile(json=profile)
         except MetadataSourceException as e:

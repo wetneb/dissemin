@@ -41,11 +41,11 @@ class OrcidProfileTest(unittest.TestCase):
     def test_credit_name(self):
         self.assertEqual(self.sergey.name, ('Sergey M.', 'Natanzon'))
         self.assertEqual(OrcidProfile(
-            id='0000-0001-9547-293X').name, ('Darío', 'Álvarez'))
+            orcid_id='0000-0001-9547-293X').name, ('Darío', 'Álvarez'))
 
     def test_empty_lastname(self):
         self.assertEqual(OrcidProfile(
-            id='0000-0001-5006-3868').name, ('Qiang', ''))
+            orcid_id='0000-0001-5006-3868').name, ('Qiang', ''))
 
     def test_other_names(self):
         self.assertEqual(set(self.sergey.other_names),
@@ -54,7 +54,7 @@ class OrcidProfileTest(unittest.TestCase):
 
     def test_homepage_without_http(self):
         self.assertEqual(OrcidProfile(
-            id='0000-0002-5710-3989').homepage, 'http://evrard.perso.enseeiht.fr')
+            orcid_id='0000-0002-5710-3989').homepage, 'http://evrard.perso.enseeiht.fr')
 
     def test_iterable(self):
         for key in self.thomas:
@@ -71,7 +71,7 @@ class OrcidProfileTest(unittest.TestCase):
 
     def test_sandbox(self):
         self.assertEqual(OrcidProfile(
-            id='0000-0002-5654-4053').name, ('Peter', 'Lieth'))
+            orcid_id='0000-0002-5654-4053').name, ('Peter', 'Lieth'))
 
     def test_search(self):
         # for this one we use the production database
@@ -85,12 +85,12 @@ class OrcidProfileTest(unittest.TestCase):
 
     def test_institution(self):
         self.assertEqual(OrcidProfile(
-            id='0000-0002-0022-2290').institution,
+            orcid_id='0000-0002-0022-2290').institution,
             {'name':'Ecole Normale Superieure',
              'identifier':None,
              'country':'FR'})
         self.assertEqual(OrcidProfile(
-            id='0000-0002-5654-4053').institution,
+            orcid_id='0000-0002-5654-4053').institution,
             {'country': 'FR',
              'identifier': None,
              'name': "Polytech'Rambouillet"})

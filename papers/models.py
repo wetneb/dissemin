@@ -498,7 +498,7 @@ class Researcher(models.Model):
             return researcher
 
         if profile is None:
-            profile = OrcidProfile(id=orcid, instance=instance)
+            profile = OrcidProfile(orcid_id=orcid, instance=instance)
         else:
             profile = OrcidProfile(json=profile)
         name = profile.name
