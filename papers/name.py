@@ -370,8 +370,8 @@ def shallower_name_similarity(a, b):
     # Matching last names
     lastA = iunaccent(lastA)
     lastB = iunaccent(lastB)
-    wordsA, sepA = split_name_words(lastA)
-    wordsB, sepB = split_name_words(lastB)
+    wordsA, _ = split_name_words(lastA)
+    wordsB, _ = split_name_words(lastB)
     wordsA = set(wordsA)
     wordsB = set(wordsB)
     if not wordsA or not wordsB:
@@ -420,29 +420,31 @@ def contains_initials(s):
     # TODO delete the following commented dead code
     return len(s) == 1  # initial_re.search(iunaccent(s)) != None
 
-# Is this word fully capitalized?
-
-
 def is_fully_capitalized(s):
+    """
+    Is this word fully capitalized?
+    """
     return lowercase_re.search(remove_diacritics(s)) == None
-# Split a word according to a predicate
-
 
 def predsplit_forward(predicate, words):
+    """
+    Split a word according to a predicate
+    """
     first = []
     last = []
     predHolds = True
-    for i in range(len(words)):
+    for i, word in enumerate(words):
         if predicate(i) and predHolds:
-            first.append(words[i])
+            first.append(word)
         else:
             predHolds = False
-            last.append(words[i])
+            last.append(word)
     return (first, last)
-# The same, but backwards
-
 
 def predsplit_backwards(predicate, words):
+    """
+    The same, but backwards
+    """
     first = []
     last = []
     predHolds = True

@@ -296,7 +296,7 @@ class AliasPublisher(models.Model):
         # work
         if not name:
             return
-        alias, created = cls.objects.get_or_create(
+        alias, _ = cls.objects.get_or_create(
             name=name, publisher=publisher)
         alias.count += 1
         alias.save()

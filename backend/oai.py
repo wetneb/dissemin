@@ -78,7 +78,7 @@ class OaiTranslator(object):
         :param metadata: the dictionary of the record, as returned by pyoai
         :returns: a :class:`BarePaper` or None if creation failed
         """
-        raise NotImplemented
+        raise NotImplementedError()
 
 
 class CiteprocReader(MetadataReader):

@@ -194,13 +194,13 @@ class DepositPreferences(models.Model):
         will be able to initialize with values from an
         existing instance.
         """
-        raise NotImplemented
+        raise NotImplementedError()
 
     def get_form(self):
         """
         This method should return the
         """
-        raise NotImplemented
+        raise NotImplementedError()
 
 
     def __repr__(self):

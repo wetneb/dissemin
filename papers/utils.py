@@ -634,8 +634,7 @@ def index_of(elem, choices):
     >>> index_of('nok', [('ok','This is ok'),('nok','This is definitely not OK')])
     1
     """
-    for idx, (code, lbl) in enumerate(choices):
+    for idx, (code, _) in enumerate(choices):
         if code == elem:
             return idx
-    else:
-        return 0
+    return 0

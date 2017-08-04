@@ -1,4 +1,3 @@
-from django.utils import timezone
 
 from .. import signals
 from ...models import Inbox

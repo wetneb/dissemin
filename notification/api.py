@@ -1,6 +1,5 @@
 import importlib
 
-from django.utils.translation import ugettext as _
 from django.utils.translation import ungettext as _plural
 
 from .settings import notification_settings

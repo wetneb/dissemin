@@ -38,7 +38,7 @@ from django.core.management import call_command
 from django.test import override_settings
 from django.test import TestCase
 import haystack
-from lxml import etree
+import defusedxml as etree
 from papers.baremodels import BareAuthor
 from papers.baremodels import BareName
 from papers.baremodels import BarePaper

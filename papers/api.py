@@ -89,12 +89,12 @@ def api_paper_query(request):
         return {'status': 'ok', 'paper': p.json()}
 
     title = fields.get('title')
-    if type(title) != unicode or not title or len(title) > 512:
+    if not isinstance(title,  unicode) or not title or len(title) > 512:
         raise BadRequest(
             'Invalid title, has to be a non-empty string shorter than 512 characters')
 
     date = fields.get('date')
-    if type(date) != unicode:
+    if not isinstance(date, unicode):
         raise BadRequest('A date is required')
     try:
         date = tolerant_datestamp_to_datetime(date)
@@ -102,7 +102,7 @@ def api_paper_query(request):
         raise BadRequest(unicode(e))
 
     authors = fields.get('authors')
-    if type(authors) != list:
+    if not isinstance(authors, list):
         raise BadRequest('A list of authors is expected')
 
     parsed_authors = []
@@ -112,12 +112,12 @@ def api_paper_query(request):
             raise BadRequest('Invalid author')
 
         if 'first' in a and 'last' in a:
-            if type(a['first']) != unicode or type(a['last']) != unicode or not a['last']:
+            if not isinstance(a['first']), unicode) or not isinstance(a['last'], unicode) or not a['last']:
                 raise BadRequest('Invalid (first,last) name provided')
             else:
                 author = (a['first'], a['last'])
         elif 'plain' in a:
-            if type(a['plain']) != unicode or not a['plain']:
+            if not isinstance(a['plain'], unicode) or not a['plain']:
                 raise BadRequest('Invalid plain name provided')
             else:
                 author = parse_comma_name(a['plain'])

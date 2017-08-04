@@ -469,14 +469,16 @@ class CrossRefAPI(object):
 
     ##### CrossRef search API #######
 
-    def search_for_dois_incrementally(self, query, filters={}, max_batches=max_crossref_batches_per_researcher):
+    def search_for_dois_incrementally(self, query, filters=None, max_batches=max_crossref_batches_per_researcher):
         """
         Searches for DOIs for the given query and yields their metadata as it finds them.
 
         :param query: the search query to pass to CrossRef
-        :param filters: filters as specified by the REST API
+        :param filters: filters as specified by the REST API (as a dictionary)
         :param max_batches: maximum number of queries to send to CrossRef
         """
+        if filters is None:
+            filters = {}
         params = {}
         if query:
             params['query'] = query

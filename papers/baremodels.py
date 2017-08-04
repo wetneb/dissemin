@@ -235,7 +235,7 @@ class BarePaper(BareObject):
         if orcids is not None and len(author_names) != len(orcids):
             raise ValueError(
                 "The number of ORCIDs (or Nones) and authors have to be equal.")
-        if type(visible) != bool:
+        if not isinstance(visible, bool):
             raise ValueError("Invalid paper visibility: %s" % unicode(visible))
 
         title = sanitize_html(title)
@@ -514,7 +514,7 @@ class BarePaper(BareObject):
         return best_abstract
 
     # Updates ---------------------------------------------------
-    def update_availability(self, cached_oairecords=[]):
+    def update_availability(self, cached_oairecords=None):
         """
         Updates the :class:`BarePaper`'s own `pdf_url` field
         based on its sources (:class:`BareOaiRecord`).
@@ -525,6 +525,8 @@ class BarePaper(BareObject):
         :param cached_oairecords: the list of OaiRecords if we already have it
                            from somewhere (otherwise it is fetched)
         """
+        if cached_oairecords is None:
+            cached_oairecords = []
         records = list(cached_oairecords or self.oairecords)
         records = sorted(records, key=(lambda r: -r.priority))
 

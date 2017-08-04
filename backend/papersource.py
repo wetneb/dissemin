@@ -47,7 +47,7 @@ class PaperSource(object):
         Given a researcher, it should yield all the papers it can
         fetch from the source.
         """
-        raise NotImplemented(
+        raise NotImplementedError(
             "fetch_papers should be implemented by the subclass")
 
     def fetch_bare(self, researcher):

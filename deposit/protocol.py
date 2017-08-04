@@ -135,7 +135,7 @@ class RepositoryProtocol(object):
         :param dry_run: if True, should
         :returns: a DepositResult object.
         """
-        raise NotImplemented(
+        raise NotImplementedError(
             'submit_deposit should be implemented in the RepositoryInterface instance.')
 
     def refresh_deposit_status(self, deposit_record):

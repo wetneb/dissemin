@@ -28,7 +28,7 @@ import requests.exceptions
 from backend.utils import cached_urlopen_retry
 from dissemin.settings import ROMEO_API_DOMAIN
 from dissemin.settings import ROMEO_API_KEY
-import lxml.etree as ET
+import defusedxml as ET
 from lxml.html import fromstring
 from papers.errors import MetadataSourceException
 from papers.utils import kill_html
@@ -74,10 +74,7 @@ def perform_romeo_query(search_terms):
         parser = ET.XMLParser(encoding='utf-8')
         root = ET.parse(BytesIO(response), parser)
     except ET.ParseError as e:
-        with open('/tmp/romeo_response.xml', 'w') as f:
-            f.write(response)
-            f.write('\n')
-        raise MetadataSourceException('RoMEO returned an invalid XML response, dumped at /tmp/romeo_response.xml\n' +
+        raise MetadataSourceException('RoMEO returned an invalid XML response.\n' +
                                       'URL was: '+base_url+'\n' +
                                       'Parameters were: '+str(search_terms)+'\n' +
                                       'Error is: '+str(e))
@@ -260,7 +257,7 @@ def get_or_create_publisher(romeo_xml_description):
         alias = nstrip(xml.findall('./alias')[0].text)
         if alias:
             alias = fromstring(kill_html(sanitize_html(alias))).text
-    except KeyError, IndexError:
+    except (KeyError, IndexError):
         pass
 
     # Check if we already have it

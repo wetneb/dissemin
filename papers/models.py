@@ -550,7 +550,7 @@ class Researcher(models.Model):
         If an ORCID is provided, and a researcher with this ORCID already exists,
         this researcher will be returned. In any other case, a new researcher will be created.
         """
-        name, created = Name.get_or_create(first, last)
+        name, _ = Name.get_or_create(first, last)
         if not name:
             return
 
@@ -1270,7 +1270,7 @@ class Paper(models.Model, BarePaper):
         """
         from deposit.views import get_all_repositories_and_protocols
         l = get_all_repositories_and_protocols(self, user)
-        return any([proto for repo, proto in l])
+        return any([proto for _, proto in l])
 
     def remove_from_index(self):
         """

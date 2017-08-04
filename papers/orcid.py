@@ -24,7 +24,7 @@ import requests
 
 from django.conf import settings
 from django.utils.http import urlencode
-from lxml import etree
+import defusedxml as etree
 from papers.errors import MetadataSourceException
 from papers.name import normalize_name_words
 from papers.name import parse_comma_name
@@ -81,7 +81,7 @@ class OrcidProfile(object):
         except (requests.exceptions.HTTPError, ValueError):
             raise MetadataSourceException(
                 'The ORCiD %s could not be found' % orcid_id)
-        except (ValueError, TypeError):
+        except TypeError:
             raise MetadataSourceException(
                 'The ORCiD %s returned invalid JSON.' % orcid_id)
 
