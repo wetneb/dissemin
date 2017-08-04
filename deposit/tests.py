@@ -27,7 +27,7 @@ from backend.tests import PrefilledTest
 from deposit.models import Repository
 from deposit.protocol import DepositResult
 from deposit.protocol import RepositoryProtocol
-from deposit.registry import ProtocolRegistry
+from deposit.registry import protocol_registry
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.forms import Form
