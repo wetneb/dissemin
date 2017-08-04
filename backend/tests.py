@@ -335,21 +335,6 @@ class MaintenanceTest(PrefilledTest):
         super(MaintenanceTest, self).setUpClass()
         self.cr_api = CrossRefAPI()
 
-    def test_create_publisher_aliases(self):
-        create_publisher_aliases()
-
-    def test_refetch_publishers(self):
-        refetch_publishers()
-
-    def test_refetch_containers(self):
-        refetch_containers()
-
-    def test_recompute_publisher_policies(self):
-        recompute_publisher_policies()
-
-    def test_cleanup_researchers(self):
-        cleanup_researchers()
-
     def test_cleanup_names(self):
         n = Name.lookup_name(('Anaruic', 'Leclescuantebrste'))
         n.save()
