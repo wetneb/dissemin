@@ -6,7 +6,6 @@ bibtexparser
 celery[redis]
 cryptography
 czipfile
-defusedxml
 django==1.10
 django-autocomplete-light
 django-bootstrap-pagination

@@ -24,7 +24,7 @@ import requests
 
 from django.conf import settings
 from django.utils.http import urlencode
-import defusedxml as etree
+from lxml import etree
 from papers.errors import MetadataSourceException
 from papers.name import normalize_name_words
 from papers.name import parse_comma_name
