@@ -134,5 +134,5 @@ class ProtocolTest(PrefilledTest):
 class ProtocolRegistryTest(django.test.TestCase):
     def test_get(self):
         c = protocol_registry.get('ZenodoProtocol')
-        self.assertIsInstance(c, RepositoryProtocol)
+        self.assertTrue(issubclass(c, RepositoryProtocol))
 
