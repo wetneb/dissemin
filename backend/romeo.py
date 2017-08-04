@@ -29,6 +29,7 @@ from backend.utils import cached_urlopen_retry
 from dissemin.settings import ROMEO_API_DOMAIN
 from dissemin.settings import ROMEO_API_KEY
 import defusedxml as ET
+from lxml.etree import ParseError
 from lxml.html import fromstring
 from papers.errors import MetadataSourceException
 from papers.utils import kill_html
@@ -73,7 +74,7 @@ def perform_romeo_query(search_terms):
     try:
         parser = ET.XMLParser(encoding='utf-8')
         root = ET.parse(BytesIO(response), parser)
-    except ET.ParseError as e:
+    except ParseError as e:
         raise MetadataSourceException('RoMEO returned an invalid XML response.\n' +
                                       'URL was: '+base_url+'\n' +
                                       'Parameters were: '+str(search_terms)+'\n' +

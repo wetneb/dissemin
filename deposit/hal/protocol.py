@@ -38,7 +38,7 @@ from deposit.protocol import RepositoryProtocol
 from deposit.registry import protocol_registry
 from django.utils.translation import ugettext as __
 from papers.name import most_similar_author
-import defusedxml as etree
+from lxml import etree
 from papers.utils import kill_html
 from deposit.hal.models import HALDepositPreferences
 
