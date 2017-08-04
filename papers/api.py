@@ -112,7 +112,7 @@ def api_paper_query(request):
             raise BadRequest('Invalid author')
 
         if 'first' in a and 'last' in a:
-            if not isinstance(a['first']), unicode) or not isinstance(a['last'], unicode) or not a['last']:
+            if not isinstance(a['first'], unicode) or not isinstance(a['last'], unicode) or not a['last']:
                 raise BadRequest('Invalid (first,last) name provided')
             else:
                 author = (a['first'], a['last'])

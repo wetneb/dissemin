@@ -25,7 +25,7 @@ This module defines a OAfr/TEI exporter, to be used with the SWORD interface to 
 
 from __future__ import unicode_literals
 
-import defusedxml as etree
+from lxml import etree
 
 XMLLANG_ATTRIB = '{http://www.w3.org/XML/1998/namespace}lang'
 
