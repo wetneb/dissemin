@@ -26,6 +26,8 @@ import django.test
 from backend.tests import PrefilledTest
 from deposit.models import Repository
 from deposit.protocol import DepositResult
+from deposit.protocol import RepositoryProtocol
+from deposit.registry import ProtocolRegistry
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.forms import Form
@@ -128,4 +130,9 @@ class ProtocolTest(PrefilledTest):
         if a != b:
             print self.proto._logs
         self.assertEqual(a, b)
+
+class ProtocolRegistryTest(django.test.TestCase):
+    def test_get(self):
+        c = protocol_registry.get('ZenodoProtocol')
+        self.assertIsInstance(c, RepositoryProtocol)
 

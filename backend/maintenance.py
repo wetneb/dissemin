@@ -30,20 +30,12 @@ importing this module and running the function manually.
 
 from __future__ import unicode_literals
 
-from collections import defaultdict
 from bulk_update.helper import bulk_update
 
-import backend.crossref
-from backend.romeo import fetch_publisher
-from backend.tasks import change_publisher_oa_status
 from papers.models import Name
 from papers.models import NameVariant
-from papers.models import OaiRecord
 from papers.models import Paper
 from papers.models import Researcher
-from papers.utils import sanitize_html
-from publishers.models import AliasPublisher
-from publishers.models import Publisher
 from datetime import datetime
 from elasticsearch.helpers import bulk
 from elasticsearch.exceptions import ConnectionTimeout
