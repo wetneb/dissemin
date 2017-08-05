@@ -137,7 +137,7 @@ msgstr "J'essaie de préremplir ce champ..."
 
 #: deposit/templates/deposit/start.html:51
 msgid "Sorry, we could not fill this for you."
-msgstr "Désolé, impossible de préremplir ceci"
+msgstr "Désolé, impossible de préremplir ceci."
 
 #: deposit/templates/deposit/start.html:258
 #: papers/templates/papers/department.html:30
@@ -186,7 +186,7 @@ msgstr "Options"
 
 #: deposit/templates/deposit/start.html:338
 msgid "Upload type:"
-msgstr "Type de dépôt:"
+msgstr "Type de dépôt :"
 
 #: deposit/templates/deposit/start.html:351
 msgid "Repository:"
@@ -437,7 +437,7 @@ msgstr "Page web"
 
 #: papers/templates/papers/group.html:18
 msgid "Members:"
-msgstr "Membres:"
+msgstr "Membres :"
 
 #: papers/templates/papers/index.html:10
 #: papers/templates/papers/institutions.html:11
@@ -467,7 +467,7 @@ msgid ""
 "them in one click to an open repository."
 msgstr ""
 "Dissemin détecte les articles en accès payant et permet à leurs auteurs de "
-"les déposer en un clic vers une archive ouverte"
+"les déposer en un clic vers une archive ouverte."
 
 #: papers/templates/papers/index.html:46
 #: papers/templates/papers/search.html:204
@@ -598,7 +598,7 @@ msgstr ""
 
 #: papers/templates/papers/paper.html:114
 msgid "Full text:"
-msgstr "Texte intégral:"
+msgstr "Texte intégral :"
 
 #: papers/templates/papers/paper.html:116
 #: papers/templates/papers/publiListItem.html:37
@@ -615,7 +615,7 @@ msgstr "Demander la mise en ligne\t"
 
 #: papers/templates/papers/paper.html:124
 msgid "Publisher:"
-msgstr "Maison d'édition:"
+msgstr "Maison d'édition :"
 
 #: papers/templates/papers/paper.html:131
 msgid "Deposited."
@@ -651,7 +651,7 @@ msgstr "Administration"
 
 #: papers/templates/papers/paperList.html:26
 msgid "No paper found."
-msgstr "Aucun papier trouvé"
+msgstr "Aucun papier trouvé."
 
 #: papers/templates/papers/paperList.html:33
 #, python-format
@@ -716,11 +716,11 @@ msgstr "Rafraîchir les publications"
 
 #: papers/templates/papers/search.html:143
 msgid "Address:"
-msgstr "Adresse:"
+msgstr "Adresse :"
 
 #: papers/templates/papers/search.html:146
 msgid "Names:"
-msgstr "Noms:"
+msgstr "Noms :"
 
 #: papers/templates/papers/search.html:165
 msgid "Journal"
@@ -732,7 +732,7 @@ msgstr "Publiée par"
 
 #: papers/templates/papers/search.html:170
 msgid "ISSN:"
-msgstr "ISSN:"
+msgstr "ISSN :"
 
 #: papers/templates/papers/search.html:178
 #, python-format
@@ -1289,7 +1289,7 @@ msgstr "Qu'est-ce que dissem.in ?"
 
 #: templates/dissemin/faq.html:23 templates/dissemin/faq.html:146
 msgid "Is dissem.in a repository?"
-msgstr "Dissem.in est-il un dépôt ?"
+msgstr "Dissem.in est-il un dépôt ?"
 
 #: templates/dissemin/faq.html:24 templates/dissemin/faq.html:156
 msgid "Who runs dissem.in?"
@@ -1481,7 +1481,7 @@ msgstr ""
 "Pour proposer davantage de dépôts, il faut que nous écrivions du code "
 "spécifique à chaque dépôt, mais il faut surtout que ces dépôts nous donnent "
 "l'autorisation de déposer des papiers en masse. Nous avons envisagé "
-"d'intégrer les dépôts suivants :\n"
+"d'intégrer les dépôts suivants :\n"
 "<ul>\n"
 "<li><strong><a href=\"https://arxiv.org/\">arXiv</a></strong>, un dépôt "
 "généraliste bien connu. Pour l'instant, arXiv n'autorise pas Dissemin à "
@@ -1557,7 +1557,7 @@ msgid ""
 "<strong>Open access:</strong><br /> The full text is made freely available "
 "by the publisher (in a fully open access or hybrid journal)."
 msgstr ""
-"<strong>Libre accès :</strong><br /> Le texte intégral de l'article est mis "
+"<strong>Libre accès :</strong><br /> Le texte intégral de l'article est mis "
 "à disposition de tous par la maison d'édition (dans une revue entièrement en "
 "libre accès ou dans une revue hybride)."
 
@@ -1625,14 +1625,14 @@ msgid ""
 msgstr ""
 "Nos données ont plusieurs défauts dont il faut tenir compte : <ul> "
 "<li>Certains articles ne sont pas présents du tout dans nos sources de "
-"métadonnées, donc ils ne sont pas pris en compte ;</li> <li>Certaines "
-"entrées ne correspondent pas à de véritables travaux de recherche ;</li> "
+"métadonnées, donc ils ne sont pas pris en compte ;</li> <li>Certaines "
+"entrées ne correspondent pas à de véritables travaux de recherche ;</li> "
 "<li>Certaines n'ont pas été correctement classifiées par notre système de "
-"désambiguïsation des homonymes ;</li> <li>Certains dépôts peuvent ne pas "
+"désambiguïsation des homonymes ;</li> <li>Certains dépôts peuvent ne pas "
 "être couverts du tout par nos sources, donc un article peut être indiqué "
-"comme indisponible alors qu'il est en fait disponible ;</li> <li>Certains "
+"comme indisponible alors qu'il est en fait disponible ;</li> <li>Certains "
 "articles peuvent être indiqués comme disponibles alors qu'ils ne le sont pas "
-"vraiment (par exemple, le contenu peut avoir été supprimé) ;</li> <li>Bien "
+"vraiment (par exemple, le contenu peut avoir été supprimé) ;</li> <li>Bien "
 "d'autres problèmes techniques peuvent se produire.</li> </ul> "
 
 #: templates/dissemin/faq.html:258
@@ -1695,7 +1695,7 @@ msgstr ""
 "long terme</a> pour prendre en charge davantage de dépôts en utilisant un "
 "robot d'indexation Web, mais pour l'instant, nous n'avons pas la main "
 "d'œuvre nécessaire pour couvrir les dépôts qui ne sont pas répertoriés dans "
-"BASE"
+"BASE."
 
 #: templates/dissemin/faq.html:299
 msgid ""
@@ -1789,12 +1789,12 @@ msgstr ""
 "chercheurs à utiliser notre service ;</li> <li><a href=\"mailto:"
 "contact@dissem.in\">Envoyez-nous</a> une liste de chercheurs de votre "
 "université ou département pour qu'on mette en place une instance de Dissemin "
-"pour votre institution ;</li> <li>Aidez-nous à traduire l'interface dans "
+"pour votre institution ;</li> <li>Aidez-nous à traduire l'interface dans "
 "votre langue ;</li> <li>Contribuez au <a href=\"https://github.com/wetneb/"
-"dissemin\">code</a> ;</li> <li>Aidez à corriger l'un des <a href=\"https://"
-"github.com/wetneb/dissemin/issues\">problèmes répertoriés</a> ;</li> "
+"dissemin\">code</a> ;</li> <li>Aidez à corriger l'un des <a href=\"https://"
+"github.com/wetneb/dissemin/issues\">problèmes répertoriés</a> ;</li> "
 "<li>Décernez une étoile à <a href=\"https://github.com/wetneb/dissemin"
-"\">notre projet github</a> !</li><li><a href=\"http://association.dissem.in/"
+"\">notre projet github</a> !</li><li><a href=\"http://association.dissem.in/"
 "#dons\">Nous acceptons les dons.</a>.</li> </ul>"
 
 #: templates/dissemin/faq.html:379
@@ -1936,7 +1936,7 @@ msgstr "Conditions d'utilisation"
 
 #: templates/dissemin/skeleton.html:122
 msgid "Who are we?"
-msgstr "Qui sommes-nous?"
+msgstr "Qui sommes-nous ?"
 
 #: templates/dissemin/skeleton.html:123
 msgid "Donate"
@@ -2156,7 +2156,7 @@ msgstr "Sinon, entrez un URL :"
 
 #: upload/templates/upload/widget.html:28
 msgid "Or drop a file here:"
-msgstr "Sinon, glissez-déposez un fichier ici :"
+msgstr "Sinon, glissez-déposez un fichier ici :"
 
 #: upload/views.py:150
 msgid "Invalid PDF file."
