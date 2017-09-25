@@ -38,7 +38,7 @@ ndg-httpsclient
 pillow
 psycopg2
 pyasn1
-pyopenssl
+pyopenssl>=0.14
 requests
 requests_mock
 titlecase
