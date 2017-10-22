@@ -32,7 +32,6 @@ addons:
 
 env:
   global:
-    - DJANGO=1.9.6
       # RoMEO API key
     - secure: "hQg8tso/Qv4zXhP4A2ahKKhFZQSariIvUr+xqzzoTVtuN/9OuzBFjZ1UF8atM5KKGZ47fFMK2wTjbVOWjSyLH/SF3Wy8bX9oHHg1P8bXcsle6O/tfa3U/2s0UiYtThEdxp+iyQIr6cjBA0gmB0v/vFrQot91GvjlUbi70Xjfcts="
       # Proaixy API key
@@ -57,7 +56,6 @@ before_install:
 
 install:
   - pip install setuptools --upgrade
-  - pip install django==$DJANGO --quiet
   - pip install psycopg2 --quiet
   - pip install -r requirements.txt
   - pip install codacy-coverage coverage
