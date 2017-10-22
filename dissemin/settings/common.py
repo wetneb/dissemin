@@ -23,7 +23,7 @@
 Django settings for dissemin project.
 
 See the doc for details of usage:
-http://dissemin.readthedocs.org/en/latest/install.html
+http://dev.dissem.in/install.html
 
 For the full list of Django settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
@@ -289,6 +289,7 @@ LOGIN_REDIRECT_URL = '/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
     'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': None, # silence warning
     'DEFAULT_RENDERER_CLASSES': (
                 'rest_framework.renderers.JSONRenderer',
                 'rest_framework.renderers.BrowsableAPIRenderer',
