@@ -29,6 +29,7 @@ addons:
        - curl
        - libffi-dev
        - libssl-dev
+       - ghostscript
 
 env:
   global:
