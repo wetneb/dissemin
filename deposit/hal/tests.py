@@ -85,7 +85,9 @@ class HALProtocolTest(ProtocolTest):
         it does not have the right to deposit with only one
         affiliation.
         """
-        p = Paper.create_by_doi('10.1007/978-3-662-47666-6_5')
+        # the DOI below should *not* already exist in HAL
+        # so it may need to be changed if the test fails
+        p = Paper.create_by_doi('10.1007/978-3-319-63342-8_1')
         r = self.dry_deposit(p,
             abstract='this is an abstract',
             topic='INFO',
@@ -293,7 +295,9 @@ class HALProtocolTest(ProtocolTest):
         preferences.on_behalf_of = 'dissemin_test'
         preferences.save()
 
-        p = Paper.create_by_doi('10.1007/978-3-662-47666-6_5')
+        # the DOI here should *not* already exist in HAL
+        # so it may need to be changed if the test fails
+        p = Paper.create_by_doi('10.1007/978-3-319-63342-8_1')
         p.authors_list = [p.authors_list[0]]
         r = self.dry_deposit(p,
             abstract='this is an abstract',
