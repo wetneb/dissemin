@@ -10,11 +10,6 @@ language: python
 python:
   - 2.7
 
-services:
-  - postgresql
-  - redis
-  - elasticsearch
-
 sudo: false
 
 addons:
@@ -30,6 +25,12 @@ addons:
        - libffi-dev
        - libssl-dev
        - ghostscript
+
+services:
+  - postgresql
+  - redis
+  - elasticsearch
+
 
 env:
   global:
