@@ -29,6 +29,7 @@ apt-get install -y elasticsearch
 DB_PASSWORD=$(pwgen -s 60 -1)
 sudo -u postgres -H bash <<EOF
 psql -c "CREATE USER dissemin WITH PASSWORD '${DB_PASSWORD}';"
+psql -c "ALTER USER dissemin CREATEDB;"
 createdb --owner dissemin dissemin
 EOF
 # We install Redis
