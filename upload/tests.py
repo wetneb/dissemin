@@ -98,6 +98,10 @@ class UploadTest(JsonRenderingTest):
         resp = self.upload('mediatest/invalid.pdf')
         self.assertEqual(resp.status_code, 403)
 
+    def test_download_nohttps(self):
+        resp = self.download('http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.696.3395&rep=rep1&type=pdf')
+        self.assertEqual(resp.status_code, 200)
+
     def test_download(self):
         resp = self.download('http://arxiv.org/pdf/1410.1454v2')
         self.assertEqual(resp.status_code, 200)
