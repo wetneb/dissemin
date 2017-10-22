@@ -92,10 +92,16 @@ class UploadTest(JsonRenderingTest):
 
     def test_valid_upload(self):
         resp = self.upload('mediatest/blank.pdf')
+        if resp.status_code != 200:
+            print("Invalid status code %d, response was:\n%s" %
+                    (resp.status_code, resp.content))
         self.assertEqual(resp.status_code, 200)
 
     def test_invalid_format(self):
         resp = self.upload('mediatest/invalid.pdf')
+        if resp.status_code != 200:
+            print("Invalid status code %d, response was:\n%s" %
+                    (resp.status_code, resp.content))
         self.assertEqual(resp.status_code, 403)
 
     def test_download_nohttps(self):
