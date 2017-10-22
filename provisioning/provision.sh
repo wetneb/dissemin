@@ -25,6 +25,8 @@ apt-get install -y python python-dev python-virtualenv virtualenv
 apt-get install -y postgresql postgresql-server-dev-all postgresql-client
 # We install ElasticSearch now
 apt-get install -y elasticsearch
+# We install moreutils
+apt-get install -y moreutils
 # We setup a Dissemin user
 DB_PASSWORD=$(pwgen -s 60 -1)
 sudo -u postgres -H bash <<EOF
