@@ -86,7 +86,6 @@ def make_thumbnail(pdf_blob):
             reader = PyPDF2.PdfFileReader(orig_pdf)
             num_pages = reader.getNumPages()
             if not reader.isEncrypted and num_pages == 0:
-                print "No pages"
                 return
             writer = PyPDF2.PdfFileWriter()
             writer.addPage(reader.getPage(0))
@@ -97,42 +96,25 @@ def make_thumbnail(pdf_blob):
             # We try to convert the file with ImageMagick (wand) anyway,
             # rendering the whole PDF as we have not been able to
             # select the first page
-            print "PyPDF error: "+str(e)
+            print("PyPDF error: "+str(e))
 
-        # We render the PDF (or only its first page if we succeeded to extract
-        # it)
+        # We render the PDF
         with wand.image.Image(blob=pdf_blob, format='pdf', resolution=resolution) as image:
             if image.height == 0 or image.width == 0:
-                print "0 width or height"
                 return
             if num_pages is None:
                 num_pages = len(image.sequence)
             if num_pages == 0:
-                print "No pages"
                 return
             image = wand.image.Image(image=image.sequence[0])
-
-            # Resizing disabled, we computed a reasonable resolution.
-            # But anyway it costs much less than rendering…
-
-            #ratio = float(image.width)/image.height
-            #ref_ratio = float(THUMBNAIL_MAX_WIDTH)/THUMBNAIL_MAX_HEIGHT
-            # if ratio < ref_ratio:
-            #    new_height = THUMBNAIL_MAX_HEIGHT
-            #    new_width = int(new_height * ratio)
-            # else:
-            #    new_width = THUMBNAIL_MAX_WIDTH
-            #    new_height = int(new_width / ratio)
-            # print "Resizing to %d/%d" % (new_height,new_width)
-            #image.resize(new_width, new_height)
 
             image.format = 'png'
             return (num_pages, image.make_blob())
     except wand.exceptions.WandException as e:
         # Wand failed: we consider the PDF file as invalid
-        print "Wand exception: "+unicode(e)
+        print("Wand exception: "+unicode(e))
     except ValueError as e:
-        print "ValueError: "+unicode(e)
+        print("ValueError: "+unicode(e))
 
 
 def save_pdf(user, orig_name, pdf_blob):
