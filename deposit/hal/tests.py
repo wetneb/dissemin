@@ -249,7 +249,7 @@ class HALProtocolTest(ProtocolTest):
 
     def test_get_new_status(self):
         cases = {
-            'hal-01038347':'published',
+            'tel-01584471':'published',
             'hal-01038374':'deleted',
             # the document below should have "pending" status on hal-preprod
             # and may need to be updated if the preprod database is reset
