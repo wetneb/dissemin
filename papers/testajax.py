@@ -49,6 +49,9 @@ class JsonRenderingTest(PrefilledTest):
         self.client = django.test.Client()
 
     def checkJson(self, resp, expected_status=200):
+        if resp.status_code != expected_status:
+            print("Invalid status code %d, response was:\n%s" %
+                (status_code, resp.content))
         self.assertEqual(resp.status_code, expected_status)
         parsed = json.loads(resp.content)
         return parsed
