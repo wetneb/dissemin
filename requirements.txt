@@ -39,7 +39,7 @@ pillow
 psycopg2
 pyasn1
 pyopenssl>=0.14
-requests
+requests[security]
 requests_mock
 titlecase
 unicode_tex
