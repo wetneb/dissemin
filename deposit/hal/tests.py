@@ -221,7 +221,7 @@ class HALProtocolTest(ProtocolTest):
     def test_refresh_deposit_status(self):
         # This is the identifier of a paper which should
         # currently be published on HAL preprod
-        hal_id = 'hal-01038347'
+        hal_id = 'hal-01211282'
         # First, fake the deposition of a paper
         p = Paper.create_by_doi('10.1109/lics.2015.37')
         r = OaiRecord.new(source=self.repo.oaisource,
