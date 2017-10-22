@@ -97,7 +97,7 @@ class HALProtocolTest(ProtocolTest):
         """
         Same as test_lncs but with only one author
         """
-        p = Paper.create_by_doi('10.1007/978-3-662-47666-6_5')
+        p = Paper.create_by_doi('10.1007/978-3-319-63342-8_1')
         p.authors_list = [p.authors_list[0]]
         r = self.dry_deposit(p,
             abstract='this is an abstract',
