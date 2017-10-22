@@ -89,6 +89,12 @@ DOI_PROXY_SUPPORTS_BATCH = True
 #DOI_PROXY_DOMAIN =  'doi.org'
 #DOI_PROXY_SUPPORTS_BATCH = False
 
+# Proaixy API key
+# Used to fetch paper metadata. Get one by asking developers@dissem.in
+# This is a default key that should only be used for tests
+if PROAIXY_API_KEY is None:
+    PROAIXY_API_KEY = '46f664aaae8d25826ff6'
+
 
 ### RoMEO proxy ###
 # Set this to 'sherpa.ac.uk' if our custom mirror is not up anymore.
