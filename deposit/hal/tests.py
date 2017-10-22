@@ -251,7 +251,9 @@ class HALProtocolTest(ProtocolTest):
         cases = {
             'hal-01038347':'published',
             'hal-01038374':'deleted',
-            'hal-01038950':'pending',
+            # the document below should have "pending" status on hal-preprod
+            # and may need to be updated if the preprod database is reset
+            'hal-01587501':'pending',
         }
         for identifier in cases:
             self.assertEqual(self.proto.get_new_status(identifier),
