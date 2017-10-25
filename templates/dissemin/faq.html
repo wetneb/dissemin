@@ -63,48 +63,70 @@
         You should do it because:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
         <ul>
-              <li>It makes your research <strong>more accessible</strong> and <strong>more visible</strong>.
+              <li>
+        {% blocktrans trimmed %}
+                It makes your research <strong>more accessible</strong> and <strong>more visible</strong>.
               Many researchers routinely check papers in topic repositories such as arXiv, and
               it is less likely that these researchers check your homepage regularly.
+        {% endblocktrans %}
               </li>
-              <li>You can even do it before publication. You can get <strong>valuable feedback</strong>
+              <li>
+        {% blocktrans trimmed %}
+                You can even do it before publication. You can get <strong>valuable feedback</strong>
 	      to improve your paper before the actual peer-reviewing process.
 	      It may also be useful to establish priority if it takes a long
-	      time for your paper to get published.</li>
+	      time for your paper to get published.
+        {% endblocktrans %}
+              </li>
               <li>
+        {% blocktrans trimmed %}
               It provides you a <strong>durable storage</strong>. Your homepage
               is likely to change or to disappear, for instance if you leave your current institution.
+        {% endblocktrans %}
               </li>
-              <li>Librarians around the world cannot check whether all the papers in a given journal
+              <li>
+        {% blocktrans trimmed %}
+                Librarians around the world cannot check whether all the papers in a given journal
               are available on homepages: in doubt, they subscribe to this journal to make sure their
               researchers have access to it. This costs a lot of money for research institutions.
               Papers stored in repositories are <strong>easier to detect</strong> and can help academia save
-              money.</li>
+              money.
+        {% endblocktrans %}
+              </li>
               <li>
+        {% blocktrans trimmed %}
               Finally, for all these reasons,
               an increasing number of <strong>funding bodies</strong> require the outcomes of
               their projects to be made available in a repository.
+        {% endblocktrans %}
               </li>
           </ul>
-        {% endblocktrans %}
         <h2 id="what-repository">{% trans "What repository should I use?" %}</h2>
         <p>
         {% blocktrans trimmed %}
             There are roughly three types of repositories:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
             <ul>
-                <li>Subject repositories, restricted to some research fields,
-                  such as <a href="https://arxiv.org">arXiv</a>.</li>
-                <li>Institutional repositories, designated to store the research output of a given institution or country.
-                </li>
-                <li>General-purpose academic repositories such as <a href="https://zenodo.org">Zenodo</a>,
-                    not limited to a particular scope.</li>
-            </ul>
+                <li>
+        {% blocktrans trimmed %}
+                  Subject repositories, restricted to some research fields,
+                  such as <a href="https://arxiv.org">arXiv</a>.
         {% endblocktrans %}
+                </li>
+                <li>
+        {% blocktrans trimmed %}
+                  Institutional repositories, designated to store the research output of a given institution or country.
+        {% endblocktrans %}
+                </li>
+                <li>
+        {% blocktrans trimmed %}
+                  General-purpose academic repositories such as <a href="https://zenodo.org">Zenodo</a>,
+                    not limited to a particular scope.
+        {% endblocktrans %}
+                </li>
+            </ul>
         <p>
         {% blocktrans trimmed %}
             If your research community favours a specific repository, using it makes sense as it will increase your visibility. If not, institutional or general-purpose repositories are also good options.
@@ -116,18 +138,28 @@
             At the moment, you can use Dissemin to deposit in the following repositories:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
             <ul>
-              <li><strong><a href="https://zenodo.org">Zenodo</a></strong>,
-                an innovative repository backed by the EU.</li>
-              <li><strong><a href="https://hal.archives-ouvertes.fr/">HAL</a></strong>,
-                a French repository managed by the
-                <a href="https://www.ccsd.cnrs.fr/">CCSD</a>.</li>
-	      <li><strong><a href="https://osf.io/preprints/">OSF preprints</a></strong>, 
-		a preprint server run by the <a href="https://cos.io/">Center for Open Science</a> on
-		top of their <a href="https://osf.io/">Open Science Framework</a>.</li>
-            </ul>
+              <li>
+        {% blocktrans trimmed %}
+                <strong><a href="https://zenodo.org">Zenodo</a></strong>,
+                an innovative repository backed by the EU.
         {% endblocktrans %}
+              </li>
+              <li>
+        {% blocktrans trimmed %}
+                <strong><a href="https://hal.archives-ouvertes.fr/">HAL</a></strong>,
+                a French repository managed by the
+                <a href="https://www.ccsd.cnrs.fr/">CCSD</a>.
+        {% endblocktrans %}
+              </li>
+	      <li>
+        {% blocktrans trimmed %}
+                <strong><a href="https://osf.io/preprints/">OSF preprints</a></strong>, 
+		a preprint server run by the <a href="https://cos.io/">Center for Open Science</a> on
+		top of their <a href="https://osf.io/">Open Science Framework</a>.
+        {% endblocktrans %}
+              </li>
+            </ul>
         <p>
         {% blocktrans trimmed %}
             Supporting more repositories requires us to write
@@ -136,17 +168,19 @@
             have been considering integrating the following repositories:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
             <ul>
-              <li><strong><a href="https://arxiv.org/">arXiv</a></strong>, a
+              <li>
+        {% blocktrans trimmed %}
+                <strong><a href="https://arxiv.org/">arXiv</a></strong>, a
                 well-known general-purpose repository. For now, arXiv has
                 declined to allow Dissemin to deposit using their SWORD API, and
                 wants users to deposit in arXiv manually. If you would like to
                 deposit in arXiv with Dissemin, you can let them know that you
                 are interested (email: help AT arxiv.org, and start your message
-                with "Dear arXiv,").</li>
-            </ul>
+                with "Dear arXiv,").
         {% endblocktrans %}
+              </li>
+            </ul>
 
         <h3>dissem.in</h3>
 
@@ -255,26 +289,53 @@
         There are a few caveats concerning our data:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
         <ul>
-            <li>Some papers are not present in any of our metadata sources, so they are not counted at all.</li>
-            <li>Some entries in our system do not correspond to proper research papers.</li>
-            <li>Some of them have been incorrectly classified by our homonym disambiguation system.</li>
-            <li>Some repositories might not be covered by any of our sources, so a paper might be marked as unavailable while it is available.</li>
-            <li>Some papers might be marked as available but actually, they are not (for instance because the content has been deleted).</li>
-            <li>And many other technical issues.</li>
-        </ul>
+            <li>
+        {% blocktrans trimmed %}
+              Some papers are not present in any of our metadata sources, so they are not counted at all.
         {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Some entries in our system do not correspond to proper research papers.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Some of them have been incorrectly classified by our homonym disambiguation system.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Some repositories might not be covered by any of our sources, so a paper might be marked as unavailable while it is available.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Some papers might be marked as available but actually, they are not (for instance because the content has been deleted).
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              And many other technical issues.
+        {% endblocktrans %}
+            </li>
+        </ul>
 
         <h3>{% trans "Omissions and errors" %}</h3>
         <h2 id="missing-paper">{% trans "One of my papers is missing. Why?" %}</h2>
+            <p>
             {% blocktrans trimmed %}
-            <p>There are many possible reasons: maybe it is not available from any
+            There are many possible reasons: maybe it is not available from any
             of <a href="{{ sources_url }}">our sources</a>, your name is spelt
                differently or partially in the authors list, our algorithms estimated
                that it has been written by an homonym researcher, or it has been deleted
-               by one of your co-authors.</p>
-            <p>In any case, you should be able to add it manually soon.</p>
+               by one of your co-authors.
+            {% endblocktrans %}
+            </p>
+            <p>
+            {% blocktrans trimmed %}
+            In any case, you should be able to add it manually soon.</p>
             {% endblocktrans %}
 
         <h2 id="incorrect-metadata">{% trans "Some details of my paper are incorrect. What can I do?" %}</h2>
@@ -354,14 +415,28 @@
             via CrossRef's search interface. Here is how to use it:
             {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
         <ul>
-            <li>Go to <a href="https://search.crossref.org/">CrossRef Metadata Search</a>;</li>
-            <li>Click "Log in" in the top right corner and go through the ORCID login process;</li>
-            <li>Search for your publications, for instance by typing your name in CrossRef's search interface;</li>
-            <li>Add publications that are yours to your ORCID record by clicking "Add to ORCID".</li>
+            <li>
+            {% blocktrans trimmed %}
+              Go to <a href="https://search.crossref.org/">CrossRef Metadata Search</a>;
+            {% endblocktrans %}
+            </li>
+            <li>
+            {% blocktrans trimmed %}
+              Click "Log in" in the top right corner and go through the ORCID login process;
+            {% endblocktrans %}
+            </li>
+            <li>
+            {% blocktrans trimmed %}
+              Search for your publications, for instance by typing your name in CrossRef's search interface;
+            {% endblocktrans %}
+            </li>
+            <li>
+            {% blocktrans trimmed %}
+              Add publications that are yours to your ORCID record by clicking "Add to ORCID".
+            {% endblocktrans %}
+            </li>
         </ul>
-        {% endblocktrans %}
         <p>
             {% blocktrans trimmed %}
             In the future, we hope to enable you to do this from Dissemin itself.
@@ -383,18 +458,44 @@
         There are many ways to get involved:
         {% endblocktrans %}
         </p>
-        {% blocktrans trimmed %}
         <ul>
-            <li>Encourage researchers to use this service.</li>
-            <li><a href="mailto:contact@dissem.in">Send us</a> a list of researchers for your
-                university or department so that we can set up an instance of Dissemin for your institution.</li>
-            <li>Help us translate the interface in your language.</li>
-            <li>Contribute to <a href="https://github.com/wetneb/dissemin">the code</a>.</li>
-            <li>Fix any of our listed <a href="https://github.com/wetneb/dissemin/issues">issues</a>.</li>
-            <li>Star <a href="https://github.com/wetneb/dissemin">our github project</a>!</li>
-            <li><a href="https://association.dissem.in/#dons">Donations are accepted</a>.</li>
-        </ul>
+            <li>
+        {% blocktrans trimmed %}
+              Encourage researchers to use this service.
         {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              <a href="mailto:contact@dissem.in">Send us</a> a list of researchers for your
+                university or department so that we can set up an instance of Dissemin for your institution.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Help us translate the interface in your language.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Contribute to <a href="https://github.com/wetneb/dissemin">the code</a>.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Fix any of our listed <a href="https://github.com/wetneb/dissemin/issues">issues</a>.
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              Star <a href="https://github.com/wetneb/dissemin">our github project</a>!
+        {% endblocktrans %}
+            </li>
+            <li>
+        {% blocktrans trimmed %}
+              <a href="https://association.dissem.in/#dons">Donations are accepted</a>.
+        {% endblocktrans %}
+            </li>
+        </ul>
         <h2 id="source-code">{% trans "Where is the source code?" %}</h2>
         <p>
         {% blocktrans trimmed %}
