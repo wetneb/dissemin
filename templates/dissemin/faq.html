@@ -30,9 +30,9 @@
         <p><a href="#statistics">{% trans "Should I trust your statistics?" %}</a></p>
 
         <h4>{% trans "Omissions and errors" %}</h4>
-        <p><a href="#copy-available">{% trans "There is a freely available copy of my article online but dissem.in does not find it." %}</a></p>
         <p><a href="#missing-paper">{% trans "One of my papers is missing. Why?" %}</a></p>
         <p><a href="#incorrect-metadata">{% trans "Some details of my paper are incorrect. What can I do?" %}</a></p>
+        <p><a href="#copy-available">{% trans "There is a freely available copy of my article online but dissem.in does not find it." %}</a></p>
 
         <h4>{% trans "Authentication with ORCID" %}</h4>
         <p><a href="#orcid-why">{% trans "Why do you need to authenticate users?" %}</a></p>
@@ -215,8 +215,10 @@
         <h2 id="creating-a-profile">{% trans "Can I create my profile on dissem.in?" %}</h2>
         <p>
         {% blocktrans trimmed %}
-        Yes you can. We will ask you to create an ORCID profile if you do not have one yet.
-        This only takes a few seconds.
+        Yes, you can do it, by first <a
+          href="https://orcid.org/register">registering on ORCID</a> if you do
+        not have an ORCID identifier yet. This only takes a few seconds, and you
+        can then use your ORCID identifier to log into Dissemin.
         {% endblocktrans %}
         </p>
 
@@ -302,7 +304,8 @@
             </li>
             <li>
         {% blocktrans trimmed %}
-              Some of them have been incorrectly classified by our homonym disambiguation system.
+              Because there are many researchers with the same name, some papers
+              may be misattributed to a homonym.
         {% endblocktrans %}
             </li>
             <li>
@@ -312,12 +315,13 @@
             </li>
             <li>
         {% blocktrans trimmed %}
-              Some papers might be marked as available but actually, they are not (for instance because the content has been deleted).
+              Some papers might be marked as available but actually are not, for
+              instance because they have been deleted.
         {% endblocktrans %}
             </li>
             <li>
         {% blocktrans trimmed %}
-              And many other technical issues.
+              All sorts of other technical issues.
         {% endblocktrans %}
             </li>
         </ul>
@@ -326,23 +330,61 @@
         <h2 id="missing-paper">{% trans "One of my papers is missing. Why?" %}</h2>
             <p>
             {% blocktrans trimmed %}
-            There are many possible reasons: maybe it is not available from any
-            of <a href="{{ sources_url }}">our sources</a>, your name is spelt
-               differently or partially in the authors list, our algorithms estimated
-               that it has been written by an homonym researcher, or it has been deleted
-               by one of your co-authors.
+            Please first check whether the paper is available in one of
+            <a href="{{ sources_url }}">our sources</a>. If it is not, Dissemin
+            cannot harvest it, and you should report the problem to the source
+            where it should appear.
             {% endblocktrans %}
             </p>
             <p>
             {% blocktrans trimmed %}
-            In any case, you should be able to add it manually soon.</p>
+            Now, if your paper does appear in one of the sources but not on
+            Dissemin, please check that your name is not spellt incorrectly on
+            the source, and that the spelling matches your ORCID record. If
+            there is a misspelling, again, you should report the problem to the
+            source that contains the mistake.
             {% endblocktrans %}
+            </p>
+            <p>
+            If the name matches but the paper is not in Dissemin, then maybe one
+            of your co-authors asked us to delete it? Or it may be a bug. In
+            this case, please file an <a
+               href="https://github.com/dissemin/dissemin/issues">issue</a>
+            describing the problem, or send a message to <a
+              href="mailto:bugs@dissem.in">bugs@dissem.in</a>.
+            {% endblocktrans %}
+            </p>
+            <p>
+            {% blocktrans trimmed %}
+            Note that, it the longer term, we hope to design a way for our users
+            to edit their profiles on Dissemin to add missing papers and fix
+            these problems; but we do not have such a system yet.
+            {% endblocktrans %}
+            </p>
 
         <h2 id="incorrect-metadata">{% trans "Some details of my paper are incorrect. What can I do?" %}</h2>
         <p>
         {% blocktrans trimmed %}
-        In a near future, you should be able to create an account and fix it by yourself.
-        If it is really urgent, send a message to <a href="mailto:contact@dissem.in">contact@dissem.in</a>.
+            In most cases, the errors that you see on Dissemin have not been
+            introduced by Dissemin, but are already present in the <a href="{{
+              sources_url }}">public sources</a> that Dissemin harvests. Hence,
+            please first check if the error that you have seen is already
+            present in our data sources, by looking at the "Links" section in
+            the top right of the page. If one of these pages contain the error,
+            you should report the problem to them and not to us, otherwise the
+            mistake will persist in the source.
+        {% endblocktrans %}
+        </p>
+        <p>
+        {% blocktrans trimmed %}
+            If the error is not present in any of the sources and you believe
+            that Dissemin may have introduced the problem, please file an <a
+               href="https://github.com/dissemin/dissemin/issues">issue</a>
+            with details of the problem, or send a message to <a
+              href="mailto:bugs@dissem.in">bugs@dissem.in</a>. Note that you
+            cannot yet fix the problem yourself, although we hope in the longer
+            term to develop a system to allow our users to edit details of their
+            papers themselves.
         {% endblocktrans %}
         </p>
 
@@ -351,7 +393,7 @@
             {% blocktrans trimmed %}
             First, note that Dissemin does not account for copies of articles
             that are only available on a personal homepage or a similar website.
-            This is intentional, because we believe that
+            This is deliberate, because we believe that
             <a href="#repositories-rock">articles should be hosted in repositories</a>.
             {% endblocktrans %}
        </p>
@@ -367,18 +409,22 @@
             to support more repositories by crawling them, but for the moment,
             we do not have the resources to support repositories not
             covered by BASE.
+            Hence, if you are a user of a repository and would like it to be supported
+            by Dissemin, please contact the repository administrator and suggest
+            them to implement OAI-PMH support and to 
+            <a href="https://www.base-search.net/about/en/suggest.php">register</a>
+            their repository in BASE. 
             {% endblocktrans %}
        </p>
        <p>
             {% blocktrans trimmed %}
-            If you are a user of a repository and would like it to be supported
-            by Dissemin, please contact the repository administrator and suggest
-            them to implement OAI-PMH support and to 
-            <a href="https://www.base-search.net/about/en/suggest.php">register</a>
-            their repository in BASE. If the repository is registered in BASE
-            but is not properly supported by Dissemin, please 
-            email <a href="mailto:contact@dissem.in">contact@dissem.in</a> and
-            we will investigate the issue.
+            If the repository is registered in BASE, please <a
+               href="https://www.base-search.net/">search in BASE</a> to check
+             that your article is there. If it is, then this may be a bug of
+               Dissemin; please file an <a
+               href="https://github.com/dissemin/dissemin/issues">issue</a>
+            describing the problem, or send a message to <a
+              href="mailto:bugs@dissem.in">bugs@dissem.in</a>.
             {% endblocktrans %}
        </p>
 
@@ -439,7 +485,14 @@
         </ul>
         <p>
             {% blocktrans trimmed %}
-            In the future, we hope to enable you to do this from Dissemin itself.
+            You can also add publications to your profile <em>on Dissemin</em>,
+            by clicking the button "Include in my profile" in search results on
+            Dissemin. (This button is only visible when you are logged in, and
+            next to papers that Dissemin thinks you have authored.) You can also
+            exclude articles from your profile in this way. Please note that
+            these changes are local to Dissemin and are <em>not</em> propagated
+            to your ORCID profile, because ORCID does not have a free API
+            allowing us to propagate them.
             {% endblocktrans %}
         </p>
 
@@ -461,13 +514,12 @@
         <ul>
             <li>
         {% blocktrans trimmed %}
-              Encourage researchers to use this service.
+              Contribute to <a href="https://github.com/wetneb/dissemin">the code</a>.
         {% endblocktrans %}
             </li>
             <li>
         {% blocktrans trimmed %}
-              <a href="mailto:contact@dissem.in">Send us</a> a list of researchers for your
-                university or department so that we can set up an instance of Dissemin for your institution.
+              Fix any of our listed <a href="https://github.com/wetneb/dissemin/issues">issues</a>.
         {% endblocktrans %}
             </li>
             <li>
@@ -479,17 +531,12 @@
             </li>
             <li>
         {% blocktrans trimmed %}
-              Contribute to <a href="https://github.com/wetneb/dissemin">the code</a>.
+              Encourage researchers to use this service.
         {% endblocktrans %}
             </li>
             <li>
         {% blocktrans trimmed %}
-              Fix any of our listed <a href="https://github.com/wetneb/dissemin/issues">issues</a>.
-        {% endblocktrans %}
-            </li>
-            <li>
-        {% blocktrans trimmed %}
-              Star <a href="https://github.com/wetneb/dissemin">our github project</a>!
+              Star <a href="https://github.com/wetneb/dissemin">our GitHub project</a>!
         {% endblocktrans %}
             </li>
             <li>
@@ -501,14 +548,16 @@
         <h2 id="source-code">{% trans "Where is the source code?" %}</h2>
         <p>
         {% blocktrans trimmed %}
-        The source code is available <a href="https://github.com/wetneb/dissemin">on github</a>.
+        The source code is available <a href="https://github.com/wetneb/dissemin">on GitHub</a>.
         {% endblocktrans %}
         </p>
         <h2 id="oai">{% trans "Can I harvest your data?" %}</h2>
         <p>
         {% blocktrans trimmed %}
-        Yes! We even have <a href="https://dev.dissem.in/api.html">an API</a>. If it does not suit your needs,
-        tell us what you need.
+        Yes! We even have <a href="https://dev.dissem.in/api.html">an API</a>.
+        If it does not suit your needs, please don't hesitate to get in touch by
+        writing to <a
+              href="mailto:hello@dissem.in">hello@dissem.in</a>
         {% endblocktrans %}
         </p>
         <h2 id="logos">{% trans "Can I use the Dissemin logo to refer to the project?" %}</h2>
