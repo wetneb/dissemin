@@ -29,8 +29,8 @@ of that protocol. This has to be done in a dedicated file, `deposit/sword/protoc
    # this imports generic tools for our protocol implementation
    from deposit import protocol
    # this imports django's localization tools
+   # it should sometimes be replaced by ugettext_lazy
    from django.utils.translation import ugettext as _
-   from django.utils.translation import ugettext_lazy as __
 
    class SwordProtocol(protocol.RepositoryProtocol):
         

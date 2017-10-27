@@ -24,7 +24,7 @@ from __future__ import unicode_literals
 import traceback
 
 from django.conf import settings
-from django.utils.translation import ugettext as __
+from django.utils.translation import ugettext as _
 from papers.baremodels import BareOaiRecord
 from deposit.forms import BaseMetadataForm
 from deposit.models import DEPOSIT_STATUS_CHOICES
@@ -196,7 +196,7 @@ class RepositoryProtocol(object):
             self.log("Caught exception:")
             self.log(str(type(e))+': '+str(e)+'')
             self.log(traceback.format_exc())
-            return DepositResult(logs=self._logs, status='failed', message=__('Failed to connect to the repository. Please try again later.'))
+            return DepositResult(logs=self._logs, status='failed', message=_('Failed to connect to the repository. Please try again later.'))
 
     ### Logging utilities
     # This log will be saved in a DepositRecord later on, so make sure
