@@ -274,6 +274,8 @@ POSSIBLE_LANGUAGE_CODES = ['en', 'fr']
 LANGUAGES = [
     ('en', _('English')),
     ('fr', _('French')),
+    ('zh-hand', _('Simplified Chinese')),
+    ('mk', _('Macedonian')),
 ]
 TIME_ZONE = 'Europe/Paris'
 USE_I18N = True
