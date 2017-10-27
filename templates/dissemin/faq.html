@@ -38,6 +38,7 @@
         <p><a href="#orcid-why">{% trans "Why do you need to authenticate users?" %}</a></p>
         <p><a href="#orcid-login">{% trans "What will you do to my ORCID profile if I log in?" %}</a></p>
         <p><a href="#orcid-add-pubs">{% trans "How do I add publications to my ORCID profile?" %}</a></p>
+        <p><a href="#orcid-update">{% trans "My ORCID details on Dissemin are outdated." %}</a></p>
 
         <h4>{% trans "Behind the scenes" %}</h4>
         <p><a href="#sources">{% trans "Where do you get the data from?" %}</a></p>
@@ -494,6 +495,19 @@
             these changes are local to Dissemin and are <em>not</em> propagated
             to your ORCID profile, because ORCID does not have a free API
             allowing us to propagate them.
+            {% endblocktrans %}
+        </p>
+
+        <h2 id="orcid-update">{% trans "My ORCID details on Dissemin are outdated." %}</h2>
+        
+        <p>
+            {% blocktrans trimmed %}
+            If you change some details in your ORCID profile (name, homepage,
+            etc.), the changes will not automatically be picked up in your
+            profile on Dissemin. To update your profile on Dissemin accordingly,
+            once you have logged in to Dissemin, you can go to your <a
+            href="/my-profile">profile page</a> and click "Refresh
+          publications".
             {% endblocktrans %}
         </p>
 
