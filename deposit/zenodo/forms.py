@@ -35,6 +35,8 @@ ZENODO_LICENSES_CHOICES = [
     _('Creative Commons Attribution-NonCommercial (CC-BY-NC)')),
    ('cc-by-nd-4.0',
     _('Creative Commons Attribution-NoDerivatives (CC-BY-ND)')),
+   ('zenodo-freetoread-1.0',
+    _('Free for private use; right holder retains other rights, including distribution')),
    ('other-open',
     _('Other open license')),
  ]
@@ -44,6 +46,6 @@ class ZenodoForm(FormWithAbstract):
     license = forms.ChoiceField(
             label=_('License'),
             choices=ZENODO_LICENSES_CHOICES,
-            initial='other-open',
+            initial='zenodo-freetoread-1.0',
             widget=forms.RadioSelect(attrs={'class': 'radio-margin'})
             )
