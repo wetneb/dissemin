@@ -23,7 +23,7 @@ from __future__ import unicode_literals
 
 from statistics.models import AccessStatistics
 
-from backend.crossref import consolidate_publication
+from backend.zotero import consolidate_publication
 from backend.orcid import OrcidPaperSource
 from backend.utils import run_only_once
 from celery import shared_task
