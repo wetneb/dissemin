@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from dissemin.settings import DOI_PROXY_DOMAIN
+from papers.errors import MetadataSourceException
+from papers.utils import sanitize_html
 
 import requests
 

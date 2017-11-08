@@ -46,7 +46,6 @@ from papers.name import normalize_name_words
 from papers.name import parse_comma_name
 from papers.utils import date_from_dateparts
 from papers.utils import jpath
-from papers.utils import sanitize_html
 from papers.utils import tolerant_datestamp_to_datetime
 from papers.utils import valid_publication_date
 from papers.utils import validate_orcid
@@ -469,9 +468,11 @@ class CrossRefAPI(object):
 
     ##### CrossRef search API #######
 
-    def search_for_dois_incrementally(self, query, filters=None, max_batches=max_crossref_batches_per_researcher):
+    def fetch_all_records(self, query, filters=None, max_batches=max_crossref_batches_per_researcher):
         """
+        Fetches all
         Searches for DOIs for the given query and yields their metadata as it finds them.
+
 
         :param query: the search query to pass to CrossRef
         :param filters: filters as specified by the REST API (as a dictionary)
