@@ -103,6 +103,13 @@ class CrossRefTest(TestCase):
         self.assertTrue(self.api.create_paper_by_doi('10.15200/winn.145838.88372').pdf_url)
         self.assertFalse(self.api.create_paper_by_doi('10.5061/dryad.b167g').pdf_url)
 
+    def test_fetch_papers(self):
+        generator = self.api.fetch_all_records(filters={'issn':'0302-9743'})
+        for i in range(30):
+            metadata = next(generator)
+            print(metadata['DOI'])
+            self.assertTrue(metadata['DOI'].startswith('10.1007/'))
+
 class CrossRefUnitTest(unittest.TestCase):
 
     def test_fetch_single_doi(self):

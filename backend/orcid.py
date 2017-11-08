@@ -362,7 +362,7 @@ class OrcidPaperSource(PaperSource):
         if settings.ORCID_BASE_DOMAIN != 'orcid.org':
             return
 
-        for metadata in cr_api.search_for_dois_incrementally('', {'orcid': orcid_id}):
+        for metadata in cr_api.fetch_all_papers({'orcid': orcid_id}):
             try:
                 paper = cr_api.save_doi_metadata(metadata)
                 if paper:

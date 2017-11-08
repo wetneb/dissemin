@@ -466,38 +466,32 @@ class CrossRefAPI(object):
 
         return paper
 
-    ##### CrossRef search API #######
+    ##### CrossRef search API #######
 
-    def fetch_all_records(self, query, filters=None, max_batches=max_crossref_batches_per_researcher):
+    def fetch_all_records(self, filters=None,cursor="*"):
         """
-        Fetches all
-        Searches for DOIs for the given query and yields their metadata as it finds them.
+        Fetches all Crossref records from their API, starting at a given date.
 
-
-        :param query: the search query to pass to CrossRef
         :param filters: filters as specified by the REST API (as a dictionary)
-        :param max_batches: maximum number of queries to send to CrossRef
+        :param cursor: the initial cursor where to start the fetching
+            (useful to resume failed ingestions)
         """
         if filters is None:
             filters = {}
         params = {}
-        if query:
-            params['query'] = query
         if filters:
             params['filter'] = ','.join(k+":"+v for k, v in filters.items())
 
         url = 'http://api.crossref.org/works'
 
-        count = 0
         rows = 20
-        offset = 0
-        while not max_batches or count < max_batches:
+        next_cursor = cursor
+        while next_cursor:
             params['rows'] = rows
-            params['offset'] = offset
+            params['cursor'] = cursor
 
             try:
                 r = requests.get(url, params=params)
-                print "CROSSREF: "+r.url
                 js = r.json()
                 found = False
                 for item in jpath('message/items', js, default=[]):
@@ -505,6 +499,8 @@ class CrossRefAPI(object):
                     yield item
                 if not found:
                     break
+                next_cursor = jpath('message/next-cursor', js)
+                print('Next cursor: '+next_cursor) # to ease recovery
             except ValueError as e:
                 raise MetadataSourceException('Error while fetching CrossRef results:\nInvalid response.\n' +
                                               'URL was: %s\nParameters were: %s\nJSON parser error was: %s' % (url, urlencode(params), unicode(e)))
@@ -512,7 +508,5 @@ class CrossRefAPI(object):
                 raise MetadataSourceException('Error while fetching CrossRef results:\nUnable to open the URL: ' +
                                               url+'\nError was: '+str(e))
 
-            offset += rows
-            count += 1
 
 
