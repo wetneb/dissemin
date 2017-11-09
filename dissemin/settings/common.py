@@ -260,6 +260,10 @@ CELERYBEAT_SCHEDULE = {
           'task': 'refresh_deposit_statuses',
           'schedule': timedelta(days=1),
     },
+    'update_crossref': {
+          'task': 'update_crossref',
+          'schedule': timedelta(days=1),
+    },
 }
 
 # This is the time in seconds before an unacknowledged task is re-sent to

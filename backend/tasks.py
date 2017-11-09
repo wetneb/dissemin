@@ -25,6 +25,7 @@ from statistics.models import AccessStatistics
 
 from backend.zotero import consolidate_publication
 from backend.orcid import OrcidPaperSource
+from backend.crossref import CrossRefAPI
 from backend.utils import run_only_once
 from celery import shared_task
 from celery.utils.log import get_task_logger
@@ -139,4 +140,13 @@ def update_journal_stats():
     """
     AccessStatistics.update_all_stats(Journal)
 
+
+@shared_task(name='update_crossref')
+@run_only_once('update_crossref', timeout=24*3600)
+def update_crossref():
+    """
+    Updates paper metadata from Crossref
+    """
+    c = CrossRefAPI()
+    c.fetch_and_save_new_records()
 
