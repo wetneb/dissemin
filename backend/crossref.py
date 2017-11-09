@@ -42,6 +42,7 @@ from papers.doi import doi_to_url
 from papers.doi import to_doi
 from papers.errors import MetadataSourceException
 from papers.models import OaiSource
+from papers.models import Paper
 from papers.name import normalize_name_words
 from papers.name import parse_comma_name
 from papers.utils import date_from_dateparts
@@ -351,11 +352,12 @@ def fetch_dois_by_batch(doi_list):
         # Some DOIs might not be in the results list, because they are issued by other organizations
         # We fetch them using our proxy (cached content negociation)
         missing_dois = list(set(doi_list) - set(dct.keys()))
-        req = requests.post('http://'+DOI_PROXY_DOMAIN +
-                            '/batch', {'dois': json.dumps(missing_dois)})
-        req.raise_for_status()
-        missing_dois_dct = results_list_to_dict(req.json())
-        dct.update(missing_dois_dct)
+        if missing_dois:
+            req = requests.post('http://'+DOI_PROXY_DOMAIN +
+                                '/batch', {'dois': json.dumps(missing_dois)})
+            req.raise_for_status()
+            missing_dois_dct = results_list_to_dict(req.json())
+            dct.update(missing_dois_dct)
 
         result = [dct.get(doi) for doi in doi_list]
         return result
@@ -526,7 +528,9 @@ class CrossRefAPI(object):
         to_update = self.fetch_all_records(filters={'from-update-date':last_updated.date().isoformat()})
         for record in to_update:
             try:
-                self.save_doi_metadata(record)
+                bare_paper = self.save_doi_metadata(record)
+                p = Paper.from_bare(bare_paper)
+                p.update_index()
             except ValueError as e:
                 print(e)
 
