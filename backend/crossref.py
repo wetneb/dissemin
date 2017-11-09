@@ -488,11 +488,14 @@ class CrossRefAPI(object):
         next_cursor = cursor
         while next_cursor:
             params['rows'] = rows
-            params['cursor'] = cursor
+            params['cursor'] = next_cursor
 
             try:
                 r = requests.get(url, params=params)
                 js = r.json()
+                if js['status'] == 'failed':
+                    raise MetadataSourceException(
+                    'Querying Crossrsef with {} failed.'.format(r.url))
                 found = False
                 for item in jpath('message/items', js, default=[]):
                     found = True
@@ -502,11 +505,32 @@ class CrossRefAPI(object):
                 next_cursor = jpath('message/next-cursor', js)
                 print('Next cursor: '+next_cursor) # to ease recovery
             except ValueError as e:
-                raise MetadataSourceException('Error while fetching CrossRef results:\nInvalid response.\n' +
-                                              'URL was: %s\nParameters were: %s\nJSON parser error was: %s' % (url, urlencode(params), unicode(e)))
+                raise MetadataSourceException(
+                    'Error while fetching CrossRef results:\nInvalid response.\n' +
+                    'URL was: %s\nParameters were: %s\nJSON parser error was: %s' % (url, urlencode(params), unicode(e)))
             except requests.exceptions.RequestException as e:
                 raise MetadataSourceException('Error while fetching CrossRef results:\nUnable to open the URL: ' +
                                               url+'\nError was: '+str(e))
 
+
+    def fetch_and_save_new_records(self):
+        """
+        Fetches and stores all new Crossref records updated since the
+        last update time of the associated OaiSource.
+        """
+
+        from papers.models import OaiSource
+        source = OaiSource.objects.get(identifier='crossref')
+        last_updated = source.last_update
+
+        to_update = self.fetch_all_records(filters={'from-update-date':last_updated.date().isoformat()})
+        for record in to_update:
+            try:
+                self.save_doi_metadata(record)
+            except ValueError as e:
+                print(e)
+
+        source.last_update = datetime.datetime.now()
+        source.save()
 
 

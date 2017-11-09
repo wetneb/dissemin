@@ -107,7 +107,6 @@ class CrossRefTest(TestCase):
         generator = self.api.fetch_all_records(filters={'issn':'0302-9743'})
         for i in range(30):
             metadata = next(generator)
-            print(metadata['DOI'])
             self.assertTrue(metadata['DOI'].startswith('10.1007/'))
 
 class CrossRefUnitTest(unittest.TestCase):

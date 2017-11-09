@@ -1315,8 +1315,7 @@ class OaiSource(CachingMixin, models.Model):
     default_pubtype = models.CharField(
         max_length=64, choices=PAPER_TYPE_CHOICES)
 
-    # Fetching properties
-    last_status_update = models.DateTimeField(auto_now=True)
+    last_update = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.name
