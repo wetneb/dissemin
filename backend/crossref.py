@@ -520,8 +520,6 @@ class CrossRefAPI(object):
         Fetches and stores all new Crossref records updated since the
         last update time of the associated OaiSource.
         """
-
-        from papers.models import OaiSource
         source = OaiSource.objects.get(identifier='crossref')
         last_updated = source.last_update
 
