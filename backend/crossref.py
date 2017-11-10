@@ -515,7 +515,7 @@ class CrossRefAPI(object):
                                               url+'\nError was: '+str(e))
 
 
-    def fetch_and_save_new_records(self):
+    def fetch_and_save_new_records(self, starting_cursor='*'):
         """
         Fetches and stores all new Crossref records updated since the
         last update time of the associated OaiSource.
@@ -523,7 +523,8 @@ class CrossRefAPI(object):
         source = OaiSource.objects.get(identifier='crossref')
         last_updated = source.last_update
 
-        to_update = self.fetch_all_records(filters={'from-update-date':last_updated.date().isoformat()})
+        to_update = self.fetch_all_records(filters={'from-update-date':last_updated.date().isoformat()},
+                cursor=starting_cursor)
         for record in to_update:
             try:
                 bare_paper = self.save_doi_metadata(record)
