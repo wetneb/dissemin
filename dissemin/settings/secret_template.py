@@ -14,7 +14,8 @@ DATABASES = {
         'NAME': 'dissemin',
         'USER': 'dissemin',
         'PASSWORD': 'dissemin',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'DISABLE_SERVER_SIDE_CURSORS': False,
     }
 }
 

@@ -6,7 +6,7 @@ bibtexparser
 celery[redis]
 cryptography
 czipfile
-django==1.10.8
+django==1.11
 django-autocomplete-light
 django-bootstrap-pagination
 django-bulk-update
