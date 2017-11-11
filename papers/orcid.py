@@ -24,6 +24,7 @@ import requests
 
 from django.conf import settings
 from django.utils.http import urlencode
+from django.utils.functional import cached_property
 from lxml import etree
 from papers.errors import MetadataSourceException
 from papers.name import normalize_name_words
@@ -43,8 +44,13 @@ class OrcidProfile(object):
         Create a profile by ORCID ID or by providing directly the parsed JSON payload.
         """
         self.json = json
+        self.id = orcid_id
+        self.instance = instance
+        if self.instance not in ['orcid.org', 'sandbox.orcid.org']:
+            raise ValueError('Unexpected instance')
+
         if orcid_id is not None:
-            self.fetch(orcid_id, instance=instance)
+            self.fetch()
 
     def __getitem__(self, key):
         return self.json[key]
@@ -58,32 +64,39 @@ class OrcidProfile(object):
     def get(self, *args, **kwargs):
         return self.json.get(*args, **kwargs)
 
-    def fetch(self, orcid_id, instance=settings.ORCID_BASE_DOMAIN):
+    def request_element(self, path):
+        """
+        Returns the base URL of the profile on the API
+        """
+        headers = {'Accept': 'application/orcid+json'}
+        url = 'https://pub.{instance}/v2.1/{orcid}/{path}'.format(instance=self.instance, orcid=self.id, path=path)
+        return requests.get(url, headers=headers).json()
+
+    def fetch(self):
         """
         Fetches the profile by id using the public API.
-
-        :param id: the ORCID identifier to fetch
-        :param instance: the domain name of the instance to use (orcid.org or sandbox.orcid.org)
+        This only fetches the summaries, subsequent requests will be made for works.
         """
-        if instance not in ['orcid.org', 'sandbox.orcid.org']:
-            raise ValueError('Unexpected instance')
         try:
-            headers = {'Accept': 'application/orcid+json'}
-            profile_req = requests.get(
-                'http://pub.%s/v1.2/%s/orcid-profile' % (instance, orcid_id), headers=headers)
-            parsed = profile_req.json()
-            if parsed.get('orcid-profile') is None:
+            parsed = self.request_element('')
+            if parsed.get('orcid-identifier') is None:
                 # TEMPORARY: also check from the sandbox
-                if instance == 'orcid.org':
-                    return self.fetch(orcid_id, instance='sandbox.orcid.org')
+                if self.instance == 'orcid.org':
+                    self.instance = 'sandbox.orcid.org'
+                    return self.fetch()
                 raise ValueError
             self.json = parsed
         except (requests.exceptions.HTTPError, ValueError):
             raise MetadataSourceException(
-                'The ORCiD %s could not be found' % orcid_id)
+                'The ORCiD {id} could not be found'.format(id=self.id))
         except TypeError:
             raise MetadataSourceException(
-                'The ORCiD %s returned invalid JSON.' % orcid_id)
+                'The ORCiD {id} returned invalid JSON.'.format(id=self.id))
+
+    @cached_property
+    def work_summaries(self):
+        works_summary = self.request_element('works')
+        return works_summary.get('group') or []
 
     @property
     def homepage(self):
@@ -91,10 +104,10 @@ class OrcidProfile(object):
         Extract an URL for that researcher (if any)
         """
         lst = jpath(
-            'orcid-profile/orcid-bio/researcher-urls/researcher-url', self.json, default=[])
+            'person/researcher-urls/researcher-url', self.json, default=[])
         for url in lst:
             val = jpath('url/value', url)
-            name = jpath('url-name/value', url)
+            name = jpath('url-name', url)
             if name is not None and ('home' in name.lower() or 'personal' in name.lower()):
                 return urlize(val)
         if len(lst):
@@ -107,7 +120,10 @@ class OrcidProfile(object):
         with this researcher
         """
         lst = jpath(
-            'orcid-profile/orcid-activities/affiliations/affiliation',
+            'activities-summary/employments/employment-summary',
+            self.json, default=[])
+        lst += jpath(
+            'activities-summary/educations/education-summary',
             self.json, default=[])
 
         for affiliation in lst:
@@ -143,7 +159,7 @@ class OrcidProfile(object):
         If there is no such name, returns the given and family names on the profile
         (they should exist)
         """
-        name_item = jpath('orcid-profile/orcid-bio/personal-details', self.json)
+        name_item = jpath('person/name', self.json)
         name = jpath('credit-name/value', name_item)
         if name is not None:
             return parse_comma_name(name)
@@ -156,15 +172,15 @@ class OrcidProfile(object):
         Returns the list of other names listed on the ORCiD profile.
         This includes the (given,family) name if a credit name was defined.
         """
-        name_item = jpath('orcid-profile/orcid-bio/personal-details', self.json)
+        person = jpath('person', self.json)
         names = []
-        credit_name = jpath('credit-name/value', name_item)
+        credit_name = jpath('name/credit-name/value', person)
         if credit_name is not None:
-            names.append((normalize_name_words(jpath('given-names/value', name_item, '')),
-                          normalize_name_words(jpath('family-name/value', name_item, ''))))
-        other_names = jpath('other-names/other-name', name_item, default=[])
+            names.append((normalize_name_words(jpath('name/given-names/value', person, '')),
+                          normalize_name_words(jpath('name/family-name/value', person, ''))))
+        other_names = jpath('other-names/other-name', person, default=[])
         for name in other_names:
-            val = name.get('value')
+            val = name.get('content')
             if val is not None:
                 names.append(parse_comma_name(val))
         return names

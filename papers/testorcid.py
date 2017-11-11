@@ -24,9 +24,13 @@ from __future__ import unicode_literals
 import unittest
 
 from papers.orcid import OrcidProfile
-
+from papers.utils import jpath
 
 class OrcidProfileTest(unittest.TestCase):
+    """
+    TODO: duplicate all these profiles to the ORCID sandbox
+    to be sure they will not be modified!
+    """
 
     @classmethod
     def setUpClass(self):
@@ -61,13 +65,13 @@ class OrcidProfileTest(unittest.TestCase):
             self.assertEqual(type(key), unicode)
 
     def test_attr(self):
-        self.assertTrue('orcid-profile' in self.thomas)
-        self.assertEqual(type(self.thomas['orcid-profile']), dict)
+        self.assertTrue('orcid-identifier' in self.thomas)
+        self.assertEqual(type(self.thomas['orcid-identifier']), dict)
 
     def test_wrong_instance(self):
         with self.assertRaises(ValueError):
-            p = OrcidProfile()
-            p.fetch('0000-0002-2963-7764', 'dissem.in')
+            p = OrcidProfile('0000-0002-2963-7764', instance='dissem.in')
+            del p
 
     def test_sandbox(self):
         self.assertEqual(OrcidProfile(
@@ -93,5 +97,9 @@ class OrcidProfileTest(unittest.TestCase):
             orcid_id='0000-0002-5654-4053').institution,
             {'country': 'FR',
              'identifier': None,
-             'name': "Polytech'Rambouillet"})
+             'name': "École nationale supérieure de céramique industrielle"})
+
+    def test_work_summaries(self):
+        summaries = self.antonin.work_summaries
+        self.assertTrue('10.4204/eptcs.172.16' in str(summaries))
 
