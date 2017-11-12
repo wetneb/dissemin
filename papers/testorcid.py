@@ -24,7 +24,6 @@ from __future__ import unicode_literals
 import unittest
 
 from papers.orcid import OrcidProfile
-from papers.utils import jpath
 
 class OrcidProfileTest(unittest.TestCase):
     """
@@ -101,5 +100,18 @@ class OrcidProfileTest(unittest.TestCase):
 
     def test_work_summaries(self):
         summaries = self.antonin.work_summaries
-        self.assertTrue('10.4204/eptcs.172.16' in str(summaries))
+        dois = [summary.doi for summary in summaries]
+        titles = [summary.title for summary in summaries]
+        self.assertTrue('10.4204/eptcs.172.16' in dois)
+        self.assertTrue('Complexity of Grammar Induction for Quantum Types' in titles)
+        self.assertTrue(None not in [summary.put_code for summary in summaries])
+
+    def test_works(self):
+        summaries = self.antonin.work_summaries
+        put_codes = [s.put_code for s in summaries]
+        works = list(self.antonin.fetch_works(put_codes))
+        titles = [work.title for work in works]
+        self.assertTrue('Complexity of Grammar Induction for Quantum Types' in titles)
+        pubtypes = [work.pubtype for work in works]
+        self.assertTrue('journal-article' in pubtypes)
 
