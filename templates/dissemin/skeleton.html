@@ -3,7 +3,8 @@
 {% load socialaccount %}
 {% load users %}
 <!DOCTYPE html>
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
