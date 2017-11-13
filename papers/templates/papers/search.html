@@ -298,6 +298,7 @@ $(function(){
         <label for="{{ form.oa_status.id_for_label }}">{% trans "By publisher policy" %}</label>
         {% for checkbox in form.oa_status %}
         {% with value=checkbox.choice_value %}
+	{% if value %}
         <div class="logoHelpPopover" data-content="{{ value|helptext_oa_status }}">
         <div class="checkbox publisherCriterion">
             {{ checkbox.tag }}
@@ -309,6 +310,7 @@ $(function(){
             </div>
         </div>
         </div>
+	{% endif %}
         {% endwith %}
         {% endfor %}
     </div>
