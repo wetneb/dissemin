@@ -24,6 +24,7 @@ from __future__ import unicode_literals
 import unittest
 
 from papers.orcid import OrcidProfile
+from papers.orcid import OrcidWorkSummary
 
 class OrcidProfileTest(unittest.TestCase):
     """
@@ -105,6 +106,75 @@ class OrcidProfileTest(unittest.TestCase):
         self.assertTrue('10.4204/eptcs.172.16' in dois)
         self.assertTrue('Complexity of Grammar Induction for Quantum Types' in titles)
         self.assertTrue(None not in [summary.put_code for summary in summaries])
+
+    def test_wrong_id_type(self):
+        """
+        I found this payload in an ORCID profile… looks like ORCID
+        does not validate their ids against regexes
+        """
+        summary_json = {
+            "last-modified-date" : {
+            "value" : 1505077812702
+            },
+            "external-ids" : {
+            "external-id" : [ {
+                "external-id-type" : "doi",
+                "external-id-value" : "http://hdl.handle.net/2080/2662",
+                "external-id-url" : None,
+                "external-id-relationship" : "SELF"
+            } ]
+            },
+            "work-summary" : [ {
+            "put-code" : 36669776,
+            "created-date" : {
+                "value" : 1505077812702
+            },
+            "last-modified-date" : {
+                "value" : 1505077812702
+            },
+            "source" : {
+                "source-orcid" : {
+                "uri" : "https://orcid.org/0000-0002-9658-1473",
+                "path" : "0000-0002-9658-1473",
+                "host" : "orcid.org"
+                },
+                "source-client-id" : None,
+                "source-name" : {
+                "value" : "Bhojaraju Gunjal"
+                }
+            },
+            "title" : {
+                "title" : {
+                "value" : "Open Source Solutions for Creation of ETD Archives/Repository: A Case Study of Central Library@NIT Rourkela"
+                },
+                "subtitle" : None,
+                "translated-title" : None
+            },
+            "external-ids" : {
+                "external-id" : [ {
+                "external-id-type" : "doi",
+                "external-id-value" : "http://hdl.handle.net/2080/2662",
+                "external-id-url" : None,
+                "external-id-relationship" : "SELF"
+                } ]
+            },
+            "type" : "CONFERENCE_PAPER",
+            "publication-date" : {
+                "year" : {
+                "value" : "2017"
+                },
+                "month" : None,
+                "day" : None,
+                "media-type" : None
+            },
+            "visibility" : "PUBLIC",
+            "path" : "/0000-0002-9658-1473/work/36669776",
+            "display-index" : "1"
+            } ]
+        }
+        summary = OrcidWorkSummary(summary_json)
+        self.assertEqual(summary.doi, None)
+
 
     def test_works(self):
         summaries = self.antonin.work_summaries

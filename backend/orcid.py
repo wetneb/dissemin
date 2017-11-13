@@ -39,7 +39,6 @@ from papers.errors import MetadataSourceException
 from papers.models import OaiSource
 from papers.models import Researcher
 from papers.orcid import OrcidProfile
-from papers.orcid import OrcidWork
 from papers.orcid import affiliate_author_with_orcid
 from papers.utils import validate_orcid
 

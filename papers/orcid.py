@@ -34,9 +34,10 @@ from papers.name import most_similar_author
 from papers.utils import jpath
 from papers.utils import urlize
 from papers.utils import parse_int
+from papers.utils import try_date
 from papers.baremodels import BareName
 from papers.bibtex import parse_bibtex
-from papers.utils import try_date
+from papers.doi import to_doi
 
 orcid_type_to_pubtype = {
         'book': 'book',
@@ -362,8 +363,11 @@ class OrcidWorkSummary(object):
         """
         for external_id in jpath('external-ids/external-id', self.json, []):
             if (external_id.get('external-id-type') == 'doi' and
-                external_id.get('external-id-relationship') == 'SELF'):
-                return external_id.get('external-id-value')
+                external_id.get('external-id-relationship') == 'SELF' and
+                external_id.get('external-id-value')):
+                doi = to_doi(external_id.get('external-id-value'))
+                if doi:
+                    return doi
         return None
 
     @property
@@ -434,13 +438,9 @@ class OrcidWork(object):
 
         :returns: a list of names represented as string pairs
         """
-        from_contributors = self.authors_from_contributors
-        if from_contributors:
-            return from_contributors
-        from_bibtex = self.authors_from_bibtex
-        if from_bibtex:
-            return map(parse_comma_name, from_bibtex)
-        return [self.profile.name]
+        return (self.authors_from_contributors or
+                self.authors_from_bibtex or
+                [self.profile.name])
 
     @property
     def pubdate(self):
@@ -481,7 +481,7 @@ class OrcidWork(object):
 
     @property
     def bibtex(self):
-        return self.j('work/citation/citation/value')
+        return self.j('work/citation/citation-value')
 
     @property
     def authors_from_bibtex(self):
