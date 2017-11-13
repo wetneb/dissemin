@@ -37,10 +37,12 @@ class OrcidProfileTest(unittest.TestCase):
         self.antonin = OrcidProfile(orcid_id='0000-0002-8612-8827')
         self.thomas = OrcidProfile(orcid_id='0000-0003-0524-631X')
         self.sergey = OrcidProfile(orcid_id='0000-0003-3397-9895')
+        self.marco = OrcidProfile(orcid_id='0000-0002-6561-5642')
 
     def test_simple_name(self):
         self.assertEqual(self.antonin.name, ('Antonin', 'Delpeuch'))
         self.assertEqual(self.thomas.name, ('Thomas', 'Bourgeat'))
+        self.assertEqual(self.marco.name, ('Marco', 'Diana'))
 
     def test_credit_name(self):
         self.assertEqual(self.sergey.name, ('Sergey M.', 'Natanzon'))

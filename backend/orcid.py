@@ -200,7 +200,7 @@ class OrcidPaperSource(PaperSource):
                 if success:
                     yield paper_or_metadata
                 else:
-                    put_codes.extend(dois_and_putcodes[idx][1])
+                    put_codes.append(dois_and_putcodes[idx][1])
 
         # 2nd attempt with ORCID's own crappy metadata
         works = profile.fetch_works(put_codes)

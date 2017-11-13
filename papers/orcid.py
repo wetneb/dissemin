@@ -120,6 +120,9 @@ class OrcidProfile(object):
     def get(self, *args, **kwargs):
         return self.json.get(*args, **kwargs)
 
+    def __repr__(self):
+        return "<OrcidProfile for {orcid}>".format(orcid=self.id)
+
     @property
     def api_uri(self):
         """
@@ -232,7 +235,7 @@ class OrcidProfile(object):
         """
         name_item = jpath('person/name', self.json)
         name = jpath('credit-name/value', name_item)
-        if name is not None:
+        if name:
             return parse_comma_name(name)
         return (normalize_name_words(jpath('given-names/value', name_item, '')),
                 normalize_name_words(jpath('family-name/value', name_item, '')))
