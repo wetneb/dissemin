@@ -109,6 +109,12 @@ class OrcidProfileTest(unittest.TestCase):
         self.assertTrue('Complexity of Grammar Induction for Quantum Types' in titles)
         self.assertTrue(None not in [summary.put_code for summary in summaries])
 
+    def test_philipp(self):
+        p = OrcidProfile(orcid_id='0000-0001-6723-6833')
+        summaries = p.work_summaries
+        dois = [summary.doi for summary in summaries]
+        self.assertTrue('10.3354/meps09890' in dois)
+
     def test_wrong_id_type(self):
         """
         I found this payload in an ORCID profile… looks like ORCID
@@ -177,6 +183,77 @@ class OrcidProfileTest(unittest.TestCase):
         summary = OrcidWorkSummary(summary_json)
         self.assertEqual(summary.doi, None)
 
+    def test_multiple_ids(self):
+        summary_json = {
+            "last-modified-date" : {
+            "value" : 1506388112650
+            },
+            "external-ids" : {
+            "external-id" : [ {
+                "external-id-type" : "eid",
+                "external-id-value" : "2-s2.0-84864877237",
+                "external-id-url" : None,
+                "external-id-relationship" : "SELF"
+            }, {
+                "external-id-type" : "doi",
+                "external-id-value" : "10.3354/meps09890",
+                "external-id-url" : None,
+                "external-id-relationship" : "SELF"
+            } ]
+            },
+            "work-summary" : [ {
+            "put-code" : 19176128,
+            "created-date" : {
+                "value" : 1444695659490
+            },
+            "last-modified-date" : {
+                "value" : 1506388112650
+            },
+            "source" : {
+                "source-orcid" : None,
+                "source-client-id" : {
+                "uri" : "https://orcid.org/client/0000-0002-3054-1567",
+                "path" : "0000-0002-3054-1567",
+                "host" : "orcid.org"
+                },
+                "source-name" : {
+                "value" : "CrossRef Metadata Search"
+                }
+            },
+            "title" : {
+                "title" : {
+                "value" : "Elephant seal foraging dives track prey distribution, not temperature: Comment on McIntyre et al. (2011)"
+                },
+                "subtitle" : None,
+                "translated-title" : None
+            },
+            "external-ids" : {
+                "external-id" : [ {
+                "external-id-type" : "doi",
+                "external-id-value" : "10.3354/meps09890",
+                "external-id-url" : None,
+                "external-id-relationship" : "SELF"
+                } ]
+            },
+            "type" : "JOURNAL_ARTICLE",
+            "publication-date" : {
+                "year" : {
+                "value" : "2012"
+                },
+                "month" : {
+                "value" : "08"
+                },
+                "day" : {
+                "value" : "08"
+                },
+                "media-type" : None
+            },
+            "visibility" : "PUBLIC",
+            "path" : "/0000-0001-6723-6833/work/19176128",
+            "display-index" : "0"
+            }]}
+        summary = OrcidWorkSummary(summary_json)
+        self.assertEqual(summary.doi, '10.3354/meps09890')
 
     def test_works(self):
         summaries = self.antonin.work_summaries

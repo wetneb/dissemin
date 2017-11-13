@@ -63,6 +63,15 @@ class OrcidIntegrationTest(PaperSourceTest):
         self.assertEqual(p.authors[0].orcid, antoine.orcid)
         self.assertEqual(p.authors[2].orcid, pablo.orcid)
 
+    def test_fetch_dois(self):
+        pboesu = Researcher.get_or_create_by_orcid('0000-0001-6723-6833')
+        self.source.fetch_and_save(pboesu)
+
+        doi = '10.3354/meps09890'
+        p = Paper.get_by_doi(doi)
+        dois_in_paper = [r.doi for r in p.oairecords]
+        self.assertTrue(doi in dois_in_paper)
+
     def test_orcid_affiliation(self):
         # this used to raise an error.
         # a more focused test might be preferable (focused on the said
