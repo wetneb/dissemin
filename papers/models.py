@@ -1125,12 +1125,14 @@ class Paper(models.Model, BarePaper):
         new_fingerprint = self.new_fingerprint()
         if self.fingerprint == new_fingerprint:
             return
-        match = Paper.objects.filter(fingerprint=new_fingerprint).first()
-        if match is None:
+        matches = Paper.objects.filter(fingerprint=new_fingerprint)
+        if len(matches) > 10 or len(matches) < 1:
+            # No usable/realistic matches, leave alone
             self.fingerprint = new_fingerprint
             self.save(update_fields=['fingerprint'])
             return
         else:
+            match = matches.first()
             match.merge(self)
             return match
 

@@ -32,7 +32,7 @@ from papers.utils import ulower
 stripped_chars = re.compile(r'[^- a-z0-9]')
 
 
-def create_paper_plain_fingerprint(title, authors, year):
+def create_paper_plain_fingerprint(title, authors, year, pubdate):
     """
     Creates a robust summary of a bibliographic reference.
     This plain fingerprint should then be converted to an
@@ -43,6 +43,7 @@ def create_paper_plain_fingerprint(title, authors, year):
     :param authors: the list of author names, represented
         as (first_name, last_name) pairs
     :param year: the year of publication of the paper
+    :param pubdate: the publication date of the paper, as date object
 
     >>> create_paper_plain_fingerprint(' It  cleans whitespace And Case\\n',[('John','Doe')], 2015)
     u'it-cleans-whitespace-and-case/doe'
@@ -62,18 +63,22 @@ def create_paper_plain_fingerprint(title, authors, year):
     title = re.sub('[ -]+', '-', title)
     buf = title
 
-    # If the title is long enough, we return the fingerprint as is
-    if len(buf) > 50:
-        return buf
-
-    # If the title is very short, we add the year (for "Preface", "Introduction", "New members" cases)
-    # if len(title) <= 16:
+    # Add the year for disabiguation (for "Preface", "Introduction", "New members" cases)
+    # Necessary also for very frequent although long titles, such as
+    # "Extracts from the Records of the Boston Society for Medical Improvement"
+    # (doi:10.1097/00000441-185410000-00006 etc.)
     if not '-' in title:
-        buf += '-'+str(year)
+        if len(title) > 80:
+            # We're above a typical max length of email line. Hopefully the title
+            # is unique enough and we may catch preprints from the same year.
+            buf += '-'+str(year)
+        else:
+            buf += '-'+pubdate.strftime("%Y%m%d")
 
     author_names_list = []
     for author in authors:
-        if not author:
+        # CrossRef and our own importer sometimes provide placeholder author names
+        if not author and re.sub('\W', '', author.lower()) != 'na':
             continue
         author = (remove_diacritics(author[0]), remove_diacritics(author[1]))
 
