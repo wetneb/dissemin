@@ -46,3 +46,7 @@ ROMEO_API_KEY = None
 # Proaixy API key
 # Used to fetch paper metadata. Get one by asking developers@dissem.in
 PROAIXY_API_KEY = None
+
+# Zotero proxy API key
+# Used to fetch paper metadata. Get one by asking developers@dissem.in
+ZOTERO_API_KEY = None

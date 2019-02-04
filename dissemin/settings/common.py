@@ -47,6 +47,7 @@ try:
     from .secret import REDIS_PASSWORD
     from .secret import REDIS_PORT
     from .secret import ROMEO_API_KEY
+    from .secret import ZOTERO_API_KEY
     from .secret import SECRET_KEY
 except ImportError as e:
     raise RuntimeError(
@@ -107,6 +108,9 @@ if PROAIXY_API_KEY is None:
 # Otherwise our proxy caches results and is more reliable than the
 # original endpoint.
 ROMEO_API_DOMAIN = 'romeo-cache.dissem.in'
+
+# Proxy to make Zotero requests
+ZOTERO_PROXY_DOMAIN = 'doi-cache.dissem.in'
 
 ### Paper deposits ###
 # Max size of the PDFs (in bytes)

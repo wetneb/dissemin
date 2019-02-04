@@ -40,6 +40,17 @@
         <a href="{% url 'upload_paper' paper.pk %}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-open"></span> {% trans "Upload" %}</a>
         {% endif %}
         {% if request.user in paper.owners %}
+        {% if paper.pdf_url %}
+        <a class="btn btn-default btn-xs editlink-button"
+           href="{{ paper.url }}#editlink">
+          {% trans "Edit download link" %}
+        </a>
+        {% else %}
+        <a class="btn btn-default btn-xs addlink-button"
+           href="{{ paper.url }}#editlink">
+          {% trans "Add link to existing copy" %}
+        </a>
+        {% endif %}
         <a class="btn btn-default btn-xs unclaim-button"
            data-pk="{{ paper.id }}" data-action="unclaim">
           {% trans "Exclude from my profile" %}
@@ -51,6 +62,7 @@
           data-pk="{{ paper.id }}" data-action="claim">
           {% trans "Include in my profile" %}</a>
         {% endif %}
+        <form
         {% endif %}
     </p>
 </div>

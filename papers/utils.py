@@ -349,6 +349,23 @@ def extract_domain(url):
     if match:
         return match.group(2)
 
+def url_is_stable(url):
+    """
+    Checks if a URL is stable (corresponds to a repository known in BASE)
+
+    >>> url_is_stable(u'https://arxiv.org/abs/1709.06188')
+    True
+    >>> url_is_stable(u'https://hal-imt.archives-ouvertes.fr/hal-01190601')
+    True
+    >>> url_is_stable(u'https://a3nm.net/test')
+    False
+    >>> url_is_stable(u'nonsense')
+    False
+    """
+
+    # TODO
+    domain = extract_domain(url)
+    return (domain != None) and (domain != "a3nm.net")
 
 
 # JSON utilities !

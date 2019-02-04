@@ -20,6 +20,7 @@
 
 from __future__ import unicode_literals
 
+from backend.zotero import fetch_zotero_for_URL
 from django.conf.urls import url
 from django.contrib.auth.decorators import user_passes_test
 from django.core.exceptions import ObjectDoesNotExist
@@ -35,6 +36,7 @@ from papers.models import Researcher
 from papers.models import Institution
 from papers.user import is_admin
 from papers.user import is_authenticated
+from papers.utils import url_is_stable
 from papers.utils import kill_html
 from papers.utils import sanitize_html
 from publishers.models import OA_STATUS_CHOICES
@@ -167,6 +169,50 @@ def unclaimPaper(request):
 
 @user_passes_test(is_authenticated)
 @json_view
+@require_POST
+def editUrl(request):
+    """edit URL for paper"""
+
+    url = request.POST["url"]
+
+    try:
+        paper = Paper.objects.get(pk=int(request.POST["pk"]))
+    except (KeyError, ValueError, Paper.DoesNotExist):
+        return {'status': 'error_paper_id'}, 404
+
+    # interrogate the endpoint
+    try:
+        json = fetch_zotero_for_URL(url)
+    except ValueError:
+        return {'status': 'error_api'}, 400
+    if not json:
+        return {'status': 'error_api'}, 400
+
+    # find the attachment
+    pdfurl = None
+    try:
+        for attachment in json[0]['attachments']:
+            print(attachment)
+            if attachment['mimeType'] == 'application/pdf':
+                print(pdfurl)
+                pdfurl = attachment['url']
+                break
+    except KeyError:
+        return {'status': 'error_api'}, 400
+
+    if not pdfurl:
+        return {'status': 'error_pdf'}, 404
+
+    stable = url_is_stable(url)
+    if not stable:
+        return {'status': 'error_url_unstable'}, 403
+
+    paper.set_user_url(url, pdfurl)
+    return {'status': 'success'}
+
+
+@user_passes_test(is_authenticated)
+@json_view
 def waitForConsolidatedField(request):
     success = False
     try:
@@ -275,4 +321,6 @@ urlpatterns = [
         claimPaper, name='ajax-claimPaper'),
     url(r'^unclaim-paper$',
         unclaimPaper, name='ajax-unclaimPaper'),
+    url(r'^edit-url$',
+        editUrl, name='ajax-editUrl'),
 ]

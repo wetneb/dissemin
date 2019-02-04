@@ -24,6 +24,54 @@
 {{ paper.title }}
 {% endblock %}
 
+{% block extra_body %}
+<!-- Modal -->
+<div class="modal fade" id="editLinkModal" tabindex="-1" role="dialog"
+  aria-labelledby="editLinkModalTitle">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editLinkModalTitle">Modal title</h4>
+      </div>
+      <div class="modal-body" id="editLinkModalBody">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans "OK" %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="editLinkModalDeposit" tabindex="-1" role="dialog"
+  aria-labelledby="editLinkModalDepositTitle">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editLinkModalTitle">
+{% blocktrans trimmed %}
+URL is not stable
+{% endblocktrans %}
+</h4>
+      </div>
+      <div class="modal-body" id="editLinkModalDepositBody">
+{% blocktrans trimmed %}
+We do not accept URLs that correspond to personal or professional websites
+because they are not stable enough. We only accept repositories listed by the
+BASE search engine. To ensure that your paper will remain available, you can
+use Dissemin and deposit your paper in one of the supported repositories, in a
+few clicks.
+{% endblocktrans %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Not now" %}</button>
+        <button type="button" class="btn btn-primary" onclick="gotodeposit()">{% trans "Deposit" %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
 {% block bodyTitle %}
 <h1 id="paperTitle" data-params="{csrfmiddlewaretoken:'{{csrf_token}}'}" data-pk="{{ paper.pk }}">
     {% autoescape off %}
@@ -33,6 +81,70 @@
 {% endblock %}
 
 {% block jsScript %}
+function doshoweditlinkform() {
+  $('#editlinkform').show();
+}
+function showeditlinkform() {
+  if (window.location.hash == '#editlink') {
+    doshoweditlinkform();
+  }
+}
+function gotodeposit() {
+  var pk = "{{ paper.id }}";
+  var my_url = $('#paperlink').val();
+  window.location = '/deposit_paper/'+pk+'?url='+encodeURI(my_url);
+}
+function submitnewurl() {
+  var btn = $('#addlinkbtn');
+  var my_url = "{% url "ajax-editUrl" %}";
+  {% trans "Saving..." as saving_msg %}
+  {% trans "Save" as save_msg %}
+  btn.text = "{{ savingmsg|escapejs }}";
+  btn.toggleClass('disabled');
+  $.ajax({
+    method: "post",
+    url: my_url,
+    data: {"pk": "{{ paper.id }}",
+      "csrfmiddlewaretoken": '{{csrf_token}}',
+      "url": $('#paperlink').val()},
+    cache: false,
+    success: function (data) {
+      window.location = '#';
+      location.reload();
+    },
+    error: function(data) {
+      ret = data['responseJSON']['status']
+      if (ret == 'error_paper_id') {
+        {% trans "Paper not found" as pnf_msg %}
+        {% trans "Paper not found. This should not happen" as pnf_msg2 %}
+        $('#editLinkModalTitle').html("{{ pnf_msg|escapejs }}");
+        $('#editLinkModalBody').html("{{ pnf_msg2|escapejs }}");
+        $('#editLinkModal').modal();
+      } else if (ret == 'error_url_unstable') {
+        {% trans "" as stable_msg2 %}
+        $('#editLinkModalDeposit').modal();
+      } else if (ret == 'error_api' || data['status'] == 'error_pdf')
+      {
+        {% trans "Could not retrieve PDF" as api_msg %}
+        {% trans "We couldn't retrieve a PDF file following this link. Are you sure that it is correct and can be downloaded? Otherwise, it may be a network problem; please try again later." as api_msg2 %}
+        $('#editLinkModalTitle').html("{{ api_msg|escapejs }}");
+        $('#editLinkModalBody').html("{{ api_msg2|escapejs }}");
+        $('#editLinkModal').modal();
+      } else {
+        {% trans "Unspecified error" as ue_msg %}
+        {% trans "An unspecified error occurred. Please try again later" as ue_msg2 %}
+        $('#editLinkModalTitle').html("{{ ue_msg|escapejs }}");
+        $('#editLinkModalBody').html("{{ ue_msg2|escapejs }}");
+        $('#editLinkModal').modal();
+      }
+      btn.text = "{{ save_msg|escapejs }}";
+      btn.toggleClass('disabled');
+    }
+    });
+}
+$(function(){
+  showeditlinkform();
+});
 $(function(){
 $('.helpPopover').popover({trigger: "hover"});
 });
@@ -120,6 +232,38 @@ $(function(){
       <!-- <span><a href="{% url 'mail_paper' paper.pk %}" class="btn btn-default btn-xs">{% trans "Ask upload" %}</a></span> -->
 {% endif %}
     {% endif %}</p>
+
+    <p>
+      {% if paper.pdf_url %}
+      <a class="btn btn-default btn-xs editlink-button"
+         href="#editlink" onclick="doshoweditlinkform()">
+        {% trans "Edit download link" %}
+      </a>
+      {% else %}
+      <a class="btn btn-default btn-xs addlink-button"
+         href="#editlink" onclick="doshoweditlinkform()">
+        {% trans "Add link to existing copy" %}
+      </a>
+      {% endif %}
+    </p>
+      <div id="editlinkform" style="display: none;">
+        {% blocktrans trimmed %}
+        <p>Please enter a <em>stable</em> URL at which the paper can be
+        downloaded by <em>everyone</em>, without registration or
+        subscription:</p>
+        {% endblocktrans %}
+        {% if paper.pdf_url %}
+          <input id="paperlink" name="paperlink" placeholder="URL to paper"
+            value="{{ paper.pdf_url }}" />
+        {% else %}
+          <input id="paperlink" name="paperlink" placeholder="URL to paper" />
+        {% endif %}
+        <a class="btn btn-default btn-xs doaddlink-button" id="addlinkbtn"
+           onclick="submitnewurl()">
+          {% trans "Save" %}
+        </a>
+      </div>
+
     {% with paper.publisher as psh %}
         <p><strong>{% trans "Publisher:" %}</strong>
         {% if psh.pk %}

@@ -1323,3 +1323,7 @@ a.stats_caption_line:hover {
 	background:#9e6;
 	padding:5px;
 }
+
+#paperlink {
+  width: 80%;
+}

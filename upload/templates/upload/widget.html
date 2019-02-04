@@ -1,5 +1,15 @@
 {% load i18n %}
 
+<script type="text/javascript">
+  $(function(){
+    let params = new URLSearchParams(window.location.search);
+    if (params.has('url')) {
+      $('#uploadUrl').val(params.get('url'));
+      $('#submitUploadUrl').click();
+    }
+  });
+</script>
+
 <div id="globalError"></div>
     <p class="uploadDescription">{% trans "Select here the full text of your article. PDF files only, maximum size:" %} {{ max_file_size|filesizeformat }}.</p>
 <div id="uploadInputs">
@@ -18,7 +28,8 @@
             <div>
                 <button type="submit" id="submitUploadUrl" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                 <div class="urlContainer">
-                    <input id="uploadUrl" type="text" class="form-control" name="url" placeholder="http://"/>
+                    <input id="uploadUrl" type="text" class="form-control"
+                    name="url" placeholder="https://"/>
                 </div>
             </div>
         </form>

@@ -997,6 +997,33 @@ class Paper(models.Model, BarePaper):
         # paper cannot be claimed by user
         raise ValueError
 
+    def set_user_url(self, splash_url, pdf_url):
+        """
+        Add or replace a URL specified by the user
+        """
+
+        user_provided_oaisource = OaiSource.objects.get(identifier='user_provided')
+        found_one = False
+        for record in self.oairecords:
+            if record.source_id == user_provided_oaisource.id:
+                # found a user-provided record
+                record.splash_url = splash_url
+                record.pdf_url = pdf_url
+                record.save()
+                found_one = True
+                break
+
+        if not found_one:
+            # adding a user-provided record
+            bare_oairecord = BareOaiRecord(
+                    source=user_provided_oaisource,
+                    identifier=str(self.id)+'_user_provided',
+                    splash_url=splash_url,
+                    pdf_url=pdf_url)
+            self.add_oairecord(bare_oairecord)
+
+        self.update_availability()
+
     def is_owned_by(self, user, flexible=False):
         """
         Is this user one of the owners of that paper?

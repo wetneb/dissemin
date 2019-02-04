@@ -1,7 +1,8 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from dissemin.settings import DOI_PROXY_DOMAIN
+from dissemin.settings import ZOTERO_PROXY_DOMAIN
+from dissemin.settings import ZOTERO_API_KEY
 from papers.errors import MetadataSourceException
 from papers.utils import sanitize_html
 
@@ -9,13 +10,28 @@ import requests
 
 ##### Zotero interface #####
 
+def fetch_zotero_for_URL(url):
+    """
+    Fetch Zotero metadata for a URL.
+    Works only with the doi_cache proxy.
+    """
+    try:
+        request = requests.get(
+                'http://'+ZOTERO_PROXY_DOMAIN+'/zotero/query',
+                { 'key': ZOTERO_API_KEY, 'url': url})
+        return request.json()
+    except ValueError as e:
+        raise MetadataSourceException('Error while fetching Zotero metadata:\nInvalid JSON response.\n' +
+                                      'Error: '+str(e))
+
+
 def fetch_zotero_by_DOI(doi):
     """
     Fetch Zotero metadata for a given DOI.
     Works only with the doi_cache proxy.
     """
     try:
-        request = requests.get('http://'+DOI_PROXY_DOMAIN+'/zotero/'+doi)
+        request = requests.get('http://'+ZOTERO_PROXY_DOMAIN+'/zotero/'+doi)
         return request.json()
     except ValueError as e:
         raise MetadataSourceException('Error while fetching Zotero metadata:\nInvalid JSON response.\n' +
