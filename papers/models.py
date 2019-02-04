@@ -939,9 +939,10 @@ class Paper(models.Model, BarePaper):
             user_researcher = Researcher.objects.get(user=user)
         except Researcher.DoesNotExist:
             user_researcher = None
-        user_orcid = None
-        if user_researcher:
-            user_orcid = user_researcher.orcid
+        if not user_researcher:
+            # No researcher fetched, paper cannot be claimed
+            raise ValueError
+        user_orcid = user_researcher.orcid
         for idx, author in enumerate(self.authors):
             if not match_names(author.name.pair,
                                (user.first_name, user.last_name)):
