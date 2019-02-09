@@ -488,7 +488,7 @@ class BarePaper(BareObject):
         Debugging function to display the plain fingerprint
         """
         fp = create_paper_plain_fingerprint(
-            self.title, self.bare_author_names(), self.year)
+            self.title, self.bare_author_names(), self.year, self.pubdate)
         if verbose:
             print fp
         return fp
