@@ -201,7 +201,8 @@ class PaperTest(django.test.TestCase):
 
     def test_create_no_authors(self):
         p = Paper.create_by_doi('10.1021/cen-v043n050.p033')
-        self.assertEqual(p, None)
+        self.assertNotEqual(p, None)
+        self.assertEqual(p.title, 'Chlorine Expansion Builds Up Steam')
 
     def test_create_invalid_doi(self):
         p = Paper.create_by_doi('10.1021/eiaeuiebop134223cen-v043n050.p033')
