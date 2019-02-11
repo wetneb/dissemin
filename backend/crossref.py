@@ -422,7 +422,8 @@ class CrossRefAPI(object):
         if metadata is None or not isinstance(metadata, dict):
             raise ValueError('Invalid metadata format, expecting a dict')
         if not metadata.get('author'):
-            raise ValueError('No author provided')
+            # BareName has "last" as mandatory field
+            metadata['author'] = {'family': 'N/A'}
 
         if not metadata.get('title'):
             raise ValueError('No title')
