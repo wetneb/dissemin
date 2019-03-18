@@ -28,6 +28,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from haystack import inputs
 from haystack.forms import SearchForm
+from haystack.query import SQ
 from papers.baremodels import PAPER_TYPE_CHOICES
 from papers.models import Department
 from papers.models import Paper
@@ -170,7 +171,11 @@ class PaperForm(SearchForm):
             if is_lastname:
                 self.filter(authors_last=name)
             else:
-                self.filter(authors_full=Sloppy(name, slop=1))
+                reversed_name = ' '.join(reversed(name.split(' ')))
+                sq = SQ()
+                sq.add(SQ(authors_full=Sloppy(name, slop=1)), SQ.OR)
+                sq.add(SQ(authors_full=Sloppy(reversed_name, slop=1)), SQ.OR)
+                self.queryset = self.queryset.filter(sq)
 
         self.queryset = aggregate_combined_status(self.queryset)
 
