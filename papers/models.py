@@ -33,9 +33,7 @@ This module defines most of the models used in the platform.
    field.
 
 * :class:`Researcher` represents a researcher profile (a physical person).
-   This person has a cannonical :class:`Name`, but can also be associated with
-   other names through a :class:`NameVariant` relation (indicating a confidence value
-   for the association of the name with this reseracher).
+   This person has a cannonical :class:`Name`.
 
 * Researchers can be organized into :class:`Department` instances, which belong to an
   :class:`Institution`.
@@ -84,7 +82,6 @@ from papers.baremodels import PAPER_TYPE_CHOICES
 from papers.baremodels import PAPER_TYPE_PREFERENCE
 from papers.doi import to_doi
 from papers.errors import MetadataSourceException
-from papers.name import name_similarity
 from papers.name import match_names
 from papers.name import unify_name_lists
 from papers.orcid import OrcidProfile
@@ -331,24 +328,6 @@ class Department(models.Model):
         return self.institution.breadcrumbs()+[(str(self), self.url)]
 
 
-class NameVariant(models.Model):
-    """
-    A NameVariant is a binary relation between names and researchers. When present, it indicates
-    that a given name is a possible name for the researcher. The confidence that papers with that
-    name are authored by the given researcher is indicated by a confidence score.
-    """
-
-    #: The :py:class:`Name` that is part of the relation
-    name = models.ForeignKey('Name', on_delete=models.CASCADE)
-    #: The :py:class:`Researcher` to which the name is attributed
-    researcher = models.ForeignKey('Researcher', on_delete=models.CASCADE)
-    #: The similarity score between this name and one of the reference names for this researcher
-    confidence = models.FloatField(default=1.)
-
-    class Meta:
-        unique_together = (('name', 'researcher'),)
-
-
 class Researcher(models.Model):
     """
     A model to represent a researcher
@@ -422,33 +401,6 @@ class Researcher(models.Model):
         URL of the search page for papers with a matching name
         """
         return reverse('search')+'?'+urlencode({'authors': self.name.full})
-
-    @property
-    def name_variants(self):
-        """
-        All the names found in papers that could belong to the researcher.
-        Among these names, at least the preferred :py:attr:`name`
-        should have confidence 1.0 (other names can have confidence 1.0 if
-        multiple names are known. The other names have been found in publications
-        and are similar to one of these 1.0 confidence name variants.
-        """
-        return NameVariant.objects.filter(researcher=self)
-
-    def add_name_variant(self, name, confidence, force_update=False):
-        """
-        Add a name variant with the given confidence and update
-        the best_confidence field of the name accordingly.
-
-        :param force_update: set the best_confidence even if the current value is
-            higher.
-        """
-        if name.id is None:
-            name.save()
-        NameVariant.objects.get_or_create(
-                name=name, researcher=self, defaults={'confidence': confidence})
-        if name.best_confidence < confidence or force_update:
-            name.best_confidence = confidence
-            name.save(update_fields=['best_confidence'])
 
     def update_stats(self):
         """Update the access statistics for the papers authored by this researcher"""
@@ -538,12 +490,6 @@ class Researcher(models.Model):
                 save = True
         if save:
             researcher.save()
-
-        for variant in profile.other_names:
-            confidence = name_similarity(variant, variant)
-            name = Name.lookup_name(variant)
-            if name is not None:
-                researcher.add_name_variant(name, confidence)
 
         return researcher
 

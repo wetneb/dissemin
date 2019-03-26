@@ -33,7 +33,6 @@ importing this module and running the function manually.
 from bulk_update.helper import bulk_update
 
 from papers.models import Name
-from papers.models import NameVariant
 from papers.models import Paper
 from papers.models import Researcher
 from datetime import datetime
@@ -155,20 +154,6 @@ def cleanup_researchers():
             deleted_count += 1
             p.delete()
     logger.ingo("Deleted "+str(deleted_count)+" researchers")
-
-
-def cleanup_names(dry_run=False):
-    """
-    Deletes all the names that are not linked to any researcher
-    """
-    deleted_count = 0
-    for n in Name.objects.all():
-        if NameVariant.objects.filter(name=n).count() == 0:
-            deleted_count += 1
-            if not dry_run:
-                n.delete()
-    logger.info("Deleted "+str(deleted_count)+" names")
-
 
 def update_paper_statuses():
     """

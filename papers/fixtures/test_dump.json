@@ -1,1 +1,2386 @@
-[{"model": "sessions.session", "pk": "o9kob1zdaoy6al6tqjmu04ulrb8kbeqn", "fields": {"session_data": "OWI5MDZkNmZiYzQ0NzA2NjgyNDRjMzRiNzY1YjQyM2I1YzhjMmVhNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3OWE1YzA4MDE3OTc0OWRiOGYxNzUxNTk3MGRiZWJiZGY0MDFiZjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=", "expire_date": "2016-08-06T02:00:13.711Z"}}, {"model": "sites.site", "pk": 1, "fields": {"domain": "example.com", "name": "example.com"}}, {"model": "socialaccount.socialapp", "pk": 1, "fields": {"provider": "orcid", "name": "Orcid sandbox", "client_id": "APP-ZAKE3VEWSG31TWSE", "secret": "5f0464c4-375a-4925-84ff-95b0d410cad8", "key": "", "sites": [["example.com"]]}}, {"model": "statistics.accessstatistics", "pk": 1, "fields": {"num_oa": 1, "num_ok": 0, "num_couldbe": 11, "num_unk": 1, "num_closed": 0, "num_tot": 13}}, {"model": "statistics.accessstatistics", "pk": 2, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 11, "num_unk": 0, "num_closed": 0, "num_tot": 11}}, {"model": "statistics.accessstatistics", "pk": 3, "fields": {"num_oa": 1, "num_ok": 0, "num_couldbe": 0, "num_unk": 1, "num_closed": 0, "num_tot": 2}}, {"model": "statistics.accessstatistics", "pk": 4, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 0}}, {"model": "statistics.accessstatistics", "pk": 5, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 0}}, {"model": "statistics.accessstatistics", "pk": 6, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 0}}, {"model": "statistics.accessstatistics", "pk": 7, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 8, "num_unk": 0, "num_closed": 0, "num_tot": 8}}, {"model": "statistics.accessstatistics", "pk": 8, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 8, "num_unk": 0, "num_closed": 0, "num_tot": 8}}, {"model": "statistics.accessstatistics", "pk": 9, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 11, "num_unk": 0, "num_closed": 0, "num_tot": 11}}, {"model": "statistics.accessstatistics", "pk": 10, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 11, "num_unk": 0, "num_closed": 0, "num_tot": 11}}, {"model": "statistics.accessstatistics", "pk": 11, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 0}}, {"model": "statistics.accessstatistics", "pk": 12, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 2, "num_unk": 0, "num_closed": 0, "num_tot": 2}}, {"model": "statistics.accessstatistics", "pk": 13, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 1, "num_unk": 0, "num_closed": 0, "num_tot": 1}}, {"model": "statistics.accessstatistics", "pk": 14, "fields": {"num_oa": 1, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 1}}, {"model": "statistics.accessstatistics", "pk": 15, "fields": {"num_oa": 0, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 0}}, {"model": "statistics.accessstatistics", "pk": 16, "fields": {"num_oa": 1, "num_ok": 0, "num_couldbe": 0, "num_unk": 0, "num_closed": 0, "num_tot": 1}}, {"model": "publishers.publisher", "pk": 1, "fields": {"romeo_id": "2765", "name": "Springer Verlag (Germany)", "alias": "LNCS", "url": "http://www.springerlink.com/?MUD=MP", "preprint": "can", "postprint": "can", "pdfversion": "cannot", "oa_status": "OK", "stats": 7}}, {"model": "publishers.publisher", "pk": 2, "fields": {"romeo_id": "21", "name": "Association for Computing Machinery", "alias": "ACM", "url": "http://www.acm.org/", "preprint": "can", "postprint": "can", "pdfversion": "cannot", "oa_status": "OK", "stats": 12}}, {"model": "publishers.publisher", "pk": 3, "fields": {"romeo_id": "38", "name": "Institute of Electrical and Electronics Engineers", "alias": "IEEE", "url": "http://www.ieee.org/index.html", "preprint": "can", "postprint": "can", "pdfversion": "cannot", "oa_status": "OK", "stats": 13}}, {"model": "publishers.publisher", "pk": 4, "fields": {"romeo_id": "DOAJ", "name": "Open Publishing Association", "alias": null, "url": "http://eptcs.org/", "preprint": "unknown", "postprint": "unknown", "pdfversion": "unknown", "oa_status": "OA", "stats": 14}}, {"model": "publishers.journal", "pk": 1, "fields": {"title": "Lecture Notes in Computer Science", "last_updated": "2016-07-23T12:00:40.901Z", "issn": "0302-9743", "publisher": 1, "stats": 8}}, {"model": "publishers.journal", "pk": 2, "fields": {"title": "ACM Transactions on Computational Logic", "last_updated": "2016-07-23T13:28:16.954Z", "issn": "1529-3785", "publisher": 2, "stats": 15}}, {"model": "publishers.journal", "pk": 3, "fields": {"title": "Electronic Proceedings in Theoretical Computer Science", "last_updated": "2016-07-23T13:28:17.044Z", "issn": "2075-2180", "publisher": 4, "stats": 16}}, {"model": "publishers.publishercondition", "pk": 1, "fields": {"publisher": 1, "text": "Author's pre-print on pre-print servers such as arXiv.org, CoRR and HAL"}}, {"model": "publishers.publishercondition", "pk": 2, "fields": {"publisher": 1, "text": "Author's post-print on author's personal website, institutional repository, funder's designated repository"}}, {"model": "publishers.publishercondition", "pk": 3, "fields": {"publisher": 1, "text": "Publisher's version/PDF cannot be used"}}, {"model": "publishers.publishercondition", "pk": 4, "fields": {"publisher": 1, "text": "Published source must be acknowledged"}}, {"model": "publishers.publishercondition", "pk": 5, "fields": {"publisher": 1, "text": "Must link to publisher version with DOI"}}, {"model": "publishers.publishercondition", "pk": 6, "fields": {"publisher": 1, "text": "Set phrase to accompany link to published version (see policy)"}}, {"model": "publishers.publishercondition", "pk": 7, "fields": {"publisher": 2, "text": "Author's pre-print on non-peer review servers prior to submission to journal"}}, {"model": "publishers.publishercondition", "pk": 8, "fields": {"publisher": 2, "text": "Author's pre-prints can be deposited on public repositories as long as accompanied by ACM copyright notice upon transfer of copyright"}}, {"model": "publishers.publishercondition", "pk": 9, "fields": {"publisher": 2, "text": "Author's Post-print on author's personal website, institutional repository, open access repository, employer's website or funder's mandated repository only"}}, {"model": "publishers.publishercondition", "pk": 10, "fields": {"publisher": 2, "text": "Non commercial use"}}, {"model": "publishers.publishercondition", "pk": 11, "fields": {"publisher": 2, "text": "Publisher's version/PDF cannot be used"}}, {"model": "publishers.publishercondition", "pk": 12, "fields": {"publisher": 2, "text": "Publisher copyright and source must be acknowledged"}}, {"model": "publishers.publishercondition", "pk": 13, "fields": {"publisher": 2, "text": "Must link to publisher version with statement that this is the definitive version and DOI"}}, {"model": "publishers.publishercondition", "pk": 14, "fields": {"publisher": 2, "text": "Must state that version on repository is the authors version"}}, {"model": "publishers.publishercondition", "pk": 15, "fields": {"publisher": 2, "text": "Set statement \"&#169; ACM, YYYY. This is the author's version of the work. It is posted here by permission of ACM for your personal use. Not for redistribution. The definitive version was published in PUBLICATION, {VOL#, ISS#, (DATE)} http://doi.acm.org/10.1145/nnnnnn.nnnnnn\""}}, {"model": "publishers.publishercondition", "pk": 16, "fields": {"publisher": 3, "text": "Author's pre-print on Author's personal website, employers website or publicly accessible server"}}, {"model": "publishers.publishercondition", "pk": 17, "fields": {"publisher": 3, "text": "Author's post-print on Author's server or Institutional server"}}, {"model": "publishers.publishercondition", "pk": 18, "fields": {"publisher": 3, "text": "Author's pre-print must be removed upon publication of final version and replaced with either full citation to IEEE work with a Digital Object Identifier or link to article abstract in IEEE Xplore or replaced with Authors post-print"}}, {"model": "publishers.publishercondition", "pk": 19, "fields": {"publisher": 3, "text": "Author's pre-print must be accompanied with set-phrase, once submitted to IEEE for publication (\"This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible\")"}}, {"model": "publishers.publishercondition", "pk": 20, "fields": {"publisher": 3, "text": "Author's pre-print must be accompanied with set-phrase, when accepted by IEEE for publication (\"(c) 20xx IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other users, including reprinting/ republishing this material for advertising or promotional purposes, creating new collective works for resale or redistribution to servers or lists, or reuse of any copyrighted components of this work in other works.\")"}}, {"model": "publishers.publishercondition", "pk": 21, "fields": {"publisher": 3, "text": "IEEE must be informed as to the electronic address of the pre-print"}}, {"model": "publishers.publishercondition", "pk": 22, "fields": {"publisher": 3, "text": "If funding rules apply authors may post Author's post-print version in funder's designated repository"}}, {"model": "publishers.publishercondition", "pk": 23, "fields": {"publisher": 3, "text": "Author's Post-print - Publisher copyright and source must be acknowledged with citation (see above set statement)"}}, {"model": "publishers.publishercondition", "pk": 24, "fields": {"publisher": 3, "text": "Author's Post-print - Must link to publisher version with DOI"}}, {"model": "publishers.publishercondition", "pk": 25, "fields": {"publisher": 3, "text": "Publisher's version/PDF cannot be used"}}, {"model": "publishers.publishercondition", "pk": 26, "fields": {"publisher": 3, "text": "Publisher copyright and source must be acknowledged"}}, {"model": "publishers.publishercondition", "pk": 27, "fields": {"publisher": 4, "text": "This publisher's policies have not been checked by RoMEO."}}, {"model": "publishers.publishercondition", "pk": 28, "fields": {"publisher": 4, "text": "DOAJ says it is an open access journal, but this may only mean that it is freely available to read."}}, {"model": "publishers.publishercondition", "pk": 29, "fields": {"publisher": 4, "text": "Most open access publishers also permit self-archiving and re-use, but some do not."}}, {"model": "publishers.publishercondition", "pk": 30, "fields": {"publisher": 4, "text": "Do not assume that self-archiving is allowed, unless it is published under a <a href=\"http://creativecommons.org/\" target=\"_blank\">Creative Commons</a> license."}}, {"model": "publishers.publishercondition", "pk": 31, "fields": {"publisher": 4, "text": "Please contact the publisher for further information if necessary"}}, {"model": "publishers.publishercondition", "pk": 32, "fields": {"publisher": 4, "text": "Email <a href=\"mailto:romeo@jisc.ac.uk\">romeo@jisc.ac.uk</a> if you wish to suggest adding this publisher properly to RoMEO."}}, {"model": "publishers.publishercopyrightlink", "pk": 1, "fields": {"publisher": 2, "text": "Policy", "url": "http://www.acm.org/publications/policies/copyright_policy"}}, {"model": "publishers.publishercopyrightlink", "pk": 2, "fields": {"publisher": 3, "text": "Electronic information dissemination policy", "url": "http://www.ieee.org/publications_standards/publications/rights/rights_policies.html"}}, {"model": "publishers.publishercopyrightlink", "pk": 3, "fields": {"publisher": 3, "text": "copyright form", "url": "http://www.ieee.org/documents/ieeecopyrightform.pdf"}}, {"model": "publishers.publishercopyrightlink", "pk": 4, "fields": {"publisher": 3, "text": "Copyright Policy", "url": "http://www.ieee.org/publications_standards/publications/rights/copyrightpolicy.html"}}, {"model": "publishers.publishercopyrightlink", "pk": 5, "fields": {"publisher": 4, "text": "See the publisher/journal website", "url": "http://eptcs.org/"}}, {"model": "publishers.aliaspublisher", "pk": 1, "fields": {"publisher": 3, "name": "Institute of Electrical & Electronics Engineers (IEEE)", "count": 2}}, {"model": "publishers.aliaspublisher", "pk": 2, "fields": {"publisher": 4, "name": "Open Publishing Association", "count": 1}}, {"model": "publishers.aliaspublisher", "pk": 3, "fields": {"publisher": 2, "name": "Association for Computing Machinery (ACM)", "count": 2}}, {"model": "publishers.aliaspublisher", "pk": 4, "fields": {"publisher": 1, "name": "Springer Science + Business Media", "count": 8}}, {"model": "papers.institution", "pk": 1, "fields": {"name": "ENS", "identifiers": null, "country": "", "coords": null, "stats": 9}}, {"model": "papers.department", "pk": 1, "fields": {"name": "Chemistry dept", "institution": 1, "stats": 10}}, {"model": "papers.department", "pk": 2, "fields": {"name": "Comp sci dept", "institution": 1, "stats": 11}}, {"model": "papers.namevariant", "pk": 1, "fields": {"name": 1, "researcher": 1, "confidence": 0.8}}, {"model": "papers.namevariant", "pk": 2, "fields": {"name": 2, "researcher": 2, "confidence": 0.8}}, {"model": "papers.namevariant", "pk": 3, "fields": {"name": 3, "researcher": 3, "confidence": 0.8}}, {"model": "papers.namevariant", "pk": 4, "fields": {"name": 4, "researcher": 4, "confidence": 0.8}}, {"model": "papers.namevariant", "pk": 5, "fields": {"name": 5, "researcher": 5, "confidence": 0.8}}, {"model": "papers.researcher", "pk": 1, "fields": {"name": 1, "user": null, "department": 1, "institution": 1, "email": null, "homepage": null, "role": null, "orcid": "0000-0002-7977-4441", "empty_orcid_profile": false, "last_harvest": "2016-07-23T12:48:10.987Z", "harvester": null, "current_task": null, "stats": 2}}, {"model": "papers.researcher", "pk": 2, "fields": {"name": 2, "user": null, "department": null, "institution": null, "email": null, "homepage": "http://antonin.delpeuch.eu/", "role": null, "orcid": "0000-0002-8612-8827", "empty_orcid_profile": false, "last_harvest": "2016-07-23T12:48:05.076Z", "harvester": null, "current_task": null, "stats": 3}}, {"model": "papers.researcher", "pk": 3, "fields": {"name": 3, "user": null, "department": 1, "institution": null, "email": null, "homepage": null, "role": null, "orcid": null, "empty_orcid_profile": null, "last_harvest": "2016-07-23T12:48:05.219Z", "harvester": null, "current_task": null, "stats": 4}}, {"model": "papers.researcher", "pk": 4, "fields": {"name": 4, "user": null, "department": 1, "institution": null, "email": null, "homepage": null, "role": null, "orcid": null, "empty_orcid_profile": null, "last_harvest": "2016-07-23T12:48:05.404Z", "harvester": null, "current_task": null, "stats": 5}}, {"model": "papers.researcher", "pk": 5, "fields": {"name": 5, "user": null, "department": null, "institution": null, "email": null, "homepage": null, "role": null, "orcid": null, "empty_orcid_profile": null, "last_harvest": "2016-07-23T12:48:05.584Z", "harvester": null, "current_task": null, "stats": 6}}, {"model": "papers.name", "pk": 1, "fields": {"first": "Antoine", "last": "Amarilli", "full": "antoine amarilli", "best_confidence": 0.8}}, {"model": "papers.name", "pk": 2, "fields": {"first": "Antonin", "last": "Delpeuch", "full": "antonin delpeuch", "best_confidence": 0.8}}, {"model": "papers.name", "pk": 3, "fields": {"first": "Ludovic", "last": "Jullien", "full": "ludovic jullien", "best_confidence": 0.8}}, {"model": "papers.name", "pk": 4, "fields": {"first": "Isabelle", "last": "Aujard", "full": "isabelle aujard", "best_confidence": 0.8}}, {"model": "papers.name", "pk": 5, "fields": {"first": "Terence", "last": "Tao", "full": "terence tao", "best_confidence": 0.8}}, {"model": "papers.name", "pk": 6, "fields": {"first": "Anne", "last": "Preller", "full": "anne preller", "best_confidence": 0.0}}, {"model": "papers.paper", "pk": 1, "fields": {"title": "From Natural Language to RDF Graphs with Pregroups", "fingerprint": "cd22776e1456fad0589c67d1ff89ca4d", "date_last_ask": null, "pubdate": "2014-01-01", "authors_list": [{"orcid": "0000-0002-8612-8827", "affiliation": null, "name": {"full": "antonin delpeuch", "last": "Delpeuch", "first": "Antonin"}, "researcher_id": 2}, {"orcid": null, "affiliation": null, "name": {"full": "anne preller", "last": "Preller", "first": "Anne"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:03.744Z", "visible": true, "last_annotation": null, "doctype": "proceedings-article", "oa_status": "UNK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 2, "fields": {"title": "Complexity of Grammar Induction for Quantum Types", "fingerprint": "6f6639a30a6130fb8e22d48344d70e17", "date_last_ask": null, "pubdate": "2014-12-28", "authors_list": [{"orcid": "0000-0002-8612-8827", "affiliation": "\u00c9cole Normale Sup\u00e9rieure, Paris", "name": {"full": "antonin delpeuch", "last": "Delpeuch", "first": "Antonin"}, "researcher_id": 2}], "last_modified": "2016-07-23T12:48:04.826Z", "visible": true, "last_annotation": null, "doctype": "journal-article", "oa_status": "OA", "pdf_url": "http://dx.doi.org/10.4204/eptcs.172.16", "task": null}}, {"model": "papers.paper", "pk": 3, "fields": {"title": "Finite Open-World Query Answering with Number Restrictions", "fingerprint": "a42a3ef7eb61176458fef57f3aca00da", "date_last_ask": null, "pubdate": "2015-07-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "michael benedikt", "last": "Benedikt", "first": "Michael"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:06.612Z", "visible": true, "last_annotation": null, "doctype": "proceedings-article", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 4, "fields": {"title": "Structurally Tractable Uncertain Data", "fingerprint": "8cc4a006d0507c3ca971c351d6b19dd2", "date_last_ask": null, "pubdate": "2015-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}], "last_modified": "2016-07-23T12:48:07.232Z", "visible": true, "last_annotation": null, "doctype": "proceedings-article", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 5, "fields": {"title": "Provenance Circuits for Trees and Treelike Instances", "fingerprint": "48b592ae13109eeb1568d0b158265f6e", "date_last_ask": null, "pubdate": "2015-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "pierre bourhis", "last": "Bourhis", "first": "Pierre"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "pierre senellart", "last": "Senellart", "first": "Pierre"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:07.623Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 6, "fields": {"title": "Uncertainty in Crowd Data Sourcing Under Structural Constraints", "fingerprint": "038278ec0990a1ccc3928cd61b90dcc8", "date_last_ask": null, "pubdate": "2014-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "yael amsterdamer", "last": "Amsterdamer", "first": "Yael"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "tova milo", "last": "Milo", "first": "Tova"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:07.983Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 7, "fields": {"title": "Recent Topics of Research around the YAGO Knowledge Base", "fingerprint": "f018f8aa87b090095d804b4df12e5e2e", "date_last_ask": null, "pubdate": "2014-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "luis galarraga", "last": "Gal\u00e1rraga", "first": "Luis"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "nicoleta preda", "last": "Preda", "first": "Nicoleta"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "fabian m. suchanek", "last": "Suchanek", "first": "Fabian M."}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:08.315Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 8, "fields": {"title": "Get a Sample for a Discount", "fingerprint": "0fcfa6d6cebb137cb06a024f634d567a", "date_last_ask": null, "pubdate": "2014-01-01", "authors_list": [{"orcid": null, "affiliation": null, "name": {"full": "ruiming tang", "last": "Tang", "first": "Ruiming"}, "researcher_id": null}, {"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "pierre senellart", "last": "Senellart", "first": "Pierre"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "stephane bressan", "last": "Bressan", "first": "St\u00e9phane"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:08.669Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 9, "fields": {"title": "On the Connections between Relational\u00a0and\u00a0XML Probabilistic Data Models", "fingerprint": "b53e209057b744561a7912a9b62d76d5", "date_last_ask": null, "pubdate": "2013-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "pierre senellart", "last": "Senellart", "first": "Pierre"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:09.019Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 10, "fields": {"title": "From Rational Number Reconstruction to Set Reconciliation and File Synchronization", "fingerprint": "2ec7548775c8aeca3f70a80585ff6ad2", "date_last_ask": null, "pubdate": "2013-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "fabrice ben hamouda", "last": "Ben Hamouda", "first": "Fabrice"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "florian bourse", "last": "Bourse", "first": "Florian"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "robin morisset", "last": "Morisset", "first": "Robin"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "david naccache", "last": "Naccache", "first": "David"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "pablo rauzy", "last": "Rauzy", "first": "Pablo"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:09.398Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 11, "fields": {"title": "Can Code Polymorphism Limit Information Leakage?", "fingerprint": "835417174a9b45def5608bfcc274b910", "date_last_ask": null, "pubdate": "2011-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "sascha muller", "last": "M\u00fcller", "first": "Sascha"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "david naccache", "last": "Naccache", "first": "David"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "daniel page", "last": "Page", "first": "Daniel"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "pablo rauzy", "last": "Rauzy", "first": "Pablo"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "michael tunstall", "last": "Tunstall", "first": "Michael"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:09.779Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 12, "fields": {"title": "Can a Program Reverse-Engineer Itself?", "fingerprint": "c6a320f69830d25d191ca496e7e727d8", "date_last_ask": null, "pubdate": "2011-01-01", "authors_list": [{"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "david naccache", "last": "Naccache", "first": "David"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "pablo rauzy", "last": "Rauzy", "first": "Pablo"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "emil simion", "last": "Simion", "first": "Emil"}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:10.160Z", "visible": true, "last_annotation": null, "doctype": "book-chapter", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.paper", "pk": 13, "fields": {"title": "IBEX: Harvesting Entities from the Web Using Unique Identifiers", "fingerprint": "33f911f6ef7e69c44e522807b1f89452", "date_last_ask": null, "pubdate": "2010-01-01", "authors_list": [{"orcid": null, "affiliation": null, "name": {"full": "aliaksandr talaika", "last": "Talaika", "first": "Aliaksandr"}, "researcher_id": null}, {"orcid": null, "affiliation": null, "name": {"full": "joanna biega", "last": "Biega", "first": "Joanna"}, "researcher_id": null}, {"orcid": "0000-0002-7977-4441", "affiliation": null, "name": {"full": "antoine amarilli", "last": "Amarilli", "first": "Antoine"}, "researcher_id": 1}, {"orcid": null, "affiliation": null, "name": {"full": "fabian m. suchanek", "last": "Suchanek", "first": "Fabian M."}, "researcher_id": null}], "last_modified": "2016-07-23T12:48:10.694Z", "visible": true, "last_annotation": null, "doctype": "proceedings-article", "oa_status": "OK", "pdf_url": null, "task": null}}, {"model": "papers.oaisource", "pk": 1, "fields": {"identifier": "arxiv", "name": "arXiv", "oa": false, "priority": 10, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.930Z", "endpoint":"http://export.arxiv.org/oai2"}}, {"model": "papers.oaisource", "pk": 2, "fields": {"identifier": "hal", "name": "HAL", "oa": false, "priority": 10, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.933Z", "endpoint":"https://api.archives-ouvertes.fr/oai/hal/"}}, {"model": "papers.oaisource", "pk": 3, "fields": {"identifier": "cairn", "name": "Cairn", "oa": false, "priority": 10, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.935Z"}}, {"model": "papers.oaisource", "pk": 4, "fields": {"identifier": "pmc", "name": "PubMed Central", "oa": false, "priority": 10, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.937Z"}}, {"model": "papers.oaisource", "pk": 5, "fields": {"identifier": "doaj", "name": "DOAJ", "oa": true, "priority": 10, "default_pubtype": "journal-article", "last_update": "2017-01-05T13:12:43.940Z"}}, {"model": "papers.oaisource", "pk": 6, "fields": {"identifier": "persee", "name": "Pers\u00e9e", "oa": true, "priority": 10, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.945Z"}}, {"model": "papers.oaisource", "pk": 7, "fields": {"identifier": "zenodo", "name": "Zenodo", "oa": false, "priority": 15, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.949Z"}}, {"model": "papers.oaisource", "pk": 8, "fields": {"identifier": "numdam", "name": "Numdam", "oa": false, "priority": 10, "default_pubtype": "journal-article", "last_update": "2017-01-05T13:12:43.952Z"}}, {"model": "papers.oaisource", "pk": 9, "fields": {"identifier": "base", "name": "BASE", "oa": false, "priority": -2, "default_pubtype": "preprint", "last_update": "2017-01-05T13:12:43.954Z"}}, {"model": "papers.oaisource", "pk": 10, "fields": {"identifier": "researchgate", "name": "ResearchGate", "oa": false, "priority": -10, "default_pubtype": "journal-article", "last_update": "2017-01-05T13:12:43.956Z"}}, {"model": "papers.oaisource", "pk": 11, "fields": {"identifier": "crossref", "name": "Crossref", "oa": false, "priority": 20, "default_pubtype": "journal-article", "last_update": "2017-01-05T13:12:43.958Z"}}, {"model": "papers.oaisource", "pk": 12, "fields": {"identifier": "orcid", "name": "ORCID", "oa": false, "priority": 1, "default_pubtype": "other", "last_update": "2017-01-05T13:12:43.960Z"}}, {"model": "papers.oairecord", "pk": 1, "fields": {"source": ["orcid"], "about": 1, "identifier": "16667185", "splash_url": "http://sandbox.orcid.org/0000-0002-8612-8827", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:03.678Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 2, "fields": {"source": ["orcid"], "about": 2, "identifier": "orcid:0000-0002-8612-8827:10.4204/eptcs.172.16", "splash_url": "http://sandbox.orcid.org/0000-0002-8612-8827", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "journal-article", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:04.720Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 3, "fields": {"source": ["researchgate"], "about": 2, "identifier": "oai:crossref.org:10.4204/eptcs.172.16", "splash_url": "https://doi.org/10.4204/eptcs.172.16", "pdf_url": "http://dx.doi.org/10.4204/eptcs.172.16", "description": null, "keywords": null, "contributors": null, "pubtype": "journal-article", "journal_title": "Electron. Proc. Theor. Comput. Sci.", "container": null, "journal": 3, "publisher": 4, "publisher_name": "Open Publishing Association", "issue": null, "volume": "172", "pages": "236-248", "pubdate": null, "doi": "10.4204/eptcs.172.16", "last_update": "2016-07-23T12:48:04.766Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 4, "fields": {"source": ["orcid"], "about": 3, "identifier": "orcid:0000-0002-7977-4441:10.1109/lics.2015.37", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:06.496Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 5, "fields": {"source": ["researchgate"], "about": 3, "identifier": "oai:crossref.org:10.1109/lics.2015.37", "splash_url": "https://doi.org/10.1109/lics.2015.37", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": "2015 30th Annual ACM/IEEE Symposium on Logic in Computer Science", "container": null, "journal": null, "publisher": 3, "publisher_name": "Institute of Electrical & Electronics Engineers (IEEE)", "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": "10.1109/lics.2015.37", "last_update": "2016-07-23T12:48:06.526Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 6, "fields": {"source": ["researchgate"], "about": 4, "identifier": "oai:crossref.org:10.1145/2744680.2744690", "splash_url": "https://doi.org/10.1145/2744680.2744690", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": "Proceedings of the 2015 ACM SIGMOD on PhD Symposium - SIGMOD '15 PhD Symposium", "container": null, "journal": null, "publisher": 2, "publisher_name": "Association for Computing Machinery (ACM)", "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": "10.1145/2744680.2744690", "last_update": "2016-07-23T12:48:07.145Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 7, "fields": {"source": ["orcid"], "about": 4, "identifier": "orcid:0000-0002-7977-4441:10.1145/2744680.2744690", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:07.199Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 8, "fields": {"source": ["orcid"], "about": 5, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-662-47666-6_5", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:07.500Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 9, "fields": {"source": ["researchgate"], "about": 5, "identifier": "oai:crossref.org:10.1007/978-3-662-47666-6_5", "splash_url": "https://doi.org/10.1007/978-3-662-47666-6_5", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Automata, Languages, and Programming", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "56-68", "pubdate": null, "doi": "10.1007/978-3-662-47666-6_5", "last_update": "2016-07-23T12:48:07.555Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 10, "fields": {"source": ["researchgate"], "about": 6, "identifier": "oai:crossref.org:10.1007/978-3-662-43984-5_27", "splash_url": "https://doi.org/10.1007/978-3-662-43984-5_27", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Database Systems for Advanced Applications", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "351-359", "pubdate": null, "doi": "10.1007/978-3-662-43984-5_27", "last_update": "2016-07-23T12:48:07.862Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 11, "fields": {"source": ["orcid"], "about": 6, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-662-43984-5_27", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:07.919Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 12, "fields": {"source": ["researchgate"], "about": 7, "identifier": "oai:crossref.org:10.1007/978-3-319-11116-2_1", "splash_url": "https://doi.org/10.1007/978-3-319-11116-2_1", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Web Technologies and Applications", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "1-12", "pubdate": null, "doi": "10.1007/978-3-319-11116-2_1", "last_update": "2016-07-23T12:48:08.239Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 13, "fields": {"source": ["orcid"], "about": 7, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-319-11116-2_1", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:08.279Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 14, "fields": {"source": ["researchgate"], "about": 8, "identifier": "oai:crossref.org:10.1007/978-3-319-10073-9_3", "splash_url": "https://doi.org/10.1007/978-3-319-10073-9_3", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Lecture Notes in Computer Science", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "20-34", "pubdate": null, "doi": "10.1007/978-3-319-10073-9_3", "last_update": "2016-07-23T12:48:08.599Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 15, "fields": {"source": ["orcid"], "about": 8, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-319-10073-9_3", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:08.632Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 16, "fields": {"source": ["orcid"], "about": 9, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-39467-6_13", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:08.925Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 17, "fields": {"source": ["researchgate"], "about": 9, "identifier": "oai:crossref.org:10.1007/978-3-642-39467-6_13", "splash_url": "https://doi.org/10.1007/978-3-642-39467-6_13", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Big Data", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "121-134", "pubdate": null, "doi": "10.1007/978-3-642-39467-6_13", "last_update": "2016-07-23T12:48:08.955Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 18, "fields": {"source": ["researchgate"], "about": 10, "identifier": "oai:crossref.org:10.1007/978-3-642-41157-1_1", "splash_url": "https://doi.org/10.1007/978-3-642-41157-1_1", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Trustworthy Global Computing", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "1-18", "pubdate": null, "doi": "10.1007/978-3-642-41157-1_1", "last_update": "2016-07-23T12:48:09.274Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 19, "fields": {"source": ["orcid"], "about": 10, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-41157-1_1", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:09.334Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 20, "fields": {"source": ["orcid"], "about": 11, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-21040-2_1", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:09.669Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 21, "fields": {"source": ["researchgate"], "about": 11, "identifier": "oai:crossref.org:10.1007/978-3-642-21040-2_1", "splash_url": "https://doi.org/10.1007/978-3-642-21040-2_1", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Information Security Theory and Practice. Security and Privacy of Mobile Devices in Wireless Communication", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "1-21", "pubdate": null, "doi": "10.1007/978-3-642-21040-2_1", "last_update": "2016-07-23T12:48:09.724Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 22, "fields": {"source": ["orcid"], "about": 12, "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-25516-8_1", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:10.044Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 23, "fields": {"source": ["researchgate"], "about": 12, "identifier": "oai:crossref.org:10.1007/978-3-642-25516-8_1", "splash_url": "https://doi.org/10.1007/978-3-642-25516-8_1", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "book-chapter", "journal_title": "Cryptography and Coding", "container": null, "journal": 1, "publisher": 1, "publisher_name": "Springer Science + Business Media", "issue": null, "volume": null, "pages": "1-9", "pubdate": null, "doi": "10.1007/978-3-642-25516-8_1", "last_update": "2016-07-23T12:48:10.105Z", "priority": -10}}, {"model": "papers.oairecord", "pk": 24, "fields": {"source": ["orcid"], "about": 13, "identifier": "orcid:0000-0002-7977-4441:10.1145/2767109.2767116", "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": null, "container": null, "journal": null, "publisher": null, "publisher_name": null, "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": null, "last_update": "2016-07-23T12:48:10.568Z", "priority": 1}}, {"model": "papers.oairecord", "pk": 25, "fields": {"source": ["researchgate"], "about": 13, "identifier": "oai:crossref.org:10.1145/2767109.2767116", "splash_url": "https://doi.org/10.1145/2767109.2767116", "pdf_url": null, "description": null, "keywords": null, "contributors": null, "pubtype": "proceedings-article", "journal_title": "Proceedings of the 18th International Workshop on Web and Databases - WebDB'15", "container": null, "journal": null, "publisher": 2, "publisher_name": "Association for Computing Machinery (ACM)", "issue": null, "volume": null, "pages": null, "pubdate": null, "doi": "10.1145/2767109.2767116", "last_update": "2016-07-23T12:48:10.630Z", "priority": -10}}, {"model": "papers.paperworld", "pk": 1, "fields": {"stats": 1}}]
+[
+  {
+    "model": "sessions.session",
+    "pk": "o9kob1zdaoy6al6tqjmu04ulrb8kbeqn",
+    "fields": {
+      "session_data": "OWI5MDZkNmZiYzQ0NzA2NjgyNDRjMzRiNzY1YjQyM2I1YzhjMmVhNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjY3OWE1YzA4MDE3OTc0OWRiOGYxNzUxNTk3MGRiZWJiZGY0MDFiZjAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+      "expire_date": "2016-08-06T02:00:13.711Z"
+    }
+  },
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+    }
+  },
+  {
+    "model": "socialaccount.socialapp",
+    "pk": 1,
+    "fields": {
+      "provider": "orcid",
+      "name": "Orcid sandbox",
+      "client_id": "APP-ZAKE3VEWSG31TWSE",
+      "secret": "5f0464c4-375a-4925-84ff-95b0d410cad8",
+      "key": "",
+      "sites": [
+        [
+          "example.com"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 1,
+    "fields": {
+      "num_oa": 1,
+      "num_ok": 0,
+      "num_couldbe": 11,
+      "num_unk": 1,
+      "num_closed": 0,
+      "num_tot": 13
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 2,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 11,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 11
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 3,
+    "fields": {
+      "num_oa": 1,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 1,
+      "num_closed": 0,
+      "num_tot": 2
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 4,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 0
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 5,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 0
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 6,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 0
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 7,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 8,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 8
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 8,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 8,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 8
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 9,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 11,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 11
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 10,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 11,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 11
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 11,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 0
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 12,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 2,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 2
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 13,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 1,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 1
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 14,
+    "fields": {
+      "num_oa": 1,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 1
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 15,
+    "fields": {
+      "num_oa": 0,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 0
+    }
+  },
+  {
+    "model": "statistics.accessstatistics",
+    "pk": 16,
+    "fields": {
+      "num_oa": 1,
+      "num_ok": 0,
+      "num_couldbe": 0,
+      "num_unk": 0,
+      "num_closed": 0,
+      "num_tot": 1
+    }
+  },
+  {
+    "model": "publishers.publisher",
+    "pk": 1,
+    "fields": {
+      "romeo_id": "2765",
+      "name": "Springer Verlag (Germany)",
+      "alias": "LNCS",
+      "url": "http://www.springerlink.com/?MUD=MP",
+      "preprint": "can",
+      "postprint": "can",
+      "pdfversion": "cannot",
+      "oa_status": "OK",
+      "stats": 7
+    }
+  },
+  {
+    "model": "publishers.publisher",
+    "pk": 2,
+    "fields": {
+      "romeo_id": "21",
+      "name": "Association for Computing Machinery",
+      "alias": "ACM",
+      "url": "http://www.acm.org/",
+      "preprint": "can",
+      "postprint": "can",
+      "pdfversion": "cannot",
+      "oa_status": "OK",
+      "stats": 12
+    }
+  },
+  {
+    "model": "publishers.publisher",
+    "pk": 3,
+    "fields": {
+      "romeo_id": "38",
+      "name": "Institute of Electrical and Electronics Engineers",
+      "alias": "IEEE",
+      "url": "http://www.ieee.org/index.html",
+      "preprint": "can",
+      "postprint": "can",
+      "pdfversion": "cannot",
+      "oa_status": "OK",
+      "stats": 13
+    }
+  },
+  {
+    "model": "publishers.publisher",
+    "pk": 4,
+    "fields": {
+      "romeo_id": "DOAJ",
+      "name": "Open Publishing Association",
+      "alias": null,
+      "url": "http://eptcs.org/",
+      "preprint": "unknown",
+      "postprint": "unknown",
+      "pdfversion": "unknown",
+      "oa_status": "OA",
+      "stats": 14
+    }
+  },
+  {
+    "model": "publishers.journal",
+    "pk": 1,
+    "fields": {
+      "title": "Lecture Notes in Computer Science",
+      "last_updated": "2016-07-23T12:00:40.901Z",
+      "issn": "0302-9743",
+      "publisher": 1,
+      "stats": 8
+    }
+  },
+  {
+    "model": "publishers.journal",
+    "pk": 2,
+    "fields": {
+      "title": "ACM Transactions on Computational Logic",
+      "last_updated": "2016-07-23T13:28:16.954Z",
+      "issn": "1529-3785",
+      "publisher": 2,
+      "stats": 15
+    }
+  },
+  {
+    "model": "publishers.journal",
+    "pk": 3,
+    "fields": {
+      "title": "Electronic Proceedings in Theoretical Computer Science",
+      "last_updated": "2016-07-23T13:28:17.044Z",
+      "issn": "2075-2180",
+      "publisher": 4,
+      "stats": 16
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 1,
+    "fields": {
+      "publisher": 1,
+      "text": "Author's pre-print on pre-print servers such as arXiv.org, CoRR and HAL"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 2,
+    "fields": {
+      "publisher": 1,
+      "text": "Author's post-print on author's personal website, institutional repository, funder's designated repository"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 3,
+    "fields": {
+      "publisher": 1,
+      "text": "Publisher's version/PDF cannot be used"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 4,
+    "fields": {
+      "publisher": 1,
+      "text": "Published source must be acknowledged"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 5,
+    "fields": {
+      "publisher": 1,
+      "text": "Must link to publisher version with DOI"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 6,
+    "fields": {
+      "publisher": 1,
+      "text": "Set phrase to accompany link to published version (see policy)"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 7,
+    "fields": {
+      "publisher": 2,
+      "text": "Author's pre-print on non-peer review servers prior to submission to journal"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 8,
+    "fields": {
+      "publisher": 2,
+      "text": "Author's pre-prints can be deposited on public repositories as long as accompanied by ACM copyright notice upon transfer of copyright"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 9,
+    "fields": {
+      "publisher": 2,
+      "text": "Author's Post-print on author's personal website, institutional repository, open access repository, employer's website or funder's mandated repository only"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 10,
+    "fields": {
+      "publisher": 2,
+      "text": "Non commercial use"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 11,
+    "fields": {
+      "publisher": 2,
+      "text": "Publisher's version/PDF cannot be used"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 12,
+    "fields": {
+      "publisher": 2,
+      "text": "Publisher copyright and source must be acknowledged"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 13,
+    "fields": {
+      "publisher": 2,
+      "text": "Must link to publisher version with statement that this is the definitive version and DOI"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 14,
+    "fields": {
+      "publisher": 2,
+      "text": "Must state that version on repository is the authors version"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 15,
+    "fields": {
+      "publisher": 2,
+      "text": "Set statement \"&#169; ACM, YYYY. This is the author's version of the work. It is posted here by permission of ACM for your personal use. Not for redistribution. The definitive version was published in PUBLICATION, {VOL#, ISS#, (DATE)} http://doi.acm.org/10.1145/nnnnnn.nnnnnn\""
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 16,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's pre-print on Author's personal website, employers website or publicly accessible server"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 17,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's post-print on Author's server or Institutional server"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 18,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's pre-print must be removed upon publication of final version and replaced with either full citation to IEEE work with a Digital Object Identifier or link to article abstract in IEEE Xplore or replaced with Authors post-print"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 19,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's pre-print must be accompanied with set-phrase, once submitted to IEEE for publication (\"This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible\")"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 20,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's pre-print must be accompanied with set-phrase, when accepted by IEEE for publication (\"(c) 20xx IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other users, including reprinting/ republishing this material for advertising or promotional purposes, creating new collective works for resale or redistribution to servers or lists, or reuse of any copyrighted components of this work in other works.\")"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 21,
+    "fields": {
+      "publisher": 3,
+      "text": "IEEE must be informed as to the electronic address of the pre-print"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 22,
+    "fields": {
+      "publisher": 3,
+      "text": "If funding rules apply authors may post Author's post-print version in funder's designated repository"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 23,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's Post-print - Publisher copyright and source must be acknowledged with citation (see above set statement)"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 24,
+    "fields": {
+      "publisher": 3,
+      "text": "Author's Post-print - Must link to publisher version with DOI"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 25,
+    "fields": {
+      "publisher": 3,
+      "text": "Publisher's version/PDF cannot be used"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 26,
+    "fields": {
+      "publisher": 3,
+      "text": "Publisher copyright and source must be acknowledged"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 27,
+    "fields": {
+      "publisher": 4,
+      "text": "This publisher's policies have not been checked by RoMEO."
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 28,
+    "fields": {
+      "publisher": 4,
+      "text": "DOAJ says it is an open access journal, but this may only mean that it is freely available to read."
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 29,
+    "fields": {
+      "publisher": 4,
+      "text": "Most open access publishers also permit self-archiving and re-use, but some do not."
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 30,
+    "fields": {
+      "publisher": 4,
+      "text": "Do not assume that self-archiving is allowed, unless it is published under a <a href=\"http://creativecommons.org/\" target=\"_blank\">Creative Commons</a> license."
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 31,
+    "fields": {
+      "publisher": 4,
+      "text": "Please contact the publisher for further information if necessary"
+    }
+  },
+  {
+    "model": "publishers.publishercondition",
+    "pk": 32,
+    "fields": {
+      "publisher": 4,
+      "text": "Email <a href=\"mailto:romeo@jisc.ac.uk\">romeo@jisc.ac.uk</a> if you wish to suggest adding this publisher properly to RoMEO."
+    }
+  },
+  {
+    "model": "publishers.publishercopyrightlink",
+    "pk": 1,
+    "fields": {
+      "publisher": 2,
+      "text": "Policy",
+      "url": "http://www.acm.org/publications/policies/copyright_policy"
+    }
+  },
+  {
+    "model": "publishers.publishercopyrightlink",
+    "pk": 2,
+    "fields": {
+      "publisher": 3,
+      "text": "Electronic information dissemination policy",
+      "url": "http://www.ieee.org/publications_standards/publications/rights/rights_policies.html"
+    }
+  },
+  {
+    "model": "publishers.publishercopyrightlink",
+    "pk": 3,
+    "fields": {
+      "publisher": 3,
+      "text": "copyright form",
+      "url": "http://www.ieee.org/documents/ieeecopyrightform.pdf"
+    }
+  },
+  {
+    "model": "publishers.publishercopyrightlink",
+    "pk": 4,
+    "fields": {
+      "publisher": 3,
+      "text": "Copyright Policy",
+      "url": "http://www.ieee.org/publications_standards/publications/rights/copyrightpolicy.html"
+    }
+  },
+  {
+    "model": "publishers.publishercopyrightlink",
+    "pk": 5,
+    "fields": {
+      "publisher": 4,
+      "text": "See the publisher/journal website",
+      "url": "http://eptcs.org/"
+    }
+  },
+  {
+    "model": "publishers.aliaspublisher",
+    "pk": 1,
+    "fields": {
+      "publisher": 3,
+      "name": "Institute of Electrical & Electronics Engineers (IEEE)",
+      "count": 2
+    }
+  },
+  {
+    "model": "publishers.aliaspublisher",
+    "pk": 2,
+    "fields": {
+      "publisher": 4,
+      "name": "Open Publishing Association",
+      "count": 1
+    }
+  },
+  {
+    "model": "publishers.aliaspublisher",
+    "pk": 3,
+    "fields": {
+      "publisher": 2,
+      "name": "Association for Computing Machinery (ACM)",
+      "count": 2
+    }
+  },
+  {
+    "model": "publishers.aliaspublisher",
+    "pk": 4,
+    "fields": {
+      "publisher": 1,
+      "name": "Springer Science + Business Media",
+      "count": 8
+    }
+  },
+  {
+    "model": "papers.institution",
+    "pk": 1,
+    "fields": {
+      "name": "ENS",
+      "identifiers": null,
+      "country": "",
+      "coords": null,
+      "stats": 9
+    }
+  },
+  {
+    "model": "papers.department",
+    "pk": 1,
+    "fields": {
+      "name": "Chemistry dept",
+      "institution": 1,
+      "stats": 10
+    }
+  },
+  {
+    "model": "papers.department",
+    "pk": 2,
+    "fields": {
+      "name": "Comp sci dept",
+      "institution": 1,
+      "stats": 11
+    }
+  },
+  {
+    "model": "papers.researcher",
+    "pk": 1,
+    "fields": {
+      "name": 1,
+      "user": null,
+      "department": 1,
+      "institution": 1,
+      "email": null,
+      "homepage": null,
+      "role": null,
+      "orcid": "0000-0002-7977-4441",
+      "empty_orcid_profile": false,
+      "last_harvest": "2016-07-23T12:48:10.987Z",
+      "harvester": null,
+      "current_task": null,
+      "stats": 2
+    }
+  },
+  {
+    "model": "papers.researcher",
+    "pk": 2,
+    "fields": {
+      "name": 2,
+      "user": null,
+      "department": null,
+      "institution": null,
+      "email": null,
+      "homepage": "http://antonin.delpeuch.eu/",
+      "role": null,
+      "orcid": "0000-0002-8612-8827",
+      "empty_orcid_profile": false,
+      "last_harvest": "2016-07-23T12:48:05.076Z",
+      "harvester": null,
+      "current_task": null,
+      "stats": 3
+    }
+  },
+  {
+    "model": "papers.researcher",
+    "pk": 3,
+    "fields": {
+      "name": 3,
+      "user": null,
+      "department": 1,
+      "institution": null,
+      "email": null,
+      "homepage": null,
+      "role": null,
+      "orcid": null,
+      "empty_orcid_profile": null,
+      "last_harvest": "2016-07-23T12:48:05.219Z",
+      "harvester": null,
+      "current_task": null,
+      "stats": 4
+    }
+  },
+  {
+    "model": "papers.researcher",
+    "pk": 4,
+    "fields": {
+      "name": 4,
+      "user": null,
+      "department": 1,
+      "institution": null,
+      "email": null,
+      "homepage": null,
+      "role": null,
+      "orcid": null,
+      "empty_orcid_profile": null,
+      "last_harvest": "2016-07-23T12:48:05.404Z",
+      "harvester": null,
+      "current_task": null,
+      "stats": 5
+    }
+  },
+  {
+    "model": "papers.researcher",
+    "pk": 5,
+    "fields": {
+      "name": 5,
+      "user": null,
+      "department": null,
+      "institution": null,
+      "email": null,
+      "homepage": null,
+      "role": null,
+      "orcid": null,
+      "empty_orcid_profile": null,
+      "last_harvest": "2016-07-23T12:48:05.584Z",
+      "harvester": null,
+      "current_task": null,
+      "stats": 6
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 1,
+    "fields": {
+      "first": "Antoine",
+      "last": "Amarilli",
+      "full": "antoine amarilli",
+      "best_confidence": 0.8
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 2,
+    "fields": {
+      "first": "Antonin",
+      "last": "Delpeuch",
+      "full": "antonin delpeuch",
+      "best_confidence": 0.8
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 3,
+    "fields": {
+      "first": "Ludovic",
+      "last": "Jullien",
+      "full": "ludovic jullien",
+      "best_confidence": 0.8
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 4,
+    "fields": {
+      "first": "Isabelle",
+      "last": "Aujard",
+      "full": "isabelle aujard",
+      "best_confidence": 0.8
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 5,
+    "fields": {
+      "first": "Terence",
+      "last": "Tao",
+      "full": "terence tao",
+      "best_confidence": 0.8
+    }
+  },
+  {
+    "model": "papers.name",
+    "pk": 6,
+    "fields": {
+      "first": "Anne",
+      "last": "Preller",
+      "full": "anne preller",
+      "best_confidence": 0
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 1,
+    "fields": {
+      "title": "From Natural Language to RDF Graphs with Pregroups",
+      "fingerprint": "cd22776e1456fad0589c67d1ff89ca4d",
+      "date_last_ask": null,
+      "pubdate": "2014-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-8612-8827",
+          "affiliation": null,
+          "name": {
+            "full": "antonin delpeuch",
+            "last": "Delpeuch",
+            "first": "Antonin"
+          },
+          "researcher_id": 2
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "anne preller",
+            "last": "Preller",
+            "first": "Anne"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:03.744Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "proceedings-article",
+      "oa_status": "UNK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 2,
+    "fields": {
+      "title": "Complexity of Grammar Induction for Quantum Types",
+      "fingerprint": "6f6639a30a6130fb8e22d48344d70e17",
+      "date_last_ask": null,
+      "pubdate": "2014-12-28",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-8612-8827",
+          "affiliation": "École Normale Supérieure, Paris",
+          "name": {
+            "full": "antonin delpeuch",
+            "last": "Delpeuch",
+            "first": "Antonin"
+          },
+          "researcher_id": 2
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:04.826Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "journal-article",
+      "oa_status": "OA",
+      "pdf_url": "http://dx.doi.org/10.4204/eptcs.172.16",
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 3,
+    "fields": {
+      "title": "Finite Open-World Query Answering with Number Restrictions",
+      "fingerprint": "a42a3ef7eb61176458fef57f3aca00da",
+      "date_last_ask": null,
+      "pubdate": "2015-07-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "michael benedikt",
+            "last": "Benedikt",
+            "first": "Michael"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:06.612Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "proceedings-article",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 4,
+    "fields": {
+      "title": "Structurally Tractable Uncertain Data",
+      "fingerprint": "8cc4a006d0507c3ca971c351d6b19dd2",
+      "date_last_ask": null,
+      "pubdate": "2015-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:07.232Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "proceedings-article",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 5,
+    "fields": {
+      "title": "Provenance Circuits for Trees and Treelike Instances",
+      "fingerprint": "48b592ae13109eeb1568d0b158265f6e",
+      "date_last_ask": null,
+      "pubdate": "2015-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pierre bourhis",
+            "last": "Bourhis",
+            "first": "Pierre"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pierre senellart",
+            "last": "Senellart",
+            "first": "Pierre"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:07.623Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 6,
+    "fields": {
+      "title": "Uncertainty in Crowd Data Sourcing Under Structural Constraints",
+      "fingerprint": "038278ec0990a1ccc3928cd61b90dcc8",
+      "date_last_ask": null,
+      "pubdate": "2014-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "yael amsterdamer",
+            "last": "Amsterdamer",
+            "first": "Yael"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "tova milo",
+            "last": "Milo",
+            "first": "Tova"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:07.983Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 7,
+    "fields": {
+      "title": "Recent Topics of Research around the YAGO Knowledge Base",
+      "fingerprint": "f018f8aa87b090095d804b4df12e5e2e",
+      "date_last_ask": null,
+      "pubdate": "2014-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "luis galarraga",
+            "last": "Galárraga",
+            "first": "Luis"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "nicoleta preda",
+            "last": "Preda",
+            "first": "Nicoleta"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "fabian m. suchanek",
+            "last": "Suchanek",
+            "first": "Fabian M."
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:08.315Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 8,
+    "fields": {
+      "title": "Get a Sample for a Discount",
+      "fingerprint": "0fcfa6d6cebb137cb06a024f634d567a",
+      "date_last_ask": null,
+      "pubdate": "2014-01-01",
+      "authors_list": [
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "ruiming tang",
+            "last": "Tang",
+            "first": "Ruiming"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pierre senellart",
+            "last": "Senellart",
+            "first": "Pierre"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "stephane bressan",
+            "last": "Bressan",
+            "first": "Stéphane"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:08.669Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 9,
+    "fields": {
+      "title": "On the Connections between Relational and XML Probabilistic Data Models",
+      "fingerprint": "b53e209057b744561a7912a9b62d76d5",
+      "date_last_ask": null,
+      "pubdate": "2013-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pierre senellart",
+            "last": "Senellart",
+            "first": "Pierre"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:09.019Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 10,
+    "fields": {
+      "title": "From Rational Number Reconstruction to Set Reconciliation and File Synchronization",
+      "fingerprint": "2ec7548775c8aeca3f70a80585ff6ad2",
+      "date_last_ask": null,
+      "pubdate": "2013-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "fabrice ben hamouda",
+            "last": "Ben Hamouda",
+            "first": "Fabrice"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "florian bourse",
+            "last": "Bourse",
+            "first": "Florian"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "robin morisset",
+            "last": "Morisset",
+            "first": "Robin"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "david naccache",
+            "last": "Naccache",
+            "first": "David"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pablo rauzy",
+            "last": "Rauzy",
+            "first": "Pablo"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:09.398Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 11,
+    "fields": {
+      "title": "Can Code Polymorphism Limit Information Leakage?",
+      "fingerprint": "835417174a9b45def5608bfcc274b910",
+      "date_last_ask": null,
+      "pubdate": "2011-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "sascha muller",
+            "last": "Müller",
+            "first": "Sascha"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "david naccache",
+            "last": "Naccache",
+            "first": "David"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "daniel page",
+            "last": "Page",
+            "first": "Daniel"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pablo rauzy",
+            "last": "Rauzy",
+            "first": "Pablo"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "michael tunstall",
+            "last": "Tunstall",
+            "first": "Michael"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:09.779Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 12,
+    "fields": {
+      "title": "Can a Program Reverse-Engineer Itself?",
+      "fingerprint": "c6a320f69830d25d191ca496e7e727d8",
+      "date_last_ask": null,
+      "pubdate": "2011-01-01",
+      "authors_list": [
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "david naccache",
+            "last": "Naccache",
+            "first": "David"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "pablo rauzy",
+            "last": "Rauzy",
+            "first": "Pablo"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "emil simion",
+            "last": "Simion",
+            "first": "Emil"
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:10.160Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "book-chapter",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.paper",
+    "pk": 13,
+    "fields": {
+      "title": "IBEX: Harvesting Entities from the Web Using Unique Identifiers",
+      "fingerprint": "33f911f6ef7e69c44e522807b1f89452",
+      "date_last_ask": null,
+      "pubdate": "2010-01-01",
+      "authors_list": [
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "aliaksandr talaika",
+            "last": "Talaika",
+            "first": "Aliaksandr"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "joanna biega",
+            "last": "Biega",
+            "first": "Joanna"
+          },
+          "researcher_id": null
+        },
+        {
+          "orcid": "0000-0002-7977-4441",
+          "affiliation": null,
+          "name": {
+            "full": "antoine amarilli",
+            "last": "Amarilli",
+            "first": "Antoine"
+          },
+          "researcher_id": 1
+        },
+        {
+          "orcid": null,
+          "affiliation": null,
+          "name": {
+            "full": "fabian m. suchanek",
+            "last": "Suchanek",
+            "first": "Fabian M."
+          },
+          "researcher_id": null
+        }
+      ],
+      "last_modified": "2016-07-23T12:48:10.694Z",
+      "visible": true,
+      "last_annotation": null,
+      "doctype": "proceedings-article",
+      "oa_status": "OK",
+      "pdf_url": null,
+      "task": null
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 1,
+    "fields": {
+      "identifier": "arxiv",
+      "name": "arXiv",
+      "oa": false,
+      "priority": 10,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.930Z",
+      "endpoint": "http://export.arxiv.org/oai2"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 2,
+    "fields": {
+      "identifier": "hal",
+      "name": "HAL",
+      "oa": false,
+      "priority": 10,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.933Z",
+      "endpoint": "https://api.archives-ouvertes.fr/oai/hal/"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 3,
+    "fields": {
+      "identifier": "cairn",
+      "name": "Cairn",
+      "oa": false,
+      "priority": 10,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.935Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 4,
+    "fields": {
+      "identifier": "pmc",
+      "name": "PubMed Central",
+      "endpoint": "http://pubmedcentral.com/oai",
+      "oa": false,
+      "priority": 10,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.937Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 5,
+    "fields": {
+      "identifier": "doaj",
+      "name": "DOAJ",
+      "oa": true,
+      "priority": 10,
+      "default_pubtype": "journal-article",
+      "last_update": "2017-01-05T13:12:43.940Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 6,
+    "fields": {
+      "identifier": "persee",
+      "name": "Persée",
+      "oa": true,
+      "priority": 10,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.945Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 7,
+    "fields": {
+      "identifier": "zenodo",
+      "name": "Zenodo",
+      "oa": false,
+      "priority": 15,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.949Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 8,
+    "fields": {
+      "identifier": "numdam",
+      "name": "Numdam",
+      "oa": false,
+      "priority": 10,
+      "default_pubtype": "journal-article",
+      "last_update": "2017-01-05T13:12:43.952Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 9,
+    "fields": {
+      "identifier": "base",
+      "name": "BASE",
+      "oa": false,
+      "priority": -2,
+      "default_pubtype": "preprint",
+      "last_update": "2017-01-05T13:12:43.954Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 10,
+    "fields": {
+      "identifier": "researchgate",
+      "name": "ResearchGate",
+      "oa": false,
+      "priority": -10,
+      "default_pubtype": "journal-article",
+      "last_update": "2017-01-05T13:12:43.956Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 11,
+    "fields": {
+      "identifier": "crossref",
+      "name": "Crossref",
+      "oa": false,
+      "priority": 20,
+      "default_pubtype": "journal-article",
+      "last_update": "2017-01-05T13:12:43.958Z"
+    }
+  },
+  {
+    "model": "papers.oaisource",
+    "pk": 12,
+    "fields": {
+      "identifier": "orcid",
+      "name": "ORCID",
+      "oa": false,
+      "priority": 1,
+      "default_pubtype": "other",
+      "last_update": "2017-01-05T13:12:43.960Z"
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 1,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 1,
+      "identifier": "16667185",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-8612-8827",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:03.678Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 2,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 2,
+      "identifier": "orcid:0000-0002-8612-8827:10.4204/eptcs.172.16",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-8612-8827",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "journal-article",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:04.720Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 3,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 2,
+      "identifier": "oai:crossref.org:10.4204/eptcs.172.16",
+      "splash_url": "https://doi.org/10.4204/eptcs.172.16",
+      "pdf_url": "http://dx.doi.org/10.4204/eptcs.172.16",
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "journal-article",
+      "journal_title": "Electron. Proc. Theor. Comput. Sci.",
+      "container": null,
+      "journal": 3,
+      "publisher": 4,
+      "publisher_name": "Open Publishing Association",
+      "issue": null,
+      "volume": "172",
+      "pages": "236-248",
+      "pubdate": null,
+      "doi": "10.4204/eptcs.172.16",
+      "last_update": "2016-07-23T12:48:04.766Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 4,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 3,
+      "identifier": "orcid:0000-0002-7977-4441:10.1109/lics.2015.37",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:06.496Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 5,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 3,
+      "identifier": "oai:crossref.org:10.1109/lics.2015.37",
+      "splash_url": "https://doi.org/10.1109/lics.2015.37",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": "2015 30th Annual ACM/IEEE Symposium on Logic in Computer Science",
+      "container": null,
+      "journal": null,
+      "publisher": 3,
+      "publisher_name": "Institute of Electrical & Electronics Engineers (IEEE)",
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": "10.1109/lics.2015.37",
+      "last_update": "2016-07-23T12:48:06.526Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 6,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 4,
+      "identifier": "oai:crossref.org:10.1145/2744680.2744690",
+      "splash_url": "https://doi.org/10.1145/2744680.2744690",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": "Proceedings of the 2015 ACM SIGMOD on PhD Symposium - SIGMOD '15 PhD Symposium",
+      "container": null,
+      "journal": null,
+      "publisher": 2,
+      "publisher_name": "Association for Computing Machinery (ACM)",
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": "10.1145/2744680.2744690",
+      "last_update": "2016-07-23T12:48:07.145Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 7,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 4,
+      "identifier": "orcid:0000-0002-7977-4441:10.1145/2744680.2744690",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:07.199Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 8,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 5,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-662-47666-6_5",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:07.500Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 9,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 5,
+      "identifier": "oai:crossref.org:10.1007/978-3-662-47666-6_5",
+      "splash_url": "https://doi.org/10.1007/978-3-662-47666-6_5",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Automata, Languages, and Programming",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "56-68",
+      "pubdate": null,
+      "doi": "10.1007/978-3-662-47666-6_5",
+      "last_update": "2016-07-23T12:48:07.555Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 10,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 6,
+      "identifier": "oai:crossref.org:10.1007/978-3-662-43984-5_27",
+      "splash_url": "https://doi.org/10.1007/978-3-662-43984-5_27",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Database Systems for Advanced Applications",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "351-359",
+      "pubdate": null,
+      "doi": "10.1007/978-3-662-43984-5_27",
+      "last_update": "2016-07-23T12:48:07.862Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 11,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 6,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-662-43984-5_27",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:07.919Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 12,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 7,
+      "identifier": "oai:crossref.org:10.1007/978-3-319-11116-2_1",
+      "splash_url": "https://doi.org/10.1007/978-3-319-11116-2_1",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Web Technologies and Applications",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "1-12",
+      "pubdate": null,
+      "doi": "10.1007/978-3-319-11116-2_1",
+      "last_update": "2016-07-23T12:48:08.239Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 13,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 7,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-319-11116-2_1",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:08.279Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 14,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 8,
+      "identifier": "oai:crossref.org:10.1007/978-3-319-10073-9_3",
+      "splash_url": "https://doi.org/10.1007/978-3-319-10073-9_3",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Lecture Notes in Computer Science",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "20-34",
+      "pubdate": null,
+      "doi": "10.1007/978-3-319-10073-9_3",
+      "last_update": "2016-07-23T12:48:08.599Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 15,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 8,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-319-10073-9_3",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:08.632Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 16,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 9,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-39467-6_13",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:08.925Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 17,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 9,
+      "identifier": "oai:crossref.org:10.1007/978-3-642-39467-6_13",
+      "splash_url": "https://doi.org/10.1007/978-3-642-39467-6_13",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Big Data",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "121-134",
+      "pubdate": null,
+      "doi": "10.1007/978-3-642-39467-6_13",
+      "last_update": "2016-07-23T12:48:08.955Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 18,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 10,
+      "identifier": "oai:crossref.org:10.1007/978-3-642-41157-1_1",
+      "splash_url": "https://doi.org/10.1007/978-3-642-41157-1_1",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Trustworthy Global Computing",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "1-18",
+      "pubdate": null,
+      "doi": "10.1007/978-3-642-41157-1_1",
+      "last_update": "2016-07-23T12:48:09.274Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 19,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 10,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-41157-1_1",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:09.334Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 20,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 11,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-21040-2_1",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:09.669Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 21,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 11,
+      "identifier": "oai:crossref.org:10.1007/978-3-642-21040-2_1",
+      "splash_url": "https://doi.org/10.1007/978-3-642-21040-2_1",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Information Security Theory and Practice. Security and Privacy of Mobile Devices in Wireless Communication",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "1-21",
+      "pubdate": null,
+      "doi": "10.1007/978-3-642-21040-2_1",
+      "last_update": "2016-07-23T12:48:09.724Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 22,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 12,
+      "identifier": "orcid:0000-0002-7977-4441:10.1007/978-3-642-25516-8_1",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:10.044Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 23,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 12,
+      "identifier": "oai:crossref.org:10.1007/978-3-642-25516-8_1",
+      "splash_url": "https://doi.org/10.1007/978-3-642-25516-8_1",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "book-chapter",
+      "journal_title": "Cryptography and Coding",
+      "container": null,
+      "journal": 1,
+      "publisher": 1,
+      "publisher_name": "Springer Science + Business Media",
+      "issue": null,
+      "volume": null,
+      "pages": "1-9",
+      "pubdate": null,
+      "doi": "10.1007/978-3-642-25516-8_1",
+      "last_update": "2016-07-23T12:48:10.105Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 24,
+    "fields": {
+      "source": [
+        "orcid"
+      ],
+      "about": 13,
+      "identifier": "orcid:0000-0002-7977-4441:10.1145/2767109.2767116",
+      "splash_url": "http://sandbox.orcid.org/0000-0002-7977-4441",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": null,
+      "container": null,
+      "journal": null,
+      "publisher": null,
+      "publisher_name": null,
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": null,
+      "last_update": "2016-07-23T12:48:10.568Z",
+      "priority": 1
+    }
+  },
+  {
+    "model": "papers.oairecord",
+    "pk": 25,
+    "fields": {
+      "source": [
+        "researchgate"
+      ],
+      "about": 13,
+      "identifier": "oai:crossref.org:10.1145/2767109.2767116",
+      "splash_url": "https://doi.org/10.1145/2767109.2767116",
+      "pdf_url": null,
+      "description": null,
+      "keywords": null,
+      "contributors": null,
+      "pubtype": "proceedings-article",
+      "journal_title": "Proceedings of the 18th International Workshop on Web and Databases - WebDB'15",
+      "container": null,
+      "journal": null,
+      "publisher": 2,
+      "publisher_name": "Association for Computing Machinery (ACM)",
+      "issue": null,
+      "volume": null,
+      "pages": null,
+      "pubdate": null,
+      "doi": "10.1145/2767109.2767116",
+      "last_update": "2016-07-23T12:48:10.630Z",
+      "priority": -10
+    }
+  },
+  {
+    "model": "papers.paperworld",
+    "pk": 1,
+    "fields": {
+      "stats": 1
+    }
+  }
+]

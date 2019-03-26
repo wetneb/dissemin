@@ -97,8 +97,6 @@ $(function(){
          refetchURL: "{% url "refetch-researcher" researcher.pk %}",
          refetchMessage: "{% trans "Refreshing profile" %}",
          currentTask: {% if researcher.current_task %}"{{ researcher.get_current_task_display }}"{% else %} null {% endif %},
-         affiliationForm: $('#affiliationForm'),
-         affiliationFormInput: $('#id_value'),
          setResearcherDepartmentURL: "{% url 'ajax-setResearcherDepartment' %}",
 {% endif %}
          isSuperUser: {{ request.user.is_superuser|yesno:"true,false,false" }},
@@ -141,19 +139,6 @@ $(function(){
         {% if request.user.is_superuser and researcher.email %}
         <p>{% trans "Address:" %} {{ researcher.email }}</p>
         {% endif %}
-        {% if request.user.is_superuser %}
-        <p>{% trans "Names:" %}
-            <ul>
-            {% for nv in researcher.name_variants.all %}
-            <li><a href="{% url 'search' %}?authors={{ nv.name_id }}">{{ nv.name }}</a> ({{ nv.confidence }})</li>
-            {% endfor %}
-         </ul></p>
-
-         <form method="POST" id="affiliationForm">
-         {% csrf_token %}
-         {{ researcher.affiliation_form }}</br>
-         </form>
-         {% endif %}
     </div>
 {% elif department %}
 <span class="detailsTitle">{% trans "Department" %}</span>

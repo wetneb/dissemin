@@ -38,7 +38,6 @@ from bibtexparser.bwriter import BibTexWriter
 from bibtexparser.bibdatabase import BibDatabase
 from django.apps import apps
 from django.db import models
-from django.core.exceptions import ObjectDoesNotExist
 from django.template.defaultfilters import slugify
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
@@ -733,24 +732,6 @@ class BareAuthor(BareObject):
         An author is "known" when it is linked to a known researcher.
         """
         return self.researcher != None
-
-    def update_name_variants_if_needed(self, default_confidence=0.1):
-        """
-        Ensure that an author associated with an ORCID has a name
-        that is the variant of the researcher with that ORCID
-        """
-        orcid = self.orcid
-        if orcid:
-            try:
-                r = self._researcher_model.objects.get(orcid=orcid)
-                NameVariant = apps.get_app_config(
-                    'papers').get_model('NameVariant')
-                NameVariant.objects.get_or_create(
-                        researcher=r,
-                        name=self.name,
-                        defaults={'confidence': default_confidence})
-            except ObjectDoesNotExist:
-                pass
 
     # Representations -------------------------------
     def __str__(self):

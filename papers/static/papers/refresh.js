@@ -244,29 +244,10 @@ function init_paper_module (config) {
     }
   }
 
-  function updateResearcherDepartment (setResearcherURL) {
-    return function (event) {
-      return call_api(setResearcherURL, {
-        method: 'POST',
-        body: new BodyForm(config.affiliationForm),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(function (response) {
-        console.log('Department was updated', response)
-      })
-      .catch(function (error) {
-        console.error('Department was not updated', error)
-      })
-    }
-  }
-
   // Set up the popover for the logo help.
   config.logoHelpNode.popover({
     trigger: 'hover'
   })
-
 
   // When we click on the refetch button, we reload the publications.
   config.refetchButtonNode.click(
@@ -278,12 +259,6 @@ function init_paper_module (config) {
   if (config.currentTask) {
     notifyWaitingArea(config.currentTask)
     _refreshPapers(1500)
-  }
-
-  if (config.isSuperUser && config.affiliationForm) {
-    config.affiliationForm.change(
-      updateResearcherDepartment(config.setResearcherDepartmentURL)
-    )
   }
 
   if (config.initialMessages) {

@@ -24,10 +24,8 @@ import datetime
 import unittest
 
 from backend.crossref import CrossRefAPI
-from backend.maintenance import cleanup_names
 from backend.maintenance import update_paper_statuses
 from backend.tasks import fetch_everything_for_researcher
-from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 import pytest
 
@@ -144,16 +142,6 @@ class MaintenanceTest(TestCase):
     def setUpClass(self):
         super(MaintenanceTest, self).setUpClass()
         self.cr_api = CrossRefAPI()
-
-    def test_cleanup_names(self):
-        n = Name.lookup_name(('Anaruic', 'Leclescuantebrste'))
-        n.save()
-        cleanup_names()
-        try:
-            n = Name.objects.get(first='Anaruic', last='Leclescuantebrste')
-            self.assertTrue(False and 'The name has not been cleaned up')
-        except ObjectDoesNotExist:
-            pass
 
     def test_name_initial(self):
         n = self.r2.name
