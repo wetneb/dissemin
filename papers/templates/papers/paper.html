@@ -20,7 +20,7 @@
     {% endif %}
 {% endblock %}
 
-{% block headTitle %}{{ paper.title }} - {{ paper.authors | join:', ' }}{% endblock %}
+{% block headTitle %}{{ paper.title }} - {{ paper.interesting_authors | join:', ' }}{% endblock %}
 
 {% block bodyTitle %}
 <h1 id="paperTitle" data-params="{csrfmiddlewaretoken:'{{csrf_token}}'}" data-pk="{{ paper.pk }}">
@@ -31,122 +31,124 @@
 {% endblock %}
 
 {% block jsScript %}
-$(function(){
-$('.helpPopover').popover({trigger: "hover"});
-});
-{% if paper.has_many_authors %}
-$(function(){
-    var summary = $('#authorSummary').clone();
-    var full = $('#authorFull').detach();
-    var setup_links = function(){
-    $('#show_all_authors').click(function(){
-        $('#authorSummary').replaceWith(full);
-        setup_links();
-      });
-    $('#show_less_authors').click(function(){
-        $('#authorFull').replaceWith(summary);
-        setup_links();
-     });
-    };
-    setup_links();
-});
-{% endif %}
+    $(function(){
+        $('.helpPopover').popover({trigger: "hover"});
+    });
+    {% if paper.has_many_authors %}
+        $(function(){
+            var summary = $('#authorSummary').clone();
+            var full = $('#authorFull').detach();
+            var setup_links = function(){
+            $('#show_all_authors').click(function(){
+                $('#authorSummary').replaceWith(full);
+                setup_links();
+              });
+            $('#show_less_authors').click(function(){
+                $('#authorFull').replaceWith(summary);
+                setup_links();
+             });
+            };
+            setup_links();
+        });
+    {% endif %}
 {% endblock %}
 
 {% block lists %}
-<div id="authorSummary">
-    {% if paper.doctype != "other" %}
-    {% with paper.get_doctype_display as doctype %}
-    {% blocktrans context "as in: _Journal article by_ Tom Smith, Nicole Allen" trimmed %}
-    <span class="paperDocType">{{ doctype }}</span> by
-    {% endblocktrans %}
-    {% endwith %}
-    {% endif %}
-{% if paper.has_many_authors %}
-        {% include "papers/authorList.html" with author_list=paper.interesting_authors %}
-         {% with paper.nb_remaining_authors as nb_remaining_authors %}
-            {% blocktrans trimmed %}
-            and <a href="#" id="show_all_authors">{{ nb_remaining_authors }} other authors</a>
-            {% endblocktrans %}
-        {% endwith %}
+    <div id="authorSummary">
+        {% if paper.doctype != "other" %}
+            {% with doctype=paper.get_doctype_display year=paper.year %}
+                {% blocktrans context "as in: _Journal article published in 2017 by_ Tom Smith, Nicole Allen" trimmed %}
+                    <span class="paperDocType">{{ doctype }}</span> published in {{ year }} by
+                {% endblocktrans %}
+            {% endwith %}
+        {% else %}
+            {% with year=paper.year %}
+              {% blocktrans context "as in: _Published in 2017 by_ Tom Smith, Nicole Allen" trimmed %}
+                    Published in {{ year }} by
+                {% endblocktrans %}
+            {% endwith %}
+        {% endif %}
+        {% if paper.has_many_authors %}
+            {% include "papers/authorList.html" with author_list=paper.interesting_authors %}
+            {% with paper.nb_remaining_authors as nb_remaining_authors %}
+                {% blocktrans trimmed %}
+                    and <a href="#" id="show_all_authors">{{ nb_remaining_authors }} other authors</a>
+                {% endblocktrans %}
+            {% endwith %}
+            </div><div id="authorFull">
+            {% with paper.author_count as nb_authors %}
+                {% blocktrans trimmed %}
+                All {{ nb_authors }} authors (<a href="#" id="show_less_authors">show less</a>):<br />
+                {% endblocktrans %}
+            {% endwith %}
+            {% include "papers/authorList.html" with author_list=paper.authors %}
+        {% else %}
+            {% include "papers/authorList.html" with author_list=paper.authors %}
+        {% endif %}
     </div>
-    <div id="authorFull">
-        {% with paper.author_count as nb_authors %}
-            {% blocktrans trimmed %}
-            All {{ nb_authors }} authors (<a href="#" id="show_less_authors">show less</a>):<br />
-            {% endblocktrans %}
-        {% endwith %}
 
-        {% include "papers/authorList.html" with author_list=paper.authors %}
-{% else %}
-    {% include "papers/authorList.html" with author_list=paper.authors %}
-{% endif %}
-</div>
-
-{% if deposit.status == 'published' %}
-    <div class="alert alert-success">{% trans "<strong>Congratulations!</strong> This paper was successfully deposited." %}</div>
-{% else %}
-    {% for deposit in pending_deposits %}
-	<div class="alert alert-success">
-		{% with deposit.repository.name as repo_name %}
-		{% with deposit.repository.url as repo_url %}
-		{% with deposit.oairecord.splash_url as deposit_url %}
-		{% blocktrans trimmed %}
-		<strong>Almost there!</strong>
-		This paper has been deposited in <a href="{{ repo_url }}">{{ repo_name }}</a>.
-		The full text will be available at <a href="{{ deposit_url }}">this address</a> after validation by the repository administrators.
-		{% endblocktrans %}
-		{% endwith %}
-		{% endwith %}
-		{% endwith %}
-	</div>
-    {% endfor %}
-{% endif %}
-<div id="paperAvailability">
-
-<div id="paperAvailabilityLogo">
-    <img src="{% static "img/logos/" %}{{ paper.combined_status }}.png" width="52" height="70" alt="Paper" />
-</div>
-
-<div id="paperDetails">
-<p><strong>{% trans "Full text:" %}</strong>
-    {% if paper.pdf_url %}
-    <a href="{{ paper.pdf_url }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"></span> {% trans "Download" %}</a>
+    {% if deposit.status == 'published' %}
+        <div class="alert alert-success">{% trans "<strong>Congratulations!</strong> This paper was successfully deposited." %}</div>
     {% else %}
-	  {% trans "Unavailable" %}
-	  {% if paper.can_be_asked_for_upload and request.user.is_authenticated %}
-      <!-- <span><a href="{% url 'mail_paper' paper.pk %}" class="btn btn-default btn-xs">{% trans "Ask upload" %}</a></span> -->
-{% endif %}
-    {% endif %}</p>
-    {% with paper.publisher as psh %}
-        <p><strong>{% trans "Publisher:" %}</strong>
-        {% if psh.pk %}
-        <a href="{{ psh.canonical_url }}">{{ psh }}</a></p>
-        {% else %}
-            {{ psh }}</p>
-        {% endif %}
-        {% if paper.is_deposited %}
-        <strong>{% trans "Deposited." %}</strong>
-            {% if can_be_deposited %}
-            <a href="{% url 'upload_paper' paper.pk %}" class="btn btn-default btn-xs">{% trans "Deposit again" %}</a>
-            {% endif %}
-        {% else %}
-	    {% include "publishers/detailsPolicy.html" with publisher=psh mode="link" %}
-        {% endif %}
-    {% endwith %}
-</div>
+        {% for deposit in pending_deposits %}
+            <div class="alert alert-success">
+                {% with deposit.repository.name as repo_name %}
+                    {% with deposit.repository.url as repo_url %}
+                        {% with deposit.oairecord.splash_url as deposit_url %}
+                            {% blocktrans trimmed %}
+                                <strong>Almost there!</strong>
+                                This paper has been deposited in <a href="{{ repo_url }}">{{ repo_name }}</a>.
+                                The full text will be available at <a href="{{ deposit_url }}">this address</a> after validation by the repository administrators.
+                            {% endblocktrans %}
+                        {% endwith %}
+                    {% endwith %}
+                {% endwith %}
+            </div>
+        {% endfor %}
+    {% endif %}
 
-</div>
+    <div id="paperAvailability">
+        <div id="paperAvailabilityLogo">
+            <img src="{% static "img/logos/" %}{{ paper.combined_status }}.png" width="52" height="70" alt="Paper" />
+        </div>
 
-{% if paper.abstract %}
-    <span class="detailsTitle">{% trans "Abstract" %}</span>
-    <div class="detailsContent"><div class="abstract">{% autoescape off %}{{ paper.abstract }}{% endautoescape %}</div></div>
-{% endif %}
+        <div id="paperDetails">
+            <p><strong>{% trans "Full text:" %}</strong>
+            {% if paper.pdf_url %}
+                <a href="{{ paper.pdf_url }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-save"></span> {% trans "Download" %}</a>
+            {% else %}
+                {% trans "Unavailable" %}
+                {% if paper.can_be_asked_for_upload and request.user.is_authenticated %}
+                    <!-- <span><a href="{% url 'mail_paper' paper.pk %}" class="btn btn-default btn-xs">{% trans "Ask upload" %}</a></span> -->
+                {% endif %}
+            {% endif %}</p>
+            {% with paper.publisher as psh %}
+                <p><strong>{% trans "Publisher:" %}</strong>
+                {% if psh.pk %}
+                    <a href="{{ psh.canonical_url }}">{{ psh }}</a></p>
+                {% else %}
+                    {{ psh }}</p>
+                {% endif %}
+                {% if paper.is_deposited %}
+                    <strong>{% trans "Deposited." %}</strong>
+                    {% if can_be_deposited %}
+                        <a href="{% url 'upload_paper' paper.pk %}" class="btn btn-default btn-xs">{% trans "Deposit again" %}</a>
+                    {% endif %}
+                {% else %}
+                    {% include "publishers/detailsPolicy.html" with publisher=psh mode="link" %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+    {% if paper.abstract %}
+        <span class="detailsTitle">{% trans "Abstract" %}</span>
+        <div class="detailsContent"><div class="abstract">{% autoescape off %}{{ paper.abstract }}{% endautoescape %}</div></div>
+    {% endif %}
 
 {% endblock %}
 
 
 {% block details %}
-
-{% include "papers/paperDetails.html" with paper=paper %}
+    {% include "papers/paperDetails.html" with paper=paper %}
 {% endblock %}

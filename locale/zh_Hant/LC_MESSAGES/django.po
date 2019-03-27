@@ -9,10 +9,9 @@
 #
 msgid ""
 msgstr ""
-""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 11:56+0100\n"
+"POT-Creation-Date: 2019-03-27 11:01+0100\n"
 "PO-Revision-Date: 2019-03-07 15:08:24+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +35,7 @@ msgstr "知識庫"
 msgid "Invalid full text identifier."
 msgstr "無效的全文識別。"
 
-#: deposit/forms.py:105 papers/templates/papers/paper.html:142
+#: deposit/forms.py:105 papers/templates/papers/paper.html:145
 msgid "Abstract"
 msgstr "摘要"
 
@@ -224,77 +223,77 @@ msgstr "HAL 使用者名稱"
 msgid "If set, deposits will be associated to this HAL account."
 msgstr "若設置，存放行為將會關聯於此 HAL 帳號。"
 
-#: deposit/hal/protocol.py:142
+#: deposit/hal/protocol.py:143
 msgid "No HAL user credentials provided."
 msgstr "沒有提供 HAL 使用者憑證。"
 
-#: deposit/hal/protocol.py:208
+#: deposit/hal/protocol.py:209
 msgid "This document is already in HAL. HAL refused the deposit."
 msgstr "此文件已存在於 HAL。HAL 拒絕存放。"
 
-#: deposit/hal/protocol.py:215
+#: deposit/hal/protocol.py:216
 #, python-format
 msgid "HAL refused the deposit (HTTP error %d): %s"
 msgstr "HAL 拒絕存放（HTTP 錯誤 %d）：%s"
 
-#: deposit/hal/protocol.py:222
+#: deposit/hal/protocol.py:223
 msgid "HAL returned an invalid XML response"
 msgstr "HAL 返回了無效的 XML 回應"
 
-#: deposit/hal/protocol.py:234
+#: deposit/hal/protocol.py:235
 msgid "This paper already exists in HAL."
 msgstr "此論文已存在於 HAL。"
 
-#: deposit/hal/protocol.py:240
+#: deposit/hal/protocol.py:241
 msgid "HAL rejected the submission."
 msgstr "HAL 拒絕提交。"
 
-#: deposit/hal/protocol.py:250
+#: deposit/hal/protocol.py:251
 msgid "HAL rejected the submission"
 msgstr "HAL 拒絕提交。"
 
-#: deposit/hal/protocol.py:259
+#: deposit/hal/protocol.py:260
 msgid "Password"
 msgstr "密碼"
 
-#: deposit/hal/protocol.py:287
+#: deposit/hal/protocol.py:288
 msgid "Connection to HAL failed. Please try again later."
 msgstr "連接至 HAL 失敗。請稍後再試。"
 
-#: deposit/models.py:38
+#: deposit/models.py:41
 msgid "Failed"
 msgstr "失敗"
 
-#: deposit/models.py:39
+#: deposit/models.py:42
 msgid "Faked"
 msgstr "虛構"
 
-#: deposit/models.py:40
+#: deposit/models.py:43
 msgid "Pending publication"
 msgstr "待出版"
 
-#: deposit/models.py:42
+#: deposit/models.py:45
 msgid "Published"
 msgstr "已出版"
 
-#: deposit/models.py:43
+#: deposit/models.py:46
 msgid "Refused by the repository"
 msgstr "被知識庫拒絕"
 
-#: deposit/models.py:44
+#: deposit/models.py:47
 msgid "Deleted"
 msgstr "已刪除"
 
-#: deposit/models.py:166 deposit/templates/deposit/start.html:415
-#: deposit/views.py:102
+#: deposit/models.py:169 deposit/templates/deposit/start.html:413
+#: deposit/views.py:105
 msgid "Deposit"
 msgstr "存放"
 
-#: deposit/models.py:219
+#: deposit/models.py:222
 msgid "We will use this email address to notify you when your deposits are accepted."
 msgstr "當您的存放內容被接受時，我們會使用此電子郵件地址來通知您。"
 
-#: deposit/models.py:225
+#: deposit/models.py:228
 msgid "This repository will be used by default for your deposits."
 msgstr "此知識庫將會被使用成您預設的存放點。"
 
@@ -462,86 +461,86 @@ msgstr "一般"
 msgid "Repository preferences"
 msgstr "知識庫偏好設定"
 
-#: deposit/templates/deposit/start.html:12
-#: deposit/templates/deposit/start.html:16
+#: deposit/templates/deposit/start.html:11
+#: deposit/templates/deposit/start.html:14
 msgid "Depositing"
 msgstr "存放中"
 
-#: deposit/templates/deposit/start.html:42
+#: deposit/templates/deposit/start.html:40
 msgid "Trying to fill this field automatically for you..."
 msgstr "正在嘗試替您自動填寫欄位..."
 
-#: deposit/templates/deposit/start.html:51
+#: deposit/templates/deposit/start.html:49
 msgid "Sorry, we could not fill this for you."
 msgstr "很抱歉，我們無法替您填寫此欄位。"
 
-#: deposit/templates/deposit/start.html:258
+#: deposit/templates/deposit/start.html:256
 msgid "Dissemin encountered an error, please try again later."
 msgstr "Dissemin 出現錯誤，請稍後再試。"
 
-#: deposit/templates/deposit/start.html:295
+#: deposit/templates/deposit/start.html:293
 #, python-format
 msgid "You can deposit the full text of your article. Dissemin will send it to a repository where it will be made freely available. By depositing your article via Dissemin, you agree to our <a href=\"%(tosurl)s\">terms of service</a>."
 msgstr "您可以存放您文章的全文。Dissemin 將會發送它到可自由取用的知識庫裡。透過 Dissemin 存放您的文章，代表您同意我們的<a href=\"%(tosurl)s\">服務條款</a>。"
 
-#: deposit/templates/deposit/start.html:306
+#: deposit/templates/deposit/start.html:304
 msgid "You do not appear to be one of the authors of this paper. By using this form, you certify that you have the permission to upload it on their behalf."
 msgstr "您似乎不是此論文的作者之一。透過使用此表單，您要證明您有權利代表著作者的名義來上傳。"
 
-#: deposit/templates/deposit/start.html:316
+#: deposit/templates/deposit/start.html:314
 msgid "This paper cannot be deposited in any repository supported by Dissemin."
 msgstr "此論文不能夠存放在任何由 Dissemin 所支援的知識庫。"
 
-#: deposit/templates/deposit/start.html:324
+#: deposit/templates/deposit/start.html:322
 msgid "Document"
 msgstr "文件"
 
-#: deposit/templates/deposit/start.html:332
+#: deposit/templates/deposit/start.html:330
 msgid "Options"
 msgstr "選項"
 
-#: deposit/templates/deposit/start.html:338
+#: deposit/templates/deposit/start.html:336
 msgid "Upload type:"
 msgstr "上傳類型："
 
-#: deposit/templates/deposit/start.html:351
+#: deposit/templates/deposit/start.html:349
 msgid "Repository:"
 msgstr "知識庫："
 
-#: deposit/templates/deposit/start.html:364
+#: deposit/templates/deposit/start.html:362
 msgctxt "This repository will be soon available in Dissemin"
 msgid "Coming soon:"
 msgstr "即將到來："
 
-#: deposit/templates/deposit/start.html:401
+#: deposit/templates/deposit/start.html:399
 msgid "Metadata"
 msgstr "詮釋資料"
 
-#: deposit/templates/deposit/start.html:417
+#: deposit/templates/deposit/start.html:415
 msgid "Processing deposit..."
 msgstr "處理存放中..."
 
-#: deposit/templates/deposit/start.html:417
+#: deposit/templates/deposit/start.html:415
 msgid "please wait..."
 msgstr "請稍等..."
 
-#: deposit/views.py:64
+#: deposit/views.py:67
 msgid "This repository is not available for this paper."
 msgstr "此知識庫不適用於此論文。"
 
-#: deposit/views.py:137
+#: deposit/views.py:140
 msgid "This repository could not be found."
 msgstr "找不到此知識庫。"
 
-#: deposit/views.py:142 deposit/views.py:148 deposit/views.py:165
+#: deposit/views.py:145 deposit/views.py:151 deposit/views.py:168
 msgid "This repository does not have any settings."
 msgstr "此知識庫沒有任何設定。"
 
-#: deposit/views.py:189
+#: deposit/views.py:192
 msgid "This repository cannot be used for this paper."
 msgstr "此知識庫不可用於此論文。"
 
-#: deposit/views.py:208
+#: deposit/views.py:211
 msgid "Access to the PDF was denied."
 msgstr "獲取 PDF 被拒絕。"
 
@@ -665,100 +664,100 @@ msgstr "瑞典語"
 msgid "inboxes"
 msgstr "收件箱"
 
-#: papers/baremodels.py:54
+#: papers/baremodels.py:61
 msgid "Journal article"
 msgstr "期刊文章"
 
-#: papers/baremodels.py:55
+#: papers/baremodels.py:62
 msgid "Proceedings article"
 msgstr "會議文章"
 
-#: papers/baremodels.py:56
+#: papers/baremodels.py:63
 msgid "Book chapter"
 msgstr "書籍章節"
 
-#: papers/baremodels.py:57
+#: papers/baremodels.py:64
 msgid "Book"
 msgstr "書籍"
 
-#: papers/baremodels.py:58
+#: papers/baremodels.py:65
 msgid "Journal issue"
 msgstr "期刊期號"
 
-#: papers/baremodels.py:59
+#: papers/baremodels.py:66
 msgid "Proceedings"
 msgstr "會議"
 
-#: papers/baremodels.py:60
+#: papers/baremodels.py:67
 msgid "Entry"
 msgstr "參考項目"
 
-#: papers/baremodels.py:61
+#: papers/baremodels.py:68
 msgid "Poster"
 msgstr "壁報"
 
-#: papers/baremodels.py:62
+#: papers/baremodels.py:69
 msgid "Report"
 msgstr "報告"
 
-#: papers/baremodels.py:63
+#: papers/baremodels.py:70
 msgid "Thesis"
 msgstr "論題"
 
-#: papers/baremodels.py:64
+#: papers/baremodels.py:71
 msgid "Dataset"
 msgstr "資料集"
 
-#: papers/baremodels.py:65 papers/models.py:99
+#: papers/baremodels.py:72 papers/models.py:99
 msgid "Preprint"
 msgstr "預刊本"
 
-#: papers/baremodels.py:66
+#: papers/baremodels.py:73
 msgid "Other document"
 msgstr "其它文件"
 
-#: papers/forms.py:48 papers/views.py:71
+#: papers/forms.py:49 papers/views.py:72
 msgid "Invalid ORCID identifier."
 msgstr "無效的 ORCID 識別碼。"
 
-#: papers/forms.py:54 papers/templates/papers/department.html:60
-#: papers/templates/papers/search.html:158
+#: papers/forms.py:55 papers/templates/papers/department.html:60
+#: papers/templates/papers/search.html:144
 msgid "Department"
 msgstr "部門"
 
-#: papers/forms.py:56 papers/templates/papers/search.html:112
+#: papers/forms.py:57 papers/templates/papers/search.html:111
 msgid "Researcher"
 msgstr "研究人員"
 
-#: papers/forms.py:75
+#: papers/forms.py:76
 msgid "publication date"
 msgstr "出版日期"
 
-#: papers/forms.py:76
+#: papers/forms.py:77
 msgid "title"
 msgstr "標題"
 
-#: papers/forms.py:79 publishers/forms.py:14
+#: papers/forms.py:80 publishers/forms.py:14
 msgid "decreasing"
 msgstr "遞減"
 
-#: papers/forms.py:80 publishers/forms.py:15
+#: papers/forms.py:81 publishers/forms.py:15
 msgid "increasing"
 msgstr "遞增"
 
-#: papers/forms.py:100 papers/forms.py:107
+#: papers/forms.py:101 papers/forms.py:108
 msgid "Any"
 msgstr "任何"
 
-#: papers/forms.py:101
+#: papers/forms.py:102
 msgid "Visible"
 msgstr "可見"
 
-#: papers/forms.py:102
+#: papers/forms.py:103
 msgid "Invisible"
 msgstr "不可見"
 
-#: papers/forms.py:191
+#: papers/forms.py:211
 msgid "Try any author name"
 msgstr "嘗試任一作者名稱"
 
@@ -802,8 +801,8 @@ msgstr "正在聚集出版項目"
 msgid "Updating statistics"
 msgstr "正在更新統計內容"
 
-#: papers/models.py:1283 papers/views.py:131 papers/views.py:136
-#: papers/views.py:275 papers/views.py:309
+#: papers/models.py:1241 papers/views.py:133 papers/views.py:138
+#: papers/views.py:274 papers/views.py:308
 msgid "Papers"
 msgstr "論文"
 
@@ -816,7 +815,7 @@ msgid "Wrong"
 msgstr "錯"
 
 #: papers/templates/papers/annotButtons.html:16
-#: papers/templates/papers/paperDetails.html:26
+#: papers/templates/papers/paperDetails.html:30
 msgid "Search in Google Scholar"
 msgstr "在 Google 學術搜尋"
 
@@ -867,10 +866,10 @@ msgid "Dissemin detects papers behind pay-walls and invites their authors to upl
 msgstr "Dissemin 可在付費牆模式之外來查找論文，並邀請作者可輕鬆點擊上傳論文到開放知識庫裡。"
 
 #: papers/templates/papers/index.html:34
-#: papers/templates/papers/search.html:202
-#: papers/templates/papers/search.html:215
-#: papers/templates/papers/search.html:225
-#: papers/templates/papers/search.html:317
+#: papers/templates/papers/search.html:188
+#: papers/templates/papers/search.html:207
+#: papers/templates/papers/search.html:217
+#: papers/templates/papers/search.html:309
 #: publishers/templates/publishers/list.html:31
 #: publishers/templates/publishers/list.html:47
 #: publishers/templates/publishers/list.html:86
@@ -915,56 +914,65 @@ msgid "(empty profile)"
 msgstr "（空白個人資料）"
 
 #: papers/templates/papers/paper.html:60
-#, python-format
-msgctxt "as in: _Journal article by_ Tom Smith, Nicole Allen"
-msgid "<span class=\"paperDocType\">%(doctype)s</span> by"
+#, fuzzy, python-format
+#| msgctxt "as in: _Journal article by_ Tom Smith, Nicole Allen"
+#| msgid "<span class=\"paperDocType\">%(doctype)s</span> by"
+msgctxt "as in: _Journal article published in 2017 by_ Tom Smith, Nicole Allen"
+msgid "<span class=\"paperDocType\">%(doctype)s</span> published in %(year)s by"
 msgstr "<span class=\"paperDocType\">%(doctype)s</span> 由"
 
-#: papers/templates/papers/paper.html:68
+#: papers/templates/papers/paper.html:66
+#, fuzzy, python-format
+#| msgid "Published in"
+msgctxt "as in: _Published in 2017 by_ Tom Smith, Nicole Allen"
+msgid "Published in %(year)s by"
+msgstr "出版在"
+
+#: papers/templates/papers/paper.html:74
 #, python-format
 msgid "and <a href=\"#\" id=\"show_all_authors\">%(nb_remaining_authors)s other authors</a>"
 msgstr "以及 <a href=\"#\" id=\"show_all_authors\">%(nb_remaining_authors)s 位其他作者</a>"
 
-#: papers/templates/papers/paper.html:75
+#: papers/templates/papers/paper.html:80
 #, python-format
 msgid "All %(nb_authors)s authors (<a href=\"#\" id=\"show_less_authors\">show less</a>):<br />"
 msgstr "所有 %(nb_authors)s 位作者（<a href=\"#\" id=\"show_less_authors\">顯示較少</a>）:<br />"
 
-#: papers/templates/papers/paper.html:87
+#: papers/templates/papers/paper.html:91
 msgid "<strong>Congratulations!</strong> This paper was successfully deposited."
 msgstr "<strong>恭喜！</strong>成功存放此論文。"
 
-#: papers/templates/papers/paper.html:94
+#: papers/templates/papers/paper.html:98
 #, python-format
 msgid "<strong>Almost there!</strong> This paper has been deposited in <a href=\"%(repo_url)s\">%(repo_name)s</a>. The full text will be available at <a href=\"%(deposit_url)s\">this address</a> after validation by the repository administrators."
 msgstr "<strong>就快完成了！</strong>此論文已被存放在 <a href=\"%(repo_url)s\">%(repo_name)s</a> 裡。由知識庫管理員給確認後，全文內容將在<a href=\"%(deposit_url)s\">此位址</a>可用。"
 
-#: papers/templates/papers/paper.html:112
+#: papers/templates/papers/paper.html:116
 msgid "Full text:"
 msgstr "全文："
 
-#: papers/templates/papers/paper.html:114
+#: papers/templates/papers/paper.html:118
 #: papers/templates/papers/publiListItem.html:37
 msgid "Download"
 msgstr "下載"
 
-#: papers/templates/papers/paper.html:116 statistics/models.py:66
+#: papers/templates/papers/paper.html:120 statistics/models.py:66
 msgid "Unavailable"
 msgstr "不可用"
 
-#: papers/templates/papers/paper.html:118
+#: papers/templates/papers/paper.html:122
 msgid "Ask upload"
 msgstr "請求上傳"
 
-#: papers/templates/papers/paper.html:122
+#: papers/templates/papers/paper.html:126
 msgid "Publisher:"
 msgstr "出版者："
 
-#: papers/templates/papers/paper.html:129
+#: papers/templates/papers/paper.html:133
 msgid "Deposited."
 msgstr "已存放。"
 
-#: papers/templates/papers/paper.html:131
+#: papers/templates/papers/paper.html:135
 msgid "Deposit again"
 msgstr "再次存放"
 
@@ -980,11 +988,15 @@ msgstr "連結"
 msgid "Tools"
 msgstr "工具"
 
-#: papers/templates/papers/paperDetails.html:29
+#: papers/templates/papers/paperDetails.html:28
+msgid "Export citation"
+msgstr ""
+
+#: papers/templates/papers/paperDetails.html:32
 msgid "Request with the Open Access Button"
 msgstr "以開放取用按鍵來請求"
 
-#: papers/templates/papers/paperDetails.html:35
+#: papers/templates/papers/paperDetails.html:38
 msgid "Admin zone"
 msgstr "管理區域"
 
@@ -1008,128 +1020,132 @@ msgid "Upload"
 msgstr "上傳"
 
 #: papers/templates/papers/publiListItem.html:45
-#: papers/templates/papers/search.html:50
+#: papers/templates/papers/search.html:51
 msgid "Exclude from my profile"
 msgstr "從我的個人資料排除"
 
 #: papers/templates/papers/publiListItem.html:52
-#: papers/templates/papers/search.html:53
+#: papers/templates/papers/search.html:54
 msgid "Include in my profile"
 msgstr "包含在我的個人資料"
 
-#: papers/templates/papers/search.html:35
+#: papers/templates/papers/search.html:36
 msgid "Claiming..."
 msgstr "正在索取..."
 
-#: papers/templates/papers/search.html:38
+#: papers/templates/papers/search.html:39
 msgid "Unclaiming..."
 msgstr "正在取消索取..."
 
-#: papers/templates/papers/search.html:69
+#: papers/templates/papers/search.html:70
 msgid "Claiming failed!"
 msgstr "索取失敗！"
 
-#: papers/templates/papers/search.html:71
+#: papers/templates/papers/search.html:72
 msgid "Unclaiming failed!"
 msgstr "取消索取失敗！"
 
-#: papers/templates/papers/search.html:87
+#: papers/templates/papers/search.html:88
 msgid "Refreshing results"
 msgstr "重整結果中"
 
-#: papers/templates/papers/search.html:97
+#: papers/templates/papers/search.html:98
 msgid "Refreshing profile"
 msgstr "重整個人資料中"
 
-#: papers/templates/papers/search.html:117
+#: papers/templates/papers/search.html:116
 msgid "Is it you?"
 msgstr "是您嗎？"
 
-#: papers/templates/papers/search.html:138
+#: papers/templates/papers/search.html:137
 msgid "Refresh publications"
 msgstr "重新整理出版項目"
 
-#: papers/templates/papers/search.html:141
+#: papers/templates/papers/search.html:140
 msgid "Address:"
 msgstr "位址："
 
-#: papers/templates/papers/search.html:144
-msgid "Names:"
-msgstr "名稱："
-
-#: papers/templates/papers/search.html:163
+#: papers/templates/papers/search.html:149
 msgid "Journal"
 msgstr "期刊"
 
-#: papers/templates/papers/search.html:166
+#: papers/templates/papers/search.html:152
 msgid "Published by"
 msgstr "出版由"
 
-#: papers/templates/papers/search.html:168
+#: papers/templates/papers/search.html:154
 msgid "ISSN:"
 msgstr "國際標準期刊號："
 
-#: papers/templates/papers/search.html:176
+#: papers/templates/papers/search.html:162
 #, python-format
 msgid "%(nb_publi)s paper published in %(journal)s"
 msgid_plural "%(nb_publi)s papers published in %(journal)s"
 msgstr[0] "%(nb_publi)s 篇論文出版在 %(journal)s"
 
-#: papers/templates/papers/search.html:184
+#: papers/templates/papers/search.html:170
 #: publishers/templates/publishers/policy.html:39
 msgid "Publisher"
 msgstr "出版者"
 
-#: papers/templates/papers/search.html:193
+#: papers/templates/papers/search.html:179
 #, python-format
 msgid "%(nb_publi)s paper published by %(publisher)s"
 msgid_plural "%(nb_publi)s papers published by %(publisher)s"
 msgstr[0] "%(nb_publi)s 篇論文由 %(publisher)s 出版"
 
-#: papers/templates/papers/search.html:220
+#: papers/templates/papers/search.html:191
+#, fuzzy, python-format
+#| msgid "%(counter)s publisher found"
+#| msgid_plural "%(counter)s publishers found"
+msgid "%(formattedCounter)s paper found"
+msgid_plural "%(formattedCounter)s papers found"
+msgstr[0] "找到 %(counter)s 個出版者"
+
+#: papers/templates/papers/search.html:212
 msgid "Search by title"
 msgstr "按標題搜尋"
 
-#: papers/templates/papers/search.html:230
+#: papers/templates/papers/search.html:222
 msgid "By authors"
 msgstr "按作者"
 
-#: papers/templates/papers/search.html:235
+#: papers/templates/papers/search.html:227
 msgid "By publication date"
 msgstr "按出版日期"
 
-#: papers/templates/papers/search.html:238
+#: papers/templates/papers/search.html:230
 msgid "after"
 msgstr "晚於"
 
-#: papers/templates/papers/search.html:245
+#: papers/templates/papers/search.html:237
 msgid "before"
 msgstr "早於"
 
-#: papers/templates/papers/search.html:252
+#: papers/templates/papers/search.html:244
 msgid "By document type"
 msgstr "按文件類型"
 
-#: papers/templates/papers/search.html:271
+#: papers/templates/papers/search.html:263
 #: publishers/templates/publishers/list.html:73
 msgid "Sort by"
 msgstr "排序按"
 
-#: papers/templates/papers/search.html:279
+#: papers/templates/papers/search.html:271
 #: publishers/templates/publishers/list.html:81
 #, python-format
 msgid "%(sort_by)s <div>%(increasing)s %(value)s</div>"
 msgstr "%(sort_by)s <div>%(increasing)s %(value)s</div>"
 
-#: papers/templates/papers/search.html:285
+#: papers/templates/papers/search.html:277
 msgid "By visibility"
 msgstr "按可見度"
 
-#: papers/templates/papers/search.html:290
+#: papers/templates/papers/search.html:282
 msgid "By full text availability"
 msgstr "按全文可用性"
 
-#: papers/templates/papers/search.html:296
+#: papers/templates/papers/search.html:288
 msgid "By publisher policy"
 msgstr "按出版者方針"
 
@@ -1246,52 +1262,52 @@ msgstr "方針不明確"
 msgid "policy unknown"
 msgstr "方針未知"
 
-#: papers/views.py:83
+#: papers/views.py:84
 msgid "Dissemin requires access to your ORCID name, which is marked as private in your ORCID profile."
 msgstr "Dissemin 需要取用您的 ORCID 名稱，此在您的 ORCID 個人資料被標記成未公開。"
 
-#: papers/views.py:135
+#: papers/views.py:137
 msgid "All papers"
 msgstr "所有論文"
 
-#: papers/views.py:139
-#, python-format
-msgid "%d paper found"
-msgid_plural "%d papers found"
-msgstr[0] "找到 %d 篇論文"
-
-#: papers/views.py:216
+#: papers/views.py:215
 msgid "Invalid ORCID profile. Please make sure it includes a public name."
 msgstr "無效的 ORCID 個人資料。請確認有包含公開名稱。"
 
-#: papers/views.py:219
+#: papers/views.py:218
 msgid "Invalid ORCID profile."
 msgstr "無效 ORCID 個人檔案。"
 
-#: papers/views.py:245
+#: papers/views.py:244
 msgid " authored by "
 msgstr " 創作由 "
 
-#: papers/views.py:289
+#: papers/views.py:288
 msgid " published by "
 msgstr " 出版由 "
 
-#: papers/views.py:318
+#: papers/views.py:317
 msgid " in "
 msgstr "在 "
 
-#: papers/views.py:392
+#: papers/views.py:393
 msgid "Paper view expects a DOI or a pk"
 msgstr "論文檢視需要 DOI 或 pk"
 
-#: papers/views.py:399
+#: papers/views.py:400
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
 msgstr "找不到符合查詢的%(verbose_name)s"
 
-#: papers/views.py:403
+#: papers/views.py:404
 msgid "This paper has been deleted."
 msgstr "此論文已被刪除。"
+
+#: papers/views.py:446
+#, fuzzy
+#| msgid "Invalid URL."
+msgid "Invalid DOI."
+msgstr "無效 URL。"
 
 #: publishers/forms.py:10
 msgid "popularity"
@@ -1845,7 +1861,9 @@ msgstr "然後，目前 Dissemin 僅支援遵循<a href=\"https://www.openarchiv
 
 #: templates/dissemin/faq.html:423
 msgid "If the repository is registered in BASE, please <a href=\"https://www.base-search.net/\">search in BASE</a> to check that your article is there. If it is, then this may be a bug of Dissemin; please file an <a href=\"https://github.com/dissemin/dissemin/issues\">issue</a> describing the problem, or send a message to <a href=\"mailto:bugs@dissem.in\">bugs@dissem.in</a>."
-msgstr "如果知識庫已經註冊到 BASE，請<a href=\"https://www.base-search.net/\">在 BASE 裡搜尋</a>來查看您的文章是否有出現。如果有找到的話，這可能是\n Dissemin 有程式錯誤，請在<a href=\"https://github.com/dissemin/dissemin/issues\">這裡</a>提出來描述問題，或是寄送訊息到 <a href=\"mailto:bugs@dissem.in\">bugs@dissem.in</a>。"
+msgstr ""
+"如果知識庫已經註冊到 BASE，請<a href=\"https://www.base-search.net/\">在 BASE 裡搜尋</a>來查看您的文章是否有出現。如果有找到的話，這可能是\n"
+" Dissemin 有程式錯誤，請在<a href=\"https://github.com/dissemin/dissemin/issues\">這裡</a>提出來描述問題，或是寄送訊息到 <a href=\"mailto:bugs@dissem.in\">bugs@dissem.in</a>。"
 
 #: templates/dissemin/faq.html:438
 msgid "Authenticating users is necessary to deposit papers on their behalf in open repositories. Besides, knowing a user's ORCID id helps us find its publications, avoiding articles authored by namesakes for instance. Logging in via ORCID will not expose any private information to Dissemin: we only have access to the public part of your ORCID record. For instance, unless you have explicitly marked your email address as public, we do not even know your email address when you log in to Dissemin via ORCID."
@@ -1877,7 +1895,9 @@ msgstr "點擊「新增至 ORCID」（Add to ORCID）來新增您的出版項目
 
 #: templates/dissemin/faq.html:490
 msgid "You can also add publications to your profile <em>on Dissemin</em>, by clicking the button \"Include in my profile\" in search results on Dissemin. (This button is only visible when you are logged in, and next to papers that Dissemin thinks you have authored.) You can also exclude articles from your profile in this way. Please note that these changes are local to Dissemin and are <em>not</em> propagated to your ORCID profile, because ORCID does not have a free API allowing us to propagate them."
-msgstr "您也可以<em>在 Dissemin</em> 來新增出版項目道您的個人檔案，透過在 Dissemin 搜尋結果中點擊「包含在我的個人檔案」按鍵即可。（此按鍵是要您已經有登入，而且只顯示在有被 Dissemin 判斷出是由您所編寫之論文的一旁。）您也可以用此方式在您個人檔案裡排除不需要的文章。請注意這些變動僅侷限於\nDissemin 而<em>不會</em>影響到您的 ORCID 個人檔案，因為 ORCID 並沒有可以讓我們自由使用來更改它們內容的 API。"
+msgstr ""
+"您也可以<em>在 Dissemin</em> 來新增出版項目道您的個人檔案，透過在 Dissemin 搜尋結果中點擊「包含在我的個人檔案」按鍵即可。（此按鍵是要您已經有登入，而且只顯示在有被 Dissemin 判斷出是由您所編寫之論文的一旁。）您也可以用此方式在您個人檔案裡排除不需要的文章。請注意這些變動僅侷限於\n"
+"Dissemin 而<em>不會</em>影響到您的 ORCID 個人檔案，因為 ORCID 並沒有可以讓我們自由使用來更改它們內容的 API。"
 
 #: templates/dissemin/faq.html:505
 msgid "If you change some details in your ORCID profile (name, homepage, etc.), the changes will not automatically be picked up in your profile on Dissemin. To update your profile on Dissemin accordingly, once you have logged in to Dissemin, you can go to your <a href=\"/my-profile\">profile page</a> and click \"Refresh publications\"."
@@ -1973,7 +1993,9 @@ msgstr "Dissemin 帳號"
 
 #: templates/dissemin/login.html:60 templates/dissemin/sandbox.html:62
 #, python-format
-msgid "If you have not created an account yet, then please\n<a href=\"%(signup_url)s\">sign up</a> first."
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
 msgstr "如果您還沒有創立一個帳號，請先<a href=\"%(signup_url)s\">註冊</a>。"
 
 #: templates/dissemin/login.html:69 templates/dissemin/sandbox.html:71
@@ -2122,16 +2144,16 @@ msgstr "驗證錯誤"
 msgid "Authentication has failed. <a href=\"/\">Go back to the login page.</a>"
 msgstr "驗證失敗。<a href=\"/\">返回登入頁面。</a>"
 
-#: upload/forms.py:29
+#: upload/forms.py:33
 msgid "Invalid file format: only PDF files are accepted."
 msgstr "無效檔案格式：僅接受 PDF 檔案。"
 
-#: upload/forms.py:39
+#: upload/forms.py:43
 #, python-format
 msgid "File too large (%(size)s). Maximum size is %(maxsize)s."
 msgstr "檔案太大（%(size)s）最大大小是 %(maxsize)s。"
 
-#: upload/forms.py:47
+#: upload/forms.py:51
 msgid "URL"
 msgstr "URL"
 
@@ -2183,3 +2205,9 @@ msgstr "無效 URL（伺服器逾時）。"
 msgid "Invalid URL."
 msgstr "無效 URL。"
 
+#~ msgid "Names:"
+#~ msgstr "名稱："
+
+#~ msgid "%d paper found"
+#~ msgid_plural "%d papers found"
+#~ msgstr[0] "找到 %d 篇論文"

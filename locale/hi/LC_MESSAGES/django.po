@@ -7,9 +7,8 @@
 #
 msgid ""
 msgstr ""
-""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 11:56+0100\n"
+"POT-Creation-Date: 2019-03-27 11:01+0100\n"
 "PO-Revision-Date: 2019-03-07 15:08:20+0000\n"
 "Language: hi\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +29,7 @@ msgstr "Repository"
 msgid "Invalid full text identifier."
 msgstr "Invalid full text identifier."
 
-#: deposit/forms.py:105 papers/templates/papers/paper.html:142
+#: deposit/forms.py:105 papers/templates/papers/paper.html:145
 msgid "Abstract"
 msgstr "Abstract"
 
@@ -218,77 +217,77 @@ msgstr "HAL username"
 msgid "If set, deposits will be associated to this HAL account."
 msgstr "If set, deposits will be associated to this HAL account."
 
-#: deposit/hal/protocol.py:142
+#: deposit/hal/protocol.py:143
 msgid "No HAL user credentials provided."
 msgstr "No HAL user credentials provided."
 
-#: deposit/hal/protocol.py:208
+#: deposit/hal/protocol.py:209
 msgid "This document is already in HAL. HAL refused the deposit."
 msgstr "This document is already in HAL. HAL refused the deposit."
 
-#: deposit/hal/protocol.py:215
+#: deposit/hal/protocol.py:216
 #, python-format
 msgid "HAL refused the deposit (HTTP error %d): %s"
 msgstr "HAL refused the deposit (HTTP error %d): %s"
 
-#: deposit/hal/protocol.py:222
+#: deposit/hal/protocol.py:223
 msgid "HAL returned an invalid XML response"
 msgstr "HAL returned an invalid XML response"
 
-#: deposit/hal/protocol.py:234
+#: deposit/hal/protocol.py:235
 msgid "This paper already exists in HAL."
 msgstr "This paper already exists in HAL."
 
-#: deposit/hal/protocol.py:240
+#: deposit/hal/protocol.py:241
 msgid "HAL rejected the submission."
 msgstr "HAL rejected the submission."
 
-#: deposit/hal/protocol.py:250
+#: deposit/hal/protocol.py:251
 msgid "HAL rejected the submission"
 msgstr "HAL rejected the submission"
 
-#: deposit/hal/protocol.py:259
+#: deposit/hal/protocol.py:260
 msgid "Password"
 msgstr "Password"
 
-#: deposit/hal/protocol.py:287
+#: deposit/hal/protocol.py:288
 msgid "Connection to HAL failed. Please try again later."
 msgstr "Connection to HAL failed. Please try again later."
 
-#: deposit/models.py:38
+#: deposit/models.py:41
 msgid "Failed"
 msgstr "Failed"
 
-#: deposit/models.py:39
+#: deposit/models.py:42
 msgid "Faked"
 msgstr "Faked"
 
-#: deposit/models.py:40
+#: deposit/models.py:43
 msgid "Pending publication"
 msgstr "Pending publication"
 
-#: deposit/models.py:42
+#: deposit/models.py:45
 msgid "Published"
 msgstr "Published"
 
-#: deposit/models.py:43
+#: deposit/models.py:46
 msgid "Refused by the repository"
 msgstr "Refused by the repository"
 
-#: deposit/models.py:44
+#: deposit/models.py:47
 msgid "Deleted"
 msgstr "Deleted"
 
-#: deposit/models.py:166 deposit/templates/deposit/start.html:415
-#: deposit/views.py:102
+#: deposit/models.py:169 deposit/templates/deposit/start.html:413
+#: deposit/views.py:105
 msgid "Deposit"
 msgstr "Deposit"
 
-#: deposit/models.py:219
+#: deposit/models.py:222
 msgid "We will use this email address to notify you when your deposits are accepted."
 msgstr "We will use this email address to notify you when your deposits are accepted."
 
-#: deposit/models.py:225
+#: deposit/models.py:228
 msgid "This repository will be used by default for your deposits."
 msgstr "This repository will be used by default for your deposits."
 
@@ -456,86 +455,86 @@ msgstr "General"
 msgid "Repository preferences"
 msgstr "Repository preferences"
 
-#: deposit/templates/deposit/start.html:12
-#: deposit/templates/deposit/start.html:16
+#: deposit/templates/deposit/start.html:11
+#: deposit/templates/deposit/start.html:14
 msgid "Depositing"
 msgstr "Depositing"
 
-#: deposit/templates/deposit/start.html:42
+#: deposit/templates/deposit/start.html:40
 msgid "Trying to fill this field automatically for you..."
 msgstr "Trying to fill this field automatically for you..."
 
-#: deposit/templates/deposit/start.html:51
+#: deposit/templates/deposit/start.html:49
 msgid "Sorry, we could not fill this for you."
 msgstr "Sorry, we could not fill this for you."
 
-#: deposit/templates/deposit/start.html:258
+#: deposit/templates/deposit/start.html:256
 msgid "Dissemin encountered an error, please try again later."
 msgstr "Dissemin encountered an error, please try again later."
 
-#: deposit/templates/deposit/start.html:295
+#: deposit/templates/deposit/start.html:293
 #, python-format
 msgid "You can deposit the full text of your article. Dissemin will send it to a repository where it will be made freely available. By depositing your article via Dissemin, you agree to our <a href=\"%(tosurl)s\">terms of service</a>."
 msgstr "You can deposit the full text of your article. Dissemin will send it to a repository where it will be made freely available. By depositing your article via Dissemin, you agree to our <a href=\"%(tosurl)s\">terms of service</a>."
 
-#: deposit/templates/deposit/start.html:306
+#: deposit/templates/deposit/start.html:304
 msgid "You do not appear to be one of the authors of this paper. By using this form, you certify that you have the permission to upload it on their behalf."
 msgstr "You do not appear to be one of the authors of this paper. By using this form, you certify that you have the permission to upload it on their behalf."
 
-#: deposit/templates/deposit/start.html:316
+#: deposit/templates/deposit/start.html:314
 msgid "This paper cannot be deposited in any repository supported by Dissemin."
 msgstr "This paper cannot be deposited in any repository supported by Dissemin."
 
-#: deposit/templates/deposit/start.html:324
+#: deposit/templates/deposit/start.html:322
 msgid "Document"
 msgstr "Document"
 
-#: deposit/templates/deposit/start.html:332
+#: deposit/templates/deposit/start.html:330
 msgid "Options"
 msgstr "Options"
 
-#: deposit/templates/deposit/start.html:338
+#: deposit/templates/deposit/start.html:336
 msgid "Upload type:"
 msgstr "Upload type:"
 
-#: deposit/templates/deposit/start.html:351
+#: deposit/templates/deposit/start.html:349
 msgid "Repository:"
 msgstr "Repository:"
 
-#: deposit/templates/deposit/start.html:364
+#: deposit/templates/deposit/start.html:362
 msgctxt "This repository will be soon available in Dissemin"
 msgid "Coming soon:"
 msgstr "Coming soon:"
 
-#: deposit/templates/deposit/start.html:401
+#: deposit/templates/deposit/start.html:399
 msgid "Metadata"
 msgstr "Metadata"
 
-#: deposit/templates/deposit/start.html:417
+#: deposit/templates/deposit/start.html:415
 msgid "Processing deposit..."
 msgstr "Processing deposit..."
 
-#: deposit/templates/deposit/start.html:417
+#: deposit/templates/deposit/start.html:415
 msgid "please wait..."
 msgstr "please wait..."
 
-#: deposit/views.py:64
+#: deposit/views.py:67
 msgid "This repository is not available for this paper."
 msgstr "This repository is not available for this paper."
 
-#: deposit/views.py:137
+#: deposit/views.py:140
 msgid "This repository could not be found."
 msgstr "This repository could not be found."
 
-#: deposit/views.py:142 deposit/views.py:148 deposit/views.py:165
+#: deposit/views.py:145 deposit/views.py:151 deposit/views.py:168
 msgid "This repository does not have any settings."
 msgstr "This repository does not have any settings."
 
-#: deposit/views.py:189
+#: deposit/views.py:192
 msgid "This repository cannot be used for this paper."
 msgstr "This repository cannot be used for this paper."
 
-#: deposit/views.py:208
+#: deposit/views.py:211
 msgid "Access to the PDF was denied."
 msgstr "Access to the PDF was denied."
 
@@ -659,100 +658,100 @@ msgstr "Swedish"
 msgid "inboxes"
 msgstr "inboxes"
 
-#: papers/baremodels.py:54
+#: papers/baremodels.py:61
 msgid "Journal article"
 msgstr "Journal article"
 
-#: papers/baremodels.py:55
+#: papers/baremodels.py:62
 msgid "Proceedings article"
 msgstr "Proceedings article"
 
-#: papers/baremodels.py:56
+#: papers/baremodels.py:63
 msgid "Book chapter"
 msgstr "Book chapter"
 
-#: papers/baremodels.py:57
+#: papers/baremodels.py:64
 msgid "Book"
 msgstr "Book"
 
-#: papers/baremodels.py:58
+#: papers/baremodels.py:65
 msgid "Journal issue"
 msgstr "Journal issue"
 
-#: papers/baremodels.py:59
+#: papers/baremodels.py:66
 msgid "Proceedings"
 msgstr "Proceedings"
 
-#: papers/baremodels.py:60
+#: papers/baremodels.py:67
 msgid "Entry"
 msgstr "Entry"
 
-#: papers/baremodels.py:61
+#: papers/baremodels.py:68
 msgid "Poster"
 msgstr "Poster"
 
-#: papers/baremodels.py:62
+#: papers/baremodels.py:69
 msgid "Report"
 msgstr "Report"
 
-#: papers/baremodels.py:63
+#: papers/baremodels.py:70
 msgid "Thesis"
 msgstr "Thesis"
 
-#: papers/baremodels.py:64
+#: papers/baremodels.py:71
 msgid "Dataset"
 msgstr "Dataset"
 
-#: papers/baremodels.py:65 papers/models.py:99
+#: papers/baremodels.py:72 papers/models.py:99
 msgid "Preprint"
 msgstr "Preprint"
 
-#: papers/baremodels.py:66
+#: papers/baremodels.py:73
 msgid "Other document"
 msgstr "Other document"
 
-#: papers/forms.py:48 papers/views.py:71
+#: papers/forms.py:49 papers/views.py:72
 msgid "Invalid ORCID identifier."
 msgstr "Invalid ORCID identifier."
 
-#: papers/forms.py:54 papers/templates/papers/department.html:60
-#: papers/templates/papers/search.html:158
+#: papers/forms.py:55 papers/templates/papers/department.html:60
+#: papers/templates/papers/search.html:144
 msgid "Department"
 msgstr "Department"
 
-#: papers/forms.py:56 papers/templates/papers/search.html:112
+#: papers/forms.py:57 papers/templates/papers/search.html:111
 msgid "Researcher"
 msgstr "Researcher"
 
-#: papers/forms.py:75
+#: papers/forms.py:76
 msgid "publication date"
 msgstr "publication date"
 
-#: papers/forms.py:76
+#: papers/forms.py:77
 msgid "title"
 msgstr "title"
 
-#: papers/forms.py:79 publishers/forms.py:14
+#: papers/forms.py:80 publishers/forms.py:14
 msgid "decreasing"
 msgstr "decreasing"
 
-#: papers/forms.py:80 publishers/forms.py:15
+#: papers/forms.py:81 publishers/forms.py:15
 msgid "increasing"
 msgstr "increasing"
 
-#: papers/forms.py:100 papers/forms.py:107
+#: papers/forms.py:101 papers/forms.py:108
 msgid "Any"
 msgstr "Any"
 
-#: papers/forms.py:101
+#: papers/forms.py:102
 msgid "Visible"
 msgstr "Visible"
 
-#: papers/forms.py:102
+#: papers/forms.py:103
 msgid "Invisible"
 msgstr "Invisible"
 
-#: papers/forms.py:191
+#: papers/forms.py:211
 msgid "Try any author name"
 msgstr "Try any author name"
 
@@ -796,8 +795,8 @@ msgstr "Clustering publications"
 msgid "Updating statistics"
 msgstr "Updating statistics"
 
-#: papers/models.py:1283 papers/views.py:131 papers/views.py:136
-#: papers/views.py:275 papers/views.py:309
+#: papers/models.py:1241 papers/views.py:133 papers/views.py:138
+#: papers/views.py:274 papers/views.py:308
 msgid "Papers"
 msgstr "Papers"
 
@@ -810,7 +809,7 @@ msgid "Wrong"
 msgstr "Wrong"
 
 #: papers/templates/papers/annotButtons.html:16
-#: papers/templates/papers/paperDetails.html:26
+#: papers/templates/papers/paperDetails.html:30
 msgid "Search in Google Scholar"
 msgstr "Search in Google Scholar"
 
@@ -862,10 +861,10 @@ msgid "Dissemin detects papers behind pay-walls and invites their authors to upl
 msgstr "Dissemin detects papers behind pay-walls and invites their authors to upload them in one click to an open repository."
 
 #: papers/templates/papers/index.html:34
-#: papers/templates/papers/search.html:202
-#: papers/templates/papers/search.html:215
-#: papers/templates/papers/search.html:225
-#: papers/templates/papers/search.html:317
+#: papers/templates/papers/search.html:188
+#: papers/templates/papers/search.html:207
+#: papers/templates/papers/search.html:217
+#: papers/templates/papers/search.html:309
 #: publishers/templates/publishers/list.html:31
 #: publishers/templates/publishers/list.html:47
 #: publishers/templates/publishers/list.html:86
@@ -911,55 +910,65 @@ msgstr "(empty profile)"
 
 #: papers/templates/papers/paper.html:60
 #, fuzzy, python-format
-msgctxt "as in: _Journal article by_ Tom Smith, Nicole Allen"
-msgid "<span class=\"paperDocType\">%(doctype)s</span> by"
-msgstr " \n    <span class=\"paperDocType\">%(doctype)s</span> by\n    "
+msgctxt "as in: _Journal article published in 2017 by_ Tom Smith, Nicole Allen"
+msgid "<span class=\"paperDocType\">%(doctype)s</span> published in %(year)s by"
+msgstr ""
+" \n"
+"    <span class=\"paperDocType\">%(doctype)s</span> by\n"
+"    "
 
-#: papers/templates/papers/paper.html:68
+#: papers/templates/papers/paper.html:66
+#, fuzzy, python-format
+#| msgid "Published in"
+msgctxt "as in: _Published in 2017 by_ Tom Smith, Nicole Allen"
+msgid "Published in %(year)s by"
+msgstr "Published in"
+
+#: papers/templates/papers/paper.html:74
 #, python-format
 msgid "and <a href=\"#\" id=\"show_all_authors\">%(nb_remaining_authors)s other authors</a>"
 msgstr "and <a href=\"#\" id=\"show_all_authors\">%(nb_remaining_authors)s other authors</a>"
 
-#: papers/templates/papers/paper.html:75
+#: papers/templates/papers/paper.html:80
 #, python-format
 msgid "All %(nb_authors)s authors (<a href=\"#\" id=\"show_less_authors\">show less</a>):<br />"
 msgstr "All %(nb_authors)s authors (<a href=\"#\" id=\"show_less_authors\">show less</a>):<br />"
 
-#: papers/templates/papers/paper.html:87
+#: papers/templates/papers/paper.html:91
 msgid "<strong>Congratulations!</strong> This paper was successfully deposited."
 msgstr "<strong>Congratulations!</strong> This paper was successfully deposited."
 
-#: papers/templates/papers/paper.html:94
+#: papers/templates/papers/paper.html:98
 #, python-format
 msgid "<strong>Almost there!</strong> This paper has been deposited in <a href=\"%(repo_url)s\">%(repo_name)s</a>. The full text will be available at <a href=\"%(deposit_url)s\">this address</a> after validation by the repository administrators."
 msgstr "<strong>Almost there!</strong> This paper has been deposited in <a href=\"%(repo_url)s\">%(repo_name)s</a>. The full text will be available at <a href=\"%(deposit_url)s\">this address</a> after validation by the repository administrators."
 
-#: papers/templates/papers/paper.html:112
+#: papers/templates/papers/paper.html:116
 msgid "Full text:"
 msgstr "Full text:"
 
-#: papers/templates/papers/paper.html:114
+#: papers/templates/papers/paper.html:118
 #: papers/templates/papers/publiListItem.html:37
 msgid "Download"
 msgstr "Download"
 
-#: papers/templates/papers/paper.html:116 statistics/models.py:66
+#: papers/templates/papers/paper.html:120 statistics/models.py:66
 msgid "Unavailable"
 msgstr "Unavailable"
 
-#: papers/templates/papers/paper.html:118
+#: papers/templates/papers/paper.html:122
 msgid "Ask upload"
 msgstr "Ask upload"
 
-#: papers/templates/papers/paper.html:122
+#: papers/templates/papers/paper.html:126
 msgid "Publisher:"
 msgstr "Publisher:"
 
-#: papers/templates/papers/paper.html:129
+#: papers/templates/papers/paper.html:133
 msgid "Deposited."
 msgstr "Deposited."
 
-#: papers/templates/papers/paper.html:131
+#: papers/templates/papers/paper.html:135
 msgid "Deposit again"
 msgstr "Deposit again"
 
@@ -975,11 +984,15 @@ msgstr "Links"
 msgid "Tools"
 msgstr "Tools"
 
-#: papers/templates/papers/paperDetails.html:29
+#: papers/templates/papers/paperDetails.html:28
+msgid "Export citation"
+msgstr ""
+
+#: papers/templates/papers/paperDetails.html:32
 msgid "Request with the Open Access Button"
 msgstr "Request with the Open Access Button"
 
-#: papers/templates/papers/paperDetails.html:35
+#: papers/templates/papers/paperDetails.html:38
 msgid "Admin zone"
 msgstr "Admin zone"
 
@@ -1003,130 +1016,135 @@ msgid "Upload"
 msgstr "Upload"
 
 #: papers/templates/papers/publiListItem.html:45
-#: papers/templates/papers/search.html:50
+#: papers/templates/papers/search.html:51
 msgid "Exclude from my profile"
 msgstr "Exclude from my profile"
 
 #: papers/templates/papers/publiListItem.html:52
-#: papers/templates/papers/search.html:53
+#: papers/templates/papers/search.html:54
 msgid "Include in my profile"
 msgstr "Include in my profile"
 
-#: papers/templates/papers/search.html:35
+#: papers/templates/papers/search.html:36
 msgid "Claiming..."
 msgstr "Claiming..."
 
-#: papers/templates/papers/search.html:38
+#: papers/templates/papers/search.html:39
 msgid "Unclaiming..."
 msgstr "Unclaiming..."
 
-#: papers/templates/papers/search.html:69
+#: papers/templates/papers/search.html:70
 msgid "Claiming failed!"
 msgstr "Claiming failed!"
 
-#: papers/templates/papers/search.html:71
+#: papers/templates/papers/search.html:72
 msgid "Unclaiming failed!"
 msgstr "Unclaiming failed!"
 
-#: papers/templates/papers/search.html:87
+#: papers/templates/papers/search.html:88
 msgid "Refreshing results"
 msgstr "Refreshing results"
 
-#: papers/templates/papers/search.html:97
+#: papers/templates/papers/search.html:98
 msgid "Refreshing profile"
 msgstr "Refreshing profile"
 
-#: papers/templates/papers/search.html:117
+#: papers/templates/papers/search.html:116
 msgid "Is it you?"
 msgstr "Is it you?"
 
-#: papers/templates/papers/search.html:138
+#: papers/templates/papers/search.html:137
 msgid "Refresh publications"
 msgstr "Refresh publications"
 
-#: papers/templates/papers/search.html:141
+#: papers/templates/papers/search.html:140
 msgid "Address:"
 msgstr "Address:"
 
-#: papers/templates/papers/search.html:144
-msgid "Names:"
-msgstr "Names:"
-
-#: papers/templates/papers/search.html:163
+#: papers/templates/papers/search.html:149
 msgid "Journal"
 msgstr "Journal"
 
-#: papers/templates/papers/search.html:166
+#: papers/templates/papers/search.html:152
 msgid "Published by"
 msgstr "Published by"
 
-#: papers/templates/papers/search.html:168
+#: papers/templates/papers/search.html:154
 msgid "ISSN:"
 msgstr "ISSN:"
 
-#: papers/templates/papers/search.html:176
+#: papers/templates/papers/search.html:162
 #, python-format
 msgid "%(nb_publi)s paper published in %(journal)s"
 msgid_plural "%(nb_publi)s papers published in %(journal)s"
 msgstr[0] "%(nb_publi)s paper published in %(journal)s"
 msgstr[1] "%(nb_publi)s papers published in %(journal)s"
 
-#: papers/templates/papers/search.html:184
+#: papers/templates/papers/search.html:170
 #: publishers/templates/publishers/policy.html:39
 msgid "Publisher"
 msgstr "Publisher"
 
-#: papers/templates/papers/search.html:193
+#: papers/templates/papers/search.html:179
 #, python-format
 msgid "%(nb_publi)s paper published by %(publisher)s"
 msgid_plural "%(nb_publi)s papers published by %(publisher)s"
 msgstr[0] "%(nb_publi)s paper published by %(publisher)s"
 msgstr[1] "%(nb_publi)s papers published by %(publisher)s"
 
-#: papers/templates/papers/search.html:220
+#: papers/templates/papers/search.html:191
+#, fuzzy, python-format
+#| msgid "%(counter)s publisher found"
+#| msgid_plural "%(counter)s publishers found"
+msgid "%(formattedCounter)s paper found"
+msgid_plural "%(formattedCounter)s papers found"
+msgstr[0] "%(counter)s publisher found"
+msgstr[1] "%(counter)s publishers found"
+
+#: papers/templates/papers/search.html:212
 msgid "Search by title"
 msgstr "Search by title"
 
-#: papers/templates/papers/search.html:230
+#: papers/templates/papers/search.html:222
 msgid "By authors"
 msgstr "By authors"
 
-#: papers/templates/papers/search.html:235
+#: papers/templates/papers/search.html:227
 msgid "By publication date"
 msgstr "By publication date"
 
-#: papers/templates/papers/search.html:238
+#: papers/templates/papers/search.html:230
 msgid "after"
 msgstr "after"
 
-#: papers/templates/papers/search.html:245
+#: papers/templates/papers/search.html:237
 msgid "before"
 msgstr "before"
 
-#: papers/templates/papers/search.html:252
+#: papers/templates/papers/search.html:244
 msgid "By document type"
 msgstr "By document type"
 
-#: papers/templates/papers/search.html:271
+#: papers/templates/papers/search.html:263
 #: publishers/templates/publishers/list.html:73
 msgid "Sort by"
 msgstr "Sort by"
 
-#: papers/templates/papers/search.html:279
+#: papers/templates/papers/search.html:271
 #: publishers/templates/publishers/list.html:81
 #, python-format
 msgid "%(sort_by)s <div>%(increasing)s %(value)s</div>"
 msgstr "%(sort_by)s <div>%(increasing)s %(value)s</div>"
 
-#: papers/templates/papers/search.html:285
+#: papers/templates/papers/search.html:277
 msgid "By visibility"
 msgstr "By visibility"
 
-#: papers/templates/papers/search.html:290
+#: papers/templates/papers/search.html:282
 msgid "By full text availability"
 msgstr "By full text availability"
 
-#: papers/templates/papers/search.html:296
+#: papers/templates/papers/search.html:288
 msgid "By publisher policy"
 msgstr "By publisher policy"
 
@@ -1243,53 +1261,52 @@ msgstr "policy unclear"
 msgid "policy unknown"
 msgstr "policy unknown"
 
-#: papers/views.py:83
+#: papers/views.py:84
 msgid "Dissemin requires access to your ORCID name, which is marked as private in your ORCID profile."
 msgstr "Dissemin requires access to your ORCID name, which is marked as private in your ORCID profile."
 
-#: papers/views.py:135
+#: papers/views.py:137
 msgid "All papers"
 msgstr "All papers"
 
-#: papers/views.py:139
-#, python-format
-msgid "%d paper found"
-msgid_plural "%d papers found"
-msgstr[0] "%d paper found"
-msgstr[1] "%d papers found"
-
-#: papers/views.py:216
+#: papers/views.py:215
 msgid "Invalid ORCID profile. Please make sure it includes a public name."
 msgstr "Invalid ORCID profile. Please make sure it includes a public name."
 
-#: papers/views.py:219
+#: papers/views.py:218
 msgid "Invalid ORCID profile."
 msgstr "Invalid ORCID profile."
 
-#: papers/views.py:245
+#: papers/views.py:244
 msgid " authored by "
 msgstr " authored by "
 
-#: papers/views.py:289
+#: papers/views.py:288
 msgid " published by "
 msgstr " published by "
 
-#: papers/views.py:318
+#: papers/views.py:317
 msgid " in "
 msgstr " in "
 
-#: papers/views.py:392
+#: papers/views.py:393
 msgid "Paper view expects a DOI or a pk"
 msgstr "Paper view expects a DOI or a pk"
 
-#: papers/views.py:399
+#: papers/views.py:400
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
 msgstr "No %(verbose_name)s found matching the query"
 
-#: papers/views.py:403
+#: papers/views.py:404
 msgid "This paper has been deleted."
 msgstr "This paper has been deleted."
+
+#: papers/views.py:446
+#, fuzzy
+#| msgid "Invalid URL."
+msgid "Invalid DOI."
+msgstr "Invalid URL."
 
 #: publishers/forms.py:10
 msgid "popularity"
@@ -1972,8 +1989,12 @@ msgstr "Dissemin account"
 
 #: templates/dissemin/login.html:60 templates/dissemin/sandbox.html:62
 #, python-format
-msgid "If you have not created an account yet, then please\n<a href=\"%(signup_url)s\">sign up</a> first."
-msgstr "If you have not created an account yet, then please\n<a href=\"%(signup_url)s\">sign up</a> first."
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
 
 #: templates/dissemin/login.html:69 templates/dissemin/sandbox.html:71
 msgid "Forgot Password?"
@@ -2121,16 +2142,16 @@ msgstr "Authentication error"
 msgid "Authentication has failed. <a href=\"/\">Go back to the login page.</a>"
 msgstr "Authentication has failed. <a href=\"/\">Go back to the login page.</a>"
 
-#: upload/forms.py:29
+#: upload/forms.py:33
 msgid "Invalid file format: only PDF files are accepted."
 msgstr "Invalid file format: only PDF files are accepted."
 
-#: upload/forms.py:39
+#: upload/forms.py:43
 #, python-format
 msgid "File too large (%(size)s). Maximum size is %(maxsize)s."
 msgstr "File too large (%(size)s). Maximum size is %(maxsize)s."
 
-#: upload/forms.py:47
+#: upload/forms.py:51
 msgid "URL"
 msgstr "URL"
 
@@ -2182,3 +2203,10 @@ msgstr "Invalid URL (server timed out)."
 msgid "Invalid URL."
 msgstr "Invalid URL."
 
+#~ msgid "Names:"
+#~ msgstr "Names:"
+
+#~ msgid "%d paper found"
+#~ msgid_plural "%d papers found"
+#~ msgstr[0] "%d paper found"
+#~ msgstr[1] "%d papers found"
