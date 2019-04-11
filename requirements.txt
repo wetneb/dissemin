@@ -28,8 +28,8 @@ django-ratelimit
 django-widget-tweaks
 django-debug-toolbar
 djangorestframework
-elasticsearch==6.3.1
-html5lib==0.999999999
+elasticsearch==7.0.0
+html5lib==1.0.1
 httplib2
 jsonfield
 lxml
