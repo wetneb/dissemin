@@ -74,7 +74,7 @@ class PaperApiTest(JsonRenderingTest):
             '10.1007/978-3-662-49214-7_4': '''@incollection{Tang2016,
   author = {Tang, Ruiming and Amarilli, Antoine and Senellart, Pierre and Bressan, Stéphane},
   doi = {10.1007/978-3-662-49214-7_4},
-  journal = {Transactions on Large-Scale Data- and Knowledge-Centered Systems XXIV},
+  journal = {Lecture Notes in Computer Science},
   month = {jan},
   pages = {116-138},
   title = {A Framework for Sampling-Based XML Data Pricing},
