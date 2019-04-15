@@ -1,5 +1,5 @@
 django-debug-toolbar
-pytest==4.4.0
+pytest==4.4.1
 pytest-django
 sphinx
 coverage
