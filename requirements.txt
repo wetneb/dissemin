@@ -51,3 +51,4 @@ wand
 sentry-sdk
 python-dateutil # for haystack, as explained here:
 #http://django-haystack.readthedocs.io/en/v2.4.1/management_commands.html
+dealer
