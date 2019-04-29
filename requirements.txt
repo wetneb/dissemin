@@ -29,7 +29,6 @@ django-widget-tweaks
 django-debug-toolbar
 djangorestframework
 elasticsearch==7.0.0
-html5lib==1.0.1
 httplib2
 jsonfield
 lxml
