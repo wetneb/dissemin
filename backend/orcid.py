@@ -15,25 +15,28 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+# USA.
 #
-
-
-
-#from requests.exceptions import RequestException
-#import json, requests
-import os
-import os.path as path
 import json
 import logging
+import os
+import os.path as path
+import shutil
+import tarfile
+import tempfile
+
+from django.conf import settings
+
+import notification.levels as notification_levels
+from notification.api import add_notification_for
+from notification.api import delete_notification_per_tag
+
 from backend.crossref import convert_to_name_pair
 from backend.crossref import CrossRefAPI
 from backend.crossref import fetch_dois
 from backend.papersource import PaperSource
-from django.conf import settings
-from notification.api import add_notification_for
-from notification.api import delete_notification_per_tag
-import notification.levels as notification_levels
+from backend.utils import with_speed_report
 from papers.baremodels import BareOaiRecord
 from papers.baremodels import BarePaper
 from papers.errors import MetadataSourceException
@@ -45,10 +48,8 @@ from papers.utils import validate_orcid
 
 logger = logging.getLogger('dissemin.' + __name__)
 
-### Paper fetching ####
 
 class OrcidPaperSource(PaperSource):
-    
     def __init__(self, *args, **kwargs):
         super(OrcidPaperSource, self).__init__(*args, **kwargs)
         self.oai_source = OaiSource.objects.get(identifier='orcid')
@@ -58,7 +59,7 @@ class OrcidPaperSource(PaperSource):
             return
         self.researcher = researcher
         if researcher.orcid:
-            if researcher.empty_orcid_profile == None:
+            if researcher.empty_orcid_profile is None:
                 self.update_empty_orcid(researcher, True)
             return self.fetch_orcid_records(researcher.orcid, profile=profile)
         return []
@@ -87,9 +88,9 @@ class OrcidPaperSource(PaperSource):
         return paper
 
     def fetch_crossref_incrementally(self, cr_api, orcid_id):
-        # If we are using the ORCID sandbox, then do not look for papers from CrossRef
-        # as the ORCID ids they contain are production ORCID ids (not fake
-        # ones).
+        # If we are using the ORCID sandbox, then do not look for papers from
+        # CrossRef as the ORCID ids they contain are production ORCID ids (not
+        # fake ones).
         if settings.ORCID_BASE_DOMAIN != 'orcid.org':
             return
 
@@ -101,8 +102,11 @@ class OrcidPaperSource(PaperSource):
                 else:
                     yield False, metadata
             except ValueError:
-                logger.exception("Saving CrossRef record from ORCID with id %s failed" % orcid_id)
-    
+                logger.exception(
+                    "Saving CrossRef record from ORCID with id %s failed",
+                    orcid_id
+                )
+
     def _oai_id_for_doi(self, orcid_id, doi):
         return 'orcid:{}:{}'.format(orcid_id, doi)
 
@@ -119,11 +123,12 @@ class OrcidPaperSource(PaperSource):
                     continue
 
                 record = BareOaiRecord(
-                        source=self.oai_source,
-                        identifier=self._oai_id_for_doi(orcid_id, metadata['DOI']),
-                        splash_url='https://%s/%s' % (
-                            settings.ORCID_BASE_DOMAIN, orcid_id),
-                        pubtype=paper.doctype)
+                    source=self.oai_source,
+                    identifier=self._oai_id_for_doi(orcid_id, metadata['DOI']),
+                    splash_url='https://%s/%s' % (
+                        settings.ORCID_BASE_DOMAIN, orcid_id),
+                    pubtype=paper.doctype
+                )
                 paper.add_oairecord(record)
                 yield True, paper
             except (KeyError, ValueError, TypeError):
@@ -141,21 +146,30 @@ class OrcidPaperSource(PaperSource):
                 'code': 'IGNORED_PAPERS',
                 'papers': ignored_papers,
             }
-            add_notification_for([user],
-                                    notification_levels.ERROR,
-                                    notification,
-                                    'backend_orcid'
-                                    )
+            add_notification_for(
+                [user],
+                notification_levels.ERROR,
+                notification,
+                'backend_orcid'
+            )
 
-    def fetch_orcid_records(self, orcid_identifier, profile=None, use_doi=True):
+    def fetch_orcid_records(
+            self, orcid_identifier,
+            profile=None, use_doi=True, works_dumps_path=None
+    ):
         """
-        Queries ORCiD to retrieve the publications associated with a given ORCiD.
-        It also fetches such papers from the CrossRef search interface.
+        Queries ORCiD to retrieve the publications associated with a given
+        ORCiD. It also fetches such papers from the CrossRef search interface.
 
-        :param profile: The ORCID profile if it has already been fetched before (format: parsed JSON).
-        :param use_doi: Fetch the publications by DOI when we find one (recommended, but slow)
-        :returns: a generator, where all the papers found are yielded. (some of them could be in
-                free form, hence not imported)
+        :param profile: The ORCID profile if it has already been fetched before
+            (format: parsed JSON).
+        :param use_doi: Fetch the publications by DOI when we find one
+            (recommended, but slow)
+        :param works_dumps_path: Path to a dump of XML files for each work of
+            the profile. If provided, ``fetch_orcid_records`` uses this dump
+            and avoid making API calls to ORCID.
+        :returns: a generator, where all the papers found are yielded. (some of
+            them could be in free form, hence not imported)
         """
         cr_api = CrossRefAPI()
 
@@ -173,8 +187,11 @@ class OrcidPaperSource(PaperSource):
             return
 
         # As we have fetched the profile, let's update the Researcher
-        self.researcher = Researcher.get_or_create_by_orcid(orcid_identifier,
-                profile.json, update=True)
+        self.researcher = Researcher.get_or_create_by_orcid(
+            orcid_identifier,
+            profile.json,
+            update=True
+        )
         if not self.researcher:
             return
 
@@ -197,15 +214,21 @@ class OrcidPaperSource(PaperSource):
         # 1st attempt with DOIs and CrossRef
         if use_doi:
             # Let's grab papers with DOIs found in our ORCiD profile.
-            dois = [doi for doi, put_code in dois_and_putcodes]
-            for idx, (success, paper_or_metadata) in enumerate(self.fetch_metadata_from_dois(cr_api, ref_name, orcid_id, dois)):
+            dois = [doi for doi, _ in dois_and_putcodes]
+            metadata = self.fetch_metadata_from_dois(
+                cr_api, ref_name, orcid_id, dois
+            )
+            for idx, (success, paper_or_metadata) in enumerate(metadata):
                 if success:
-                    yield paper_or_metadata # We know that this is a paper
+                    yield paper_or_metadata  # We know that this is a paper
                 else:
                     put_codes.append(dois_and_putcodes[idx][1])
 
         # 2nd attempt with ORCID's own crappy metadata
-        works = profile.fetch_works(put_codes)
+        works = profile.fetch_works(
+            put_codes,
+            works_dumps_path=works_dumps_path
+        )
         for work in works:
             if not work:
                 continue
@@ -214,7 +237,10 @@ class OrcidPaperSource(PaperSource):
             # We first try to reconcile it with local researcher author name.
             # Then, we consider it missed.
             if work.skipped:
-                logger.warning("Work skipped due to incorrect metadata. \n %s \n %s" % (work.reason, work.skip_reason))
+                logger.warning(
+                    "Work skipped due to incorrect metadata. \n %s",
+                    work.skip_reason
+                )
 
                 ignored_papers.append(work.as_dict())
                 continue
@@ -223,7 +249,7 @@ class OrcidPaperSource(PaperSource):
 
         self.warn_user_of_ignored_papers(ignored_papers)
         if ignored_papers:
-            logger.warning("Total ignored papers: %d" % (len(ignored_papers)))
+            logger.warning("Total ignored papers: %d", len(ignored_papers))
 
     def fetch_and_save(self, researcher, profile=None):
         """
@@ -244,37 +270,129 @@ class OrcidPaperSource(PaperSource):
 
             count += 1
 
-
-    def bulk_import(self, directory, fetch_papers=True, use_doi=False):
+    def bulk_import(
+            self, summaries_directory, activities_dump, fetch_papers=True,
+            use_doi=False, start_from=None
+    ):
         """
         Bulk-imports ORCID profiles from a dmup
         (warning: this still uses our DOI cache).
         The directory should contain json versions
         of orcid profiles, as in the official ORCID
         dump.
+
+        :param summaries_directory: The directory to load the JSON ORCID API
+            dump (summaries) from.
+        :param activities_dump: The tar.gz dump of the ORCID activities (XML
+            format).
+        :param fetch_papers: Whether to only import the ORCID profiles or the
+            complete ORCID profiles with their records (default).
+        :param use_doi: Whether to rely only on ORCID's metadata (default) or
+            to also query Crossref API for all found DOIs.
+        :param start_from: An optional folder name to start from (directory
+            under the summaries folder).
+
+        .. note :: ORCID activities dump is very large and difficult to work
+        with. The trick here is to extract activities from the ORCID dump by
+        toplevel folder and then process the whole folder and move to the next
+        one. Folders have to be treated in the order of appearance in the
+        tarball to be more efficient.
         """
+        seen = False
+        archive = tarfile.open(activities_dump, 'r:gz')
 
-        for root, _, fnames in os.walk(directory):
-            for fname in fnames:
-                #if fname == '0000-0003-1349-4524.json':
-                #    seen = True
-                #if not seen:
-                #    continue
+        members_to_extract = []
+        member = archive.next()
+        while member is not None:
+            # Skip root directory from the tarball
+            if member.name == 'activities':
+                member = archive.next()
+                continue
 
-                with open(path.join(root, fname), 'r') as f:
-                    try:
-                        profile = json.load(f)
-                        orcid = profile['orcid-profile'][
-                                        'orcid-identifier'][
-                                        'path']
-                        r = Researcher.get_or_create_by_orcid(
-                            orcid, profile, update=True)
-                        if fetch_papers:
-                            papers = self.fetch_orcid_records(orcid,
-                                profile=OrcidProfile(json=profile),
-                                use_doi=use_doi)
-                            for p in papers:
-                                self.save_paper(p, r)
-                    except (ValueError, KeyError):
-                        logger.warning("Invalid profile: %s" % fname)
+            # New folder
+            if member.name.count('/') == 1:
+                if members_to_extract:
+                    # Import folder
+                    orcid_toplevel_folder = (
+                        members_to_extract[0].name.split('/')[-1]
+                    )
+                    summaries_path = path.join(
+                        summaries_directory, orcid_toplevel_folder
+                    )
+                    # Eventually skip first entries
+                    if orcid_toplevel_folder == start_from:
+                        seen = True
+                    if start_from and not seen:
+                        continue
 
+                    # Only extract works, we don't care about education etc
+                    members_to_extract = [
+                        archive_member
+                        for archive_member in members_to_extract
+                        if '/works/' in archive_member.name
+                    ]
+
+                    # Extract current toplevel folder to a tmp directory
+                    temp_dir = tempfile.mkdtemp(prefix='dissemin-orcid-')
+                    logger.info(
+                        'Extracting folder %s from activities archive.',
+                        orcid_toplevel_folder
+                    )
+                    archive.extractall(
+                        path=temp_dir,
+                        members=members_to_extract
+                    )
+
+                    # Import the ORCID profiles for this toplevel directory
+                    # from the summaries dump
+                    summaries_files_with_speed = with_speed_report(
+                        os.listdir(summaries_path)
+                    )
+                    for summary_file in summaries_files_with_speed:
+                        fpath = path.join(summaries_path, summary_file)
+                        with open(fpath, 'r') as fh:
+                            try:
+                                profile = json.load(fh)
+                                orcid = profile['orcid-identifier']['path']
+                                r = Researcher.get_or_create_by_orcid(
+                                    orcid,
+                                    profile,
+                                    update=True
+                                )
+                                if fetch_papers:
+                                    papers = self.fetch_orcid_records(
+                                        orcid,
+                                        profile=OrcidProfile(json=profile),
+                                        use_doi=use_doi,
+                                        works_dumps_path=path.join(
+                                            temp_dir,
+                                            'activities',
+                                            orcid_toplevel_folder,
+                                            summary_file.replace('.json', ''),
+                                            'works'
+                                        )
+                                    )
+                                    for p in papers:
+                                        self.save_paper(p, r)
+                            except (ValueError, KeyError):
+                                logger.warning(
+                                    "Invalid profile: %s",
+                                    fpath
+                                )
+                            # Do not interrupt the import because a profile
+                            # could not be imported
+                            except Exception as exc:
+                                logger.warning(
+                                    "An error occurred while importing %s: %s",
+                                    fpath,
+                                    exc
+                                )
+                                raise
+                    # Remove temporary directory
+                    shutil.rmtree(temp_dir)
+                # Reset members list
+                members_to_extract = []
+            # Any member
+            members_to_extract.append(member)
+            member = archive.next()
+        archive.close()
