@@ -1,6 +1,6 @@
 django-debug-toolbar
 html5validator
-pytest==4.4.1
+pytest==4.4.2
 pytest-django
 sphinx
 coverage
