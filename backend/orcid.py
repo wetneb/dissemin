@@ -346,7 +346,8 @@ class OrcidPaperSource(PaperSource):
                     # Import the ORCID profiles for this toplevel directory
                     # from the summaries dump
                     summaries_files_with_speed = with_speed_report(
-                        os.listdir(summaries_path)
+                        os.listdir(summaries_path),
+                        name='ORCID profiles'
                     )
                     for summary_file in summaries_files_with_speed:
                         fpath = path.join(summaries_path, summary_file)
