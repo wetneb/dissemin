@@ -26,6 +26,7 @@ to the metadata sources.
    datasources
    datamodel
    repositories
+   dataingestion
    development
    testing
    docs

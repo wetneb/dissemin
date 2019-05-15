@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.orcid',
     'statistics',
     'publishers',
+    'backend',
     'papers',
     'upload',
     'deposit',

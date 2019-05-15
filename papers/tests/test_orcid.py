@@ -292,7 +292,7 @@ class OrcidWorkTest(unittest.TestCase):
     def load_work(self, orcid_id, filename):
         profile = OrcidProfileStub(orcid_id)
         with open(os.path.join(self.testdir, 'data', filename), 'r') as f:
-            return OrcidWork(profile, json.load(f))
+            return OrcidWork(profile, json_representation=json.load(f))
 
     def test_authors_from_bibtex(self):
         work = self.load_work('0000-0003-2888-1770', 'Negation_of_graded_beliefs.json')
