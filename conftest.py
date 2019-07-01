@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.urls import reverse
 
+from deposit.models import ClassificationSubject
+from deposit.models import ClassificationSystem
 from deposit.models import Repository
 from dissemin.settings import BASE_DIR
 from papers.baremodels import PAPER_TYPE_CHOICES
@@ -21,7 +23,7 @@ from publishers.models import Publisher
 
 
 @pytest.fixture
-def load_json(db, oaisource):
+def load_json(db):
     """
     This fixture returns an object with which you can load various JSON fixtures. It deletes the created objects after test has finished.
     """
@@ -282,6 +284,32 @@ class LoadJSON():
         j = Journal.objects.get_or_create(**data)[0]
         self.objects.append(j)
         return j, p
+
+    def load_classification_system(self, f, repository):
+        """
+        Loads an emtpy classification system. Requires an repository object to work
+        """
+        f_name = os.path.join(BASE_DIR, 'test_data', 'classification', 'system', f + '.json')
+        with open(f_name, 'r') as json_file:
+            data = json.load(json_file)
+        data['repository'] = repository
+        cs = ClassificationSystem.objects.get_or_create(data)[0]
+        self.objects.append(cs)
+        return cs
+
+    def load_classification_subject(self, f, repository):
+        """
+        Loads a classification subject. Requires an repository object to work
+        """
+        f_name = os.path.join(BASE_DIR, 'test_data', 'classification', 'subject', f + '.json')
+        with open(f_name, 'r') as json_file:
+            data = json.load(json_file)
+        csy = self.load_classification_system(data['classification_system'], repository)
+        data['classification_system'] = csy
+        cs = ClassificationSubject.objects.get_or_create(data)[0]
+        self.objects.append(cs)
+        return cs
+
 
 
 class LoadOaiSource():

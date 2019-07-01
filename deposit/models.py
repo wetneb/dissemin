@@ -68,6 +68,39 @@ class License(models.Model):
 vinaigrette.register(License, ['name'])
 
 
+class ClassificationSubject(models.Model):
+    """
+    A model to store classificatorial data like DDC or MSC.
+    """
+    #: Class number
+    number = models.CharField(max_length=255, blank=False)
+    #: Class nam
+    name = models.CharField(max_length=255, blank=False)
+    #: Value that is delivered to the repository
+    transmit_id = models.CharField(max_length=255, blank=False)
+    #: Each classification shall be member of one group
+    classification_system = models.ForeignKey('ClassificationSystem', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{} - {}".format(self.number, self.name)
+
+
+class ClassificationSystem(models.Model):
+    """
+    This class represents a classification system by grouping SubjectClasses. This class does not need to model a whole classification but only some parts.
+    """
+    #: Name of the  is displayed to the user
+    name = models.CharField(max_length=255, blank=False)
+    #: Type of classification; used to describe the classification values in metadata, like <classification type="ddc">000</classification>
+    short = models.CharField(max_length=255, blank=False)
+    #: True if a repository allows giving more than one subject class of this classification to an item
+    repeatable = models.BooleanField()
+    #: Link the classification system to a repository
+    repository = models.ForeignKey('Repository', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{} {}".format(self.name, self.short)
+
 
 class RepositoryManager(CachingManager):
     pass

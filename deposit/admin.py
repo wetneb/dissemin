@@ -20,12 +20,21 @@
 
 
 
+from deposit.models import ClassificationSystem
+from deposit.models import ClassificationSubject
 from deposit.models import LicenseChooser
 from deposit.models import DepositRecord
 from deposit.models import License
 from deposit.models import Repository
 from deposit.forms import RepositoryAdminForm
 from django.contrib import admin
+
+class SubjectClassInline(admin.TabularInline):
+    model = ClassificationSubject
+    extra = 1
+
+class ClassificationSystemAdmin(admin.ModelAdmin):
+    inlines = (SubjectClassInline, )
 
 class LicenseChooserInline(admin.TabularInline):
     model = LicenseChooser
@@ -47,6 +56,7 @@ class RepositoryAdmin(admin.ModelAdmin):
     form = RepositoryAdminForm
     inlines = (LicenseChooserInline, )
 
+admin.site.register(ClassificationSystem, ClassificationSystemAdmin)
 admin.site.register(DepositRecord, DepositRecordAdmin)
 admin.site.register(Repository, RepositoryAdmin)
 admin.site.register(License, LicenseAdmin)
