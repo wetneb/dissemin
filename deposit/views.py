@@ -19,7 +19,6 @@
 
 
 
-import os
 import logging
 
 from datetime import date
@@ -232,7 +231,6 @@ def submitDeposit(request, pk):
         return context, 400
 
     # Submit the paper to the repository
-    path = os.path.join(settings.MEDIA_ROOT, pdf.file.name)
 
     # Create initial record
     d = DepositRecord(
@@ -243,7 +241,7 @@ def submitDeposit(request, pk):
             file=pdf)
     d.save()
 
-    submitResult = protocol.submit_deposit_wrapper(path, repositoryForm)
+    submitResult = protocol.submit_deposit_wrapper(pdf, repositoryForm)
 
     d.request = submitResult.logs
     if submitResult.status == 'failed':

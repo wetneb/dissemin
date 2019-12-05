@@ -19,17 +19,53 @@
 #
 
 import os
-import unittest
 import requests
 import requests_mock
+import unittest
+
+import wand.image as image
 
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.urls import reverse
+
 from papers.tests.test_ajax import JsonRenderingTest
 from upload.models import THUMBNAIL_MAX_WIDTH
 from upload.views import make_thumbnail
-import wand.image as image
+
+
+class TestFileDownload():
+    """
+    Tests FileDownloadView
+    """
+
+    def test_object_not_found(self, uploaded_pdf, check_status):
+        """
+        If no object is found, expect 404, independent of token
+        """
+        pk = uploaded_pdf.pk
+        token = 'spam'
+        uploaded_pdf.delete()
+        check_status(404, 'file-download', args=[pk, token])
+
+    def test_success(self, uploaded_pdf, dissemin_base_client):
+        """
+        If everything is fine, we expect 200 and a pdf
+        """
+        response = dissemin_base_client.get(uploaded_pdf.get_absolute_url())
+        assert response.status_code == 200
+        assert response.as_attachment == True
+        assert response._headers['content-type'][0] == "Content-Type"
+
+
+    def test_wrong_token(self, uploaded_pdf, check_status):
+        """
+        If token does not match, except 403
+        """
+        pk = uploaded_pdf.pk
+        token = 'spam'
+        check_status(403, 'file-download', args=[pk, token])
+
 
 
 class ThumbnailTest(unittest.TestCase):

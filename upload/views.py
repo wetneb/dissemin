@@ -22,6 +22,7 @@
 
 from io import BytesIO
 
+import os
 import requests
 from requests.packages.urllib3.exceptions import HTTPError
 from requests.packages.urllib3.exceptions import ReadTimeoutError
@@ -29,8 +30,12 @@ from requests.packages.urllib3.exceptions import ReadTimeoutError
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.core.files.base import ContentFile
+from django.http import FileResponse
+from django.http import HttpResponseForbidden
+from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
 from django.views.decorators.http import require_POST
+from django.views.generic import View
 from jsonview.decorators import json_view
 from papers.user import is_authenticated
 import PyPDF2
@@ -203,3 +208,23 @@ def handleUrlDownload(request):
         return response, 403
 
     return response
+
+class FileDownloadView(View):
+    """
+    View to get an uploaded file
+    """
+
+    def get(self, request, pk, token):
+        """
+        :param pk: Primary key of object
+        :param token: Token that must coincident with objects token
+        :returns: HttpResponse
+        """
+        pdf = get_object_or_404(UploadedPDF.objects, pk=pk)
+
+        if pdf.token != token:
+            return HttpResponseForbidden(_("Access to this resource not permitted"))
+        
+        path = os.path.join(settings.MEDIA_ROOT, pdf.file.name)
+
+        return FileResponse(open(path, 'rb'), as_attachment=True)

@@ -1,0 +1,34 @@
+{
+    "abstract": "User filled in abstract",
+    "authors": [
+        {
+            "first": "Maxim",
+            "last": "Gussev",
+            "orcid": null
+        }
+    ],
+    "date": "2019-02-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 19,
+    "doctype": "report",
+    "doi": "10.2172/1513377",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": null,
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": null,
+    "sherpa_romeo_id": null,
+    "title": "Execution of Targeted Experiments to Inform BISON for ATF Materials: An Advanced Approach to Tube Burst Testing",
+    "volume": null
+}

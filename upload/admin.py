@@ -25,6 +25,6 @@ from upload.models import UploadedPDF
 
 
 class UploadedPDFAdmin(admin.ModelAdmin):
-    list_display = ('file', 'user', 'timestamp')
+    list_display = ('file', 'user', 'timestamp', 'token')
 
 admin.site.register(UploadedPDF, UploadedPDFAdmin)

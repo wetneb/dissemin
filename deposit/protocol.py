@@ -32,6 +32,7 @@ from papers.baremodels import BareOaiRecord
 from deposit.forms import BaseMetadataForm
 from deposit.models import DEPOSIT_STATUS_CHOICES
 from deposit.models import LicenseChooser
+from papers.models import Researcher
 
 logger = logging.getLogger('dissemin.' + __name__)
 
@@ -428,3 +429,31 @@ class RepositoryProtocol(object, metaclass = RepositoryProtocolMeta):
         kwargs['instance'] = prefs
         return self.preferences_form_class(*args, **kwargs)
 
+    ### Metadata helpers
+    # This are functions that help to retreive some metadata
+
+    def _get_depositor_orcid(self):
+        """
+        Get's the ORCID of the depositor if available
+        """
+        r = Researcher.objects.get(user=self.user)
+
+        return r.orcid
+
+
+    def _get_publisher_name(self):
+        """
+        Returns the name of the publisher or ``None``
+        """
+        if self.publication.publisher:
+            return self.publication.publisher.name
+        else:
+            return self.publication.publisher_name
+
+
+    def _get_sherpa_romeo_id(self):
+        """
+        Returns the SHERPA/RoMEO id if found
+        """
+        if self.publication.publisher is not None:
+            return self.publication.publisher.romeo_id

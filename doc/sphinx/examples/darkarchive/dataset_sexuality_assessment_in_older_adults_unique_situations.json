@@ -1,0 +1,39 @@
+{
+    "abstract": "The user entered this text.",
+    "authors": [
+        {
+            "first": "Maggie L.",
+            "last": "Syme",
+            "orcid": null
+        },
+        {
+            "first": "Michelle S.",
+            "last": "Ballan",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 4,
+    "doctype": "dataset",
+    "doi": "10.1037/e606472010-001",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "PsycEXTRA Dataset",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": "American Psychological Association (APA)",
+    "sherpa_romeo_id": null,
+    "title": "Sexuality Assessment in Older Adults: Unique Situations",
+    "volume": null
+}

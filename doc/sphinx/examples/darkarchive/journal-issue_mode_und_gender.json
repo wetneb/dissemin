@@ -1,0 +1,119 @@
+{
+    "abstract": "User filled in abstract",
+    "authors": [
+        {
+            "first": "Gertrud",
+            "last": "Lehnert",
+            "orcid": null
+        },
+        {
+            "first": "Jenny",
+            "last": "B\u00fcnnig",
+            "orcid": null
+        },
+        {
+            "first": "Miriam",
+            "last": "von Maydell",
+            "orcid": null
+        },
+        {
+            "first": "Maria",
+            "last": "Weilandt",
+            "orcid": null
+        },
+        {
+            "first": "Julia",
+            "last": "Hahmann",
+            "orcid": null
+        },
+        {
+            "first": "Claudia",
+            "last": "Amsler",
+            "orcid": null
+        },
+        {
+            "first": "Antonella",
+            "last": "Giannone",
+            "orcid": null
+        },
+        {
+            "first": "Petra",
+            "last": "Leutner",
+            "orcid": null
+        },
+        {
+            "first": "Folke",
+            "last": "Brodersen",
+            "orcid": null
+        },
+        {
+            "first": "Mona",
+            "last": "Motakef",
+            "orcid": null
+        },
+        {
+            "first": "Julia",
+            "last": "Bringmann",
+            "orcid": null
+        },
+        {
+            "first": "Christine",
+            "last": "Wimbauer",
+            "orcid": null
+        },
+        {
+            "first": "Doroth\u00e9e",
+            "last": "de N\u00e8ve",
+            "orcid": null
+        },
+        {
+            "first": "Niklas",
+            "last": "Ferch",
+            "orcid": null
+        },
+        {
+            "first": "Carolin",
+            "last": "Braunm\u00fchl",
+            "orcid": null
+        },
+        {
+            "first": "Susanne",
+            "last": "Richter",
+            "orcid": null
+        },
+        {
+            "first": "Janina",
+            "last": "Scholz",
+            "orcid": null
+        },
+        {
+            "first": "Charlotte",
+            "last": "Binder",
+            "orcid": null
+        }
+    ],
+    "date": "2018-09-17",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 10,
+    "doctype": "journal-issue",
+    "doi": null,
+    "eissn": null,
+    "issn": null,
+    "issue": "3-2018",
+    "journal": "GENDER \u2013 Zeitschrift f\u00fcr Geschlecht, Kultur und Gesellschaft",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": "Barbara Budrich Publishers",
+    "sherpa_romeo_id": null,
+    "title": "Mode und Gender",
+    "volume": "10"
+}

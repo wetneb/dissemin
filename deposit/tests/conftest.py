@@ -1,19 +1,9 @@
 import pytest
 
 from deposit.models import DepositRecord
-from upload.models import UploadedPDF
 
 
-@pytest.fixture
-def uploaded_pdf(user_leibniz):
-    """
-    A simple uploaded pdf of user leibniz. The file does not exist.
-    """
-    pdf = UploadedPDF.objects.create(
-        user=user_leibniz,
-        file='uploaded_pdf.pdf',
-    )
-    return pdf
+
 
 @pytest.fixture
 def deposit_record(request, db, book_god_of_the_labyrinth, authenticated_client, dummy_repository, uploaded_pdf):

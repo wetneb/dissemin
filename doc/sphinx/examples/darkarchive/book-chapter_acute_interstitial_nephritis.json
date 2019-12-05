@@ -1,0 +1,39 @@
+{
+    "abstract": "This abstract is pure user input",
+    "authors": [
+        {
+            "first": "Jerome A.",
+            "last": "Rossert",
+            "orcid": null
+        },
+        {
+            "first": "Evelyne A.",
+            "last": "Fischer",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 1,
+    "doctype": "book-chapter",
+    "doi": "10.1016/b978-0-323-05876-6.00060-5",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "Comprehensive Clinical Nephrology",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "729-737",
+    "publisher": "Elsevier BV",
+    "sherpa_romeo_id": null,
+    "title": "Acute Interstitial Nephritis",
+    "volume": null
+}

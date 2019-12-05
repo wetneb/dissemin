@@ -42,6 +42,7 @@ pillow
 psycopg2-binary
 pyasn1
 pyopenssl>=0.14
+python2-secrets ; python_version < '3.6'
 reportlab
 requests[security]
 requests_mock

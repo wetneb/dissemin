@@ -1,0 +1,34 @@
+{
+    "abstract": "This abstract is filled in from the user",
+    "authors": [
+        {
+            "first": "Alain",
+            "last": "Vanier",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 9,
+    "doctype": "journal-article",
+    "doi": "10.3917/cla.017.0023",
+    "eissn": null,
+    "issn": null,
+    "issue": "1",
+    "journal": "La clinique lacanienne",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "23",
+    "publisher": "Armand Colin",
+    "sherpa_romeo_id": "982",
+    "title": "L'objet de la d\u00e9pression",
+    "volume": "17"
+}

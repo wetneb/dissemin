@@ -1,0 +1,34 @@
+{
+    "abstract": "A detective story in which the solution given is wrong, although this fact is not immediately obvious.",
+    "authors": [
+        {
+            "first": "Herbert",
+            "last": "Quain",
+            "orcid": null
+        }
+    ],
+    "date": "1933-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 3,
+    "doctype": "book",
+    "doi": "10.0123/quain-1933",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": null,
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": null,
+    "sherpa_romeo_id": null,
+    "title": "The God of the Labyrinth",
+    "volume": null
+}

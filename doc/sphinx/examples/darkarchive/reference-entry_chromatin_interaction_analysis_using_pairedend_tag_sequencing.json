@@ -1,0 +1,54 @@
+{
+    "abstract": "Chromatin Interaction Analysis using Paired-End Tag sequencing (ChIA-PET) is a technique developed for large-scale, de novo analysis of higher-order chromatin structures. Cells are treated with formaldehyde to cross-link chromatin interactions, DNA segments bound by protein factors are enriched by chromatin immunoprecipitation, and interacting DNA fragments are then captured by proximity ligation. The Paired-End Tag (PET) strategy is applied to the construction of ChIA-PET libraries, which are sequenced by high-throughput next-generation sequencing technologies. Finally, raw PET sequences are subjected to bioinformatics analysis, resulting in a genome-wide map of binding sites and chromatin interactions mediated by the protein factor under study. This unit describes ChIA-PET for genome-wide analysis of chromatin interactions in mammalian cells, with the application of Roche/454 and Illumina sequencing technologies. Curr. Protoc. Mol. Biol. 89:21.15.1-21.15.25. \u00a9 2010 by John Wiley &amp; Sons, Inc.",
+    "authors": [
+        {
+            "first": "Melissa J.",
+            "last": "Fullwood",
+            "orcid": null
+        },
+        {
+            "first": "Yuyuan",
+            "last": "Han",
+            "orcid": null
+        },
+        {
+            "first": "Chia-Lin",
+            "last": "Wei",
+            "orcid": null
+        },
+        {
+            "first": "Xiaoan",
+            "last": "Ruan",
+            "orcid": null
+        },
+        {
+            "first": "Yijun",
+            "last": "Ruan",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 18,
+    "doctype": "reference-entry",
+    "doi": "10.1002/0471142727.mb2115s89",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "Current Protocols in Molecular Biology",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": "Wiley-Blackwell",
+    "sherpa_romeo_id": null,
+    "title": "Chromatin Interaction Analysis Using Paired-End Tag Sequencing",
+    "volume": null
+}

@@ -13,6 +13,7 @@ from tempfile import NamedTemporaryFile
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.management import call_command
 from django.urls import reverse
@@ -30,6 +31,7 @@ from papers.models import OaiSource
 from papers.models import Researcher
 from publishers.models import Journal
 from publishers.models import Publisher
+from upload.models import UploadedPDF
 
 
 @pytest.fixture
@@ -213,6 +215,16 @@ def blank_pdf(blank_pdf_path):
             pdf = f.read()
     return pdf
 
+@pytest.fixture
+def uploaded_pdf(user_leibniz, blank_pdf):
+    """
+    A simple uploaded pdf of user leibniz.
+    """
+    pdf = UploadedPDF.objects.create(
+        user=user_leibniz,
+    )
+    pdf.file.save('blank.pdf', ContentFile(blank_pdf))
+    return pdf
 
 """
 Depending on the environment variable DISSEMIN_TEST_ALL_LANGAUAGES sets the languages to be tested. If not set, use english, otherwise all languages from settings.POSSIBLE_LANGUAGE_CODES

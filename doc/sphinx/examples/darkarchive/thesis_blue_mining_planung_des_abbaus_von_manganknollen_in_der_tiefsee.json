@@ -1,0 +1,34 @@
+{
+    "abstract": "Please my theses about blue mining",
+    "authors": [
+        {
+            "first": "Sebastian Ernst",
+            "last": "Volkmann",
+            "orcid": null
+        }
+    ],
+    "date": "2018-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 20,
+    "doctype": "thesis",
+    "doi": "10.18154/rwth-2018-230772",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "Dissertation",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "2018-",
+    "publisher": "RWTH Aachen University",
+    "sherpa_romeo_id": null,
+    "title": "Blue Mining\u2014Planung des Abbaus von Manganknollen in der Tiefsee",
+    "volume": "RWTH Aachen University"
+}

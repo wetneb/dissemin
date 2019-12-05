@@ -33,15 +33,17 @@ from deposit.protocol import DepositError
 from deposit.protocol import DepositResult
 from deposit.protocol import RepositoryProtocol
 from deposit.registry import protocol_registry
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from django.core.files.base import ContentFile
 from django.forms import Form
-from django.test.utils import override_settings
 from django.urls import reverse
 from papers.models import OaiSource
 from papers.models import OaiRecord
 from papers.models import Paper
 from deposit.tasks import refresh_deposit_statuses
+from upload.models import UploadedPDF
 
 
 class MetaTestProtocol():
@@ -90,6 +92,15 @@ class MetaTestProtocol():
         assert r.status_code == 200
 
 
+    def test_get_depositor_orcid(self, depositing_user):
+        """
+        Tested function returns the ORCID of the depositing user if available
+        """
+        self.protocol.user = depositing_user
+
+        assert self.protocol._get_depositor_orcid() == depositing_user.orcid
+
+
     def test_get_form(self, book_god_of_the_labyrinth, abstract_required, ddc, embargo, license_chooser):
         self.protocol.paper = book_god_of_the_labyrinth
         form = self.protocol.get_form()
@@ -125,7 +136,7 @@ class MetaTestProtocol():
         if embargo == 'required':
             data['embargo'] = '2019-10-10'
 
-        form = self.protocol.get_bound_form()
+        form = self.protocol.get_bound_form(data=data)
         if not form.is_valid():
             print(form.errors)
             raise AssertionError("Form not valid")
@@ -138,6 +149,53 @@ class MetaTestProtocol():
         self.protocol.init_deposit(book_god_of_the_labyrinth ,user_isaac_newton)
         form = self.protocol.get_form()
         assert isinstance(form, Form)
+
+
+    @pytest.mark.parametrize('pub_name', [None, 'BMC'])
+    def test_get_publisher_name_from_oairecord(self, dummy_oairecord, pub_name):
+        """
+        Tests if the publisher name is returned or if not available: None
+        """
+        dummy_oairecord.publisher_name = pub_name
+        self.protocol.publication = dummy_oairecord
+
+        assert self.protocol._get_publisher_name() == pub_name
+
+
+    def test_get_publisher_name_from_publisher(self, dummy_oairecord, dummy_publisher):
+        """
+        Tests if the publisher name is returned from the publisher object
+        """
+        dummy_publisher.name = 'BMC'
+        dummy_publisher.save()
+        dummy_oairecord.publisher = dummy_publisher
+        dummy_oairecord.save()
+        self.protocol.publication = dummy_oairecord
+
+        assert self.protocol._get_publisher_name() == dummy_publisher.name
+
+
+    def test_get_sherpa_romeo_id(self, dummy_oairecord, dummy_publisher):
+        """
+        Tests if the SHERPA/RoMEO id is returned from the publisher object
+        """
+        romeo_id = 1
+        dummy_publisher.romeo_id = romeo_id
+        dummy_publisher.save()
+        dummy_oairecord.publisher = dummy_publisher
+        dummy_oairecord.save()
+        self.protocol.publication = dummy_oairecord
+
+        assert self.protocol._get_sherpa_romeo_id() == romeo_id
+
+
+    def test_get_sherpa_romeo_id_no_publisher(self, dummy_oairecord):
+        """
+        If no publisher for OaiRecord if found, expect ``None``.
+        """
+        self.protocol.publication = dummy_oairecord
+
+        assert self.protocol._get_sherpa_romeo_id() == None
 
 
     def test_init_deposit(self, user_isaac_newton, book_god_of_the_labyrinth):
@@ -386,7 +444,6 @@ class ProtocolTest(django.test.TestCase):
     def __init__(self, *args, **kwargs):
         super(ProtocolTest, self).__init__(*args, **kwargs)
 
-    @override_settings(MEDIA_ROOT='mediatest/')
     def setUp(self):
         if type(self) is ProtocolTest:
             raise unittest.SkipTest("Base test")
@@ -398,8 +455,15 @@ class ProtocolTest(django.test.TestCase):
         self.username = 'mydepositinguser'
         self.password = 'supersecret'
         self.user = User.objects.create_user(username=self.username, email="my@email.com", password=self.password)
-        self.testdir = os.path.dirname(os.path.abspath(__file__))
-        self.pdfpath = os.path.join(self.testdir, 'data/blank.pdf')
+        path = os.path.join(settings.BASE_DIR, 'upload', 'tests', 'data', 'blank.pdf')
+        with open(path, 'rb') as f:
+            blank_pdf = f.read()
+
+        self.pdf = UploadedPDF.objects.create(
+            user=self.user,
+        )
+        self.pdf.file.save('blank.pdf', ContentFile(blank_pdf))
+
 
     def setUpForProtocol(self, protocol_class, repository):
 
@@ -466,7 +530,7 @@ class ProtocolTest(django.test.TestCase):
         if not form.is_valid():
             print(form.errors)
         self.assertTrue(form.is_valid())
-        pdf = self.pdfpath
+        pdf = self.pdf
         deposit_result = self.proto.submit_deposit_wrapper(pdf,
                                                            form, dry_run=dry_run)
         self.assertIsInstance(deposit_result, DepositResult)

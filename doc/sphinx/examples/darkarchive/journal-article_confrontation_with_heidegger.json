@@ -1,0 +1,39 @@
+{
+    "abstract": "This abstract was filled in by the user",
+    "authors": [
+        {
+            "first": "M.",
+            "last": "Cacciari",
+            "orcid": null
+        },
+        {
+            "first": "T. S.",
+            "last": "Murphy",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 7,
+    "doctype": "journal-article",
+    "doi": "10.1215/00166928-43-3-4-353",
+    "eissn": "2160-0228",
+    "issn": "0016-6928",
+    "issue": "3-4",
+    "journal": "Genre",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "353-368",
+    "publisher": "Duke University Press",
+    "sherpa_romeo_id": null,
+    "title": "Confrontation with Heidegger",
+    "volume": "43"
+}

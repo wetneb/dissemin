@@ -18,14 +18,25 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 
+import os
 
+from secrets import token_urlsafe
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 MAX_ORIG_NAME_LENGTH = 1024
 THUMBNAIL_MAX_HEIGHT = 297/2
 THUMBNAIL_MAX_WIDTH = 210/2
+
+
+def new_urlsafe_token():
+    """
+    :returns: Token of length 64
+    """
+    return token_urlsafe(64)[:64]
 
 
 class UploadedPDF(models.Model):
@@ -41,6 +52,8 @@ class UploadedPDF(models.Model):
     orig_name = models.CharField(max_length=MAX_ORIG_NAME_LENGTH)
     #: Number of pages
     num_pages = models.IntegerField(default=0)
+    #: secret token to expose file by credential
+    token = models.CharField(max_length=64, default=new_urlsafe_token)
 
     #: The file itself
     file = models.FileField(upload_to='uploads/%Y/%m/%d')
@@ -49,3 +62,18 @@ class UploadedPDF(models.Model):
 
     class Meta:
         verbose_name = 'Uploaded PDF'
+
+    def get_absolute_url(self):
+        """
+        Returns the url to object
+        :returns: object url
+        """
+        return reverse('file-download', args=[self.pk, self.token])
+
+    @property
+    def absolute_path(self):
+        """
+        Returns the full path to the file as property
+        :returns: full path to file
+        """
+        return os.path.join(settings.MEDIA_ROOT, self.file.name)

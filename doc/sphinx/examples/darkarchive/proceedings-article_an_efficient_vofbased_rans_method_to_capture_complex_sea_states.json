@@ -1,0 +1,44 @@
+{
+    "abstract": "Viscous seakeeping and manoeuvring simulations are becoming more important for an investigation of intact and damage conditions of ships exposed to extreme sea-states. The computational effort for RANS-based viscous seaway simulations is still prohibitive and reduces the possible fields of industrial applications. The limitations are associated to cumbersome grid requirements which restrain the flexibility and enhance the computational costs. The requirements follow from the aim to accurately predict the wave propagation towards the floating object and concurrently suppress wave reflections at the outlet boundary. To overcome these difficulties, a simple viscous/inviscid-coupling approach is suggested. Therein, the viscous RANS method is implicitly forced to comply with a prescribed invis-cid solution towards the far-field boundaries. Employing consistent boundary conditions at all far-field boundaries, the method facilitates the use of small domains and allows to investigate the behaviour of floating objects exposed to time-variable wave-field directions. Selected 2D and 3D examples are presented to demonstrate the capabilities of the approach.",
+    "authors": [
+        {
+            "first": "Katja",
+            "last": "Woeckner",
+            "orcid": null
+        },
+        {
+            "first": "Withold",
+            "last": "Drazyk",
+            "orcid": null
+        },
+        {
+            "first": "Thomas",
+            "last": "Rung",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 16,
+    "doctype": "proceedings-article",
+    "doi": "10.1115/omae2010-20674",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "29th International Conference on Ocean, Offshore and Arctic Engineering: Volume 6",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": "ASME International",
+    "sherpa_romeo_id": null,
+    "title": "An Efficient VOF-Based RANS Method to Capture Complex Sea States",
+    "volume": null
+}

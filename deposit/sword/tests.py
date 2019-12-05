@@ -249,11 +249,11 @@ class MetaTestSWORDMETSProtocol(MetaTestProtocol):
         mets_xsd.assertValid(etree.fromstring(bytes(mets_xml, encoding='utf-8')))
 
 
-    def test_get_mets_container(self, blank_pdf_path, metadata_xml_mets):
+    def test_get_mets_container(self, uploaded_pdf, metadata_xml_mets):
         """
         A test for creating a mets container
         """
-        s = SWORDMETSProtocol._get_mets_container(blank_pdf_path, metadata_xml_mets)
+        s = SWORDMETSProtocol._get_mets_container(uploaded_pdf, metadata_xml_mets)
         with ZipFile(s, 'r') as zip_file:
             files = zip_file.namelist()
             for filename in ['mets.xml', 'document.pdf']:
@@ -296,7 +296,7 @@ class MetaTestSWORDMETSProtocol(MetaTestProtocol):
 
 
     @responses.activate
-    def test_submit_deposit(self, blank_pdf_path, monkeypatch, monkeypatch_metadata_creation, monkeypatch_get_deposit_result):
+    def test_submit_deposit(self, uploaded_pdf, monkeypatch, monkeypatch_metadata_creation, monkeypatch_get_deposit_result):
         """
         A test for submit deposit.
         """
@@ -308,7 +308,7 @@ class MetaTestSWORDMETSProtocol(MetaTestProtocol):
         # Monkeypatch _add_embargo_date_to_deposit
         monkeypatch.setattr(self.protocol, '_add_embargo_date_to_deposit_result', lambda x, y: x)
 
-        assert isinstance(self.protocol.submit_deposit(blank_pdf_path, None), DepositResult)
+        assert isinstance(self.protocol.submit_deposit(uploaded_pdf, None), DepositResult)
         headers = responses.calls[0].request.headers
         expected_headers = {
                 'Content-Type': 'application/zip', 
@@ -320,14 +320,14 @@ class MetaTestSWORDMETSProtocol(MetaTestProtocol):
 
 
     @responses.activate
-    def test_submit_deposit_server_error(self, blank_pdf_path, monkeypatch_metadata_creation):
+    def test_submit_deposit_server_error(self, uploaded_pdf, monkeypatch_metadata_creation):
         """
         A test where the repository is not available. Should raise ``DepositError``
         """
         responses.add(responses.POST, self.protocol.repository.endpoint, status=401)
 
         with pytest.raises(DepositError):
-            self.protocol.submit_deposit(blank_pdf_path, None)
+            self.protocol.submit_deposit(uploaded_pdf, None)
 
 
     @pytest.mark.parametrize('username,password', userdata)

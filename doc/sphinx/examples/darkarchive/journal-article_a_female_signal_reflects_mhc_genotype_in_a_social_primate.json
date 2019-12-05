@@ -1,0 +1,59 @@
+{
+    "abstract": "Males from many species are believed to advertise their genetic quality through striking ornaments that attract mates. Yet the connections between signal expression, body condition and the genes associated with individual quality are rarely elucidated. This is particularly problematic for the signals of females in species with conventional sex roles, whose evolutionary significance has received little attention and is poorly understood. Here we explore these questions in the sexual swellings of female primates, which are among the most conspicuous of mammalian sexual signals and highly variable in size, shape and colour. We investigated the relationships between two components of sexual swellings (size and shape), body condition, and genes of the Major Histocompatibility Complex (MHC) in a wild baboon population (Papio ursinus) where males prefer large swellings.",
+    "authors": [
+        {
+            "first": "Elise",
+            "last": "Huchard",
+            "orcid": null
+        },
+        {
+            "first": "Michel",
+            "last": "Raymond",
+            "orcid": null
+        },
+        {
+            "first": "Julio",
+            "last": "Benavides",
+            "orcid": null
+        },
+        {
+            "first": "Harry",
+            "last": "Marshall",
+            "orcid": null
+        },
+        {
+            "first": "Leslie A.",
+            "last": "Knapp",
+            "orcid": null
+        },
+        {
+            "first": "Guy",
+            "last": "Cowlishaw",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 5,
+    "doctype": "journal-article",
+    "doi": "10.1186/1471-2148-10-96",
+    "eissn": "1471-2148",
+    "issn": null,
+    "issue": "1",
+    "journal": "BMC Evolutionary Biology",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "96",
+    "publisher": "BMC",
+    "sherpa_romeo_id": "22",
+    "title": "A female signal reflects MHC genotype in a social primate",
+    "volume": "10"
+}

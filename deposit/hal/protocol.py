@@ -156,7 +156,7 @@ class HALProtocol(RepositoryProtocol):
     def create_zip(self, pdf, metadata):
         s = BytesIO()
         with ZipFile(s, 'w') as zipFile:
-            zipFile.write(pdf, "article.pdf")
+            zipFile.write(pdf.absolute_path, "article.pdf")
             zipFile.writestr("meta.xml", metadata)
         return s
 

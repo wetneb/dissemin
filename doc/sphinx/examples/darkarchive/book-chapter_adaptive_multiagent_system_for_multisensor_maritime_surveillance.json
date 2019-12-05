@@ -1,0 +1,44 @@
+{
+    "abstract": "Maritime surveillance is a difficult task as its aim is to detect any threatening event in a dynamic, complex and hugely distributed system. As there are many different types of vessels, behaviours, situations, and because the system is constantly evolving, classical automated surveillance approaches are unrealistic. We propose an adaptive multi-agent system in which each agent is responsible for a vessel. This agent perceives local anomalies and combines them to maintain a criticality value, used to decide when an alert is appropriate. The importance of the anomalies and how they are combined emerges from a cooperative selfadjusting process taking user feedback into account. This software is currently under development in ScanMaris, a project supported by the French National Research Agency.",
+    "authors": [
+        {
+            "first": "Jean-Pierre",
+            "last": "Mano",
+            "orcid": null
+        },
+        {
+            "first": "Jean-Pierre",
+            "last": "Georg\u00e9",
+            "orcid": null
+        },
+        {
+            "first": "Marie-Pierre",
+            "last": "Gleizes",
+            "orcid": null
+        }
+    ],
+    "date": "2010-01-01",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 2,
+    "doctype": "book-chapter",
+    "doi": "10.1007/978-3-642-12384-9_34",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "Advances in Intelligent and Soft Computing",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": "285-290",
+    "publisher": "Springer Science + Business Media",
+    "sherpa_romeo_id": null,
+    "title": "Adaptive Multi-agent System for Multi-sensor Maritime Surveillance",
+    "volume": null
+}

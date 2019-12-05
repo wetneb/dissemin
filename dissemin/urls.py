@@ -33,6 +33,8 @@ from django.views import generic
 from django.views.i18n import JavaScriptCatalog
 import django_js_reverse.views
 
+from upload.views import FileDownloadView
+
 admin.autodiscover()
 
 try:
@@ -81,6 +83,7 @@ js_info_dict = {
 }
 
 urlpatterns = [
+    path('file/<int:pk>/<str:token>/', FileDownloadView.as_view(), name='file-download'),
     # Errors
     path('404-error', temp('404.html')),
     path('500-error', temp('500.html')),

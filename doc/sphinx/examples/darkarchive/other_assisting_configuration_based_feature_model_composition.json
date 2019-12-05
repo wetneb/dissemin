@@ -1,0 +1,49 @@
+{
+    "abstract": "Feature Models (FMs) have been introduced in the domain of Software Product Lines (SPL) to model and represent product variability. They have become a de facto standard, based on a logical tree structure accompanied by textual cross-tree constraints. Other representations are: (product) configuration sets from concrete software product lines, logical representations, constraint programming, or conceptual structures, coming from the Formal Concept Analysis (FCA) framework. Modeling variability through FMs may consist in extracting them from configuration sets (namely, doing FM synthesis), or designing them in several steps potentially involving several teams with different concerns. FM composition is useful in this design activity as it may assist FM iterative building. In this paper, we describe an approach, based on a configuration set and focusing on two main composition semantics (union, intersection), to assist designers in FM composition. We also introduce an approximate intersection notion. FCA is used to represent, for a product family, all the FMs that have the same configuration set through a canonical form. The approach is able to take into account cross-tree constraints and FMs with different feature sets and tree structure, thus it lets the expert free of choosing a different ontological interpretation. We describe the implementation of our approach and we present a set of concrete examples.",
+    "authors": [
+        {
+            "first": "Jessie",
+            "last": "Carbonnel",
+            "orcid": null
+        },
+        {
+            "first": "Marianne",
+            "last": "Huchard",
+            "orcid": null
+        },
+        {
+            "first": "Andr\u00e9",
+            "last": "Miralles",
+            "orcid": null
+        },
+        {
+            "first": "Cl\u00e9mentine",
+            "last": "Nebut",
+            "orcid": null
+        }
+    ],
+    "date": "2019-06-13",
+    "depositor": {
+        "first": "Gottfried",
+        "last": "Leibniz",
+        "orcid": "2543-2454-2345-234X",
+        "is_contributor": false
+    },
+    "dissemin_id": 11,
+    "doctype": "other",
+    "doi": "10.1007/978-3-319-94135-6_6",
+    "eissn": null,
+    "issn": null,
+    "issue": null,
+    "journal": "Communications in Computer and Information Science",
+    "license": {
+        "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "uri": "https://creativecommons.org/licenses/by/4.0/",
+        "transmit_id": "cc_by-40"
+    },
+    "page": null,
+    "publisher": "Springer International Publishing",
+    "sherpa_romeo_id": null,
+    "title": "Assisting Configurations-Based Feature Model Composition",
+    "volume": null
+}
