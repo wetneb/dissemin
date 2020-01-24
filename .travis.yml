@@ -54,7 +54,7 @@ before_install:
   - docker run -d -it --rm -p 8888:8888 validator/validator:latest
 
 install:
-  - pip install setuptools --upgrade
+  - pip install pip setuptools --upgrade
   - pip install psycopg2 --quiet
   - pip install -r requirements.txt --upgrade
   - pip install -r requirements-dev.txt --upgrade

@@ -15,7 +15,8 @@ django-compressor
 django-countries
 django-crispy-forms
 django-geojson
-django-haystack
+# django-haystack, currently a custom fork because of #695
+-e git+https://github.com/dissemin/django-haystack.git@queryset-cache-using-sparse_list-fork#egg=django-haystack
 django-js-reverse
 django-jsonview
 django-leaflet
