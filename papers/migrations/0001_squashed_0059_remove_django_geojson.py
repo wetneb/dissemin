@@ -46,8 +46,6 @@ def populate_oai_sources(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    replaces = [('papers', '0001_initial_squashed_0038_add_index_on_last_modified'), ('papers', '0039_populate_oai_sources'), ('papers', '0040_institutions_for_orcid'), ('papers', '0041_institution_country'), ('papers', '0042_increase_homepage_length'), ('papers', '0043_institutions_multiple_identifiers'), ('papers', '0044_country_and_no_cascading_deletion'), ('papers', '0045_institution_coords'), ('papers', '0046_cleanup_countries'), ('papers', '0047_cleanup_orcid_researchers'), ('papers', '0048_remove_paper_researchers'), ('papers', '0049_filter_future_dates'), ('papers', '0050_rename_last_update'), ('papers', '0051_alter_last_update'), ('papers', '0052_researcher_visible'), ('papers', '0053_add_endpoint_to_oai_sources'), ('papers', '0054_populate_oai_endpoints'), ('papers', '0055_remove_namevariant'), ('papers', '0056_remove_unused_fields'), ('papers', '0057_todolist'), ('papers', '0058_correct_crossref_pub_types'), ('papers', '0059_remove_django_geojson')]
-
     initial = True
 
     dependencies = [

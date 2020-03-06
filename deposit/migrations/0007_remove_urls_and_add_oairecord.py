@@ -23,7 +23,7 @@ def backwards(*args):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('papers', '0039_populate_oai_sources'),
+        ('papers', '0001_squashed_0059_remove_django_geojson'),
         ('deposit', '0006_depositrecord_status'),
     ]
 

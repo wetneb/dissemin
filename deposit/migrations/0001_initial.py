@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('upload', '0002_uploadedpdf_num_pages'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('papers', '0001_initial_squashed_0038_add_index_on_last_modified'),
+        ('papers', '0001_squashed_0059_remove_django_geojson'),
     ]
 
     operations = [

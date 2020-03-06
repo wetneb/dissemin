@@ -15,7 +15,6 @@ django-cas-ng
 django-compressor
 django-countries
 django-crispy-forms
-django-geojson
 django-haystack
 django-js-reverse
 django-jsonview
