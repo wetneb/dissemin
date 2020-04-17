@@ -37,7 +37,7 @@
         // Collapse Doctype card if choosen per GET
         {% if collapse_doctype %}
             $(function() {
-                $("#collapseDocType").collapse('hide')
+                $("#collapseDocType").collapse('hide');
             });
         {% endif %}
     </script>
@@ -102,7 +102,14 @@
                         <div class="card">
                             <a class="text-dark" data-toggle="collapse" href="#collapseDocType" aria-expanded="true" aria-controls="collapseDocType">
                                 <div class="card-header" id="headingDocType">
-                                    {% trans "Upload type:" %} <span id="choosenUploadType"></span>
+                                    <div class="row">
+                                        <div class="col">
+                                            {% trans "Upload type:" %} <span id="choosenUploadType"></span>
+                                        </div>
+                                        <div id="choosenUploadTypeUnfold" class="col-auto d-none">
+                                            <span class="text-primary small">{% trans "Change" %}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                             <div class="collapse show" id="collapseDocType" aria-labelledby="headingDocType">
@@ -164,7 +171,14 @@
                         <div class="card">
                             <a class="text-dark" data-toggle="collapse" href="#collapseRepository" aria-expanded="true" aria-controls="collapseRepository">
                                 <div class="card-header" id="headingRepository">
-                                    {% trans "Repository:" %} <span id="choosenRepository"><strong>{{ selected_repository.name }}</strong></span>
+                                    <div class="row">
+                                        <div class="col">
+                                            {% trans "Repository:" %} <span id="choosenRepository"><strong>{{ selected_repository.name }}</strong></span>
+                                        </div>
+                                        <div id="choosenRepositoryUnfold" class="col-auto d-none">
+                                            <span class="text-primary small">{% trans "Change" %}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                             <div class="collapse show" id="collapseRepository" aria-labelledby="headingRepository">
@@ -191,7 +205,14 @@
                         <div class="card">
                             <a class="text-dark" data-toggle="collapse" href="#collapseMetadata" aria-expanded="true" aria-controls="collapseMetadata">
                                 <div class="card-header" id="headingMetadata">
-                                    {% trans "Metadata:" %}
+                                    <div class="row">
+                                        <div class="col">
+                                            {% trans "Metadata:" %}
+                                        </div>
+                                        <div id="choosenMetadataUnfold" class="col-auto d-none">
+                                            <span class="text-primary small">{% trans "Change" %}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                             <div id="errorMetadata"></div>

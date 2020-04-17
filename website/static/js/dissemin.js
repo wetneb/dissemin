@@ -716,6 +716,13 @@ $(function() {
     $("#collapseDocType").on('hidden.bs.collapse', function() {
         var selected = $("input[type='radio'][name='radioUploadType']:checked");
         $("#choosenUploadType").html($("#choosenUploadType-" + selected.val()).html())
+        $("#choosenUploadTypeUnfold").toggleClass("d-none");
+    });
+});
+
+$(function() {
+    $('#collapseDocType').on('shown.bs.collapse', function () {
+        $("#choosenUploadTypeUnfold").toggleClass("d-none");
     });
 });
 
@@ -750,6 +757,22 @@ $(function() {
     $("#collapseRepository").on("hidden.bs.collapse", function() {
         var selected = $("input[type='radio'][name='radioRepository']:checked");
         $("#choosenRepository").html($("#choosenRepository-" + selected.val()).html())
+        $("#choosenRepositoryUnfold").toggleClass("d-none");
+    });
+});
+
+$(function() {
+    $('#collapseRepository').on('shown.bs.collapse', function () {
+        $("#choosenRepositoryUnfold").toggleClass("d-none");
+    });
+});
+
+$(function() {
+    $('#collapseMetadata').on('shown.bs.collapse', function () {
+        $("#choosenMetadataUnfold").toggleClass("d-none");
+    });
+    $('#collapseMetadata').on('hidden.bs.collapse', function () {
+        $("#choosenMetadataUnfold").toggleClass("d-none");
     });
 });
 
