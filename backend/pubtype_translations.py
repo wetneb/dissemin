@@ -124,20 +124,33 @@ OAI_PUBTYPE_TRANSLATIONS = {
         'info:eu-repo/semantics/patent': 'other',
         'info:eu-repo/semantics/other': 'other',
         # BASE
-        'typenorm:0000': 'other',  # text
-        'typenorm:0001': 'journal-article',
-        'typenorm:0002': 'book',
-        'typenorm:0003': 'proceedings-article',
-        'typenorm:0004': 'thesis',
-        'typenorm:0005': 'other',  # review
-        'typenorm:0101': 'other',  # audio
-        'typenorm:0102': 'other',  # video
-        'typenorm:0103': 'poster',  # image
-        'typenorm:0104': 'poster',  # map
-        'typenorm:0105': 'other',  # software
-        'typenorm:0106': 'dataset',
-        'typenorm:0107': 'other',  # sheet music
-        'typenorm:9999': 'other',  # unknown
+        # https://www.base-search.net/about/download/base_interface.pdf
+        'base:1' : 'other', # Text
+        'base:11' : 'book', # Book
+        'base:111' : 'book-chapter', # Book part
+        'base:12' : 'journal-issue', # Journal/Newspaper
+        'base:121' : 'journal-article', # Article contribution to journal/newspaper
+        'base:122' : 'other', # Other non-article part of journal/newspaper
+        'base:13' : 'proceedings-article', # Conference object
+        'base:14' : 'report', # Report
+        'base:15' : 'other', # Review
+        'base:16' : 'other', # Course material
+        'base:17' : 'other', # Lecture
+        'base:18' : 'thesis', # Thesis
+        'base:181' : 'thesis', # Bachelor thesis
+        'base:182' : 'thesis', # Master thesis
+        'base:183' : 'thesis', # Doctoral and postdoctoral thesis
+        'base:19' : 'other', # Manuscript
+        'base:1A' : 'other', # Patent
+        'base:2' : 'other', # Musical notation
+        'base:3' : 'other', # Map
+        'base:4' : 'other', # Audio
+        'base:5' : 'other', # Image/Video
+        'base:51' : 'other', # Still image
+        'base:52' : 'other', # Mocing image/Video
+        'base:6' : 'other' , # Software
+        'base:7' : 'dataset', # Dataset
+        'base:F' : 'other', # Other/Unknown Material
         # RG
         'inProceedings': 'proceedings-article',
         }

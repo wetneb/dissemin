@@ -67,7 +67,7 @@ class run_only_once(object):
 def request_retry(url, **kwargs):
     """
     Retries a request, with throttling and exponential back-off.
-    
+
     :param url: the URL to fetch
     :param data: the GET parameters
     :param headers: the HTTP headers
@@ -135,7 +135,7 @@ def with_speed_report(generator, name=None, report_delay=timedelta(seconds=10)):
     """
     Periodically reports the speed at which we are enumerating the items
     of a generator.
-    
+
     :param name: a name to use in the reports (eg "papers from Crossref API")
     :param report_delay: print a report every so often
     """
@@ -165,3 +165,17 @@ def report_speed(name=None, report_delay=timedelta(seconds=10)):
             return with_speed_report(func(*args, **kwargs), name=logging_name, report_delay=report_delay)
         return wrapped_generator
     return decorator
+
+
+def group_by_batches(generator, batch_size=100):
+    """
+    Given a generator, returns a generator of groups of at most batch_size elements.
+    """
+    current_batch = []
+    for item in generator:
+        current_batch.append(item)
+        if len(current_batch) == batch_size:
+            yield current_batch
+            current_batch = []
+    if current_batch:
+        yield current_batch

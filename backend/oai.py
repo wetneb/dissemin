@@ -20,8 +20,8 @@
 
 
 import logging
-
-from datetime import datetime
+import os
+import bz2
 
 from backend.papersource import PaperSource
 
@@ -33,16 +33,19 @@ from oaipmh.error import NoRecordsMatchError
 from oaipmh.metadata import MetadataRegistry
 from oaipmh.metadata import oai_dc_reader
 from papers.models import Paper
+from papers.models import OaiRecord
 from backend.translators import OAIDCTranslator
 from backend.translators import BASEDCTranslator
 from backend.oaireader import base_dc_reader
+from backend.utils import with_speed_report
+from backend.utils import group_by_batches
 
 logger = logging.getLogger('dissemin.' + __name__)
 
 class OaiPaperSource(PaperSource):  # TODO: this should not inherit from PaperSource
     """
-    A paper source that fetches records from the OAI-PMH proxy
-    (typically: proaixy).
+    A paper source that fetches records from an OAI-PMH source
+    (typically: BASE).
 
     It uses the ListRecord verb to fetch records from the OAI-PMH
     source. Each record is then converted to a :class:`BarePaper`
@@ -111,6 +114,43 @@ class OaiPaperSource(PaperSource):  # TODO: this should not inherit from PaperSo
         records = self.client.listRecords(**args)
         self.process_records(records, metadataPrefix)
 
+    def load_base_dump(self, directory_path):
+        """
+        Given a path to a directory, representing an un-tar'ed BASE dump,
+        read all the bz2'ed files in it and save them to the database.
+
+        :param directory_path: the path to the directory where the BASE dump was un-tar'ed
+        """
+        metadata_prefix = 'base_dc'
+        generator = self.read_base_dump(directory_path, metadata_prefix)
+        self.process_records(generator, metadata_prefix, max_lookahead=10000)
+
+    def read_base_dump(self, directory_path, metadata_prefix):
+        """
+        Given a path to a directory, representing an un-tar'ed BASE dump,
+        read all the bz2'ed files in it as a generator of OAI records
+
+        :param directory_path: the path to the directory where the BASE dump was un-tar'ed
+        :param metadata_prefix: the metadata prefix to read the records
+        """
+        filenames = os.listdir(directory_path)
+        namespaces = self.client.getNamespaces()
+        metadata_registry = self.client.getMetadataRegistry()
+        for filename in filenames:
+            if not filename.endswith('.bz2'):
+                continue
+            file_path = os.path.join(directory_path, filename)
+            with bz2.open(file_path, 'r') as f:
+                payload = f.read()
+                tree = self.client.parse(payload)
+                records, _ = self.client.buildRecords(
+                        metadata_prefix, namespaces,
+                        metadata_registry, tree)
+                for header, metadata, about in records:
+                    header._element = None
+                    metadata._element = None
+                    yield (header, metadata, about)
+
     def create_paper_by_identifier(self, identifier, metadataPrefix):
         """
         Queries the OAI-PMH proxy for a single paper.
@@ -138,17 +178,24 @@ class OaiPaperSource(PaperSource):  # TODO: this should not inherit from PaperSo
         except NoRecordsMatchError:
             return []
 
-    def process_record(self, header, metadata, format):
+    def translate_record(self, header, metadata, metadata_format):
+        """
+        Translates a record to a BarePaper. Returns None
+        if an invalid format is given, or the record has incomplete metadata.
+        """
+        translator = self.translators.get(metadata_format)
+        if translator is None:
+            logger.warning("Unknown metadata format %s, skipping" % header.format())
+            return
+        return translator.translate(header, metadata)
+
+    def process_record(self, header, metadata, metadata_format):
         """
         Saves the record given by the header and metadata (as returned by
         pyoai) into a Paper, or None if anything failed.
         """
-        translator = self.translators.get(format)
-        if translator is None:
-            logger.warning("Unknown metadata format %s, skipping" % header.format())
-            return
+        paper = self.translate_record(header, metadata, metadata_format)
 
-        paper = translator.translate(header, metadata)
         if paper is not None:
             try:
                 with transaction.atomic():
@@ -157,9 +204,11 @@ class OaiPaperSource(PaperSource):  # TODO: this should not inherit from PaperSo
             except ValueError:
                 logger.exception("Ignoring invalid paper with header %s" % header.identifier())
 
-    def process_records(self, listRecords, format):
+    def process_records(self, listRecords, metadata_format, max_lookahead=1000):
         """
-        Save as :class:`Paper` all the records contained in this list
+        Save as :class:`Paper` all the records contained in this list.
+        Records are represented as pairs of OaiHeader and OaiRecord, as returned
+        by pyoai's ListRecords
         """
         # check that we have at least one translator, otherwise
         # it's not really worth trying…
@@ -167,23 +216,37 @@ class OaiPaperSource(PaperSource):  # TODO: this should not inherit from PaperSo
             raise ValueError("No OAI translators have been set up: " +
                              "We cannot save any record.")
 
-        last_report = datetime.now()
-        processed_since_report = 0
+        with ParallelGenerator(listRecords, max_lookahead=max_lookahead) as g:
+            for record_group in group_by_batches(with_speed_report(g, name='OAI papers')):
+                oai_ids_to_last_updated = {
+                    record[0].identifier():record[0].datestamp() for record in record_group
+                }
 
-        with ParallelGenerator(listRecords, max_lookahead=1000) as g:
-            for record in g:
-                header = record[0]
-                metadata = record[1]._map
+                # Fetch the last modified date of all these records in the DB
+                last_modified_in_db = {
+                    pk : last_modified
+                    for pk, last_modified in OaiRecord.objects.filter(
+                        identifier__in=oai_ids_to_last_updated.keys()
+                    ).values_list('identifier', 'last_update')
+                }
 
-                self.process_record(header, metadata, format)
+                # Deduce the list of papers to update
+                ids_to_update = {
+                    pk
+                    for pk, last_updated_in_base in oai_ids_to_last_updated.items()
+                    if pk not in last_modified_in_db or last_modified_in_db[pk].date() <= last_updated_in_base.date()
+                }
 
-                # rate reporting
-                processed_since_report += 1
-                if processed_since_report >= 1000:
-                    td = datetime.now() - last_report
-                    rate = 'infty'
-                    if td.seconds:
-                        rate = str(processed_since_report / td.seconds)
-                    logger.info("current rate: %s records/s" % rate)
-                    processed_since_report = 0
-                    last_report = datetime.now()
+                bare_papers = [self.translate_record(record[0], record[1]._map, metadata_format)
+                               for record in record_group
+                               if record[0].identifier() in ids_to_update]
+
+                for paper in bare_papers:
+                    if paper is not None:
+                        try:
+                            with transaction.atomic():
+                                Paper.from_bare(paper)
+                        except ValueError:
+                            logger.exception("Ignoring invalid paper with identifier ", paper.oairecords[0].identifier)
+
+
