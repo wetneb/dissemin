@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 #
 # Author: Ego and his own
+# Author: Kizule
 # Author: Obsuser
 # Author: Zoranzoki21
 # --
@@ -10,14 +11,15 @@
 #
 msgid ""
 msgstr ""
+""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2019-06-06 15:52:56+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:19+0000\n"
 "Language: sr-Latn\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2019-05-29 19:11:00+0000\n"
-"X-Generator: MediaWiki 1.34.0-alpha; Translate 2019-04-24\n"
+"X-POT-Import-Date: 2020-11-25 15:31:57+0000\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2021-01-21\n"
 "Plural-Forms: nplurals=3; plural=(n%10 == 1 && n%100 != 11) ? 0 : ( (n%10 >= 2 && n%10 <= 4 && (n%100 < 10 || n%100 >= 20)) ? 1 : 2 );\n"
 
 #: autocomplete/views.py:81
@@ -61,7 +63,6 @@ msgstr ""
 
 #: deposit/forms.py:166 deposit/templates/deposit/deposits.html:89
 #, fuzzy
-#| msgid "No license"
 msgid "License"
 msgstr "Bez licence"
 
@@ -75,7 +76,6 @@ msgstr ""
 
 #: deposit/forms.py:231
 #, fuzzy
-#| msgid "Repository"
 msgid "Preferred repository"
 msgstr "Repozitorijum"
 
@@ -481,7 +481,6 @@ msgstr ""
 
 #: deposit/templates/deposit/deposits.html:67
 #, fuzzy
-#| msgid "By publication date"
 msgid "Publication date"
 msgstr "Prema datumu objavljivanja"
 
@@ -503,7 +502,6 @@ msgstr ""
 
 #: deposit/templates/deposit/deposits.html:134
 #, fuzzy
-#| msgid "Status"
 msgid "Status:"
 msgstr "Status"
 
@@ -549,7 +547,6 @@ msgstr ""
 
 #: deposit/templates/deposit/start.html:72
 #, fuzzy
-#| msgid "By authors"
 msgid "Authorship"
 msgstr "Prema autorima"
 
@@ -589,7 +586,6 @@ msgstr ""
 
 #: deposit/templates/deposit/start.html:152
 #, fuzzy
-#| msgid "published version"
 msgid "pdfversion"
 msgstr "objavljena verzija"
 
@@ -599,7 +595,6 @@ msgstr ""
 
 #: deposit/templates/deposit/start.html:210
 #, fuzzy
-#| msgid "Metadata"
 msgid "Metadata:"
 msgstr "Metapodaci"
 
@@ -742,7 +737,6 @@ msgstr ""
 
 #: model-gettext.py:2
 #, fuzzy
-#| msgid "Computer science"
 msgid "Computer science, knowledge & systems"
 msgstr "Informatika"
 
@@ -772,7 +766,6 @@ msgstr ""
 
 #: model-gettext.py:9
 #, fuzzy
-#| msgid "Education"
 msgid "Quotations"
 msgstr "Obrazovanje"
 
@@ -782,13 +775,11 @@ msgstr ""
 
 #: model-gettext.py:12
 #, fuzzy
-#| msgid "Physics"
 msgid "Metaphysics"
 msgstr "Fizika"
 
 #: model-gettext.py:13
 #, fuzzy
-#| msgid "Sociology"
 msgid "Epistemology"
 msgstr "Sociologija"
 
@@ -798,13 +789,11 @@ msgstr ""
 
 #: model-gettext.py:15
 #, fuzzy
-#| msgid "Philosophy"
 msgid "Philosophical schools of thought"
 msgstr "Filozofija"
 
 #: model-gettext.py:17
 #, fuzzy
-#| msgid "Philosophy"
 msgid "Philosophical logic"
 msgstr "Filozofija"
 
@@ -822,7 +811,6 @@ msgstr ""
 
 #: model-gettext.py:21
 #, fuzzy
-#| msgid "Religions"
 msgid "Religion"
 msgstr "Veronauka"
 
@@ -852,7 +840,6 @@ msgstr ""
 
 #: model-gettext.py:28
 #, fuzzy
-#| msgid "History"
 msgid "History of Christianity"
 msgstr "Istorija"
 
@@ -862,7 +849,6 @@ msgstr ""
 
 #: model-gettext.py:30
 #, fuzzy
-#| msgid "Religions"
 msgid "Other religions"
 msgstr "Veronauka"
 
@@ -946,7 +932,6 @@ msgstr ""
 
 #: model-gettext.py:58
 #, fuzzy
-#| msgid "Sociology"
 msgid "Biology"
 msgstr "Sociologija"
 
@@ -960,7 +945,6 @@ msgstr ""
 
 #: model-gettext.py:61
 #, fuzzy
-#| msgid "Psychology"
 msgid "Technology"
 msgstr "Psihologija"
 
@@ -970,7 +954,6 @@ msgstr ""
 
 #: model-gettext.py:64
 #, fuzzy
-#| msgid "Architecture"
 msgid "Agriculture"
 msgstr "Arhitektura"
 
@@ -984,7 +967,6 @@ msgstr ""
 
 #: model-gettext.py:67
 #, fuzzy
-#| msgid "Engineering"
 msgid "Chemical engineering"
 msgstr "Inženjering"
 
@@ -1050,13 +1032,11 @@ msgstr ""
 
 #: model-gettext.py:84
 #, fuzzy
-#| msgid "Literature"
 msgid "German & related literatures"
 msgstr "Literatura"
 
 #: model-gettext.py:85
 #, fuzzy
-#| msgid "Literature"
 msgid "French & related literatures"
 msgstr "Literatura"
 
@@ -1070,7 +1050,6 @@ msgstr ""
 
 #: model-gettext.py:88
 #, fuzzy
-#| msgid "Literature"
 msgid "Latin & Italic literatures"
 msgstr "Literatura"
 
@@ -1080,19 +1059,16 @@ msgstr ""
 
 #: model-gettext.py:90
 #, fuzzy
-#| msgid "Literature"
 msgid "Other literatures"
 msgstr "Literatura"
 
 #: model-gettext.py:92
 #, fuzzy
-#| msgid "Geography"
 msgid "Geography & travel"
 msgstr "Geografija"
 
 #: model-gettext.py:93
 #, fuzzy
-#| msgid "Geography"
 msgid "Biography & genealogy"
 msgstr "Geografija"
 
@@ -1102,49 +1078,41 @@ msgstr ""
 
 #: model-gettext.py:95
 #, fuzzy
-#| msgid "History"
 msgid "History of Europe"
 msgstr "Istorija"
 
 #: model-gettext.py:96
 #, fuzzy
-#| msgid "History"
 msgid "History of Asia"
 msgstr "Istorija"
 
 #: model-gettext.py:97
 #, fuzzy
-#| msgid "History"
 msgid "History of Africa"
 msgstr "Istorija"
 
 #: model-gettext.py:98
 #, fuzzy
-#| msgid "History"
 msgid "History of North America"
 msgstr "Istorija"
 
 #: model-gettext.py:99
 #, fuzzy
-#| msgid "History"
 msgid "History of South America"
 msgstr "Istorija"
 
 #: model-gettext.py:100
 #, fuzzy
-#| msgid "History"
 msgid "History of other areas"
 msgstr "Istorija"
 
 #: model-gettext.py:101
 #, fuzzy
-#| msgid "Computer science"
 msgid "Data processing & computer science"
 msgstr "Informatika"
 
 #: model-gettext.py:102
 #, fuzzy
-#| msgid "Political science"
 msgid "Military science"
 msgstr "Političke nauke"
 
@@ -1171,7 +1139,6 @@ msgstr ""
 
 #: model-gettext.py:108
 #, fuzzy
-#| msgid "Literature"
 msgid "Other Germanic literatures"
 msgstr "Literatura"
 
@@ -1184,10 +1151,7 @@ msgid "Green Open Access Service"
 msgstr ""
 
 #: model-gettext.py:111
-msgid ""
-"Would you like that the University and State Library Darmstadt publishes your publications green open access for you?\n"
-"<br/>\n"
-"Contact us: <a href=\"mailto:dpub@ulb-tu-darmstadt.de\">dpub@ulb-tu-darmstadt.de</a>"
+msgid "Would you like that the University and State Library Darmstadt publishes your publications green open access for you?\n<br/>\nContact us: <a href=\"mailto:dpub@ulb-tu-darmstadt.de\">dpub@ulb-tu-darmstadt.de</a>"
 msgstr ""
 
 #: model-gettext.py:112
@@ -1212,7 +1176,6 @@ msgstr ""
 
 #: model-gettext.py:117
 #, fuzzy
-#| msgid "Download"
 msgid "Download Contract"
 msgstr "Preuzmi"
 
@@ -1242,7 +1205,6 @@ msgstr ""
 
 #: model-gettext.py:124
 #, fuzzy
-#| msgid "Religions"
 msgid "Other open license"
 msgstr "Veronauka"
 
@@ -1461,7 +1423,6 @@ msgstr "naslov"
 
 #: papers/templates/papers/advanced_search.html:24
 #, fuzzy
-#| msgid "By authors"
 msgid "Authors"
 msgstr "Prema autorima"
 
@@ -1471,7 +1432,6 @@ msgstr ""
 
 #: papers/templates/papers/advanced_search.html:39
 #, fuzzy
-#| msgid "By document type"
 msgid "Document type"
 msgstr "Prema tipu dokumenta"
 
@@ -1532,7 +1492,6 @@ msgstr ""
 
 #: papers/templates/papers/messages.html:21
 #, fuzzy
-#| msgid "By authors"
 msgid "No author"
 msgstr "Prema autorima"
 
@@ -1543,13 +1502,11 @@ msgstr "naslov"
 
 #: papers/templates/papers/messages.html:25
 #, fuzzy
-#| msgid "By publication date"
 msgid "Invalid publication date"
 msgstr "Prema datumu objavljivanja"
 
 #: papers/templates/papers/messages.html:27
 #, fuzzy
-#| msgid "By publication date"
 msgid "No publication date"
 msgstr "Prema datumu objavljivanja"
 
@@ -1991,7 +1948,6 @@ msgstr ""
 
 #: publishers/forms.py:18
 #, fuzzy
-#| msgid "Publisher"
 msgid "By publisher"
 msgstr "Izdavač"
 
@@ -2077,7 +2033,6 @@ msgstr "Pretraži"
 #: publishers/templates/publishers/list.html:56
 #: publishers/templates/publishers/publisher.html:31
 #, fuzzy
-#| msgid "Data sources"
 msgid "Sources"
 msgstr "Izvori podataka"
 
@@ -2096,7 +2051,6 @@ msgstr[2] ""
 
 #: publishers/templates/publishers/list.html:96
 #, fuzzy
-#| msgid "published version"
 msgid "No publishers found"
 msgstr "objavljena verzija"
 
@@ -2217,7 +2171,6 @@ msgstr ""
 
 #: upload/templates/upload/widget.html:15
 #, fuzzy
-#| msgid "Or enter an URL:"
 msgid "Or enter a URL:"
 msgstr "Ili unesi URL:"
 
@@ -2745,7 +2698,6 @@ msgstr "Izvori podataka"
 
 #: website/templates/dissemin/sources.html:10
 #, fuzzy
-#| msgid "Data sources"
 msgid "Data Sources"
 msgstr "Izvori podataka"
 
@@ -2801,7 +2753,6 @@ msgstr ""
 #: website/templates/dissemin/start_page.html:58
 #: website/templates/dissemin/start_page.html:61
 #, fuzzy
-#| msgid "Repository"
 msgid "Open Repositories"
 msgstr "Repozitorijum"
 
@@ -2812,7 +2763,6 @@ msgstr ""
 #: website/templates/dissemin/start_page.html:72
 #: website/templates/dissemin/start_page.html:75
 #, fuzzy
-#| msgid "Upload"
 msgid "Latest Uploads"
 msgstr "Otpremi"
 
@@ -2827,7 +2777,6 @@ msgstr "Objavljeno u"
 
 #: website/templates/dissemin/start_page.html:101
 #, fuzzy
-#| msgid "Statistics"
 msgid "Access statistics"
 msgstr "Statistike"
 
@@ -2988,72 +2937,3 @@ msgstr ""
 msgid "Authentication has failed. <a href=\"%(account-login)s\">Go back to the login page.</a>"
 msgstr ""
 
-#~ msgid "please wait..."
-#~ msgstr "sačekajte…"
-
-#~ msgid "Right"
-#~ msgstr "Tačno"
-
-#~ msgid "Wrong"
-#~ msgstr "Pogrešno"
-
-#~ msgid "Delete"
-#~ msgstr "Obriši"
-
-#~ msgid "Website"
-#~ msgstr "Veb-sajt"
-
-#~ msgid "Members:"
-#~ msgstr "Članovi:"
-
-#~ msgid "Institutions"
-#~ msgstr "Institucije"
-
-#~ msgid "Yes"
-#~ msgstr "Da"
-
-#~ msgid "Publisher:"
-#~ msgstr "Izdavač:"
-
-#~ msgid "Journal"
-#~ msgstr "Časopis"
-
-#~ msgid "ISSN:"
-#~ msgstr "ISSN:"
-
-#~ msgid " published by "
-#~ msgstr "objavljeno od strane"
-
-#~ msgid " in "
-#~ msgstr "u"
-
-#~ msgid "Published version:"
-#~ msgstr "Objavljena verzija"
-
-#~ msgid "Back to top"
-#~ msgstr "Nazad na vrh"
-
-#~ msgid "Sign In"
-#~ msgstr "Registrujte se"
-
-#~ msgid ""
-#~ "If you have not created an account yet, then please\n"
-#~ "<a href=\"%(signup_url)s\">sign up</a> first."
-#~ msgstr ""
-#~ "Ako još uvek niste kreirali nalog, molimo vas da se onda prvo\n"
-#~ "<a href=\"%(signup_url)s\">registrujete</a>.\""
-
-#~ msgid "Forgot Password?"
-#~ msgstr "Zaboravili ste lozinku?"
-
-#~ msgid "Primary sources"
-#~ msgstr "Primarni izvori"
-
-#~ msgid "Select a file:"
-#~ msgstr "Odaberi fajl:"
-
-#~ msgid "Browse"
-#~ msgstr "Pretraži"
-
-#~ msgid "Or drop a file here:"
-#~ msgstr "Ili prevuci fajl ovde:"

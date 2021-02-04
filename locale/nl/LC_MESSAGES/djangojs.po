@@ -2,20 +2,22 @@
 # Exported from translatewiki.net
 #
 # Author: Elroy
+# Author: Mainframe98
 # --
 # This file is part of the Dissemin Project
 # This file is distributed under the same license as the Dissemin package.
 #
 msgid ""
 msgstr ""
+""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 12:29+0200\n"
-"PO-Revision-Date: 2019-10-14 15:19:27+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:15+0000\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2019-10-01 08:31:19+0000\n"
-"X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
+"X-POT-Import-Date: 2020-03-17 02:10:16+0000\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2021-01-21\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: website/static/js/dissemin.js:202
@@ -63,11 +65,11 @@ msgstr ""
 
 #: website/static/js/dissemin.js:601
 msgid "Pages"
-msgstr ""
+msgstr "Pagina's"
 
 #: website/static/js/dissemin.js:602
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 #: website/static/js/dissemin.js:617
 msgid "While uploading %(file)s the following error occured:"
@@ -102,35 +104,3 @@ msgstr ""
 msgid ": "
 msgstr ""
 
-#~ msgid "Do not show this message anymore"
-#~ msgstr "Niet opnieuw weergeven"
-
-#~ msgid "No author"
-#~ msgstr "Geen auteur"
-
-#~ msgid "No title"
-#~ msgstr "Geen titel"
-
-#~ msgid "Invalid publication date"
-#~ msgstr "Ongeldige datum van publiceren"
-
-#, fuzzy
-#~ msgid "No publication date"
-#~ msgstr "Ongeldige datum van publiceren"
-
-#~ msgid "We ignored %(count)s paper from your ORCiD profile."
-#~ msgid_plural "We ignored %(count)s papers from your ORCiD profile."
-#~ msgstr[0] "Er is %(count)s document van je ORCiD-profiel genegeerd."
-#~ msgstr[1] "Er zijn %(count)s documenten van je ORCiD-profiel genegeerd."
-
-#~ msgid "\"%(name)s\" was ignored for the following reason: %(reason)s"
-#~ msgstr "\"%(name)s\" is wegens de volgende reden genegeerd: %(reason)s"
-
-#~ msgid "A paper was ignored, because it has no name"
-#~ msgstr "Een document had geen naam en is daarom genegeerd"
-
-#~ msgid "Show more information"
-#~ msgstr "Meer gegevens weergeven"
-
-#~ msgid "Show less information"
-#~ msgstr "Minder gegevens weergeven"

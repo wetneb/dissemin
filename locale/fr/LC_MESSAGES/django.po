@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: dissem.in\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:15+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:16+0000\n"
 "Last-Translator: Antoine Amarilli <a3nm@a3nm.net>\n"
 "Language-Team: Antoine Amarilli <a3nm@a3nm.net>\n"
 "Language: fr\n"
@@ -2704,7 +2704,7 @@ msgstr "Votre recherche est disponible pour tout le monde, accroissant votre lec
 
 #: website/templates/dissemin/start_page.html:47
 msgid "You help universities abandon overpriced journal subscriptions."
-msgstr "Ceci oblige les universités à payer à prix d’or les abonnements aux journaux."
+msgstr "Ceci évite que les universités ne doivent payer des abonnements dispendieux aux revues scientifiques."
 
 #: website/templates/dissemin/start_page.html:58
 #: website/templates/dissemin/start_page.html:61

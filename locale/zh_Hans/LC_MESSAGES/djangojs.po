@@ -2,20 +2,22 @@
 # Exported from translatewiki.net
 #
 # Author: Liuxinyu970226
+# Author: 铁桶
 # --
 # This file is part of the Dissemin Project
 # This file is distributed under the same license as the Dissemin package.
 #
 msgid ""
 msgstr ""
+""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 12:29+0200\n"
-"PO-Revision-Date: 2019-10-14 15:19:36+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:15+0000\n"
 "Language: zh_hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2019-10-01 08:31:19+0000\n"
-"X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
+"X-POT-Import-Date: 2020-03-17 02:10:16+0000\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2021-01-21\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: website/static/js/dissemin.js:202
@@ -66,7 +68,7 @@ msgstr ""
 
 #: website/static/js/dissemin.js:602
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: website/static/js/dissemin.js:617
 msgid "While uploading %(file)s the following error occured:"
@@ -101,34 +103,3 @@ msgstr ""
 msgid ": "
 msgstr ""
 
-#~ msgid "Do not show this message anymore"
-#~ msgstr "不要再次显示这条消息"
-
-#~ msgid "No author"
-#~ msgstr "没有作者"
-
-#~ msgid "No title"
-#~ msgstr "没有标题"
-
-#~ msgid "Invalid publication date"
-#~ msgstr "无效的发行日期"
-
-#, fuzzy
-#~ msgid "No publication date"
-#~ msgstr "无效的发行日期"
-
-#~ msgid "We ignored %(count)s paper from your ORCiD profile."
-#~ msgid_plural "We ignored %(count)s papers from your ORCiD profile."
-#~ msgstr[0] "我们从您的ORCiD详情中忽略了%(count)s篇论文。"
-
-#~ msgid "\"%(name)s\" was ignored for the following reason: %(reason)s"
-#~ msgstr "“%(name)s”因以下原因而被忽略：%(reason)s"
-
-#~ msgid "A paper was ignored, because it has no name"
-#~ msgstr "忽略了一篇论文，因为它没有名称"
-
-#~ msgid "Show more information"
-#~ msgstr "显示更多信息"
-
-#~ msgid "Show less information"
-#~ msgstr "显示更少信息"

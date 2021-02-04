@@ -9,14 +9,15 @@
 #
 msgid ""
 msgstr ""
+""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 12:29+0200\n"
-"PO-Revision-Date: 2019-10-14 15:19:26+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:14+0000\n"
 "Language: mk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2019-10-01 08:31:19+0000\n"
-"X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
+"X-POT-Import-Date: 2020-03-17 02:10:16+0000\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2021-01-21\n"
 "Plural-Forms: nplurals=2; plural=(n == 1 || n%10 == 1) ? 0 : 1;\n"
 
 #: website/static/js/dissemin.js:202
@@ -52,13 +53,11 @@ msgstr ""
 
 #: website/static/js/dissemin.js:348
 #, fuzzy
-#| msgid "Adding to todolist"
 msgid "Adding to to-do list"
 msgstr "Додавање во списокот на дела"
 
 #: website/static/js/dissemin.js:352
 #, fuzzy
-#| msgid "Removing from todolist"
 msgid "Removing from to-do list"
 msgstr "Отстранување од списокот на дела"
 
@@ -107,38 +106,3 @@ msgstr ""
 msgid ": "
 msgstr ""
 
-#~ msgid "Do not show this message anymore"
-#~ msgstr "Повеќе не ја покажувај поракава"
-
-#~ msgid "No author"
-#~ msgstr "Нема автор"
-
-#~ msgid "No title"
-#~ msgstr "Нема наслов"
-
-#~ msgid "Invalid publication date"
-#~ msgstr "Погрешен датум на објавување"
-
-#, fuzzy
-#~ msgid "No publication date"
-#~ msgstr "Погрешен датум на објавување"
-
-#~ msgid "Paper is invalid"
-#~ msgstr "Трудот е неважечки"
-
-#~ msgid "We ignored %(count)s paper from your ORCiD profile."
-#~ msgid_plural "We ignored %(count)s papers from your ORCiD profile."
-#~ msgstr[0] "Занемаривме %(count)s написи од вашиот профил на ORCiD."
-#~ msgstr[1] "Занемаривме %(count)s написи од вашиот профил на ORCiD."
-
-#~ msgid "\"%(name)s\" was ignored for the following reason: %(reason)s"
-#~ msgstr "„%(name)s“ е занемарено од следнава причина: %(reason)s"
-
-#~ msgid "A paper was ignored, because it has no name"
-#~ msgstr "Написот е занемарен бидејќи нема име"
-
-#~ msgid "Show more information"
-#~ msgstr "Повеќе информации"
-
-#~ msgid "Show less information"
-#~ msgstr "Помалку информации"

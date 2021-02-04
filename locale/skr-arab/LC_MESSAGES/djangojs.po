@@ -8,14 +8,15 @@
 #
 msgid ""
 msgstr ""
+""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 12:29+0200\n"
-"PO-Revision-Date: 2019-10-14 15:19:32+0000\n"
+"PO-Revision-Date: 2021-02-04 07:38:15+0000\n"
 "Language: skr-Arab\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2019-10-01 08:31:19+0000\n"
-"X-Generator: MediaWiki 1.35.0-alpha; Translate 2019-04-24\n"
+"X-POT-Import-Date: 2020-03-17 02:10:16+0000\n"
+"X-Generator: MediaWiki 1.36.0-alpha; Translate 2021-01-21\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: website/static/js/dissemin.js:202
@@ -63,11 +64,11 @@ msgstr ""
 
 #: website/static/js/dissemin.js:601
 msgid "Pages"
-msgstr ""
+msgstr "ورقے"
 
 #: website/static/js/dissemin.js:602
 msgid "Size"
-msgstr ""
+msgstr "سائز"
 
 #: website/static/js/dissemin.js:617
 msgid "While uploading %(file)s the following error occured:"
@@ -102,21 +103,3 @@ msgstr ""
 msgid ": "
 msgstr ""
 
-#~ msgid "No author"
-#~ msgstr "کوئی مصنف کائنی"
-
-#~ msgid "No title"
-#~ msgstr "عنوان کائنی"
-
-#~ msgid "Invalid publication date"
-#~ msgstr "شائع تھیوݨ دی غلط تریخ"
-
-#, fuzzy
-#~ msgid "No publication date"
-#~ msgstr "شائع تھیوݨ دی غلط تریخ"
-
-#~ msgid "Show more information"
-#~ msgstr "ٻیاں معلومات ݙکھاؤ"
-
-#~ msgid "Show less information"
-#~ msgstr "گھٹ معلومات ݙکھاؤ"
