@@ -7,23 +7,21 @@
 # you're doing.
 Vagrant.configure("2") do |config|
   # Load custom vbguest installer
-  if defined?(VagrantVbguest::Installers::Debian)
-      require_relative 'utility/vbg-installer'
-      config.vbguest.installer = Utility::DebianCustom
-  end
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "debian/stretch64"
+  config.vm.box = "debian/contrib-buster64"
+  config.vm.box_version = "10.7"
+
 
   # We use VNU docker for some test (HTML-Validation)
   # Run it here
   config.vm.provision "docker" do |d|
     d.run "validator/validator:latest",
-      args: "-it -p 8888:8888"
+      args: "-it -p 8888:8888",
       daemonize: true
   end
 
