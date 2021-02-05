@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "access_right": "open",
+        "creators": [
+            {
+                "name": "Carbonnel, Jessie"
+            },
+            {
+                "name": "Huchard, Marianne"
+            },
+            {
+                "name": "Miralles, Andr\u00e9"
+            },
+            {
+                "name": "Nebut, Cl\u00e9mentine"
+            }
+        ],
+        "description": "Feature Models (FMs) have been introduced in the domain of Software Product Lines (SPL) to model and represent product variability. They have become a de facto standard, based on a logical tree structure accompanied by textual cross-tree constraints. Other representations are: (product) configuration sets from concrete software product lines, logical representations, constraint programming, or conceptual structures, coming from the Formal Concept Analysis (FCA) framework. Modeling variability through FMs may consist in extracting them from configuration sets (namely, doing FM synthesis), or designing them in several steps potentially involving several teams with different concerns. FM composition is useful in this design activity as it may assist FM iterative building. In this paper, we describe an approach, based on a configuration set and focusing on two main composition semantics (union, intersection), to assist designers in FM composition. We also introduce an approximate intersection notion. FCA is used to represent, for a product family, all the FMs that have the same configuration set through a canonical form. The approach is able to take into account cross-tree constraints and FMs with different feature sets and tree structure, thus it lets the expert free of choosing a different ontological interpretation. We describe the implementation of our approach and we present a set of concrete examples.",
+        "doi": "10.1007/978-3-319-94135-6_6",
+        "journal_title": "Communications in Computer and Information Science",
+        "license": "cc-zero-1.0",
+        "publication_date": "2019-06-13",
+        "publication_type": "other",
+        "title": "Assisting Configurations-Based Feature Model Composition",
+        "upload_type": "publication"
+    }
+}

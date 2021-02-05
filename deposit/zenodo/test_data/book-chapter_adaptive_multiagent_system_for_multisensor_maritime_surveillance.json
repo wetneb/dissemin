@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "access_right": "open",
+        "creators": [
+            {
+                "name": "Mano, Jean-Pierre"
+            },
+            {
+                "name": "Georg\u00e9, Jean-Pierre"
+            },
+            {
+                "name": "Gleizes, Marie-Pierre"
+            }
+        ],
+        "description": "Maritime surveillance is a difficult task as its aim is to detect any threatening event in a dynamic, complex and hugely distributed system. As there are many different types of vessels, behaviours, situations, and because the system is constantly evolving, classical automated surveillance approaches are unrealistic. We propose an adaptive multi-agent system in which each agent is responsible for a vessel. This agent perceives local anomalies and combines them to maintain a criticality value, used to decide when an alert is appropriate. The importance of the anomalies and how they are combined emerges from a cooperative selfadjusting process taking user feedback into account. This software is currently under development in ScanMaris, a project supported by the French National Research Agency.",
+        "doi": "10.1007/978-3-642-12384-9_34",
+        "journal_pages": "285-290",
+        "journal_title": "Advances in Intelligent and Soft Computing",
+        "license": "cc-zero-1.0",
+        "publication_date": "2010-01-01",
+        "publication_type": "section",
+        "title": "Adaptive Multi-agent System for Multi-sensor Maritime Surveillance",
+        "upload_type": "publication"
+    }
+}

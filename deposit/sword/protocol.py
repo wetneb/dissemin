@@ -5,11 +5,9 @@ import logging
 
 from datetime import datetime
 from io import BytesIO
-from itertools import chain
 from lxml import etree
 from zipfile import ZipFile
 
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
 
 from deposit.models import DepositRecord
@@ -18,11 +16,10 @@ from deposit.protocol import DepositResult
 from deposit.protocol import RepositoryProtocol
 from deposit.registry import protocol_registry
 from deposit.sword.forms import SWORDMETSForm
-from deposit.utils import MetadataConverter
+
 from deposit.utils import get_email
 
 from papers.models import Institution
-from papers.models import OaiRecord
 from papers.models import Researcher
 from papers.utils import kill_html
 
@@ -62,16 +59,6 @@ class SWORDMETSProtocol(RepositoryProtocol):
 
     # The class of the form for the deposit
     form_class = SWORDMETSForm
-
-    @cached_property
-    def paper_metadata(self):
-        """
-        Gives access to a dict of the metadata from the paper and its OaiRecords.
-        """
-        prefered_records = self._get_prefered_records()
-        mc = MetadataConverter(self.paper, prefered_records)
-        return mc.metadata()
-
 
     def _get_deposit_result(self, response):
         """
@@ -260,9 +247,9 @@ class SWORDMETSProtocol(RepositoryProtocol):
             ds_embargo = etree.SubElement(ds_publication, DS + 'embargoDate')
             ds_embargo.text = embargo.isoformat()
 
-        if self.paper_metadata.get('romeo_id') is not None:
+        if self.metadata.romeo_id:
             ds_romeo = etree.SubElement(ds_publication, DS + 'romeoId')
-            ds_romeo.text = self.paper_metadata.get('romeo_id')
+            ds_romeo.text = self.metadata.romeo_id
 
         return ds
 
@@ -289,21 +276,6 @@ class SWORDMETSProtocol(RepositoryProtocol):
         data['email'] = get_email(self.user)
 
         return data
-
-
-    def _get_prefered_records(self):
-        """
-        Returns the prefered records, that is CrossRef, then BASE
-        """
-        crossref = OaiRecord.objects.filter(
-            about=self.paper,
-            source__identifier='crossref',
-        )
-        base = OaiRecord.objects.filter(
-            about=self.paper,
-            source__identifier='base'
-        )
-        return list(chain(crossref, base))
 
 
     def refresh_deposit_status(self):
@@ -472,18 +444,18 @@ class SWORDMETSMODSProtocol(SWORDMETSProtocol):
         mods_origin_info = etree.SubElement(mods_xml, MODS + 'originInfo')
         mods_date_issued = etree.SubElement(mods_origin_info, MODS + 'dateIssued')
         mods_date_issued.set('encoding', 'w3cdtf')
-        mods_date_issued.text = str(self.paper.pubdate)
+        mods_date_issued.text = str(self.metadata.pubdate)
 
         # DOI
-        if self.paper_metadata.get('doi'):
+        if self.metadata.doi:
             mods_doi = etree.SubElement(mods_xml, MODS + 'identifier')
             mods_doi.set('type', 'doi')
-            mods_doi.text = self.paper_metadata.get('doi')
+            mods_doi.text = self.metadata.doi
 
         # Publisher
-        if self.paper_metadata.get('publisher'):
+        if self.metadata.publisher:
             mods_publisher = etree.SubElement(mods_origin_info, MODS + 'publisher')
-            mods_publisher.text = self.paper_metadata.get('publisher')
+            mods_publisher.text = self.metadata.publisher
 
         # relatedItem
         related_item = self._get_xml_metadata_relatedItem()
@@ -510,28 +482,28 @@ class SWORDMETSMODSProtocol(SWORDMETSProtocol):
 
 
         # Name / Authors list
-        for author in self.paper.authors:
+        for author in self.metadata.authors:
             mods_name = etree.SubElement(mods_xml, MODS + 'name')
             mods_name.set('type', 'personal')
             mods_last_name = etree.SubElement(mods_name, MODS + 'namePart')
             mods_last_name.set('type', 'family')
-            mods_last_name.text = author.name.last
+            mods_last_name.text = author.get('last')
             mods_first_name = etree.SubElement(mods_name, MODS + 'namePart')
             mods_first_name.set('type', 'given')
-            mods_first_name.text = author.name.first
-            if author.orcid is not None:
+            mods_first_name.text = author.get('first')
+            if author.get('orcid'):
                 mods_orcid = etree.SubElement(mods_name, MODS + 'nameIdentifier')
                 mods_orcid.set('type', 'orcid')
-                mods_orcid.text = author.orcid
+                mods_orcid.text = author.get('orcid')
 
         # Title
         mods_title_info = etree.SubElement(mods_xml, MODS + 'titleInfo')
         mods_title = etree.SubElement(mods_title_info, MODS + 'title')
-        mods_title.text = self.paper.title
+        mods_title.text = self.metadata.title
 
         # Document type
         mods_type = etree.SubElement(mods_xml, MODS + 'genre')
-        mods_type.text = self.paper.doctype
+        mods_type.text = self.metadata.doctype
 
         return mods_xml
 
@@ -545,32 +517,32 @@ class SWORDMETSMODSProtocol(SWORDMETSProtocol):
         related_item_data = dict()
 
         # Set the journal title
-        if self.paper_metadata.get('journal'):
+        if self.metadata.journal:
             related_item_title_info = etree.Element(MODS + 'titleInfo')
             related_item_title = etree.SubElement(related_item_title_info, MODS + 'title')
-            related_item_title.text = self.paper_metadata.get('journal')
+            related_item_title.text = self.metadata.journal
             related_item_data['title'] = related_item_title_info
 
         # Set issn
-        if self.paper_metadata.get('issn'):
+        if self.metadata.issn:
             related_item_issn = etree.Element(MODS + 'identifier')
             related_item_issn.set('type', 'issn')
-            related_item_issn.text = self.paper_metadata.get('issn')
+            related_item_issn.text = self.metadata.issn
             related_item_data['issn'] = related_item_issn
 
         # Set essn
-        if self.paper_metadata.get('essn'):
+        if self.metadata.essn:
             related_item_eissn = etree.Element(MODS + 'identifier')
             related_item_eissn.set('type', 'eissn')
-            related_item_eissn.text = self.paper_metadata.get('essn')
+            related_item_eissn.text = self.metadata.essn
             related_item_data['eissn'] = related_item_eissn
 
         # relatedItem - part
         part = dict()
 
         # Set pages
-        if self.paper_metadata.get('pages'):
-            pages = self.paper_metadata.get('pages').split('-', 1)
+        if self.metadata.pages:
+            pages = self.metadata.pages.split('-', 1)
             related_item_pages = etree.Element(MODS + 'extent')
             related_item_pages.set('unit', 'pages')
             if len(pages) == 1:
@@ -587,19 +559,19 @@ class SWORDMETSMODSProtocol(SWORDMETSProtocol):
                 part['pages'] = related_item_pages
 
         # Set issue
-        if self.paper_metadata.get('issue'):
+        if self.metadata.issue:
             related_item_issue = etree.Element(MODS + 'detail')
             related_item_issue.set('type', 'issue')
             related_item_issue_number = etree.SubElement(related_item_issue, MODS + 'number')
-            related_item_issue_number.text = self.paper_metadata.get('issue')
+            related_item_issue_number.text = self.metadata.issue
             part['issue'] = related_item_issue
 
         # Set volume
-        if self.paper_metadata.get('volume'):
+        if self.metadata.volume:
             related_item_volume = etree.Element(MODS + 'detail')
             related_item_volume.set('type', 'volume')
             related_item_volume_number = etree.SubElement(related_item_volume, MODS + 'number')
-            related_item_volume_number.text = self.paper_metadata.get('volume')
+            related_item_volume_number.text = self.metadata.volume
             part['volume'] = related_item_volume
 
         # Make parts if existing

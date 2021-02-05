@@ -24,12 +24,18 @@
 import traceback
 import logging
 
+from itertools import chain
+
 from django.conf import settings
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext as _
-from papers.baremodels import BareOaiRecord
+
 from deposit.forms import BaseMetadataForm
 from deposit.models import DEPOSIT_STATUS_CHOICES
 from deposit.models import LicenseChooser
+from deposit.utils import MetadataConverter
+from papers.baremodels import BareOaiRecord
+from papers.models import OaiRecord
 
 logger = logging.getLogger('dissemin.' + __name__)
 
@@ -134,6 +140,32 @@ class RepositoryProtocol(object, metaclass = RepositoryProtocolMeta):
         self.user = user
         self._logs = ''
         return True
+
+    # Metadata helpers
+
+    @cached_property
+    def metadata(self):
+        """
+        Gives access to a dict of the metadata from the paper and its OaiRecords.
+        """
+        prefered_records = self._get_prefered_records()
+        mc = MetadataConverter(self.paper, prefered_records)
+        return mc
+
+
+    def _get_prefered_records(self):
+        """
+        Returns the prefered records, that is CrossRef, then BASE
+        """
+        crossref = OaiRecord.objects.filter(
+            about=self.paper,
+            source__identifier='crossref',
+        )
+        base = OaiRecord.objects.filter(
+            about=self.paper,
+            source__identifier='base'
+        )
+        return list(chain(crossref, base))
 
 
     @staticmethod
@@ -384,4 +416,3 @@ class RepositoryProtocol(object, metaclass = RepositoryProtocolMeta):
         prefs = self.get_preferences(user)
         kwargs['instance'] = prefs
         return self.preferences_form_class(*args, **kwargs)
-

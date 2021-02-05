@@ -153,29 +153,12 @@ class TestMetadataConverter():
         self.rp = prefered_record
         self.mc = MetadataConverter(book_god_of_the_labyrinth)
 
-    def test_oai_metadata(self):
-        """
-        Check that every key exists and has a value
-        """
-        oai_metadata = self.mc.oai_metadata()
-        for key in self.oairecord_keys:
-            assert oai_metadata.get(key) is not None
-
-    def test_paper_metadata(self):
-        """
-        Check that every key exists and has a value
-        """
-        paper_metadata = self.mc.paper_metadata()
-        for key in self.paper_keys:
-            assert paper_metadata.get(key) is not None
-
     def test_metadata(self):
         """
         Check that keys are there
         """
-        metadata = self.mc.metadata()
         for key in self.paper_keys + self.oairecord_keys:
-            assert metadata.get(key) is not None
+            assert getattr(self.mc, key) is not None
 
 
 class TestMetadataConverterInit():
@@ -211,80 +194,92 @@ class TestMetadataConverterOaiRecordDataCreation():
         """
         Sets the MetadataConverter ready to use and gives access to prefered and alternative record.
         """
+        self.paper = dummy_paper
         self.record = dummy_oairecord
         self.record.publisher = dummy_publisher
         self.record.journal = dummy_journal
-        # We pass a prefered OaiRecord, so that we do not need to save
-        self.mc = MetadataConverter(dummy_paper, [dummy_oairecord])
 
     @pytest.mark.parametrize('doi, expected', [('10.100/spam', '10.100/spam'), ('', None)])
     def test_doi(self, doi, expected):
         self.record.doi = doi
-        assert self.mc._get_doi() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.doi == expected
 
     @pytest.mark.parametrize('essn, expected', [('0000-0000', '0000-0000'), ('', None)])
     def test_essn(self, essn, expected):
         self.record.journal.essn = essn
-        assert self.mc._get_essn() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.essn == expected
 
     @pytest.mark.parametrize('issn, expected', [('0000-0000', '0000-0000'), ('', None)])
     def test_issn(self, issn, expected):
         self.record.journal.issn = issn
-        assert self.mc._get_issn() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.issn == expected
 
     @pytest.mark.parametrize('issue, expected', [('issue 1', 'issue 1'), ('', None)])
     def test_issue(self, issue, expected):
         self.record.issue = issue
-        assert self.mc._get_issue() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.issue == expected
 
     def test_journal(self):
         title = 'journal title'
         journal_title = 'another journal title'
         self.record.journal.title = title
         self.record.journal_title = journal_title
-        assert self.mc._get_journal() == title
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.journal == title
 
     def test_journal_no_journal(self):
         self.record.journal = None
         journal_title = 'journal title'
         self.record.journal_title = journal_title
-        assert self.mc._get_journal() == journal_title
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.journal == journal_title
 
     def test_journal_no_journal_title(self):
         self.record.journal = None
-        assert self.mc._get_journal() is None
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.journal is None
 
     @pytest.mark.parametrize('pages, expected', [('1-10', '1-10'), ('', None)])
     def test_get_pages(self, pages, expected):
         self.record.pages = pages
-        assert self.mc._get_pages() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.pages == expected
 
     def test_publisher(self):
         name = 'publisher name'
         publisher_name = 'another publisher name'
         self.record.publisher.name = name
         self.record.publisher_name = publisher_name
-        assert self.mc._get_publisher() == name
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.publisher == name
 
     def test_publisher_no_publisher(self):
         self.record.publisher = None
         publisher_name = 'publisher name'
         self.record.publisher_name = publisher_name
-        assert self.mc._get_publisher() == publisher_name
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.publisher == publisher_name
 
     def test_publisher_no_publisher_name(self):
         self.record.publisher = None
-        assert self.mc._get_publisher() is None
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.publisher is None
 
     @pytest.mark.parametrize('romeo_id, expected', [('1', '1'), ('', None)])
     def test_romeo_id(self, romeo_id, expected):
         self.record.publisher.romeo_id = romeo_id
-        assert self.mc._get_romeo_id() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.romeo_id == expected
 
     @pytest.mark.parametrize('volume, expected', [('vol 10', 'vol 10'), ('', None)])
     def test_get_volume(self, volume, expected):
         self.record.volume = volume
-        assert self.mc._get_volume() == expected
+        mc = MetadataConverter(self.paper, [self.record])
+        assert mc.volume == expected
 
 
 author_one =  [{
@@ -310,23 +305,16 @@ class TestMetadataConverterPaperDataCreation():
     Groups all tests related to get data from the paper
     """
 
-    @pytest.fixture(autouse=True)
-    def setup(self, dummy_paper):
-        """
-        Sets the MetadataConverter ready to use
-        """
-        self.paper = dummy_paper
-        self.mc = MetadataConverter(self.paper)
-
-        
     @pytest.mark.parametrize('authors_list', [author_one, author_one + author_two])
-    def test_get_authors(self, authors_list):
+    def test_get_authors(self, authors_list, dummy_paper):
         """
         Tests if authors are generated accordingly
         """
-        self.paper.authors_list = authors_list
+        dummy_paper.authors_list = authors_list
 
-        authors = self.mc._get_authors()
+        mc = MetadataConverter(dummy_paper)
+
+        authors = mc.authors
 
         assert isinstance(authors, list)
         assert len(authors) == len(authors_list)

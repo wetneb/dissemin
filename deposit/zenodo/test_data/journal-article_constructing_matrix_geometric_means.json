@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "access_right": "open",
+        "creators": [
+            {
+                "name": "Poloni, Federico G."
+            }
+        ],
+        "description": "In this paper, we analyze the process of assembling new matrix geometric means from existing ones, through function composition or limit processes. We show that for n a new matrix mean exists which is simpler to compute than the existing ones. Moreover, we show that for n the existing proving strategies cannot provide a mean computationally simpler than the existing ones.",
+        "doi": "10.13001/1081-3810.1385",
+        "journal_issue": "1",
+        "journal_title": "Electronic Journal of Linear Algebra",
+        "journal_volume": "20",
+        "license": "cc-zero-1.0",
+        "publication_date": "2010-01-01",
+        "publication_type": "article",
+        "title": "Constructing matrix geometric means",
+        "upload_type": "publication"
+    }
+}

@@ -18,8 +18,6 @@ from deposit.protocol import DepositResult
 from deposit.sword.protocol import SWORDMETSProtocol
 from deposit.tests.test_protocol import MetaTestProtocol
 from dissemin.settings import BASE_DIR
-from papers.models import OaiRecord
-from papers.models import OaiSource
 from papers.models import Researcher
 from upload.models import UploadedPDF
 
@@ -330,29 +328,6 @@ class MetaTestSWORDMETSProtocol(MetaTestProtocol):
         print(etree.tostring(xml, pretty_print=True, encoding='utf-8', xml_declaration=True).decode())
 
         dissemin_xsd_1_0.assertValid(xml)
-
-
-    def test_get_prefered_records(self, dummy_paper):
-        """
-        Tests that only records from CrossRef and BASE are in the list
-        """
-        self.protocol.paper = dummy_paper
-        crossref = OaiSource.objects.get(identifier='crossref')
-        base = OaiSource.objects.get(identifier='base')
-        zenodo = OaiSource.objects.get(identifier='zenodo')
-        for i in range(3):
-            for source in [crossref, base, zenodo]:
-                OaiRecord.objects.create(
-                    about=dummy_paper,
-                    identifier=source.identifier + str(i),
-                    source=source
-                )
-        prefered_records = self.protocol._get_prefered_records()
-        assert len(prefered_records) == 6
-        for i in range(3):
-            assert prefered_records[i].source == crossref
-        for i in range(3,6):
-            assert prefered_records[i].source == base
 
 
     @responses.activate
