@@ -9,8 +9,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 # We update the apt-get cache
 apt-get update
-# We update the system
-apt-get dist-upgrade -y
 
 # Install method HTTPS
 apt-get install -y apt-transport-https
@@ -18,6 +16,10 @@ apt-get install -y apt-transport-https
 # Add repository for ElasticSearch
 wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | apt-key add -
 echo "deb https://packages.elastic.co/elasticsearch/2.x/debian stable main" | tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list
+# Add repository for OpenJDK 8
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb buster main" | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
+
 
 # We update the apt-get cache
 apt-get update
@@ -26,12 +28,18 @@ apt-get install -y build-essential curl screen libxml2-dev libxslt1-dev gettext 
         default-jre-headless libffi-dev \
         pwgen git
 apt-get install -y pdftk
-
+# Make imagemagick read pdf
+sudo sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
 # We install Python
 apt-get install -y python3 python3-dev python3-venv
 # We install PostgreSQL now
 apt-get install -y postgresql postgresql-server-dev-all postgresql-client
 # We install ElasticSearch now
+# ES 2.4.x needs Java 8
+apt-get install -y adoptopenjdk-8-hotspot-jre
+# Then we must set this as default JRE
+sudo update-java-alternatives -s adoptopenjdk-8-hotspot-jre-amd64
+# Ready for ES
 apt-get install -y elasticsearch
 # We install moreutils
 apt-get install -y moreutils
