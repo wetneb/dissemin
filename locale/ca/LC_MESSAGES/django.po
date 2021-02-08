@@ -1,7 +1,6 @@
 # Translation of Dissemin website to Catalan (català)
 # Exported from translatewiki.net
 #
-# Author: Abijeet Patro
 # Author: Fitoschido
 # Author: Mguix
 # --
@@ -11,7 +10,7 @@
 msgid ""
 msgstr ""
 ""
-"PO-Revision-Date: 2021-01-28 17:47:14+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:31+0000\n"
 "X-POT-Import-Date: 2020-11-25 15:31:57+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

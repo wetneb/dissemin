@@ -14,7 +14,7 @@ msgstr ""
 ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:14+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:32+0000\n"
 "Language: diq\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -707,7 +707,7 @@ msgstr "Portekizkiyê Brezilya"
 
 #: dissemin/settings/common.py:314
 msgid "Russian"
-msgstr ""
+msgstr "Ruski"
 
 #: dissemin/settings/common.py:315
 msgid "Swedish"
@@ -1446,7 +1446,7 @@ msgstr ""
 
 #: papers/templates/papers/messages.html:21
 msgid "No author"
-msgstr ""
+msgstr "Nuştekar çıniyo"
 
 #: papers/templates/papers/messages.html:23
 msgid "No title"
@@ -1976,7 +1976,7 @@ msgstr "Cı geyre"
 #: publishers/templates/publishers/list.html:56
 #: publishers/templates/publishers/publisher.html:31
 msgid "Sources"
-msgstr ""
+msgstr "Çımeyi"
 
 #: publishers/templates/publishers/list.html:57
 #: publishers/templates/publishers/publisher.html:32
@@ -2409,11 +2409,11 @@ msgstr ""
 
 #: website/templates/dissemin/faq.html:285
 msgid "Class"
-msgstr ""
+msgstr "Sınıfe"
 
 #: website/templates/dissemin/faq.html:286
 msgid "Description"
-msgstr ""
+msgstr "Şınasnayış"
 
 #: website/templates/dissemin/faq.html:295
 msgid "<strong>Open access:</strong><br /> The full text is made freely available by the publisher (in a fully open access or hybrid journal)."
@@ -2831,7 +2831,7 @@ msgstr ""
 
 #: website/templates/footer.html:15
 msgid "Donate"
-msgstr ""
+msgstr "Bexş"
 
 #: website/templates/footer.html:16
 msgid "Blog"

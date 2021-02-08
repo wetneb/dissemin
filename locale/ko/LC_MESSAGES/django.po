@@ -1,7 +1,6 @@
 # Translation of Dissemin website to Korean (한국어)
 # Exported from translatewiki.net
 #
-# Author: Abijeet Patro
 # Author: Gongsoonyee
 # Author: Revi
 # Author: SeoJeongHo
@@ -16,7 +15,7 @@ msgstr ""
 ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:16+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:33+0000\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

@@ -2,7 +2,6 @@
 # Exported from translatewiki.net
 #
 # Author: 1233qwer1234qwer4
-# Author: Abijeet Patro
 # Author: Alexandr Efremov
 # Author: Helpau
 # Author: Kareyac
@@ -21,7 +20,7 @@ msgstr ""
 ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:17+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:35+0000\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

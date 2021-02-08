@@ -1,7 +1,6 @@
 # Translation of Dissemin website to Traditional Chinese (中文（繁體）‎)
 # Exported from translatewiki.net
 #
-# Author: Abijeet Patro
 # Author: Kly
 # Author: Liuxinyu970226
 # --
@@ -14,7 +13,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:18+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:36+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_hant\n"

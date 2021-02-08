@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 #
 # Author: Eduardo Addad de Oliveira
+# Author: Eduardoaddad
 # Author: Fitoschido
 # --
 # This file is part of the Dissemin Project
@@ -12,7 +13,7 @@ msgstr ""
 ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 12:29+0200\n"
-"PO-Revision-Date: 2021-01-28 17:47:13+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:31+0000\n"
 "Language: pt_br\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"

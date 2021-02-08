@@ -1,8 +1,8 @@
 # Translation of Dissemin website to Brazilian Portuguese (português do Brasil)
 # Exported from translatewiki.net
 #
-# Author: Abijeet Patro
 # Author: Eduardo Addad de Oliveira
+# Author: Eduardoaddad
 # Author: Fitoschido
 # Author: MuratTheTurkish
 # --
@@ -14,7 +14,7 @@ msgstr ""
 ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-25 16:08+0100\n"
-"PO-Revision-Date: 2021-01-28 17:47:17+0000\n"
+"PO-Revision-Date: 2021-02-08 15:56:34+0000\n"
 "Language: pt_br\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
