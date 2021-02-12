@@ -38,7 +38,7 @@
                 SAML2
             </SSO>
 
-            <Logout>SAML2 Local</Logout>
+            <Logout>Local SAML2</Logout>
 
             <!-- Administrative logout. -->
             <LogoutInitiator type="Admin" Location="/Logout/Admin" acl="127.0.0.1 ::1" />
