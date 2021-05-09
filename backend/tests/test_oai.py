@@ -69,6 +69,29 @@ class OaiTest(TestCase):
                 p.delete()
         except OaiRecord.DoesNotExist:
             pass
+        
+    def test_read_dump(self):
+        """
+        Reads a small example dump from BASE
+        """
+        records = self.base_oai.read_base_dump(os.path.join(self.testdir, 'data/example_base_dump'), 'base_dc')
+        # Fetch the records
+        records = list(records)
+        titles = [record.getField('title') for _, record, _ in records]
+        self.assertEqual(len(records), 20)
+        self.assertTrue(['Modularizing the Elimination of r=0 in Kleene Algebra'] in titles)
+        
+    def test_load_dump(self):
+        """
+        Loads up a dump in the DB.
+        """
+        self.base_oai.load_base_dump(os.path.join(self.testdir, 'data/example_base_dump'))
+        # Loading it a second time should be very quick
+        self.base_oai.load_base_dump(os.path.join(self.testdir, 'data/example_base_dump'))
+        
+        paper = Paper.objects.get(title='Modularizing the Elimination of r=0 in Kleene Algebra')
+        self.assertEqual(paper.pdf_url, 'http://dx.doi.org/10.2168/lmcs-1(3:5)2005')
+        
 
     def test_create_no_match(self):
         """
@@ -280,9 +303,9 @@ class OaiTest(TestCase):
         mappings = {
             'ftunivsavoie:oai:HAL:hal-01062241v1': 'proceedings-article',
             'ftunivsavoie:oai:HAL:hal-01062339v1': 'book-chapter',
-            'ftunivmacedonia:oai:dspace.lib.uom.gr:2159/6227': 'other',
-            'ftartxiker:oai:HAL:hal-00845819v1': 'journal-article',
-            'ftdatacite:oai:oai.datacite.org:402223': 'dataset',
+            'ftunivmacedonia:oai:dspace.lib.uom.gr:2159/6227': 'preprint',
+            'ftartxiker:oai:HAL:hal-00845819v1': 'preprint',
+            'ftdatacite:oai:oai.datacite.org:402223': 'preprint',
         }
 
         for ident, typ in list(mappings.items()):

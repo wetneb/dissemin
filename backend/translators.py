@@ -41,7 +41,7 @@ class OaiTranslator(object):
     A translator takes a metadata record from the OAI-PMH
     proxy and converts it to a :class:`BarePaper`.
     """
-    
+
     def __init__(self, oaisource):
         """
         Inits the translator to create OaiRecords linked to the
@@ -147,7 +147,7 @@ class OAIDCTranslator(OaiTranslator):
             self.add_oai_record(header, metadata, paper)
             return paper
         except ValueError as e:
-            logger.warning("OAI record "+header.identifier()+" skipped:\n", e, exc_info=True)
+            logger.warning("OAI record %s skipped:\n%s", header.identifier(), e, exc_info=True)
             paper.update_availability()
 
     def add_oai_record(self, header, metadata, paper):
@@ -170,7 +170,7 @@ class OAIDCTranslator(OaiTranslator):
         keywords = ' | '.join(metadata['subject'])
         contributors = ' '.join(metadata['contributor'])[:4096]
 
-        typenorms = ['typenorm:'+tn for tn in metadata.get('typenorm', [])]
+        typenorms = ['base:{}'.format(tn) for tn in metadata.get('typenorm', [])]
         pubtype_list = metadata.get('type', []) + typenorms
         pubtype = None
         for raw_pubtype in pubtype_list:
