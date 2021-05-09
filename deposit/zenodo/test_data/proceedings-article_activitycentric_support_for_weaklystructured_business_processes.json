@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "access_right": "open",
+        "creators": [
+            {
+                "name": "Schmidt, Benedikt"
+            },
+            {
+                "name": "Stoitsev, Todor"
+            },
+            {
+                "name": "M\u00fchlh\u00e4user, Max"
+            }
+        ],
+        "description": "Knowledge-intensive tasks are a blind spot for business process management systems, as these tasks are executed in an unsupervised, highly individual manner. Hence, individual experience is not disseminated and task execution largely depends on implicit knowledge. In this paper we present a framework, realizing situation-specific and personalized task execution support for knowledge-intensive tasks in business processes. As a core concept we suggest activity scheme: a structure capturing a probabilistic task execution model. Activity schemes seamlessly integrate the organizational business process with the individual task execution process based on personalization and generalization of user interactions in the working applications.",
+        "doi": "10.1145/1822018.1822057",
+        "journal_title": "Proceedings of the 2nd ACM SIGCHI symposium on Engineering interactive computing systems - EICS '10",
+        "license": "cc-zero-1.0",
+        "publication_date": "2010-01-01",
+        "publication_type": "conferencepaper",
+        "title": "Activity-centric support for weakly-structured business processes",
+        "upload_type": "publication"
+    }
+}

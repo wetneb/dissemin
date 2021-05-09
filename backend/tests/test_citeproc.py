@@ -730,8 +730,8 @@ class TestDOI(TestCiteproc):
         # Check if paper is created
         assert p.pk >= 1
         r = OaiRecord.objects.get(about=p)
-        assert r.journal_title is not ''
-        assert r.publisher_name is not ''
+        assert r.journal_title != ''
+        assert r.publisher_name != ''
 
 
     @pytest.mark.usefixtures('db')
